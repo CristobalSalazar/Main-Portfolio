@@ -1,0 +1,78 @@
+h1 {
+    margin-top: 100px;
+    text-align: center;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#title {
+    font-size: 64px;
+    margin: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 100;
+}
+.score {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+hr {
+    width: 50%;
+}
+
+h1 {
+    font-weight: 100;
+}
+.counter {
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.gameWindow {
+    margin: 50px 0px;
+    padding: 0px;
+    position: relative;
+    height: 350px;
+    width: 100%;
+}
+
+.guesses {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    
+}
+
+.guess {
+    display: inline-block;
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+}
+
+.letterWrapper {
+    position: absolute;
+    display: flex;
+    
+    flex-direction: row;
+    margin: auto;
+    bottom: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+.letterSlot {
+    width: 60px;
+    margin: 0px 10px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 50px;
+    height: 60px;
+    border-bottom: 5px outset black;
+}
