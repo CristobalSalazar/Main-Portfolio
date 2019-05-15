@@ -130,8 +130,8 @@ function guess(e)
     
     keynum = String.fromCharCode(keynum);
 
-    if (!isAlpha(keynum)) {
-        
+    if (!isAlpha(keynum)) 
+    {
         mainCounter.innerHTML = "Please enter a valid letter";
         return;
     } 
@@ -142,9 +142,9 @@ function guess(e)
         if (keynum == chosenWord[i])
         {
             letterWrapper.children[i].innerHTML = chosenWord[i].toUpperCase();
-            
             progress =  progress.split(chosenWord[i].toString()).join('')
             console.log(progress);
+
             if (progress.length <= 0)
             {
                 mainCounter.innerHTML = "Correct! The word was " + "'" + chosenWord.toUpperCase() + "'";
@@ -186,4 +186,3 @@ function guess(e)
 
 document.onkeypress = guess;
 onload = reset;
-
