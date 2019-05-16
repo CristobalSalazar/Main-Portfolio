@@ -40,12 +40,15 @@ h2 {
 }
 
 h3 {
-    font-size: 24px;
-    padding: 24px;
     margin: 0 auto;
     text-align: center;
+    font-size: 30px;
+    padding: 24px;
     color: white;
-    background-color: cadetblue;
+    font-weight: 100;
+    margin-bottom: 24px;
+    border-bottom: 3px dashed wheat;
+    width: 50%;
 }
 
 hr {
@@ -127,6 +130,12 @@ footer {
     float: right;
 }
 
+.col-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 6px;
+}
+
 .content {
     min-height: 100vh;
 }
@@ -141,26 +150,26 @@ footer {
 
 .skills {
     width: 100%;
-    font-family: monospace;
     font-size: 24px;
     color:black;
-    font-weight: 100;
+    font-weight: 200;
     margin: 0 auto;
     box-sizing: border-box;
 }
 
 .skills li {
-    background-color: lightcyan;
+    background-color: white;
     padding: 24px;
     text-align: left;
-}
-
-.skills li:nth-child(even) {
-    background-color: darkseagreen;
+    opacity: 0.75;
 }
 
 .skills li:hover {
-    background-color: rgb(192, 192, 73);
+    opacity: 1;
+    filter: saturate(1);
+    transform: scale(1.025);
+    border: 1px solid black;
+    z-index: 1;
 }
 
 .title {
@@ -278,6 +287,20 @@ footer {
     margin: auto;
     padding: 0;
 }
+
+
+#tools li:nth-child(even) {
+    background-color: darkseagreen;
+}
+
+#languages li:nth-child(even){
+    background-color: cadetblue;
+}
+
+#frameworks li:nth-child(even) {
+    background-color: lightcoral;
+}
+
 
 /* ------------------------------------------ANIMATIONS------------------------------------------------------ */
 
