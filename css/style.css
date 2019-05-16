@@ -3,15 +3,16 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-nav 
-{
+nav {
     position: fixed;
+    padding: 36px;
+    margin: 0 auto;
+    
+    line-height: 0;
     top:0;
-    padding: 24px;
+    left:0;
     width: 100vw;
     z-index: 2;
-
-    text-align: left;
     opacity: 0.91666;
     background-color: #111;
 }
@@ -19,6 +20,7 @@ nav
 h1 {
     margin: 96px 0px;
     padding-bottom: 25px;
+    line-height: 0.666;
     
     text-align: left;
     font-size: 64px;
@@ -35,7 +37,6 @@ h2 {
     font-size: 48px;
     color: wheat;
     text-align: left;
-    /* border-bottom: 1px solid wheat; */
 }
 
 h3 {
@@ -52,6 +53,18 @@ hr {
     background-color: #222;
     color: #222;
     width: 100%;
+}
+
+p {
+    width: 100%;
+    margin: 0px;
+    padding: 24px;
+    line-height: 2em;
+    color: black;
+    background-color: #fff;
+    font-family: Tahoma;
+    text-align: left;
+    font-size: 18px;
 }
 
 form {
@@ -80,7 +93,7 @@ input {
 }
 
 textarea {
-    padding: 10px;
+    padding: 12px;
     margin: 0px auto 25px auto;
     border-radius: 5px;
     height: 400px;
@@ -90,16 +103,13 @@ textarea {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-p {
-    width: 100%;
-    margin: 0px;
-    padding: 24px;
-    line-height: 2em;
-    color: black;
-    background-color: #fff;
-    font-family: Tahoma;
-    text-align: left;
+button {
+    padding: 6px 12px;
     font-size: 18px;
+    border-radius: 6px;
+    border-width: 0px;
+    background-color: wheat;
+    color: black;
 }
 
 footer {
@@ -108,21 +118,26 @@ footer {
     background-color: #111;
 }
 
-/* --------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------CLASSES--------------------------------------------------------- */
 
-#introImg {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 3px;
-    background-color: white;
+.float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
 
+.content {
+    min-height: 100vh;
 }
 
 .main {
+    min-height: 100vh;
     margin: 0 auto;
     width: 66.666%;
     background: #222;
 }
+
 
 .skills {
     width: 100%;
@@ -143,15 +158,16 @@ footer {
 .skills li:nth-child(even) {
     background-color: darkseagreen;
 }
+
 .skills li:hover {
-    background-color: salmon;
+    background-color: rgb(192, 192, 73);
 }
 
 .title {
     display:block;
     margin: 0 auto;
     height: 96px;
-
+    
     margin-bottom: 18px;
     
     color:#333;
@@ -184,6 +200,52 @@ footer {
     width: 60%;
 }
 
+
+.largeHr {
+    height: 3px;
+    padding: 0;
+    margin: 0 auto;
+    border: 0;
+    
+    animation-name: expandHr;
+    animation-duration: 1s;
+}
+
+.navbarElement {
+    display: inline;
+    list-style: none;
+    margin: 20px;
+    font-size: 18px;
+}
+
+.activePage {
+    box-sizing: border-box;
+    border-bottom:1px solid salmon;
+    border-radius: 5px;
+    padding:7px;
+
+    text-decoration: none;
+    color: wheat;
+}
+
+.navLink {
+    text-decoration: none;
+    border-radius: 5px;
+    padding:7px;
+    color: salmon;
+}
+
+.navbarElement a:hover {
+    animation-name: fadeInButton;
+    animation-duration: 0.25s;
+    background-color: wheat;
+    text-decoration: none;
+    color: black;
+    opacity: 1;
+}
+
+/* ------------------------------------------IDS------------------------------------------------------------- */
+
 #intro {
     background-color: whitesmoke;
     display: flex;
@@ -192,6 +254,14 @@ footer {
     height: 100vh;
     max-height: 100vh;
     width: 100%;
+}
+
+#introImg {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 3px;
+    background-color: white;
+    
 }
 
 #headshot {
@@ -209,45 +279,7 @@ footer {
     padding: 0;
 }
 
-.largeHr {
-    height: 3px;
-    padding: 0;
-    margin: 0 auto;
-    border: 0;
-
-    animation-name: expandHr;
-    animation-duration: 1s;
-}
-
-/* NAVBAR */
-
-.navbarElement 
-{
-    display: inline;
-    list-style: none;
-}
-
-.navLink {
-    opacity: 1;
-    margin: 20px;
-    padding: 7px;
-    font-size: 18px;
-    text-decoration: none;
-    border-radius: 5px;
-    color: salmon;
-    visibility: visible;
-}
-
-.navbarElement a:hover {
-    animation-name: fadeInButton;
-    animation-duration: 0.25s;
-    background-color: salmon;
-    text-decoration: none;
-    color: black;
-    opacity: 1;
-}
-
-/* ANIMATIONS */
+/* ------------------------------------------ANIMATIONS------------------------------------------------------ */
 
 @keyframes title {
     0% {
@@ -263,11 +295,9 @@ footer {
 @keyframes fadeInButton {
     0% {
         opacity: 0;
-        background-color: black; 
     }
     100% { 
         opacity: 1;
-        background-color: salmon;
     }
 }
 
@@ -297,14 +327,22 @@ footer {
     }
 }
 
-/* MEDIUM LAYOUT */
+/* ------------------------------------------LAYOUTS--------------------------------------------------------- */
+
+/* M */
 @media screen and (max-width: 1050px)
 {
-
+    
 }
 
-/* SMALL */
+/* S */
 @media screen and (max-width: 800px)
 {
-  
+    
+}
+
+/* XSL */
+@media screen and (max-width: 800px)
+{
+    
 }
