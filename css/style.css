@@ -24,19 +24,27 @@ h1 {
     font-size: 64px;
     font-weight: 300;
     color: wheat;
-    border-bottom: 3px dashed wheat;
+    border-bottom: 1px solid wheat;
 }
 
 h2 {
-    display: block;
-    padding: 12px;
+    display: inline-block;
+    margin: 48px auto;
+    padding: 24px;
     font-weight: 100;
     font-size: 48px;
     color: wheat;
-    margin: 48px auto;
-    text-align:center;
-    border-bottom: 3px solid seagreen;
-    border-top: 3px solid seagreen;
+    text-align: left;
+    /* border-bottom: 1px solid wheat; */
+}
+
+h3 {
+    font-size: 24px;
+    padding: 24px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    background-color: cadetblue;
 }
 
 hr {
@@ -83,9 +91,9 @@ textarea {
 }
 
 p {
+    width: 100%;
     margin: 0px;
     padding: 24px;
-    border-radius: 6px;
     line-height: 2em;
     color: black;
     background-color: #fff;
@@ -94,22 +102,20 @@ p {
     font-size: 18px;
 }
 
-p:first-letter {
-    font-size: 200%;
-    padding: 5px;
-}
-
 footer {
+    margin-top: 64px;
     height: 50px;
     background-color: #111;
 }
 
 /* --------------------------------------------------------------------------------------------------- */
 
+#introImg {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 3px;
+    background-color: white;
 
-.gradient {
-    height: 5px;
-    background: linear-gradient(to bottom, white, #222222);
 }
 
 .main {
@@ -118,6 +124,28 @@ footer {
     background: #222;
 }
 
+.skills {
+    width: 100%;
+    font-family: monospace;
+    font-size: 24px;
+    color:black;
+    font-weight: 100;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.skills li {
+    background-color: lightcyan;
+    padding: 24px;
+    text-align: left;
+}
+
+.skills li:nth-child(even) {
+    background-color: darkseagreen;
+}
+.skills li:hover {
+    background-color: salmon;
+}
 
 .title {
     display:block;
@@ -131,7 +159,7 @@ footer {
     text-align: center;
     
     animation-name: title;
-    animation-duration: 2s;
+    animation-duration: 1s;
 }
 
 .subtitle {
@@ -140,12 +168,13 @@ footer {
     text-align: center;
     margin: 50px;
     color: #555;
+    animation-name: blurIn;
+    animation-duration: 2s;
 }
 
 .newspaper {
     display:grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 6px;
 }
 
 .contactContainer 
@@ -168,7 +197,7 @@ footer {
 #headshot {
     animation-name: blurIn;
     height: 100%;
-    animation-duration: 0.666s;
+    animation-duration: 1s;
     margin: 0;
 }
 
@@ -187,7 +216,7 @@ footer {
     border: 0;
 
     animation-name: expandHr;
-    animation-duration: 3s;
+    animation-duration: 1s;
 }
 
 /* NAVBAR */
@@ -205,30 +234,17 @@ footer {
     font-size: 18px;
     text-decoration: none;
     border-radius: 5px;
-    color: lightyellow;
+    color: salmon;
     visibility: visible;
 }
 
 .navbarElement a:hover {
     animation-name: fadeInButton;
     animation-duration: 0.25s;
-    background-color: lightyellow;
+    background-color: salmon;
     text-decoration: none;
     color: black;
     opacity: 1;
-}
-
-
-.vertical-align {
-    display: flex;
-    align-items: center;
-}
-
-
-.zero {
-    margin: 0;
-    padding: 0;
-    border: 0;
 }
 
 /* ANIMATIONS */
@@ -245,20 +261,24 @@ footer {
 }
 
 @keyframes fadeInButton {
-    0% { 
+    0% {
+        opacity: 0;
         background-color: black; 
     }
     100% { 
-        background-color: lightyellow;
+        opacity: 1;
+        background-color: salmon;
     }
 }
 
 @keyframes blurIn {
     0% {
         filter: blur(10px);
+        opacity: 0;
     }
     100% {
         filter: blur(0px);
+        opacity: 1;
     }
 }
 
