@@ -3,14 +3,24 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 nav {
+    
     position: fixed;
-    padding: 36px;
+
+    display: flex;
+    vertical-align: middle;
+    padding: 24px;
     margin: 0 auto;
     
-    line-height: 0;
     top:0;
     left:0;
+
+    line-height: 1;
+
     width: 100vw;
     z-index: 2;
     opacity: 0.91666;
@@ -133,11 +143,53 @@ footer {
     color: wheat;
     vertical-align: text-bottom;
 }
+
+
+.inline {
+    display: inline;
+}
+
+.vertical-align {
+    vertical-align: middle;
+}
+
+.fab {
+    margin-right: 10px;
+    padding:5px;
+    font-size: 30px;
+    display: inline;
+    text-align: center;
+}
+
+.fab:hover {
+    color:white;
+}
+
+.fa-facebook-square {
+    color: #3C5A99;
+}
+
+.fa-instagram {
+    color: #C13584;
+}
+
+.fa-snapchat-square {
+    color: #FFFC00;
+}
+
+.layout {
+    line-height: 2;
+    padding: auto;
+    width: 100%;
+}
+
 .float-left {
     float: left;
 }
+
 .float-right {
     float: right;
+    margin-right: 50px;
 }
 
 .col-3 {
@@ -235,6 +287,7 @@ footer {
     list-style: none;
     margin: 20px;
     font-size: 18px;
+    text-align: center;
 }
 
 .activePage {
@@ -242,12 +295,12 @@ footer {
     border-bottom:1px solid salmon;
     border-radius: 5px;
     padding:7px;
-
     text-decoration: none;
     color: wheat;
 }
 
 .navLink {
+    vertical-align: middle;
     text-decoration: none;
     border-radius: 5px;
     padding:7px;
@@ -271,15 +324,18 @@ footer {
     margin: 0;
     padding: 0;
     height: 100vh;
-    max-height: 100vh;
     width: 100%;
 }
 
 #introImg {
     width: 100%;
+    height: 100%;
     box-sizing: border-box;
     padding: 3px;
     background-color: white;
+    background-image:url("../images/Headshot2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
     
 }
 
@@ -365,7 +421,16 @@ footer {
 /* M */
 @media screen and (max-width: 1050px)
 {
-    
+
+    h2 {
+        text-align: center;
+    }
+    .col-3 {
+        display: block;
+    }
+    .skills li {
+        text-align: center;
+    }
 }
 
 /* S */
