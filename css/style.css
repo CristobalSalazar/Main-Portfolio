@@ -5,6 +5,7 @@ body {
 
 nav {
     position: fixed;
+    top:0;
     padding: 24px 0px;
     border-bottom: 1px solid rgba(245, 222, 179, 0.25);
     width: 100%;
@@ -13,37 +14,34 @@ nav {
 }
 
 h1 {
+    font-size: 72px;
+
     margin: 96px auto;
-    padding-bottom: 25px;
     line-height: 0.666;
     width: 100%;
-    text-align: center;
-    font-size: 64px;
+    text-align: left;
     font-weight: 300;
     color: wheat;
-    border-bottom: 1px solid wheat;
 }
 
 h2 {
-    display: inline-block;
+    font-size: 60px;
     margin: 48px auto;
     padding: 24px;
     font-weight: 100;
-    font-size: 48px;
     color: wheat;
     text-align: left;
+    border-bottom: 1px solid wheat;
 }
 
 h3 {
-    margin: 0 auto;
+    font-size: 36px;
+    margin: 24px auto;
     text-align: center;
-    font-size: 30px;
-    padding: 24px;
+    padding: 24px 0;
     color: white;
     font-weight: 100;
-    margin-bottom: 24px;
-    border-bottom: 3px dashed wheat;
-    width: 50%;
+    width: 100%;
 }
 
 hr {
@@ -167,7 +165,7 @@ footer {
 
 .activePage {
     border-bottom:1px solid salmon;
-    border-radius: 5px;
+    border-radius: 3px;
     font-size: 20px;
     padding:7px;
     text-decoration: none;
@@ -418,18 +416,31 @@ footer {
         line-height: 1.66em;
     }
 
+    hr {
+        background: wheat;
+    }
+
 }
 
 
 /* Tablet */
 @media screen and (max-width: 768px)
 {
+    h1 {
+        text-align: center;
+    }
+    h3 {
+        font-size: 24px;
+        text-align: center;
+    }
     .skills li {
         text-align: center;
+        font-size: 16px;
     }
 
     p {
         font-size: 16px;
+        border: 18px solid white;
     }
     .main {
         width: 85%;
@@ -437,14 +448,14 @@ footer {
 }
 
 /* Phone */
-@media screen and (max-width: 425px)
+@media screen and (max-width: 650px)
 {
     .main {
         width: 85%;
     }
   
     #nameContainer {
-        top: 24px;
+        top: 48px;
         width: 100%;
         margin: 0;
         position: relative;
@@ -460,16 +471,15 @@ footer {
     }
 
     #intro {
-
         background-position-x: 50%;
     }
+
     .title {
-        animation-name: blurIn;
-        animation-duration: 2s;
         padding: 24px 0;
         margin: 0;
         width: 100%;
-        
+        font-size: 36px;
+        opacity: 0.7;
     }
 
     .subtitle {
