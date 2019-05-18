@@ -440,7 +440,7 @@ footer {
 @media screen and (max-width: 425px)
 {
     .main {
-        width: 90%;
+        width: 85%;
     }
     nav {
         position: relative;
@@ -465,21 +465,17 @@ footer {
 
         background-position-x: 50%;
     }
-
-    
     .title {
         animation-name: blurIn;
         animation-duration: 2s;
         padding: 24px 0;
         margin: 0;
         width: 100%;
+        
     }
 
     .subtitle {
-        width: 100%;
-        margin: 0;
-        padding: 24px 0;
-        margin-bottom: 24px;
+        display: none;
     }
 
     h1 {
@@ -497,8 +493,10 @@ footer {
         line-height: 1.6em;
         font-size: 14px;
         width: 85%;
-        margin: 0;
-        margin-bottom: 12px;
+        border: 18px solid white;
+        text-shadow: 0px 3px 3px wheat;
+        margin: 0 auto;
+        margin-bottom: 24px;
     }
     .col-2 {
         display: block;
