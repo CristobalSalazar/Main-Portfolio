@@ -442,9 +442,7 @@ footer {
     .main {
         width: 85%;
     }
-    nav {
-        position: relative;
-    }
+  
     #nameContainer {
         top: 24px;
         width: 100%;
