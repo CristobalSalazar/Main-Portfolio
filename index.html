@@ -12,6 +12,10 @@
     
     <!-- RESET -->
     <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
     <!-- STYLE -->
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     
@@ -20,10 +24,15 @@
     
 <body>
     <nav>
+        <div id="mobileNav">
+            <button id= "dropdown" onclick="dropdownToggle()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div> 
+
         <div class="navLayout">
 
             <ul>
-    
                 <li class="navbarElement inline"> 
                     <a class="activePage va-sub" href="javascript:void(0)" onclick="scrollToAbout()">ABOUT</a> 
                 </li>

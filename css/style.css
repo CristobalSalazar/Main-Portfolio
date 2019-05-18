@@ -1,6 +1,11 @@
 body {
+
     background: linear-gradient(to bottom, #333,  black);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body *::selection {
+    background: salmon;
 }
 
 nav {
@@ -15,13 +20,13 @@ nav {
 
 h1 {
     font-size: 72px;
-
+    display: inline-block;
+    padding: 12px;
     margin: 96px auto;
-    line-height: 0.666;
-    width: 100%;
-    text-align: left;
+    text-align: justify;
     font-weight: 300;
     color: wheat;
+    border-bottom: 3px dashed wheat;
 }
 
 h2 {
@@ -31,7 +36,6 @@ h2 {
     font-weight: 100;
     color: wheat;
     text-align: left;
-    border-bottom: 1px solid wheat;
 }
 
 h3 {
@@ -115,7 +119,18 @@ footer {
 }
 
 /* ------------------------------------------CLASSES--------------------------------------------------------- */
-
+.fas {
+    position: absolute;
+    left: 8px;
+    text-align: left;
+    line-height: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+.center {
+    text-align: center;
+}
 .footerText {
     margin: auto;
     padding: 24px;
@@ -137,6 +152,7 @@ footer {
 .va-sub {
     vertical-align: sub;
 }
+
 /* NAVBAR */
 
 .navLink {
@@ -202,7 +218,6 @@ footer {
     width: 66.666%;
     
 }
-
 
 .skills {
     width: 100%;
@@ -276,7 +291,7 @@ footer {
 }
 
 
-/* ------------------------------------------IDS------------------------------------------------------------- */
+/* IDS */
 
 #intro {
     display: flex;
@@ -316,8 +331,27 @@ footer {
     background-color: lightcoral;
 }
 
+#mobileNav {
+    position: absolute;
+    top: 8px;
+    margin: auto 0;
+    color: white;
+    width: 32px;
+    height: 32px;
+    display: none;
+}
 
-/* ------------------------------------------ANIMATIONS------------------------------------------------------ */
+#dropdown {
+    width: 100%;
+    height: 100%;
+}
+
+#dropdown:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+/* ANIMATIONS */
 
 @keyframes title {
     0% {
@@ -365,7 +399,7 @@ footer {
     }
 }
 
-/* ------------------------------------------LAYOUTS--------------------------------------------------------- */
+/* LAYOUTS */
 
 /* Laptop */
 @media screen and (max-width: 1024px) {
@@ -448,6 +482,7 @@ footer {
     .skills li {
         opacity: 1;
     }
+   
 }
 
 /* Phone */
@@ -456,35 +491,27 @@ footer {
     .main {
         width: 85%;
     }
+    #intro {
+        background-position-x: 0%;
+        background-image: url("../images/Headshot3.png");
+        background-size: cover;
+    }
   
     #nameContainer {
-        top: 48px;
         width: 100%;
-        margin: 0;
-        position: relative;
-        display: flex;
-        flex-direction: column;
+        opacity: 0.75;
     }
 
     .largeHr {
         display: none;
     }
 
-    #intro {
-        background-position-x: 50%;
-    }
 
     .title {
-        animation: none;
         padding: 24px 0;
         margin: 0;
         width: 100%;
-        font-size: 36px;
-        opacity: 0.7;
-    }
-
-    .subtitle {
-        display: none;
+        font-size: 12vw;
     }
 
     h1 {
@@ -521,6 +548,11 @@ footer {
     }
     .navLink {
         display: none;
+    }
+    #mobileNav {
+        display: inline;
+        padding: 0;
+        margin-left: 24px;
     }
 }
 
