@@ -464,10 +464,7 @@ footer {
     }
 
     .largeHr {
-        animation: none;
-        animation-name: blurIn;
-        animation-duration: 2s;
-        width: 100%;
+        display: none;
     }
 
     #intro {
@@ -475,6 +472,7 @@ footer {
     }
 
     .title {
+        animation: none;
         padding: 24px 0;
         margin: 0;
         width: 100%;
