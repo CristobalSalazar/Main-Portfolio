@@ -445,6 +445,9 @@ footer {
     .main {
         width: 85%;
     }
+    .skills li {
+        opacity: 1;
+    }
 }
 
 /* Phone */
