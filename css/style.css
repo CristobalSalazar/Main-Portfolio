@@ -16,7 +16,7 @@ h1 {
     margin: 96px auto;
     padding-bottom: 25px;
     line-height: 0.666;
-    width: 33%;
+    width: 100%;
     text-align: center;
     font-size: 64px;
     font-weight: 300;
@@ -403,6 +403,7 @@ footer {
     }
 
     .subtitle {
+        font-size: 36px;
         margin: 12px 0;
         padding: 12px 0;
         color: wheat;
@@ -438,15 +439,14 @@ footer {
 /* Phone */
 @media screen and (max-width: 425px)
 {
-
-    h2 {
-        margin: 24px 0;
-    }
     .main {
         width: 90%;
     }
-
+    nav {
+        position: relative;
+    }
     #nameContainer {
+        top: 24px;
         width: 100%;
         margin: 0;
         position: relative;
@@ -461,11 +461,8 @@ footer {
         width: 100%;
     }
 
-    nav {
-        margin: 0;
-    }
-
     #intro {
+
         background-position-x: 50%;
     }
 
@@ -475,7 +472,6 @@ footer {
         animation-duration: 2s;
         padding: 24px 0;
         margin: 0;
-        font-size: 32px;
         width: 100%;
     }
 
@@ -490,16 +486,16 @@ footer {
         margin: 48px 0;
         font-size: 48px;
     }
-
     h2 {
-        font-size: 32px
+        font-size: 36px;
+        margin: 24px 0;
     }
-
     .skills li {
         font-size: 18px;
     }
     p {
         line-height: 1.6em;
+        font-size: 14px;
         width: 85%;
         margin: 0;
         margin-bottom: 12px;
@@ -513,7 +509,6 @@ footer {
     .skills li {
         text-align: center;
     }
-
     .navbarElement {
         display: none;
     }
