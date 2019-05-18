@@ -1,33 +1,23 @@
 body {
-    background: linear-gradient(to bottom, #333,  #222);
+    background: linear-gradient(to bottom, #333,  black);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-a {
-    text-decoration: none;
-}
-
-nav { 
+nav {
     position: fixed;
-    top:0;
-    left:0;
-    display: flex;
-    
-    margin: 0 auto;
-    padding: 18px 0;
+    padding: 24px 0px;
+    border-bottom: 1px solid rgba(245, 222, 179, 0.25);
     width: 100%;
-    line-height: 2;
+    background: linear-gradient(to bottom, #333, #222);
     z-index: 2;
-    opacity: 0.91666;
-    background-color: #111;
 }
 
 h1 {
-    margin: 96px 0px;
+    margin: 96px auto;
     padding-bottom: 25px;
     line-height: 0.666;
-    
-    text-align: left;
+    width: 33%;
+    text-align: center;
     font-size: 64px;
     font-weight: 300;
     color: wheat;
@@ -65,15 +55,13 @@ hr {
 }
 
 p {
-    width: 100%;
-    margin: 0px;
-    padding: 24px;
     line-height: 2em;
     color: black;
     background-color: #fff;
-    font-family: Tahoma;
-    text-align: left;
+    border: 24px solid white;
     font-size: 18px;
+    overflow: hidden;
+    box-shadow:3px 0px 2px wheat;
 }
 
 form {
@@ -148,37 +136,18 @@ footer {
     vertical-align: middle;
 }
 
-.fab {
-    margin-right: 10px;
-    padding:5px;
-    font-size: 30px;
-    display: inline;
-    text-align: center;
+.va-sub {
+    vertical-align: sub;
 }
-
-.fab:hover {
-    color:white;
-}
-
-.fa-facebook-square {
-    color: #3C5A99;
-}
-
-.fa-instagram {
-    color: #C13584;
-}
-
-.fa-snapchat-square {
-    color: #FFFC00;
-}
-
 /* NAVBAR */
 
 .navLink {
-    text-decoration: none;
-    border-radius: 5px;
-    padding:7px;
+    position: relative;
+    padding:6px;
+    margin-left: 6px;
+    border-radius: 3px;
     color: salmon;
+    text-decoration: none;
 }
 
 .navbarElement a:hover {
@@ -190,16 +159,16 @@ footer {
     opacity: 1;
 }
 .navbarElement {
-    display: inline;
     list-style: none;
-    margin-left: 24px;
     font-size: 18px;
+    margin-left: 12px;
+    vertical-align: sub;
 }
 
 .activePage {
-    box-sizing: border-box;
     border-bottom:1px solid salmon;
     border-radius: 5px;
+    font-size: 20px;
     padding:7px;
     text-decoration: none;
     color: wheat;
@@ -262,7 +231,6 @@ footer {
 }
 
 .title {
-    display: block;
     margin: 0 auto;    
     margin-bottom: 18px;
     
@@ -276,7 +244,7 @@ footer {
 
 .subtitle {
     display: block;
-    font-size: 4vw;
+    font-size: 3vw;
     font-weight: 150;
     text-align: center;
     margin: 50px;
@@ -288,6 +256,7 @@ footer {
 .col-2 {
     display:grid;
     grid-template-columns: 1fr 1fr;
+    grid-gap: 12px;
 }
 
 .contactContainer 
@@ -312,24 +281,20 @@ footer {
 /* ------------------------------------------IDS------------------------------------------------------------- */
 
 #intro {
-    background-color: whitesmoke;
     display: flex;
-    margin: auto;
+    flex-direction: row;
+    margin: 0 auto;
     padding: 0;
     height: 100vh;
-    width: 100%;
-}
-
-#introImg {
-    padding: 3px;
-    background-color: white;
+    
+    background-color: whitesmoke;    
+    box-shadow: 0px 1px 3px wheat;
 }
 
 #headshot {
     height: 100%;
     animation-name: blurIn;
     animation-duration: 1s;
-    margin: 0;
 }
 
 #nameContainer {
@@ -404,89 +369,140 @@ footer {
 
 /* ------------------------------------------LAYOUTS--------------------------------------------------------- */
 
-/* M */
-@media screen and (max-width: 1024px)
-{
-    #intro {
+/* Laptop */
+@media screen and (max-width: 1024px) {
+   
+    .main {
+        width: 80%;
+    }
 
+    #intro {
+        height: 100vh;
+        position: relative;
         background-image: url("../images/Headshot6.jpg");
         background-position-y: 50%;
         background-size: cover;
     }
 
-    hr {
-        background-color: wheat;
-    }
-
     #nameContainer {
         position: absolute;
-        top: 100px; 
+        top: 20%;
+        left: 0;
     }
 
     .title {
-        top: 150px;
-        animation: none;
-        padding: 12px;
-        color: black;
-        padding: 12px auto;
-        background: salmon;
-        opacity: 0.9;
-        border-radius: 12px;
-    }
-    .subtitle {
+        padding: 12px 0;
+        width: 100%;
+
+        font-size: 48px;
+        animation: blurIn;
+        animation-duration: 2s;
+
         color: wheat;
-        background: #222;
-        padding: 12px;
-        border-radius: 12px;
+        background: black;
+    }
+
+    .subtitle {
+        margin: 12px 0;
+        padding: 12px 0;
+        color: wheat;
+        background: black;
     }
 
     #headshot {
         display: none;
     }
-    #introImg {
-        height: 512px;
-        margin-bottom: 24px;
-    }
-    h1 {
-        text-align: center;
+
+    p {
+        line-height: 1.66em;
     }
 
-    h2 {
-        text-align: center;
-    }
+}
+
+
+/* Tablet */
+@media screen and (max-width: 768px)
+{
     .skills li {
         text-align: center;
     }
 
     p {
-        margin: 0 auto;
         font-size: 16px;
-        margin-bottom: 12px;
     }
     .main {
-        width: 80%;
-        margin: 0 auto;
-    }
-
-    #socialmedia {
-        display: none;
-    }
-
-    nav {
-
-        margin: 0 auto;
+        width: 85%;
     }
 }
 
-/* S */
-@media screen and (max-width: 800px)
+/* Phone */
+@media screen and (max-width: 425px)
 {
-    .navbarElement {
-        font-size: 12px;
+
+    h2 {
+        margin: 24px 0;
+    }
+    .main {
+        width: 90%;
+    }
+
+    #nameContainer {
+        width: 100%;
+        margin: 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .largeHr {
+        animation: none;
+        animation-name: blurIn;
+        animation-duration: 2s;
+        width: 100%;
+    }
+
+    nav {
+        margin: 0;
     }
 
     #intro {
         background-position-x: 50%;
+    }
+
+    
+    .title {
+        animation-name: blurIn;
+        animation-duration: 2s;
+        padding: 24px 0;
+        margin: 0;
+        font-size: 32px;
+        width: 100%;
+    }
+
+    .subtitle {
+        width: 100%;
+        margin: 0;
+        padding: 24px 0;
+        margin-bottom: 24px;
+    }
+
+    h1 {
+        margin: 48px 0;
+        font-size: 48px;
+    }
+
+    h2 {
+        font-size: 32px
+    }
+
+    .skills li {
+        font-size: 18px;
+    }
+    p {
+        line-height: 1.6em;
+        width: 85%;
+        margin: 0;
+        margin-bottom: 12px;
     }
     .col-2 {
         display: block;
@@ -494,18 +510,19 @@ footer {
     .col-3 {
         display: block;
     }
-    h2 {
-        text-align: center;
-    }
     .skills li {
         text-align: center;
     }
-    p {
-        width: 100%;
+
+    .navbarElement {
+        display: none;
+    }
+    .navLink {
+        display: none;
     }
 }
 
-/* XSL */
+/* XS */
 @media screen and (max-width: 300px)
 {
     
