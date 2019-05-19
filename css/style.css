@@ -2,9 +2,7 @@ body {
     background: linear-gradient(to bottom, #333,  black);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-body *::selection {
-    background: salmon;
-}
+
 nav {
     position: fixed;
     top:0;
@@ -362,26 +360,26 @@ footer {
     }
     #titleContainer {
         position: absolute;
-        top: 20%;
-        left: 0;    
+        top: 96px;
+        left: 0;
     }
     .title {
         padding: 12px 0;
         width: 100%;
-
         font-size: 48px;
+        padding: 12px;
         animation: blurIn;
         animation-duration: 2s;
-
-        color: wheat;
-        background: black;
+        color: black;
+        background: wheat;
     }
     .subtitle {
         font-size: 36px;
         margin: 12px 0;
         padding: 12px 0;
-        color: wheat;
-        background: black;
+        color: white;
+        font-weight: 300;
+        text-shadow: 3px 3px 0 black;
     }
     #headshot {
         display: none;
@@ -487,7 +485,6 @@ footer {
         font-size: 14px;
         width: 85%;
         border: 18px solid white;
-        text-shadow: 0px 3px 3px wheat;
         margin: 0 auto;
         margin-bottom: 24px;
     }
@@ -504,6 +501,9 @@ footer {
         display: inline;
         padding: 0;
         margin-left: 24px;
+    }
+    nav {
+        position: absolute;
     }
     #navLayout {
         display: none
