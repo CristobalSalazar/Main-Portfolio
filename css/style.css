@@ -1,27 +1,133 @@
+
 body {
     background: linear-gradient(to bottom, #333,  black);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+/* ------ Navbar ------ */
+
 nav {
+    width: 100%;
     position: fixed;
     top:0;
-    z-index: 2;;
-    opacity: .95;
-    padding: 24px 0px;
-    border-bottom: 1px solid rgba(245, 222, 179, 0.25);
-    width: 100%;
+    left: 0;
+    margin: 0 auto;
+    padding:24px;    
+    opacity: 0.96;
     background: linear-gradient(to bottom, #333, #222);
+    border-bottom: 1px solid rgba(245, 222, 179, 0.25);
+    z-index: 2;
 }
+.navElement {
+    display: inline;
+    padding: 12px;
+}
+.activePage {
+    padding: 6px;
+    box-sizing: border-box;
+    border-bottom: 1px solid salmon;
+    color: wheat;
+}
+.navLink {
+    position: relative;
+    margin: 0 auto;
+    padding: 6px;
+    color: lightblue;
+}
+.navLink:hover {
+    animation-name: fadeIn;
+    animation-duration: 0.25s;
+    border-radius: 6px;
+    background-color: wheat;
+    color: black;
+}
+
+/* Mobile navbar button and dropdown */
+
+#mobileNav {
+    display: none;
+    width: 32px;
+    height: 32px;
+    padding: 0 12px 0 12px;
+    vertical-align: middle;
+}
+#dropdown {
+    position: relative;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+#dropdown:hover {
+    cursor: pointer;
+}
+
+/* ------ Title Page ------ */
+
+#intro {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background-color: whitesmoke;    
+    box-shadow: 0px 1px 3px wheat;
+}
+#headshot {
+    background-image: url("../images/Headshot6.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    background-position-y: 100%;
+    width: 45%;
+    animation-name: blurIn;
+    animation-duration: 1s;
+}
+#titleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    margin: auto;
+}
+.title {
+    margin: 0 auto;
+    margin-bottom: 24px;
+    
+    color:#333;
+    font-size: 6vw;
+    text-align: center;
+    
+    animation-name: title;
+    animation-duration: 1s;
+}
+.largeHr {
+    height: 3px;
+    margin: 0 auto;
+    margin-bottom: 24px;
+    animation-name: expandHr;
+    animation-duration: 1s;
+}
+.subtitle {
+    margin: 0 auto;
+    margin-bottom: 24px;
+    
+    color: #555;
+    font-size: 3vw;
+    font-weight: 150;
+    text-align: center;
+    
+    animation-name: blurIn;
+    animation-duration: 2s;
+}
+
+/* ------ Headings and paragraph ------ */
+
 h1 {
-    font-size: 72px;
     display: inline-block;
+    font-size: 72px;
     padding: 12px;
     margin: 96px auto;
-    text-align: justify;
+    text-align: center;
     font-weight: 300;
     color: wheat;
-    border-bottom: 3px dashed wheat;
+    border-bottom: 3px solid salmon;
 }
 h2 {
     font-size: 60px;
@@ -32,13 +138,14 @@ h2 {
     text-align: left;
 }
 h3 {
-    font-size: 36px;
     margin: 24px auto;
-    text-align: center;
     padding: 24px 0;
-    color: white;
-    font-weight: 100;
     width: 100%;
+    
+    text-align: center;
+    font-size: 36px;
+    font-weight: 100;
+    color: white;
 }
 hr {
     display: block;
@@ -53,146 +160,21 @@ p {
     background-color: #fff;
     border: 24px solid white;
     font-size: 18px;
+    margin-bottom: 12px;
     overflow: hidden;
     box-shadow:3px 0px 2px wheat;
 }
-form {
-    margin: 0px auto 100px auto;
-}
-label {
-    display:block;
-    margin-bottom: 12px;
-    
-    color:white;
-    text-align: left;
-    width: 100%;
-    font-size: 24px;
-    font-weight: 100;
-}
-input {
-    display: block;
-    margin: 0px auto 25px auto;
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-textarea {
-    padding: 12px;
-    margin: 0px auto 25px auto;
-    border-radius: 5px;
-    height: 400px;
-    width: 100%;
-    font-size: 14px;
-    line-height: 1.6em;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-button {
-    padding: 6px 12px;
-    font-size: 18px;
-    border-radius: 6px;
-    border-width: 0px;
-    background-color: wheat;
-    color: black;
-}
-footer {
-    margin-top: 64px;
-    height: 50px;
-    background-color: #111;
-    width: 100%;
-}
-/* CLASSES */
-.fas {
-    position: absolute;
-    left: 8px;
-    text-align: left;
-    line-height: 0;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-}
-.center {
-    text-align: center;
-}
-.footerText {
-    margin: auto;
-    padding: 24px;
-    display: inline-block;
-    line-height: 0;
-    font-size: 12px;
-    color: wheat;
-    vertical-align: text-bottom;
-}
-.inline {
-    display: inline;
-}
-.vertical-align {
-    vertical-align: middle;
-}
-.va-sub {
-    vertical-align: sub;
-}
-/* NAVBAR */
-.navLink {
-    position: relative;
-    padding:6px;
-    margin-left: 6px;
-    border-radius: 3px;
-    color: salmon;
-    text-decoration: none;
-}
-.navbarElement a:hover {
-    animation-name: fadeInButton;
-    animation-duration: 0.25s;
-    background-color: wheat;
-    text-decoration: none;
-    color: black;
-    opacity: 1;
-}
-.navbarElement {
-    list-style: none;
-    font-size: 18px;
-    margin-left: 12px;
-    vertical-align: sub;
-}
-.activePage {
-    border-bottom:1px solid salmon;
-    border-radius: 3px;
-    font-size: 20px;
-    padding:7px;
-    text-decoration: none;
-    color: wheat;
-}
-.float-left {
-    float: left;
-}
-.float-right {
-    float: right;
-}
-.col-3 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 6px;
-}
-.content {
-    min-height: 100vh;
-}
-.main {
-    min-height: 100vh;
-    margin: 0 auto;
-    margin-bottom: 120px;
-    width: 66.666%;
-    z-index: -1;
-    
-}
+
+/* ------ Skills ------ */
+
 .skills {
     width: 100%;
-    font-size: 24px;
-    color:black;
-    font-weight: 200;
     margin: 0 auto;
-    box-sizing: border-box;
+    margin-right: 6px;
+
+    font-size: 24px;
+    font-weight: 200;
+    color:black;
 }
 .skills li {
     background-color: white;
@@ -202,77 +184,7 @@ footer {
 }
 .skills li:hover {
     opacity: 1;
-    filter: saturate(1);
     transform: scale(1.025);
-    border: 1px solid black;
-    z-index: 1;
-}
-.title {
-    margin: 0 auto;    
-    margin-bottom: 18px;
-    
-    color:#333;
-    font-size: 6vw;
-    text-align: center;
-    
-    animation-name: title;
-    animation-duration: 1s;
-}
-.subtitle {
-    display: block;
-    font-size: 3vw;
-    font-weight: 150;
-    text-align: center;
-    margin: 50px;
-    color: #555;
-    animation-name: blurIn;
-    animation-duration: 2s;
-}
-.col-2 {
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 12px;
-}
-.contactContainer {
-    margin: 0px auto;
-    padding: 100px auto;
-    width: 60%;
-}
-.largeHr {
-    height: 3px;
-    padding: 0;
-    margin: 0 auto;
-    border: 0;
-    animation-name: expandHr;
-    animation-duration: 1s;
-}
-/* IDS */
-#navLayout {
-    position: relative;
-    width: 100%;
-}
-#intro {
-    display: flex;
-    flex-direction: row;
-    margin: 0 auto;
-    padding: 0;
-    height: 100vh;
-    z-index: -1;
-    
-    background-color: whitesmoke;    
-    box-shadow: 0px 1px 3px wheat;
-}
-#headshot {
-    height: 100%;
-    animation-name: blurIn;
-    animation-duration: 1s;
-}
-#titleContainer {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-self: center;
-    margin: auto;
 }
 #tools li:nth-child(even) {
     background-color: darkseagreen;
@@ -283,26 +195,135 @@ footer {
 #frameworks li:nth-child(even) {
     background-color: lightcoral;
 }
-#mobileNav {
-    position: absolute;
-    top: 8px;
-    margin: auto 0;
-    color: white;
-    width: 32px;
-    height: 32px;
-    display: none;
+
+/* ------ Portfolio ------ */
+
+.portfolio {
+    animation-name: fadeIn;
+    animation-duration: 2s;
 }
-#dropdown {
-    width: 100%;
-    height: 100%;
+.project {
+    background-color: black;
+    margin: 12px;
+    height: 256px;
+    text-align: center;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
 }
-#dropdown:hover {
+#barbsadventure {
+    background-size: cover;
+    background-image: url("../images/portfolio/barbsadventure_cover.png");
+    background-position: 50% 60%;
+}
+#bitstream {
+    background-size: contain;
+    background-color: black;
+    background-image: url("../images/portfolio/bitstream_cover.png");
+}
+.project label {
+    padding: 12px 0;
+    font-weight: 300;
+    color: wheat;
+    text-align: center;
+}
+.project:hover {
+    animation-name: enlarge;
+    animation-duration: 0.333s;
+
+    animation-fill-mode: forwards;
     cursor: pointer;
 }
-#dropdown:active {
-    opacity: 0.5;
+@keyframes enlarge {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
 }
-/* ANIMATIONS */
+
+/* ------ Form Content ------ */
+
+label {
+    display:block;
+    margin-bottom: 12px;
+    color:white;
+    text-align: left;
+    width: 100%;
+    font-size: 24px;
+    font-weight: 100;
+}
+input {
+    display: block;
+    margin: 0px 0 25px 0;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+textarea {
+    padding: 12px;
+    margin-bottom: 24px;
+    border-radius: 6px;
+    height: 400px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.6em;
+}
+button {
+    padding: 6px 12px;
+    font-size: 18px;
+    border-radius: 6px;
+    border-width: 0px;
+    background-color: wheat;
+    color: black;
+}
+
+/* ------ Footer ------ */
+
+footer {
+    margin-top: 64px;
+    height: 50px;
+    background-color: #111;
+    width: 100%;
+}
+.footerText {
+    margin: auto;
+    padding: 24px;
+    display: inline-block;
+    line-height: 0;
+    font-size: 12px;
+    color: wheat;
+    vertical-align: text-bottom;
+}
+
+/* Utility Classes */
+
+.m0 {
+    margin: 0;
+}
+.col-2 {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 12px;
+}
+.col-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.grid-gap-6 {
+    grid-gap: 6px;
+}
+.main {
+    min-height: 100vh;
+    margin: 0 auto;
+    margin-bottom: 120px;
+    width: 66.666%;
+}
+
+/* ------ Animations ------- */
+
 @keyframes title {
     0% {
         font-size: 3vw;
@@ -313,7 +334,7 @@ footer {
         opacity: 1;
     }
 }
-@keyframes fadeInButton {
+@keyframes fadeIn {
     0% {
         opacity: 0;
     }
@@ -324,11 +345,9 @@ footer {
 @keyframes blurIn {
     0% {
         filter: blur(10px);
-        opacity: 0;
     }
     100% {
         filter: blur(0px);
-        opacity: 1;
     }
 }
 @keyframes expandHr {
@@ -336,17 +355,16 @@ footer {
         width: 0%;
         opacity: 0;
     }
-    50% {
-        width: 33%;
-        opacity: 0;
-    }
     100% { 
         width: 85%;
         opacity: 1;
     }
 }
-/* LAYOUTS */
+
+/* ------ Layouts ------ */
+
 /* Laptop */
+
 @media screen and (max-width: 1024px) {
     .main {
         width: 80%;
@@ -356,30 +374,31 @@ footer {
         position: relative;
         background-image: url("../images/Headshot6.jpg");
         background-position-y: 50%;
+        background-position-x: 50%;
+        animation: blurIn;
+        animation-duration: 2s;
         background-size: cover;
     }
     #titleContainer {
         position: absolute;
         top: 96px;
         left: 0;
+        padding: 24px;
+        animation: none;
     }
     .title {
-        padding: 12px 0;
-        width: 100%;
         font-size: 48px;
         padding: 12px;
-        animation: blurIn;
-        animation-duration: 2s;
+        animation: none;
         color: black;
-        background: wheat;
+        background-color: wheat;
     }
     .subtitle {
+        padding: 12px;
         font-size: 36px;
-        margin: 12px 0;
-        padding: 12px 0;
-        color: white;
         font-weight: 300;
-        text-shadow: 3px 3px 0 black;
+        color: wheat;
+        background-color: black;
     }
     #headshot {
         display: none;
@@ -391,14 +410,18 @@ footer {
         background: wheat;
     }
 }
+
 /* Tablet */
+
 @media screen and (max-width: 768px) {
-    h1 {
-        text-align: center;
+    .main {
+        width: 85%;
     }
-    h3 {
-        font-size: 24px;
-        text-align: center;
+    .col-2 {
+        display: block;
+    }
+    .col-3 {
+        grid-template-columns: 1fr 1fr;
     }
     .skills li {
         text-align: center;
@@ -408,66 +431,73 @@ footer {
         font-size: 16px;
         border: 18px solid white;
     }
-    .main {
-        width: 85%;
-    }
     .skills li {
         opacity: 1;
     }
 }
+
 /* Phone */
-@media screen and (max-width: 650px) {
-    .main {
-        width: 85%;
+
+@media screen and (max-width: 450px) {
+
+    /* Navbar */
+
+    #mobileNav {
+        display: inline-block;
     }
-    #intro {
-        background-position-x: 0%;
-        background-position-y: 0%;
-        background-image: url("../images/Headshot3.png");
-        background-size: cover;
+    .navElement {
+        display: block;
     }
-    #titleContainer {
-        width: 100%;
-        opacity: 0.75;
+    .navElement {
+        padding-left: 0;
     }
-    .largeHr {
+    .activePage {
+        padding-left: 0;
+        padding: 12px;
+    }
+    .navLayout {
         display: none;
     }
-    .title {
-        padding: 24px 0;
+    .navLink {
+        padding: 12px;
+        margin: 0 auto;
+    }
+
+    /* Title page */
+
+    #intro {
+        position: relative;
+    }
+    #titleContainer {
+        position: relative;
         margin: 0;
+        padding: 0;
+        height: 100%;
         width: 100%;
+        top: 0;
+    }
+    .title {
+        position: absolute;
+        top: 10%;
+        padding: 24px;
+        margin: 0 auto;
         font-size: 12vw;
-    }
-   
-    .expand {
-        animation-name: dropexpand;
-        animation-duration: 1s;
-
-    }
-    .shrink {
-        animation-name: dropShrink;
-        animation-duration: 1s;
-
-    }
-    @keyframes dropexpand {
-        0% {
-            transform: translateY(-100%)
-        }
-        100% {
-            transform: translateY(0%)
-        }
-    }
-    @keyframes dropShrink {
-        0% {
-            transform: translateY(0%)
-        }
-        100% {
-            transform: translateY(-100%)
-        }
+        opacity: 0.5;
     }
     .subtitle {
+        position: absolute;
+        text-align: center;
+        bottom: 0;
+        padding: 12px;
+        margin: 0 auto;
         font-size: 8vw;
+
+        color: wheat;
+        background: black;
+    }
+    .skills li {
+        font-size: 18px;
+        text-align: center;
     }
     h1 {
         margin: 48px 0;
@@ -476,9 +506,6 @@ footer {
     h2 {
         font-size: 36px;
         margin: 24px 0;
-    }
-    .skills li {
-        font-size: 18px;
     }
     p {
         line-height: 1.6em;
@@ -493,22 +520,5 @@ footer {
     }
     .col-3 {
         display: block;
-    }
-    .skills li {
-        text-align: center;
-    }
-    #mobileNav {
-        display: inline;
-        padding: 0;
-        margin-left: 24px;
-    }
-    nav {
-        position: absolute;
-    }
-    #navLayout {
-        display: none
-    }
-}
-/* XS */
-@media screen and (max-width: 300px){
+    }  
 }
