@@ -19,50 +19,48 @@
     <!-- STYLE -->
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     
+    <!-- JAVASCRIPT -->
     <script src="javascript/javascript.js"></script>
 </head>
     
 <body>
-    
+
     <nav>
-        <div id="mobileNav">
+        <!-- Toggle button for mobile -->
+
+        <div id="mobileNav" class="navElement">
             <button id= "dropdown" onclick="dropdownToggle()">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div> 
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         
-        <div id="navLayout">
-            <ul>
-                <li class="navbarElement inline"> 
-                    <a class="activePage va-sub" href="javascript:void(0)" onclick="scrollToAbout()">ABOUT</a> 
-                </li>
-                
-                <li class="navbarElement inline"> 
-                    <a class="navLink va-sub" href="blog.html">BLOG</a>
-                </li>
-                
-                <li class="navbarElement inline">
-                    <a class="navLink va-sub" href="portfolio.html">PORTFOLIO</a> 
-                </li>
-                
-                <li class="navbarElement inline"> 
-                    <a class="navLink va-sub" href="contact.html">CONTACT</a> 
-                </li>
-                
-                <li class="navbarElement inline"> 
-                    <a class="navLink va-sub" href="legal.html">LEGAL</a> 
-                </li>
-                
-                <li class="navbarElement inline"> 
-                    <a class="navLink va-sub" href="https://github.com/CristobalSalazar" target="_blank">GITHUB</a> 
-                </li>
-                
-            </ul>
+        <!-- Links -->
+
+        <div class="navLayout">
+
+            <div class="navElement"> 
+                <a class="navElement activePage" href="javascript:void()" onclick="scrollToAbout()">ABOUT</a> 
+            </div>
+            
+            <div class="navElement">
+                <a class="navElement navLink" href="portfolio.html">PORTFOLIO</a> 
+            </div>
+            
+            <div class="navElement"> 
+                <a class="navElement navLink" href="contact.html">CONTACT</a> 
+            </div>
+            
+            <div class="navElement"> 
+                <a class="navElement navLink" href="https://github.com/CristobalSalazar" target="_blank">GITHUB</a> 
+            </div>
         </div>
     </nav>
-        
+
+    <!-- Title Page -->
+
     <section id="intro">
-        <img id="headshot" src="images/Headshot6.jpg" alt="Cristobal Salazar"/>
+
+        <div id="headshot"></div>
         
         <div id="titleContainer">
 
@@ -76,12 +74,14 @@
         </div>
 
     </section>
+
+    <!-- Main Content -->
         
     <div class="main" id = "about">
-        <h1>Welcome!</h1>
-        <h2>About</h2>
-        <div class="col-2">
 
+        <h1>About</h1>
+
+        <div class="col-2">
         
             <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati velit facilis voluptatum, quod maiores libero cumque deserunt suscipit expedita ex aliquam quam. Eos sapiente odio, sunt placeat maxime nam obcaecati doloremque tempore velit sit necessitatibus dignissimos corporis asperiores, adipisci officia delectus suscipit ipsum animi. Cum reiciendis aut explicabo ratione adipisci incidunt ducimus eligendi, quos minus autem suscipit perferendis quam, temporibus error eveniet ipsa rerum nam. Consectetur, iste? Voluptates quidem cum, minus ab dolores enim quo eum, cumque labore tempore ratione, possimus quos! Soluta exercitationem voluptate sapiente neque assumenda, cupiditate fuga quia ex, corporis porro provident nam explicabo qui accusantium sed!
             </p>
@@ -93,7 +93,7 @@
 
         <h2>Skills</h2>
 
-        <div class="col-3">
+        <div class="col-3 grid-gap-6">
 
             <div>
                 <h3>Tools</h3>
@@ -127,19 +127,16 @@
                     <li>Spanish (fluent)</li>
                     <li>French (conversational)</li>
                 </ul>
-            
             </div>
 
             <div>
                     <h3>Frameworks</h3>
-    
                     <ul class="skills" id="frameworks">
                         <li>Bootstrap</li>
                         <li>jQuery</li>
                         <li>React</li>
                         <li>Node.js</li>
                     </ul>
-                
                 </div>
         </div>
 
@@ -149,9 +146,8 @@
         <div class="footerText">
             2019 &copy Cristobal Salazar All Rights Reserved
         </div>
-
-        
     </footer>
+
     <script src="javascript/javascript.js"></script>
 </body>
 </html>
