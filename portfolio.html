@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-    
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,26 +7,28 @@
         <title>Portfolio</title>
 
         <link rel="icon" type="image/jpg" href="images/Headshot6.jpg"/>
+        
+        <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+        <!-- Reset -->
         <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+
+        <!-- Style -->
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
-        <script src="javascript/javascript.js"></script>
     </head>
     
 <body>
-
     <nav>
         <!-- Toggle button for mobile -->
-
         <div id="mobileNav" class="navElement">
             <button id= "dropdown" onclick="dropdownToggle()">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
         
         <!-- Links -->
-
         <div class="navLayout">
 
             <div class="navElement"> 
@@ -47,59 +48,70 @@
             </div>
         </div>
     </nav>
-
-    <div class="main">
-        
+    
+    <div class="portfolio-inner">
         <h1> Portfolio </h1>
 
-        <div class="portfolio">
+    </div>
+
+<div class="portfolio">
+    <section class="portfolio-section">
+        <div class="portfolio-inner">
+            <h2>Unity</h2>
             <div class="col-3">
-                
-                <a href="#">
-                    <div class="project" id = "bitstream">
-                        <label class="m0">Bitstream</label>
-                    </div>
+                <a href="portfolio/bitstream.html">
+                    <div class="project" id = "bitstream"></div>
+                    <h3>Bitstream</h3>
                 </a>
-
-                <a href="#">
-                    <div class="project" id = "barbsadventure">
-                        <label class="m0">Barbs Adventure</label>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="project" id = "website">
-                        <label class="m0">Website</label>
-                    </div>
-                </a>
-
-                <a href="hangman.html">
-                    <div class="project" id = "hangman">
-                        <label class="m0">Hangman</label>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="project" id = "rpg">
-                        <label class="m0">RPG</label>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="project" id = "astar">
-                        <label class="m0">ASTAR</label>
-                    </div>
+                <a href="portfolio/barbsadventure.html">
+                    <div class="project" id = "barbsadventure"></div>
+                    <h3>Barb's Adventure</h3>
                 </a>
             </div>
         </div>
-    </div>
-        
-    <footer>
-        <div class="footerText">
-            2019 &copy Cristobal Salazar All Rights Reserved
-        </div>
-    </footer>
+    </section>
 
+    <section class="portfolio-section">
+        <div class="portfolio-inner">
+
+            <h2>Web</h2>
+            <div class="col-3">
+                
+                <a href="index.html">
+                    <div class="project" id = "website"></div>
+                    <h3>My Website</h3>
+                </a>
+                <a href="hangman.html">
+                    <div class="project" id = "hangman"></div>
+                    <h3>Hangman</h3>
+                </a>
+                <a href="portfolio/DNA/index.html">
+                    <div class="project" id = "DNA"></div>
+                    <h3>Interactive Web Art</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="portfolio-section">
+        <div class="portfolio-inner">
+            <h2>Console</h2>
+            <div class="col-3">
+                <a href="#">
+                    <div class="project" id = "astar"></div>
+                    <h3>Pathfinding Algorithms</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+<footer>
+    <div class="footerText">
+    </div>
+</footer>
+
+
+    <!-- My scripts -->
     <script src="javascript/javascript.js"></script>
 </body>
 </html>
