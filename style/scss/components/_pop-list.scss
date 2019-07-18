@@ -1,0 +1,39 @@
+.pop-list {
+  width: 100%;
+  margin: 0 auto;
+  user-select: none;
+  font-weight: 300;
+  color: $bg;
+
+  li {
+    background-color: white;
+    padding: 1.5rem;
+    text-align: left;
+    opacity: 0.75;
+    transition: transform 0.125s, box-shadow 0.25s;
+    position: relative;
+    z-index: 0;
+    font-size: 1.25rem;
+
+    @media screen and (max-width: $breakpoint-xs) {
+      padding: 1rem;
+      font-size: 1rem;
+    }
+    &:hover {
+      border-radius: 5px;
+      box-shadow: 0 0 0.5rem black;
+      opacity: 1;
+      transform: scale(1.025);
+      z-index: 1;
+    }
+  }
+}
+#tools li:nth-child(even) {
+  background-color: darkseagreen;
+}
+#languages li:nth-child(even) {
+  background-color: cadetblue;
+}
+#frameworks li:nth-child(even) {
+  background-color: lightcoral;
+}

@@ -1,117 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Portfolio</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Portfolio</title>
 
-        <link rel="icon" type="image/jpg" href="images/Headshot6.jpg"/>
-        
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="icon" type="image/jpg" href="images/Headshot6.jpg" />
 
-        <!-- Reset -->
-        <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
 
-        <!-- Style -->
-        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <!-- Reset -->
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
 
-    </head>
-    
-<body>
+    <!-- Style -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+
+  <body>
     <nav>
-        <!-- Toggle button for mobile -->
-        <div id="mobileNav" class="navElement">
-            <button id= "dropdown" onclick="dropdownToggle()">
-                <i class="fas fa-bars"></i>
+      <!-- Toggle button for mobile -->
+
+      <!---
+          <div id="mobileNav" class="navElement">
+            <button id="dropdown" onclick="dropdownToggle()">
+              <i class="fas fa-bars"></i>
             </button>
-        </div>
-        
-        <!-- Links -->
-        <div class="navLayout">
+          </div> --->
 
-            <div class="navElement"> 
-                <a class="navElement navLink" href="index.html">ABOUT</a> 
-            </div>
-            
-            <div class="navElement">
-                <a class="navElement activePage" href="portfolio.html">PORTFOLIO</a> 
-            </div>
-            
-            <div class="navElement"> 
-                <a class="navElement navLink" href="contact.html">CONTACT</a> 
-            </div>
-            
-            <div class="navElement"> 
-                <a class="navElement navLink" href="https://github.com/CristobalSalazar" target="_blank">GITHUB</a> 
-            </div>
-        </div>
+      <!-- Links -->
+      <div>
+        <a class="navElement navLink" href="index.html">ABOUT</a>
+        <a class="navElement activePage" href="portfolio.html">PORTFOLIO</a>
+        <a class="navElement navLink" href="contact.html">CONTACT</a>
+        <a class="navElement navLink" href="https://github.com/CristobalSalazar">GITHUB</a>
+      </div>
     </nav>
-    
-    <div class="portfolio-inner">
-        <h1> Portfolio </h1>
+    <div id="nav-spacer"></div>
 
+    <div class="portfolio">
+      <section class="portfolio-section">
+        <div class="portfolio-inner">
+          <h2>Mobile Apps</h2>
+          <div class="col-3">
+            <a href="portfolio/bitstream.html">
+              <div class="project" id="bitstream"></div>
+              <h3>Bitstream</h3>
+            </a>
+            <a href="portfolio/barbsadventure.html">
+              <div class="project" id="barbsadventure"></div>
+              <h3>Barb's Adventure</h3>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="portfolio-section">
+        <div class="portfolio-inner">
+          <h2>Web</h2>
+          <div class="col-3">
+            <a href="index.html">
+              <div class="project" id="website"></div>
+              <h3>My Website</h3>
+            </a>
+            <a href="hangman.html">
+              <div class="project" id="hangman"></div>
+              <h3>Hangman</h3>
+            </a>
+            <a href="portfolio/DNA/index.html">
+              <div class="project" id="DNA"></div>
+              <h3>Interactive Web Art</h3>
+            </a>
+            <a href="portfolio/DNA/index.html">
+              <div class="project" id="DNA"></div>
+              <h3>Interactive Web Art</h3>
+            </a>
+            <a href="portfolio/DNA/index.html">
+              <div class="project" id="DNA"></div>
+              <h3>Interactive Web Art</h3>
+            </a>
+            <a href="portfolio/DNA/index.html">
+              <div class="project" id="DNA"></div>
+              <h3>Interactive Web Art</h3>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="portfolio-section">
+        <div class="portfolio-inner">
+          <h2>Console</h2>
+          <div class="col-3">
+            <a href="#">
+              <div class="project" id="astar"></div>
+              <h3>Pathfinding Algorithms</h3>
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
 
-<div class="portfolio">
-    <section class="portfolio-section">
-        <div class="portfolio-inner">
-            <h2>Unity</h2>
-            <div class="col-3">
-                <a href="portfolio/bitstream.html">
-                    <div class="project" id = "bitstream"></div>
-                    <h3>Bitstream</h3>
-                </a>
-                <a href="portfolio/barbsadventure.html">
-                    <div class="project" id = "barbsadventure"></div>
-                    <h3>Barb's Adventure</h3>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="portfolio-section">
-        <div class="portfolio-inner">
-
-            <h2>Web</h2>
-            <div class="col-3">
-                
-                <a href="index.html">
-                    <div class="project" id = "website"></div>
-                    <h3>My Website</h3>
-                </a>
-                <a href="hangman.html">
-                    <div class="project" id = "hangman"></div>
-                    <h3>Hangman</h3>
-                </a>
-                <a href="portfolio/DNA/index.html">
-                    <div class="project" id = "DNA"></div>
-                    <h3>Interactive Web Art</h3>
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <section class="portfolio-section">
-        <div class="portfolio-inner">
-            <h2>Console</h2>
-            <div class="col-3">
-                <a href="#">
-                    <div class="project" id = "astar"></div>
-                    <h3>Pathfinding Algorithms</h3>
-                </a>
-            </div>
-        </div>
-    </section>
-</div>
-<footer>
-    <div class="footerText">
-    </div>
-</footer>
-
-
+    <footer>
+      <div class="footerText">
+        2019 &copy Cristobal Salazar All Rights Reserved
+      </div>
+    </footer>
     <!-- My scripts -->
-    <script src="javascript/javascript.js"></script>
-</body>
+    <script src="javascript/nav.js"></script>
+    <script src="javascript/portfolio.js"></script>
+  </body>
 </html>

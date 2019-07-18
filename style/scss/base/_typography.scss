@@ -1,0 +1,40 @@
+h1 {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 200;
+  margin: 3rem auto;
+  color: $primary;
+  @media screen and (max-width: $breakpoint-xs) {
+    font-size: 2rem;
+    margin: 2rem auto;
+  }
+}
+h2 {
+  font-size: 2rem;
+  margin: 2rem;
+  font-weight: 100;
+  color: $primary;
+  text-align: left;
+  font-style: italic;
+  @media screen and (max-width: $breakpoint-xs) {
+    font-size: 1.5rem;
+    margin: 1.5rem auto;
+  }
+}
+h3 {
+  margin: 24px auto;
+  padding: 24px 0;
+  width: 100%;
+  text-align: left;
+  font-size: 36px;
+  font-weight: 100;
+  color: $primary;
+}
+p {
+  line-height: 1.66em;
+  color: $bg;
+  background-color: #eee;
+  padding: 24px;
+  font-size: 1rem;
+  border-radius: 5px;
+}

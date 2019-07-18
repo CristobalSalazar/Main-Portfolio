@@ -1,150 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Cristobal Salazar</title>
-
-    <link rel="icon" type="image/jpg" href="images/Headshot6.jpg"/>
-    
-    <!-- RESET -->
-    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
-
+    <link rel="icon" type="image/jpg" href="images/Headshot6.jpg" />
     <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
+    <!-- style -->
+    <link rel="stylesheet" type="text/css" href="style/css/style.min.css" />
+    <script src="scripts/libs/jquery-3.4.1.js"></script>
+  </head>
 
-    <!-- STYLE -->
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <body>
+    <!-- Navbar -->
+    <div>
+      <nav class="navbar">
+        <ul style="display: flex">
+          <li class="nav-element"><a class="active" href="index.html">ABOUT</a></li>
+          <li class="nav-element"><a class="nav-link" href="portfolio.html">PORTFOLIO</a></li>
+          <li class="nav-element"><a class="nav-link" href="contact.html">CONTACT</a></li>
+          <li class="nav-element">
+            <a class="nav-link" href="https://github.com/CristobalSalazar">GITHUB</a>
+          </li>
+        </ul>
+      </nav>
+      <div id="nav-spacer"></div>
+    </div>
 
-</head>
+    <!-- Title -->
+    <section id="intro">
+      <!-- Left Side -->
+      <div id="headshot"></div>
+      <!-- Right Side -->
+      <div id="title-img"></div>
 
-<body>
-    
-    <nav>
-        <!-- Toggle button for mobile -->
-        
-        <div id="mobileNav" class="navElement">
-            <button id= "dropdown" onclick="dropdownToggle()">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-            
-            <!-- Links -->
-            
-            <div class="navLayout">
-                
-                <div class="navElement"> 
-                    <a class="navElement activePage" href="javascript:void()" onclick="scrollToAbout()">ABOUT</a> 
-                </div>
-                
-                <div class="navElement">
-                    <a class="navElement navLink" href="portfolio.html">PORTFOLIO</a> 
-                </div>
-                
-                <div class="navElement"> 
-                    <a class="navElement navLink" href="contact.html">CONTACT</a> 
-                </div>
-                
-                <div class="navElement"> 
-                    <a class="navElement navLink" href="https://github.com/CristobalSalazar" target="_blank">GITHUB</a> 
-                </div>
-            </div>
-        </nav>
-        
-        <!-- Title Page -->
-        
-        <section id="intro">
-            
-            <div id="headshot"></div>
-            
-            <div id="titleContainer">
-                
-                <div class="title">
-                    Cristobal Salazar
-                </div>
-                
-                <hr class= "largeHr">
-                <div class="subtitle">Full-Stack Developer</div>
-                
-            </div>
-            
-        </section>
-        
-        <!-- Main Content -->
-        
-        <div class="main">
-            
-            <h1 id="about">About</h1>
-            
-            <div class="col-2">
-                
-                <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati velit facilis voluptatum, quod maiores libero cumque deserunt suscipit expedita ex aliquam quam. Eos sapiente odio, sunt placeat maxime nam obcaecati doloremque tempore velit sit necessitatibus dignissimos corporis asperiores, adipisci officia delectus suscipit ipsum animi. Cum reiciendis aut explicabo ratione adipisci incidunt ducimus eligendi, quos minus autem suscipit perferendis quam, temporibus error eveniet ipsa rerum nam. Consectetur, iste? Voluptates quidem cum, minus ab dolores enim quo eum, cumque labore tempore ratione, possimus quos! Soluta exercitationem voluptate sapiente neque assumenda, cupiditate fuga quia ex, corporis porro provident nam explicabo qui accusantium sed!
-                </p>
-                
-                <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, rerum? Provident exercitationem tempore illo nemo, distinctio natus, laborum accusantium perspiciatis quas, autem sequi reprehenderit officia dolores aperiam aliquid veritatis laudantium culpa! Perspiciatis quod in pariatur porro cum adipisci. Recusandae est quam delectus sed mollitia eveniet nesciunt repellat eligendi impedit, vel consequatur fugit reprehenderit cupiditate quisquam dolorem laboriosam nemo maxime fuga numquam! Maxime repudiandae nobis officiis, expedita laborum asperiores, tenetur beatae cupiditate libero exercitationem magni ab ut nostrum quia similique neque provident veniam recusandae tempore delectus minus iste. Enim, sequi numquam labore repellendus explicabo qui laudantium harum, consequatur debitis iure nihil?
-                </p>
-            </div>
-            
-            
-            <h2>Skills</h2>
-            
-            <div class="col-3 grid-gap-6">
-                
-                <div>
-                    <h3>Tools</h3>
-                    
-                    <ul class="skills" id="tools">
-                        <li>Unity3D</li>
-                        <li>Ableton Live</li>
-                        <li>Pro-Tools</li>
-                        <li>Logic-Pro</li>
-                        <li>Blender</li>
-                        <li>XCode</li>
-                        <li>Git</li>
-                        <li>Slack</li>
-                        <li>Bash</li>
-                    </ul>
-                    
-                </div>
-                
-                <div>
-                    <h3>Languages</h3>
-                    
-                    <ul class="skills" id="languages">
-                        <li>C#</li>
-                        <li>C++</li>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>Javascript</li>
-                        <li>MYSQL</li>
-                        <li>Shaderlab</li>
-                        <li>English (fluent)</li>
-                        <li>Spanish (fluent)</li>
-                        <li>French (conversational)</li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3>Frameworks</h3>
-                    <ul class="skills" id="frameworks">
-                        <li>Bootstrap</li>
-                        <li>jQuery</li>
-                        <li>React</li>
-                        <li>Node.js</li>
-                    </ul>
-                </div>
-            </div>
+      <div class="title-text">
+        <div class="title">Cristobal Salazar</div>
+        <div class="subtitle">Full-Stack Web Developer</div>
+      </div>
+    </section>
+
+    <div class="layout">
+      <!-- Side Panel -->
+      <aside id="side-drawer">
+        <div id="side-list">
+          <a class="side-link" id="about-link">About</a>
+          <a class="side-link" href="#" id="skills-link">Skills</a>
+          <a class="side-link" href="#" id="education-link">Education</a>
         </div>
-        
         <footer>
-            <div class="footerText">
-                2019 &copy Cristobal Salazar All Rights Reserved
-            </div>
+          2019 &copy; Cristobal Salazar All Rights Reserved
         </footer>
-        
-        <script src="javascript/javascript.js"></script>
-    </body>
-    </html>
+      </aside>
+
+      <div class="main">
+        <section id="about">
+          <h1>About</h1>
+          <div class="profile">
+            <div class="profile-img"></div>
+            <p>
+              My name is Cristobal Salazar. I am a self-taught developer and an accomplished music
+              composer, but first and foremost I am a gamer at heart. Ever since I got my hands on
+              an N64 controller at the age of 7, I have always been captivated by the beautiful
+              worlds and feelings that video games can emit. It is my dream and passion to make
+              beautiful art through games.
+              <br />
+              <br />
+              I began coding at the start of my music degree and haven't looked back since. I love
+              seeing my ideas come to life. Over the course of five years I have become an expert
+              with Unity3D and C# and also picked up some C++ along the way. I am a self-motivated,
+              results oriented person and am never afraid or reluctant to learn new things. I love
+              delving deep into whatever subject is at hand. My areas of expertise are gameplay and
+              sound. But I also love creating VFX with Shaderlab. I have made all the art sounds
+              music and sfx as well as animations for my projects.
+              <br />
+              <br />
+              I am well versed in a lot of diverse areas within Unity. I have self-published a SHMUP
+              for iOS called Bitstream, and am currently working on a voxel-style ARPG entitled
+              Barb's Adventure. You can check them both out under the "Portfolio" section. They are
+              both also included in my github repository linked below.
+            </p>
+          </div>
+        </section>
+        <!-- Skills Section -->
+        <section id="skills">
+          <h1>Skills</h1>
+          <div class="col-3 grid-gap-6">
+            <div>
+              <h2>Tools</h2>
+              <ul class="pop-list" id="tools">
+                <li>Unity3D</li>
+                <li>Ableton Live</li>
+                <li>Pro-Tools</li>
+                <li>Logic-Pro</li>
+                <li>Blender</li>
+                <li>XCode</li>
+                <li>Git</li>
+                <li>Slack</li>
+                <li>Bash</li>
+                <li>English (fluent)</li>
+                <li>Spanish (fluent)</li>
+                <li>French (proficient)</li>
+              </ul>
+            </div>
+            <div>
+              <h2>Languages</h2>
+              <ul class="pop-list" id="languages">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>C#</li>
+                <li>C++</li>
+                <li>Javascript</li>
+                <li>MYSQL</li>
+                <li>MongoDb</li>
+                <li>Firebase</li>
+                <li>Shaderlab</li>
+              </ul>
+            </div>
+            <div>
+              <h2>Frameworks</h2>
+              <ul class="pop-list" id="frameworks">
+                <li>Bootstrap</li>
+                <li>SASS</li>
+                <li>LESS</li>
+                <li>jQuery</li>
+                <li>React</li>
+                <li>Node.js</li>
+                <li>Electron</li>
+              </ul>
+            </div>
+          </div>
+          <br />
+        </section>
+
+        <section id="education">
+          <h1>Education</h1>
+          <ul class="pop-list">
+            <li>Web Development University of Toronto</li>
+            <li>Bachelor of Music Humber College</li>
+            <li>Audio Engineering MRU</li>
+            <li>Western Canada High School</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="scripts/nav.js"></script>
+    <script src="scripts/index.js"></script>
+  </body>
+</html>

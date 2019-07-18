@@ -1,0 +1,26 @@
+.profile {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 3px;
+  border-radius: 5px;
+
+  @media screen and (max-width: $breakpoint-sm) {
+    display: block;
+  }
+
+  &-img {
+    background: url("../../images/Headshot2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    border-radius: 5px;
+
+    @media screen and (max-width: $breakpoint-sm) {
+      height: 500px;
+      background-position: 0% 25%;
+    }
+    @media screen and (max-width: $breakpoint-xs) {
+      height: 250px;
+    }
+  }
+}

@@ -1,0 +1,65 @@
+#intro {
+  display: flex;
+  height: 100vh;
+  border-bottom: 2px solid #222;
+}
+#headshot {
+  z-index: 1;
+  background-image: url("../../images/Headshot6.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: 50%;
+  background-position-y: 66%;
+  width: 45%;
+
+  @media screen and (max-width: $breakpoint-sm) {
+    display: none;
+  }
+}
+
+#title-img {
+  background: url("../../images/bg3.png");
+  background-position-x: -5%;
+  background-position-y: 50%;
+  margin-left: 45%;
+  width: 55%;
+  height: 95%;
+  z-index: 0;
+  filter: blur(5px);
+  position: absolute;
+  overflow: hidden;
+
+  @media screen and (max-width: $breakpoint-sm) {
+    width: 100%;
+    background-position: 0% 0%;
+    margin: 0;
+  }
+}
+
+.title-text {
+  z-index: 1;
+  margin: auto;
+  justify-self: center;
+
+  .title {
+    margin-bottom: 2rem;
+    color: whitesmoke;
+    font-size: 6rem;
+    text-align: center;
+    animation-name: title;
+    animation-duration: 1s;
+    @include fontSizeAtBreakpoint(4rem, $breakpoint-lg);
+    @include fontSizeAtBreakpoint(2.5rem, $breakpoint-xs);
+  }
+  .subtitle {
+    margin-bottom: 2rem;
+    color: #eee;
+    font-size: 3rem;
+    font-weight: 150;
+    text-align: center;
+    animation-name: blurIn;
+    animation-duration: 2s;
+    @include fontSizeAtBreakpoint(2rem, $breakpoint-lg);
+    @include fontSizeAtBreakpoint(1.5rem, $breakpoint-xs);
+  }
+}
