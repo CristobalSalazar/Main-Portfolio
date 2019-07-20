@@ -56,18 +56,18 @@
     }
   });
 
-  intro.addEventListener("click", function(e) {
-    e.preventDefault();
-    scrollToElement(about);
-  });
-  about.addEventListener("click", function(e) {
-    e.preventDefault();
-    scrollToElement(skills);
-  });
-  skills.addEventListener("click", function(e) {
-    e.preventDefault();
-    scrollToElement(education);
-  });
+  // intro.addEventListener("click", function(e) {
+  //   e.preventDefault();
+  //   scrollToElement(about);
+  // });
+  // about.addEventListener("click", function(e) {
+  //   e.preventDefault();
+  //   scrollToElement(skills);
+  // });
+  // skills.addEventListener("click", function(e) {
+  //   e.preventDefault();
+  //   scrollToElement(education);
+  // });
 
   aboutLink.addEventListener("click", function(e) {
     e.preventDefault();
