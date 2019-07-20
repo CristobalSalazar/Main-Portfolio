@@ -1,6 +1,6 @@
 .profile {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 3px;
   border-radius: 5px;
 
@@ -14,10 +14,10 @@
     background-repeat: no-repeat;
     width: 100%;
     border-radius: 5px;
+    background-position: 0% 0%;
 
     @media screen and (max-width: $breakpoint-sm) {
       height: 500px;
-      background-position: 0% 25%;
     }
     @media screen and (max-width: $breakpoint-xs) {
       height: 250px;

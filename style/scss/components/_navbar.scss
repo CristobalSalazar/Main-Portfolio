@@ -4,10 +4,10 @@
   top: 0;
   left: 0;
   padding: 1rem;
-  background: #333;
+  background: $bg2;
   z-index: 2;
   opacity: 0.95;
-  box-shadow: 0 0 10px black;
+  box-shadow: 0 3px 3px $bg;
 }
 .nav-element {
   display: inline;
@@ -17,15 +17,45 @@
   box-sizing: border-box;
 
   .nav-link {
-    color: lightblue;
+    color: #eee;
     &:hover {
       color: wheat;
-      border-bottom: 1px solid salmon;
+      border-bottom: 1px solid lightcoral;
     }
   }
 
   .active {
-    border-bottom: 1px solid salmon;
+    border-bottom: 1px solid lightcoral;
     color: wheat;
+  }
+}
+#social-links {
+  margin-left: auto;
+  color: white;
+  align-self: center;
+  display: flex;
+
+  a {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-self: center;
+    line-height: 0;
+    margin-right: 1rem;
+    opacity: 0.7;
+    transition: opacity 0.1s, transform 0.1s;
+  }
+  a:hover {
+    opacity: 1;
+    transform: scale(1.1) rotateZ(-5deg);
+  }
+  #facebook {
+    color: #3b5998;
+  }
+  #github {
+    color: #6e5494;
+  }
+  #instagram {
+    color: #c13584;
   }
 }

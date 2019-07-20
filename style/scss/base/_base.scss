@@ -14,5 +14,13 @@ a:hover {
   cursor: pointer;
 }
 body {
+  // background: $bg;
   background: $bg;
+}
+#background {
+}
+.fa {
+  line-height: 0;
+  align-self: center;
+  font-size: 2.5rem;
 }

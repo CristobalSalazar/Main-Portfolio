@@ -8,11 +8,7 @@
   const aboutLink = document.getElementById("about-link");
   const skillsLink = document.getElementById("skills-link");
   const educationLink = document.getElementById("education-link");
-  const titleContainer = document.getElementById("title-img");
-  const adjustedHeight = intro.clientHeight - nav.clientHeight + "px";
-  //adjusted intro height to accomodate navbar
-  intro.style.height = adjustedHeight;
-  titleContainer.style.height = adjustedHeight;
+
   // adjust sidebar height
   h1Offset = getComputedStyle(about.children[0]).marginTop;
   h1Offset = parseInt(h1Offset.substr(0, h1Offset.length - 2));
@@ -29,7 +25,13 @@
       behavior: "smooth"
     });
   }
+  function adjustTitleHeight() {
+    var adjustedHeight = window.innerHeight - nav.clientHeight + "px";
+    intro.style.height = adjustedHeight;
+  }
+  adjustTitleHeight();
   // Event Listeners
+  window.addEventListener("resize", adjustTitleHeight);
   window.addEventListener("scroll", e => {
     const aboutSkills =
       (about.getBoundingClientRect().top + skills.getBoundingClientRect().top) / 2;
@@ -53,10 +55,25 @@
       educationLink.classList.remove("active");
     }
   });
+
+  intro.addEventListener("click", function(e) {
+    e.preventDefault();
+    scrollToElement(about);
+  });
+  about.addEventListener("click", function(e) {
+    e.preventDefault();
+    scrollToElement(skills);
+  });
+  skills.addEventListener("click", function(e) {
+    e.preventDefault();
+    scrollToElement(education);
+  });
+
   aboutLink.addEventListener("click", function(e) {
     e.preventDefault();
     scrollToElement(about);
   });
+
   skillsLink.addEventListener("click", function(e) {
     e.preventDefault();
     scrollToElement(skills);

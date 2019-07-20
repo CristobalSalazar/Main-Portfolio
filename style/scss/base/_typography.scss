@@ -11,11 +11,10 @@ h1 {
 }
 h2 {
   font-size: 2rem;
+  font-weight: 300;
   margin: 2rem;
-  font-weight: 100;
   color: $primary;
   text-align: left;
-  font-style: italic;
   @media screen and (max-width: $breakpoint-xs) {
     font-size: 1.5rem;
     margin: 1.5rem auto;
@@ -30,9 +29,13 @@ h3 {
   font-weight: 100;
   color: $primary;
 }
+h4 {
+  font-size: 1.5rem;
+  color: $primary;
+}
 p {
   line-height: 1.66em;
-  color: $bg;
+  color: $text;
   background-color: #eee;
   padding: 24px;
   font-size: 1rem;
