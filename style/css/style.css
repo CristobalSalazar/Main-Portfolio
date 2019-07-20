@@ -155,7 +155,7 @@
 }
 
 #intro .intro-left {
-  background-image: url("../../../images/Headshot6.jpg");
+  background-image: url("../../images/Headshot6.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   width: 30%;
@@ -174,7 +174,7 @@
   display: -ms-flexbox;
   display: flex;
   width: 70%;
-  background: url("../../../images/bg2.png") fixed right;
+  background: url("../../images/bg2.png") fixed right;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 70% 100%;
@@ -182,7 +182,7 @@
 
 @media screen and (max-width: 768px) {
   #intro .intro-right {
-    background: url("../../../images/Headshot6.jpg") fixed right;
+    background: url("../../images/Headshot6.jpg") fixed right;
     background-size: cover;
     background-position: 50%;
     width: 100%;
