@@ -8,3 +8,18 @@
     font-size: $fontSize;
   }
 }
+@mixin fadeIn($duration) {
+  animation: FadeIn $duration;
+  animation-fill-mode: forwards;
+}
+@mixin fadeOut($duration) {
+  animation: FadeOut $duration;
+  animation-fill-mode: forwards;
+}
+
+.fadeIn {
+  @include fadeIn(0.66s);
+}
+.fadeOut {
+  @include fadeOut(0.66s);
+}

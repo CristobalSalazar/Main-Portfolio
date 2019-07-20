@@ -10,14 +10,14 @@
   }
 
   #side-list {
-    margin: 0 3rem;
+    margin: 0 1rem;
     position: sticky;
     display: flex;
     flex-direction: column;
 
     .side-link {
       user-select: none;
-      font-size: 1.25rem;
+      font-size: 1rem;
       color: #666;
       display: block;
       padding: 1rem;

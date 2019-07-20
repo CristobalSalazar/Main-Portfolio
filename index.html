@@ -1,166 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Cristobal Salazar</title>
-    <link rel="icon" type="image/jpg" href="images/Headshot6.jpg" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
-    <!-- FONT AWESOME -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
-    />
-    <!-- style -->
-    <link rel="stylesheet" type="text/css" href="style/css/style.min.css" />
-    <script src="scripts/libs/jquery-3.4.1.js"></script>
-  </head>
 
-  <body>
-    <div id="background"></div>
-    <!-- Navbar -->
-    <div>
-      <nav class="navbar">
-        <ul style="display: flex">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Cristobal Salazar</title>
+  <link rel="icon" type="image/jpg" href="images/Headshot6.jpg" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+  <!-- style -->
+  <link rel="stylesheet" type="text/css" href="style/css/style.min.css" />
+  <script src="scripts/libs/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+  <div id="background"></div>
+  <!-- Navbar -->
+  <div>
+    <nav class="navbar">
+
+      <div class="navbar-left">
+        <ul>
           <li class="nav-element"><a class="active" href="index.html">ABOUT</a></li>
           <li class="nav-element"><a class="nav-link" href="portfolio.html">PORTFOLIO</a></li>
-          <!-- <li class="nav-element" style="text-align: center">CRISTOBAL SALAZAR</li> -->
-
-          <div id="social-links">
-            <!-- github -->
-            <a href="https://github.com/cristobalsalazar">
-              <i id="github" class="fa fa-github-square" aria-hidden="true"></i>
-            </a>
-            <!-- facebook -->
-            <a href="https://facebook.com">
-              <i id="facebook" class="fa fa-facebook-square" aria-hidden="true"></i>
-            </a>
-            <!-- instagram -->
-            <a href="https://instagram.com">
-              <i id="instagram" class="fa fa-instagram" aria-hidden="true"></i>
-            </a>
-          </div>
         </ul>
-      </nav>
-      <div id="nav-spacer"></div>
-    </div>
-
-    <!-- Intro -->
-    <section id="intro">
-      <!-- Left Side -->
-      <div class="intro-left"></div>
-      <!-- Right Side -->
-      <div class="intro-right">
-        <div class="intro-text">
-          <div class="title">Cristobal Salazar</div>
-          <div class="subtitle">Full-Stack Web Developer</div>
-        </div>
       </div>
-    </section>
 
-    <div class="layout">
-      <!-- Side Panel -->
-      <aside id="side-drawer">
-        <div id="side-list">
-          <a class="side-link" id="about-link">About</a>
-          <a class="side-link" href="#" id="skills-link">Skills</a>
-          <a class="side-link" href="#" id="education-link">Education</a>
-        </div>
-      </aside>
+      <div class="nav-element" style="text-align: center">CRISTOBAL SALAZAR</div>
 
-      <div class="main">
-        <section id="about">
-          <h1>ABOUT</h1>
-          <div class="profile">
-            <div class="profile-img"></div>
-            <p>
-              My name is Cristobal Salazar. I am a self-taught developer and an accomplished music
-              composer, but first and foremost I am a gamer at heart. Ever since I got my hands on
-              an N64 controller at the age of 7, I have always been captivated by the beautiful
-              worlds and feelings that video games can emit. It is my dream and passion to make
-              beautiful art through games.
-              <br />
-              <br />
-              I began coding at the start of my music degree and haven't looked back since. I love
-              seeing my ideas come to life. Over the course of five years I have become an expert
-              with Unity3D and C# and also picked up some C++ along the way. I am a self-motivated,
-              results oriented person and am never afraid or reluctant to learn new things. I love
-              delving deep into whatever subject is at hand. My areas of expertise are gameplay and
-              sound. But I also love creating VFX with Shaderlab. I have made all the art sounds
-              music and sfx as well as animations for my projects.
-              <br />
-              <br />
-              I am well versed in a lot of diverse areas within Unity. I have self-published a SHMUP
-              for iOS called Bitstream, and am currently working on a voxel-style ARPG entitled
-              Barb's Adventure. You can check them both out under the "Portfolio" section. They are
-              both also included in my github repository linked below.
-            </p>
-          </div>
-        </section>
-        <!-- Skills Section -->
-        <section id="skills">
-          <h1>SKILLS</h1>
-          <div class="col-3 grid-gap-6">
-            <div>
-              <h2>Tools</h2>
-              <ul class="pop-list" id="tools">
-                <li>Unity3D</li>
-                <li>MYSQL</li>
-                <li>MongoDb</li>
-                <li>Firebase</li>
-                <li>Ableton Live</li>
-                <li>Pro-Tools</li>
-                <li>Logic-Pro</li>
-                <li>Blender</li>
-              </ul>
-            </div>
-            <div>
-              <h2>Languages</h2>
-              <ul class="pop-list" id="languages">
-                <li>C#</li>
-                <li>Javascript</li>
-                <li>C++</li>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>Shaderlab</li>
-                <li>English (fluent)</li>
-                <li>Spanish (fluent)</li>
-                <li>French (proficient)</li>
-              </ul>
-            </div>
-            <div>
-              <h2>Frameworks/Libs</h2>
-              <ul class="pop-list" id="frameworks">
-                <li>Bootstrap</li>
-                <li>SASS</li>
-                <li>LESS</li>
-                <li>jQuery</li>
-                <li>React</li>
-                <li>Node.js</li>
-                <li>Electron</li>
-              </ul>
-            </div>
-          </div>
-          <br />
-        </section>
+      <div class="navbar-right">
+        <a href="https://github.com/cristobalsalazar">
+          <i id="github" class="fa fa-github-square" aria-hidden="true"></i>
+        </a>
+        <a href="https://facebook.com">
+          <i id="facebook" class="fa fa-facebook-square" aria-hidden="true"></i>
+        </a>
+        <a href="https://instagram.com">
+          <i id="instagram" class="fa fa-instagram" aria-hidden="true"></i>
+        </a>
+      </div>
 
-        <section id="education">
-          <h1>EDUCATION</h1>
-          <ul class="pop-list">
-            <li>Web Development University of Toronto</li>
-            <li>Bachelor of Music Humber College</li>
-            <li>Audio Engineering MRU</li>
-            <li>Western Canada High School</li>
-          </ul>
-        </section>
-        <footer>
-          2019 &copy; Cristobal Salazar All Rights Reserved
-        </footer>
+    </nav>
+    <div id="nav-spacer"></div>
+  </div>
+
+  <!-- Intro -->
+  <section id="intro">
+    <!-- Left Side -->
+    <div class="intro-left"></div>
+    <!-- Right Side -->
+    <div class="intro-right">
+      <div class="intro-text">
+        <div class="title">Cristobal Salazar</div>
+        <div class="subtitle">Full-Stack Web Developer</div>
       </div>
     </div>
+  </section>
 
-    <script src="scripts/nav.js"></script>
-    <script src="scripts/index.js"></script>
-  </body>
+  <div class="layout">
+    <!-- Side Panel -->
+    <aside id="side-drawer">
+      <div id="side-list">
+        <a class="side-link" id="about-link">ABOUT</a>
+        <a class="side-link" href="#" id="skills-link">SKILLS</a>
+        <a class="side-link" href="#" id="education-link">EDUCATION</a>
+      </div>
+    </aside>
+
+    <div class="main">
+      <section id="about">
+        <h1>ABOUT</h1>
+        <div class="profile">
+          <div class="profile-img"></div>
+          <p>
+            My name is Cristobal Salazar. I am a self-taught developer and an accomplished music
+            composer, but first and foremost I am a gamer at heart. Ever since I got my hands on
+            an N64 controller at the age of 7, I have always been captivated by the beautiful
+            worlds and feelings that video games can emit. It is my dream and passion to make
+            beautiful art through games.
+            <br />
+            <br />
+            I began coding at the start of my music degree and haven't looked back since. I love
+            seeing my ideas come to life. Over the course of five years I have become an expert
+            with Unity3D and C# and also picked up some C++ along the way. I am a self-motivated,
+            results oriented person and am never afraid or reluctant to learn new things. I love
+            delving deep into whatever subject is at hand. My areas of expertise are gameplay and
+            sound. But I also love creating VFX with Shaderlab. I have made all the art sounds
+            music and sfx as well as animations for my projects.
+            <br />
+            <br />
+            I am well versed in a lot of diverse areas within Unity. I have self-published a SHMUP
+            for iOS called Bitstream, and am currently working on a voxel-style ARPG entitled
+            Barb's Adventure. You can check them both out under the "Portfolio" section. They are
+            both also included in my github repository linked below.
+          </p>
+        </div>
+      </section>
+      <!-- Skills Section -->
+      <section id="skills">
+        <h1>SKILLS</h1>
+        <div class="col-3 grid-gap-6">
+          <div>
+            <h2>Tools</h2>
+            <ul class="pop-list" id="tools">
+              <li>Unity3D</li>
+              <li>MYSQL</li>
+              <li>MongoDb</li>
+              <li>Firebase</li>
+              <li>Ableton Live</li>
+              <li>Pro-Tools</li>
+              <li>Logic-Pro</li>
+              <li>Blender</li>
+            </ul>
+          </div>
+          <div>
+            <h2>Languages</h2>
+            <ul class="pop-list" id="languages">
+              <li>C#</li>
+              <li>Javascript</li>
+              <li>C++</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>Shaderlab</li>
+              <li>English (fluent)</li>
+              <li>Spanish (fluent)</li>
+              <li>French (proficient)</li>
+            </ul>
+          </div>
+          <div>
+            <h2>Frameworks/Libs</h2>
+            <ul class="pop-list" id="frameworks">
+              <li>Bootstrap</li>
+              <li>SASS</li>
+              <li>LESS</li>
+              <li>jQuery</li>
+              <li>React</li>
+              <li>Node.js</li>
+              <li>Electron</li>
+            </ul>
+          </div>
+        </div>
+        <br />
+      </section>
+
+      <section id="education">
+        <h1>EDUCATION</h1>
+        <ul class="pop-list">
+          <li>Web Development University of Toronto</li>
+          <li>Bachelor of Music Humber College</li>
+          <li>Audio Engineering MRU</li>
+          <li>Western Canada High School</li>
+        </ul>
+      </section>
+      <footer>
+        2019 &copy; Cristobal Salazar All Rights Reserved
+      </footer>
+    </div>
+  </div>
+
+  <script src="scripts/nav.js"></script>
+  <script src="scripts/index.js"></script>
+</body>
+
 </html>

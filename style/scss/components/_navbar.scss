@@ -1,14 +1,56 @@
 .navbar {
   position: fixed;
+  display: flex;
+  justify-content: space-between;
+
   width: 100%;
   top: 0;
   left: 0;
   padding: 1rem;
-  background: $bg2;
+  background: $bg;
   z-index: 2;
   box-shadow: 0 3px 3px #aaa;
   opacity: 0.9;
+
+  &-left {
+    display: flex;
+  }
+
+  &-right {
+    color: white;
+    align-self: center;
+    display: flex;
+
+    a {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      align-self: center;
+      line-height: 0;
+      margin-right: 1rem;
+      opacity: 0.7;
+      transition: opacity 0.1s, transform 0.1s;
+    }
+
+    a:hover {
+      opacity: 1;
+      transform: scale(1.5) rotateZ(-5deg);
+    }
+
+    #facebook {
+      color: #3b5998;
+    }
+
+    #github {
+      color: #6e5494;
+    }
+
+    #instagram {
+      color: #c13584;
+    }
+  }
 }
+
 .nav-element {
   display: inline;
   font-size: 1rem;
@@ -18,43 +60,15 @@
 
   .nav-link {
     color: $text;
+
     &:hover {
       color: black;
       border-bottom: 3px solid lightcoral;
     }
   }
+
   .active {
     border-bottom: 3px solid lightcoral;
     color: $text;
-  }
-}
-#social-links {
-  margin-left: auto;
-  color: white;
-  align-self: center;
-  display: flex;
-
-  a {
-    display: flex;
-    margin: 0;
-    padding: 0;
-    align-self: center;
-    line-height: 0;
-    margin-right: 1rem;
-    opacity: 0.7;
-    transition: opacity 0.1s, transform 0.1s;
-  }
-  a:hover {
-    opacity: 1;
-    transform: scale(1.1) rotateZ(-5deg);
-  }
-  #facebook {
-    color: #3b5998;
-  }
-  #github {
-    color: #6e5494;
-  }
-  #instagram {
-    color: #c13584;
   }
 }
