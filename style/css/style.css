@@ -174,7 +174,7 @@
   display: -ms-flexbox;
   display: flex;
   width: 70%;
-  background: url("/images/bg2.png") fixed right;
+  background: url("../../../images/bg2.png") fixed right;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 70% 100%;
