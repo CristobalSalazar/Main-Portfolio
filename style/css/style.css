@@ -57,15 +57,15 @@
 }
 
 .fadeIn {
-  -webkit-animation: FadeIn 0.66s;
-          animation: FadeIn 0.66s;
+  -webkit-animation: FadeIn 1s;
+          animation: FadeIn 1s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
 
 .fadeOut {
-  -webkit-animation: FadeOut 0.66s;
-          animation: FadeOut 0.66s;
+  -webkit-animation: FadeOut 1s;
+          animation: FadeOut 1s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
@@ -126,8 +126,8 @@
 
 #side-drawer #side-list .active {
   color: black;
-  -webkit-transform: translateX(1rem) scale(1.1);
-          transform: translateX(1rem) scale(1.1);
+  -webkit-transform: translateX(0.5rem) scale(1.1);
+          transform: translateX(0.5rem) scale(1.1);
 }
 
 .navbar {
@@ -146,13 +146,21 @@
   z-index: 2;
   -webkit-box-shadow: 0 3px 3px #aaa;
           box-shadow: 0 3px 3px #aaa;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .navbar-left {
+  margin-left: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.navbar-brand {
+  margin-right: 1rem;
+  color: cadetblue;
+  font-size: 1.2rem;
+  padding: 0;
 }
 
 .navbar-right {
@@ -168,7 +176,6 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 0;
   padding: 0;
   -ms-flex-item-align: center;
       align-self: center;
@@ -202,7 +209,7 @@
 .nav-element {
   display: inline;
   font-size: 1rem;
-  margin-right: 2rem;
+  margin-right: 1rem;
   padding: 0.25rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -220,6 +227,108 @@
 .nav-element .active {
   border-bottom: 3px solid lightcoral;
   color: #555;
+}
+
+#intro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  height: 100vh;
+}
+
+@media screen and (max-width: 768px) {
+  #intro {
+    display: block;
+  }
+}
+
+#intro .intro-left {
+  background: url("../../assets/images/Headshot6.jpg") fixed;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  width: 30%;
+}
+
+@media screen and (max-width: 768px) {
+  #intro .intro-left {
+    display: none;
+  }
+}
+
+#intro .intro-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 70%;
+  background: url("../../assets/images/bg2.png") fixed right;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 70% 100%;
+}
+
+@media screen and (max-width: 768px) {
+  #intro .intro-right {
+    background: url("../../assets/images/Headshot6.jpg") fixed right;
+    background-size: cover;
+    background-position: 50%;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+#intro .intro-right .intro-text {
+  margin: auto;
+  z-index: 1;
+}
+
+#intro .intro-right .intro-text .title {
+  font-size: 6rem;
+  margin-bottom: 2rem;
+  color: white;
+  text-shadow: 8px -6px 6px #333;
+  text-align: center;
+  -webkit-animation-name: title;
+          animation-name: title;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation: FadeIn 1s;
+          animation: FadeIn 1s;
+}
+
+@media screen and (max-width: 1280px) {
+  #intro .intro-right .intro-text .title {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  #intro .intro-right .intro-text .title {
+    font-size: 2.5rem;
+  }
+}
+
+#intro .intro-right .intro-text .subtitle {
+  -webkit-animation: FadeIn 1s;
+          animation: FadeIn 1s;
+  margin-bottom: 2rem;
+  color: white;
+  font-size: 3rem;
+  font-weight: 150;
+  text-align: center;
+}
+
+@media screen and (max-width: 1280px) {
+  #intro .intro-right .intro-text .subtitle {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  #intro .intro-right .intro-text .subtitle {
+    font-size: 1.5rem;
+  }
 }
 
 .pop-list {
@@ -290,7 +399,7 @@
 }
 
 .profile-img {
-  background: url("../../images/Headshot2.png");
+  background: url("../../assets/images/Headshot2.png");
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
@@ -315,6 +424,8 @@ footer {
   padding: 1rem;
   color: #666;
   font-size: 0.75rem;
+  height: 300px;
+  background: #333;
 }
 
 * {
@@ -457,4 +568,3 @@ p {
     display: block;
   }
 }
-/*# sourceMappingURL=style.css.map */

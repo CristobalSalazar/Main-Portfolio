@@ -2,7 +2,6 @@
   @media screen and (max-width: $breakpoint) {
   }
 }
-
 @mixin fontSizeAtBreakpoint($fontSize, $breakpoint) {
   @media screen and (max-width: $breakpoint) {
     font-size: $fontSize;
@@ -18,8 +17,8 @@
 }
 
 .fadeIn {
-  @include fadeIn(0.66s);
+  @include fadeIn(1s);
 }
 .fadeOut {
-  @include fadeOut(0.66s);
+  @include fadeOut(1s);
 }

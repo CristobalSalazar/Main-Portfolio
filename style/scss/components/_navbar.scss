@@ -10,12 +10,18 @@
   background: $bg;
   z-index: 2;
   box-shadow: 0 3px 3px #aaa;
-  opacity: 0.9;
+  opacity: 1;
 
   &-left {
+    margin-left: 1rem;
     display: flex;
   }
-
+  &-brand {
+    margin-right: 1rem;
+    color: $accent;
+    font-size: 1.2rem;
+    padding: 0;
+  }
   &-right {
     color: white;
     align-self: center;
@@ -23,7 +29,6 @@
 
     a {
       display: flex;
-      margin: 0;
       padding: 0;
       align-self: center;
       line-height: 0;
@@ -54,7 +59,7 @@
 .nav-element {
   display: inline;
   font-size: 1rem;
-  margin-right: 2rem;
+  margin-right: 1rem;
   padding: 0.25rem;
   box-sizing: border-box;
 
