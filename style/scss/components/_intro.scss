@@ -1,0 +1,76 @@
+$left-size: 30%;
+$right-size: 100% - $left-size;
+
+#intro {
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+  @media screen and (max-width: $breakpoint-sm) {
+    display: block;
+  }
+  .intro-left {
+    background-image: url("../../images/Headshot6.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: $left-size;
+    background-position-x: $left-size;
+    background-position-y: 66%;
+    @media screen and (max-width: $breakpoint-sm) {
+      display: none;
+    }
+  }
+  .intro-right {
+    display: flex;
+    width: $right-size;
+    background: url("../../images/bg2.png") fixed right;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: $right-size 100%;
+    @media screen and (max-width: $breakpoint-sm) {
+      background: url("../../images/Headshot6.jpg") fixed right;
+      // background-size: 100% 100%;
+      background-size: cover;
+      background-position: 50%;
+      width: 100%;
+      height: 100%;
+    }
+    .intro-text {
+      margin: auto;
+      z-index: 1;
+      .title {
+        font-size: 6rem;
+        margin-bottom: 2rem;
+        color: #fff;
+        text-shadow: 1px 1px black;
+        text-align: center;
+        animation-name: title;
+        animation-duration: 1s;
+        @include fontSizeAtBreakpoint(4rem, $breakpoint-lg);
+        @include fontSizeAtBreakpoint(2.5rem, $breakpoint-xs);
+        animation: FadeIn 1s;
+      }
+      .subtitle {
+        animation: FadeIn 1s;
+        margin-bottom: 2rem;
+        color: whitesmoke;
+        font-size: 3rem;
+        font-weight: 150;
+        text-align: center;
+        @include fontSizeAtBreakpoint(2rem, $breakpoint-lg);
+        @include fontSizeAtBreakpoint(1.5rem, $breakpoint-xs);
+      }
+      @keyframes FadeIn {
+        from {
+          filter: blur(10px);
+          transform: translateY(50%);
+          opacity: 0;
+        }
+        to {
+          filter: blur(0);
+          transform: translateY(0%);
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
