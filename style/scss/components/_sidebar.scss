@@ -1,7 +1,7 @@
 #side-drawer {
   background: $bg2;
   position: relative;
-  box-shadow: 0 0 0.5rem #111;
+  box-shadow: 0 0 0.5rem #aaa;
   display: flex;
   flex-direction: column;
 
@@ -23,7 +23,7 @@
       padding: 1rem;
       margin-bottom: 1rem;
       position: relative;
-      transition: color 0.25s;
+      transition: color 0.25s, transform 0.25s;
 
       &:hover {
         color: $primary;
@@ -31,7 +31,8 @@
     }
 
     .active {
-      color: $primary;
+      color: black;
+      transform: translateX(1rem) scale(1.1);
     }
   }
 }

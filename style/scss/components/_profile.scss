@@ -1,7 +1,7 @@
 .profile {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 3px;
+  grid-gap: 1rem;
   border-radius: 5px;
 
   @media screen and (max-width: $breakpoint-sm) {

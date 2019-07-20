@@ -2,10 +2,11 @@
   width: 100%;
   margin: 0 auto;
   font-weight: 300;
-  color: $bg;
+  color: black;
+  box-shadow: -5px 5px 15px darken($bg, 25%);
 
   li {
-    background-color: white;
+    background-color: #fff;
     padding: 1.5rem;
     text-align: left;
     opacity: 0.75;
@@ -20,7 +21,7 @@
     }
     &:hover {
       border-radius: 5px;
-      box-shadow: 0 0 0.5rem black;
+      box-shadow: 0 0 0.5rem #fff;
       opacity: 1;
       transform: scale(1.025);
       z-index: 1;
@@ -29,10 +30,20 @@
 }
 #tools li:nth-child(even) {
   background-color: darkseagreen;
+
+  &:hover {
+    box-shadow: 0 0 0.5rem darkseagreen;
+  }
 }
 #languages li:nth-child(even) {
   background-color: cadetblue;
+  &:hover {
+    box-shadow: 0 0 0.5rem cadetblue;
+  }
 }
 #frameworks li:nth-child(even) {
   background-color: lightcoral;
+  &:hover {
+    box-shadow: 0 0 0.5rem lightcoral;
+  }
 }

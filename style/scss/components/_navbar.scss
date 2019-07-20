@@ -6,8 +6,8 @@
   padding: 1rem;
   background: $bg2;
   z-index: 2;
-  opacity: 0.95;
-  box-shadow: 0 3px 3px $bg;
+  box-shadow: 0 3px 3px #aaa;
+  opacity: 0.9;
 }
 .nav-element {
   display: inline;
@@ -17,16 +17,15 @@
   box-sizing: border-box;
 
   .nav-link {
-    color: #eee;
+    color: $text;
     &:hover {
-      color: wheat;
-      border-bottom: 1px solid lightcoral;
+      color: black;
+      border-bottom: 3px solid lightcoral;
     }
   }
-
   .active {
-    border-bottom: 1px solid lightcoral;
-    color: wheat;
+    border-bottom: 3px solid lightcoral;
+    color: $text;
   }
 }
 #social-links {
