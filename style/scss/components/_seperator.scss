@@ -1,0 +1,16 @@
+.seperator {
+  background: url("../../../assets/images/seperator.png");
+  width: 100%;
+  height: 100px;
+  background-size: 20%;
+  margin: 0 auto;
+
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+canvas {
+  // box-shadow: 0 0 3px #666;
+  // background: url("../../../assets/images/bg3.png");
+  // background-size: cover;
+  background: $bg;
+}
