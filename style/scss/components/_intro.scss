@@ -1,4 +1,4 @@
-$left-size: 30%;
+$left-size: 40%;
 $right-size: 100% - $left-size;
 
 #intro {
@@ -10,7 +10,7 @@ $right-size: 100% - $left-size;
   }
   .intro-left {
     background: url("../../assets/images/Headshot6.jpg") fixed;
-    background-size: auto 100%;
+    background-size: $left-size auto;
     background-repeat: no-repeat;
     width: $left-size;
     @media screen and (max-width: $breakpoint-sm) {
@@ -38,8 +38,9 @@ $right-size: 100% - $left-size;
       .title {
         font-size: 6rem;
         margin-bottom: 2rem;
+        font-weight: 100;
         color: white;
-        text-shadow: 8px -6px 6px #333;
+        // text-shadow: 8px 6px 2px #333;
         text-align: center;
         animation-name: title;
         animation-duration: 1s;

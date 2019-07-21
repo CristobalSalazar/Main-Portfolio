@@ -70,11 +70,150 @@
           animation-fill-mode: forwards;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+body {
+  background: #eee;
+}
+
+.fa {
+  line-height: 0;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-size: 2.5rem;
+}
+
+h1 {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 3rem auto;
+  color: #222;
+}
+
+@media screen and (max-width: 425px) {
+  h1 {
+    font-size: 2rem;
+    margin: 2rem auto;
+  }
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 2rem;
+  color: #555;
+  text-align: left;
+}
+
+@media screen and (max-width: 425px) {
+  h2 {
+    font-size: 1.5rem;
+    margin: 1.5rem auto;
+  }
+}
+
+h3 {
+  margin: 24px auto;
+  padding: 24px 0;
+  width: 100%;
+  text-align: left;
+  font-size: 36px;
+  font-weight: 100;
+  color: #555;
+}
+
+h4 {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+p {
+  line-height: 1.66em;
+  color: #555;
+  background-color: #fff;
+  padding: 24px;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.col-3 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media screen and (max-width: 768px) {
+  .col-3 {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .col-3 {
+    display: block;
+  }
+}
+
+.grid-gap-6 {
+  grid-gap: 0.5rem;
+}
+
+.main {
+  padding: 0 3rem;
+  min-height: 100vh;
+  max-width: 1200px;
+}
+
+@media screen and (max-width: 992px) {
+  .main {
+    margin: 0;
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .main {
+    margin: 0;
+    padding: 0.5rem;
+  }
+}
+
+.layout {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 6fr;
+      grid-template-columns: 1fr 6fr;
+}
+
+@media screen and (max-width: 992px) {
+  .layout {
+    display: block;
+  }
+}
+
 #side-drawer {
-  background: #ddd;
+  background: #eee;
   position: relative;
-  -webkit-box-shadow: 0 0 0.5rem #aaa;
-          box-shadow: 0 0 0.5rem #aaa;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -109,7 +248,7 @@
       -ms-user-select: none;
           user-select: none;
   font-size: 1rem;
-  color: #666;
+  color: #555;
   display: block;
   padding: 1rem;
   margin-bottom: 1rem;
@@ -121,11 +260,11 @@
 }
 
 #side-drawer #side-list .side-link:hover {
-  color: #555;
+  color: #222;
 }
 
 #side-drawer #side-list .active {
-  color: black;
+  color: #222;
   -webkit-transform: translateX(0.5rem) scale(1.1);
           transform: translateX(0.5rem) scale(1.1);
 }
@@ -156,11 +295,43 @@
   display: flex;
 }
 
-.navbar-brand {
+.navbar-left .pages {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-left: 1rem;
+}
+
+.navbar-left .pages .nav-element {
+  display: inline;
+  font-size: 1rem;
   margin-right: 1rem;
-  color: cadetblue;
+  padding: 0.25rem;
+}
+
+.navbar-left .pages .nav-element .nav-link {
+  color: #555;
+  -webkit-transition: color 0.25s;
+  transition: color 0.25s;
+}
+
+.navbar-left .pages .nav-element .nav-link:hover {
+  color: black;
+}
+
+.navbar-left .pages .nav-element .active {
+  border-bottom: 3px solid #5f9ea0;
+  color: black;
+}
+
+.navbar-brand {
+  color: #555;
   font-size: 1.2rem;
-  padding: 0;
+  padding-right: 1rem;
+  height: 100%;
+  border-right: 1px solid black;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .navbar-right {
@@ -190,8 +361,8 @@
 
 .navbar-right a:hover {
   opacity: 1;
-  -webkit-transform: scale(1.5) rotateZ(-5deg);
-          transform: scale(1.5) rotateZ(-5deg);
+  -webkit-transform: scale(1.1) rotateZ(-5deg);
+          transform: scale(1.1) rotateZ(-5deg);
 }
 
 .navbar-right #facebook {
@@ -204,29 +375,6 @@
 
 .navbar-right #instagram {
   color: #c13584;
-}
-
-.nav-element {
-  display: inline;
-  font-size: 1rem;
-  margin-right: 1rem;
-  padding: 0.25rem;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.nav-element .nav-link {
-  color: #555;
-}
-
-.nav-element .nav-link:hover {
-  color: black;
-  border-bottom: 3px solid lightcoral;
-}
-
-.nav-element .active {
-  border-bottom: 3px solid lightcoral;
-  color: #555;
 }
 
 #intro {
@@ -246,9 +394,9 @@
 
 #intro .intro-left {
   background: url("../../assets/images/Headshot6.jpg") fixed;
-  background-size: auto 100%;
+  background-size: 40% auto;
   background-repeat: no-repeat;
-  width: 30%;
+  width: 40%;
 }
 
 @media screen and (max-width: 768px) {
@@ -261,11 +409,11 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 70%;
+  width: 60%;
   background: url("../../assets/images/bg2.png") fixed right;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: 70% 100%;
+  background-size: 60% 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -286,8 +434,8 @@
 #intro .intro-right .intro-text .title {
   font-size: 6rem;
   margin-bottom: 2rem;
+  font-weight: 100;
   color: white;
-  text-shadow: 8px -6px 6px #333;
   text-align: center;
   -webkit-animation-name: title;
           animation-name: title;
@@ -399,12 +547,12 @@
 }
 
 .profile-img {
-  background: url("../../assets/images/Headshot2.png");
+  background: url("../../assets/images/Headshot6.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
   border-radius: 5px;
-  background-position: 0% 0%;
+  background-position: 0% 50%;
 }
 
 @media screen and (max-width: 768px) {
@@ -420,151 +568,22 @@
 }
 
 footer {
-  margin-top: 4rem;
+  margin-top: 60vh;
   padding: 1rem;
   color: #666;
   font-size: 0.75rem;
-  height: 300px;
-  background: #333;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  text-decoration: none;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-
-li {
-  list-style: none;
-}
-
-a:hover {
-  cursor: pointer;
-}
-
-body {
-  background: #eee;
-}
-
-.fa {
-  line-height: 0;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  font-size: 2.5rem;
-}
-
-h1 {
-  display: inline-block;
-  font-size: 2rem;
-  font-weight: 400;
-  margin: 3rem auto;
-  color: #555;
-}
-
-@media screen and (max-width: 425px) {
-  h1 {
-    font-size: 2rem;
-    margin: 2rem auto;
-  }
-}
-
-h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 2rem;
-  color: #555;
-  text-align: left;
-}
-
-@media screen and (max-width: 425px) {
-  h2 {
-    font-size: 1.5rem;
-    margin: 1.5rem auto;
-  }
-}
-
-h3 {
-  margin: 24px auto;
-  padding: 24px 0;
+.seperator {
+  background: url("../../../assets/images/seperator.png");
   width: 100%;
-  text-align: left;
-  font-size: 36px;
-  font-weight: 100;
-  color: #555;
+  height: 100px;
+  background-size: 20%;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 
-h4 {
-  font-size: 1.5rem;
-  color: #555;
-}
-
-p {
-  line-height: 1.66em;
-  color: #555;
-  background-color: #fff;
-  padding: 24px;
-  font-size: 1rem;
-  border-radius: 5px;
-}
-
-.col-3 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
-}
-
-@media screen and (max-width: 768px) {
-  .col-3 {
-    -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .col-3 {
-    display: block;
-  }
-}
-
-.grid-gap-6 {
-  grid-gap: 0.5rem;
-}
-
-.main {
-  padding: 0 3rem;
-  min-height: 100vh;
-  max-width: 1200px;
-}
-
-@media screen and (max-width: 992px) {
-  .main {
-    margin: 0;
-    padding: 0 1rem;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .main {
-    margin: 0;
-    padding: 0.5rem;
-  }
-}
-
-.layout {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 6fr;
-      grid-template-columns: 1fr 6fr;
-}
-
-@media screen and (max-width: 992px) {
-  .layout {
-    display: block;
-  }
+canvas {
+  background: #eee;
 }

@@ -1,7 +1,7 @@
 #side-drawer {
-  background: $bg2;
+  background: $bg;
   position: relative;
-  box-shadow: 0 0 0.5rem #aaa;
+  // border-right: 6px double #aaa;
   display: flex;
   flex-direction: column;
 
@@ -18,7 +18,7 @@
     .side-link {
       user-select: none;
       font-size: 1rem;
-      color: #666;
+      color: $text;
       display: block;
       padding: 1rem;
       margin-bottom: 1rem;
@@ -26,12 +26,12 @@
       transition: color 0.25s, transform 0.25s;
 
       &:hover {
-        color: $primary;
+        color: $dark;
       }
     }
 
     .active {
-      color: black;
+      color: $dark;
       transform: translateX(0.5rem) scale(1.1);
     }
   }

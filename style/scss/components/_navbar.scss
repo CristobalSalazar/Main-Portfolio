@@ -15,12 +15,35 @@
   &-left {
     margin-left: 1rem;
     display: flex;
+    .pages {
+      align-self: center;
+      margin-left: 1rem;
+      .nav-element {
+        display: inline;
+        font-size: 1rem;
+        margin-right: 1rem;
+        padding: 0.25rem;
+        .nav-link {
+          color: $text;
+          transition: color 0.25s;
+          &:hover {
+            color: black;
+          }
+        }
+        .active {
+          border-bottom: 3px solid $accent;
+          color: black;
+        }
+      }
+    }
   }
   &-brand {
-    margin-right: 1rem;
-    color: $accent;
+    color: $text;
     font-size: 1.2rem;
-    padding: 0;
+    padding-right: 1rem;
+    height: 100%;
+    border-right: 1px solid black;
+    box-sizing: border-box;
   }
   &-right {
     color: white;
@@ -39,41 +62,16 @@
 
     a:hover {
       opacity: 1;
-      transform: scale(1.5) rotateZ(-5deg);
+      transform: scale(1.1) rotateZ(-5deg);
     }
-
     #facebook {
       color: #3b5998;
     }
-
     #github {
       color: #6e5494;
     }
-
     #instagram {
       color: #c13584;
     }
-  }
-}
-
-.nav-element {
-  display: inline;
-  font-size: 1rem;
-  margin-right: 1rem;
-  padding: 0.25rem;
-  box-sizing: border-box;
-
-  .nav-link {
-    color: $text;
-
-    &:hover {
-      color: black;
-      border-bottom: 3px solid lightcoral;
-    }
-  }
-
-  .active {
-    border-bottom: 3px solid lightcoral;
-    color: $text;
   }
 }

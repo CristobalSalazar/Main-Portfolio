@@ -3,7 +3,7 @@ h1 {
   font-size: 2rem;
   font-weight: 400;
   margin: 3rem auto;
-  color: $text;
+  color: $dark;
   @media screen and (max-width: $breakpoint-xs) {
     font-size: 2rem;
     margin: 2rem auto;
@@ -27,11 +27,11 @@ h3 {
   text-align: left;
   font-size: 36px;
   font-weight: 100;
-  color: $primary;
+  color: $text;
 }
 h4 {
   font-size: 1.5rem;
-  color: $primary;
+  color: $text;
 }
 p {
   line-height: 1.66em;

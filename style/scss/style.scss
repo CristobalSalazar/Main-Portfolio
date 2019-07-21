@@ -1,12 +1,14 @@
 @import "./abstracts/vars";
 @import "./abstracts/keyframes";
 @import "./abstracts/mixins";
+@import "./base/base";
+@import "./base/typography";
+@import "./layout/grids";
+//Components
 @import "./components/sidebar";
 @import "./components/navbar";
 @import "./components/intro";
 @import "./components/pop-list";
 @import "./components/profile";
 @import "./components/footer";
-@import "./base/base";
-@import "./base/typography";
-@import "./layout/grids";
+@import "./components/seperator";

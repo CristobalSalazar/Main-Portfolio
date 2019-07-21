@@ -44,6 +44,9 @@
   window.addEventListener("resize", adjustTitleHeight);
   // TODO: AUTOMATE PROCESS
   window.addEventListener("scroll", e => {
+    intro.style.opacity =
+      (intro.getBoundingClientRect().bottom - nav.clientHeight) / intro.clientHeight;
+
     const introAbout = (about.getBoundingClientRect().top + intro.getBoundingClientRect().top) / 2;
     const aboutSkills =
       (about.getBoundingClientRect().top + skills.getBoundingClientRect().top) / 2;
@@ -88,7 +91,7 @@
   about.style.opacity = 0;
   skills.style.opacity = 0;
   education.style.opacity = 0;
-  resume.style.opacity = 1;
+  resume.style.opacity = 0;
 
   onClickScrollTo(aboutLink, about);
   onClickScrollTo(skillsLink, skills);

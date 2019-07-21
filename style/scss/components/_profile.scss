@@ -9,12 +9,12 @@
   }
 
   &-img {
-    background: url("../../assets/images/Headshot2.png");
+    background: url("../../assets/images/Headshot6.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
     border-radius: 5px;
-    background-position: 0% 0%;
+    background-position: 0% 50%;
 
     @media screen and (max-width: $breakpoint-sm) {
       height: 500px;
