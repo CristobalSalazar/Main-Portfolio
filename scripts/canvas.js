@@ -4,6 +4,8 @@ var context = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+const isMobile = window.innerWidth < 400;
+
 var palette = ["#581845", "#900C3F", "#C70039", "#FF5733", "#FFC300"];
 var palette2 = ["#BEEEF7", "#83C4F7", "#62A2D1", "#4B87CC", "#497CB2"];
 
@@ -12,14 +14,22 @@ function getRandomElement(array) {
 }
 
 function titleText() {
-  context.font = "128px Times";
   context.textAlign = "center";
   context.fillStyle = "#111";
   context.lineWidth = 3;
-  context.fillText("Cristobal       Salazar", canvas.width / 2, canvas.height / 2);
+  if (isMobile) {
+    context.font = "40px Times";
+  } else {
+    context.font = "128px Times";
+  }
+  context.fillText("Cristobal Salazar", canvas.width / 2, canvas.height / 2);
 }
 function subtitleText() {
-  context.font = "64px Times";
+  if (isMobile) {
+    context.font = "22px Times";
+  } else {
+    context.font = "64px Times";
+  }
   context.fillStyle = "#111";
   context.textAlign = "center";
   context.fillText("Full-Stack Web Developer", canvas.width / 2, canvas.height / 1.5);
@@ -95,7 +105,11 @@ class Circle {
     this.radius -= this.dr;
     if (this.radius <= 0) {
       this.initRadius();
-      this.y = canvas.height - this.radius - Math.floor(Math.random() * 100);
+      if (isMobile) {
+        this.y = canvas.height - this.radius - Math.floor(Math.random() * 10);
+      } else {
+        this.y = canvas.height - this.radius - Math.floor(Math.random() * 100);
+      }
       this.dx = -this.dx;
       return;
     }
@@ -107,7 +121,7 @@ class Circle {
     }
   }
   initRadius() {
-    this.radius = Math.floor(Math.random() * 10 + 5);
+    this.radius = Math.floor(Math.random() * 5 + 5);
   }
 }
 
@@ -122,15 +136,28 @@ function lerp(a, b, t) {
 }
 function initCircles() {
   var circles = [];
-  for (let i = 0; i < 500; i++) {
-    let radius = Math.floor(Math.random() * 10 + 5);
-    let maxSpeed = 7;
-    let position =
-      Math.floor((Math.random() * canvas.width) / 50) + canvas.width / 2 + canvas.width / 50;
-    let circle = new Circle(position, -10, radius);
-    circle.dx = (Math.random() - 0.5) * 2;
-    circle.dy = Math.floor(Math.random() * -2 * maxSpeed);
-    circles.push(circle);
+  if (isMobile) {
+    for (let i = 0; i < 200; i++) {
+      let radius = Math.floor(Math.random() * 2);
+      let maxSpeed = 3;
+      let position =
+        Math.floor((Math.random() * canvas.width) / 50) + canvas.width / 2 + canvas.width / 50;
+      let circle = new Circle(position, -10, radius);
+      circle.dx = (Math.random() - 0.5) * 2;
+      circle.dy = Math.floor(Math.random() * -2 * maxSpeed);
+      circles.push(circle);
+    }
+  } else {
+    for (let i = 0; i < 500; i++) {
+      let radius = Math.floor(Math.random() * 10 + 5);
+      let maxSpeed = 7;
+      let position =
+        Math.floor((Math.random() * canvas.width) / 50) + canvas.width / 2 + canvas.width / 50;
+      let circle = new Circle(position, -10, radius);
+      circle.dx = (Math.random() - 0.5) * 2;
+      circle.dy = Math.floor(Math.random() * -2 * maxSpeed);
+      circles.push(circle);
+    }
   }
   return circles;
 }
