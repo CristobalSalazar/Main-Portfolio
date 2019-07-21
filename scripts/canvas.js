@@ -1,105 +1,59 @@
-var canvas = document.querySelector("canvas");
-var context = canvas.getContext("2d");
+(function() {
+  var canvas = document.getElementById("intro-canvas");
+  var context = canvas.getContext("2d");
+  const isMobile = window.innerWidth < 400;
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 
-const isMobile = window.innerWidth < 400;
-
-var palette = ["#581845", "#900C3F", "#C70039", "#FF5733", "#FFC300"];
-var palette2 = ["#BEEEF7", "#83C4F7", "#62A2D1", "#4B87CC", "#497CB2"];
-
-function getRandomElement(array) {
-  return array[Math.floor(Math.random() * array.length)];
-}
-
-function titleText() {
-  context.textAlign = "center";
-  context.fillStyle = "#111";
-  context.lineWidth = 3;
-  if (isMobile) {
-    context.font = "40px Times";
-  } else {
-    context.font = "128px Times";
-  }
-  context.fillText("Cristobal Salazar", canvas.width / 2, canvas.height / 2);
-}
-function subtitleText() {
-  if (isMobile) {
-    context.font = "22px Times";
-  } else {
-    context.font = "64px Times";
-  }
-  context.fillStyle = "#111";
-  context.textAlign = "center";
-  context.fillText("Full-Stack Web Developer", canvas.width / 2, canvas.height / 1.5);
-}
-class Point {
-  x = 0;
-  y = 0;
-  constructor(x = 0, y = 0) {
-    this.x = x;
-    this.y = y;
-  }
-}
-class SinWave {
-  x = 0;
-  y = 0;
-  width = 10;
-  offsetY = 0;
-  offsetX = 0;
-  color = getRandomElement(palette2);
-  amplitude = 0;
-  frequency = canvas.width / 4;
-  coords = [];
-
-  constructor(x = 0, y = 0, a = 50, f = 200) {
-    this.x = x;
-    this.y = y;
-    this.amplitude = a;
-    this.frequency = f;
-    this.color = "black";
-  }
-
-  draw() {
-    const steps = canvas.width / 50;
-    this.coords = [];
-    context.closePath();
-    context.beginPath();
-    context.moveTo(0, innerHeight / 2);
-    context.strokeStyle = this.color;
-    context.lineWidth = this.width;
-    for (let i = this.x; i < canvas.width + steps; i += steps) {
-      let y = Math.sin((i + this.offsetX) / this.frequency) * this.amplitude + this.offsetY;
-
-      context.lineTo(i, y + this.y);
-      this.coords.push(new Point(i, y + this.y));
+  class SinWave {
+    constructor(x = 0, y = 0, a = 50, f = 200) {
+      this.x = x;
+      this.y = y;
+      this.amplitude = a;
+      this.frequency = f;
+      this.color = "black";
+      this.width = 10;
+      this.offsetY = 0;
+      this.offsetX = 0;
+      this.coords = [];
     }
-    context.stroke();
-  }
-}
+    draw() {
+      const steps = canvas.width / 50;
+      this.coords = [];
+      context.closePath();
+      context.beginPath();
+      context.moveTo(0, innerHeight / 2);
+      context.strokeStyle = this.color;
+      context.lineWidth = this.width;
+      for (let i = this.x; i < canvas.width + steps; i += steps) {
+        let y = Math.sin((i + this.offsetX) / this.frequency) * this.amplitude + this.offsetY;
 
-class Circle {
-  constructor(x, y, radius) {
+        context.lineTo(i, y + this.y);
+        this.coords.push(new Point(i, y + this.y));
+      }
+      context.stroke();
+    }
+  }
+  function Circle(x, y, radius) {
     this.x = x;
     this.y = y;
     this.radius = radius;
+    this.dy = 0;
+    this.dx = 0;
+    this.dr = Math.random() / 2;
+    this.color = Math.random() > 0.5 ? "#111" : "#5f9ea0";
   }
-  dy = 0;
-  dx = 0;
-  dr = Math.random() / 2;
-  color = Math.random() > 0.5 ? "#111" : "#5f9ea0";
-
-  // --- FUNCTIONS ---
-  draw() {
+  Circle.prototype.draw = function() {
     context.beginPath();
     context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    context.fillStyle = this.color;
     context.globalAlpha = this.y / canvas.height;
+    context.fillStyle = this.color;
     context.fill();
     context.closePath();
-  }
-  update() {
+    context.globalAlpha = 1;
+  };
+  Circle.prototype.update = function() {
     this.x += this.dx;
     this.y += this.dy / (this.y * 0.002);
     this.radius -= this.dr;
@@ -119,108 +73,116 @@ class Circle {
     if (this.y + this.radius <= 0) {
       this.y = canvas.height - this.radius - Math.floor(Math.random() * 25);
     }
-  }
-  initRadius() {
-    this.radius = Math.floor(Math.random() * 5 + 5);
-  }
-}
+  };
+  Circle.prototype.initRadius = function() {
+    this.radius = Math.floor(Math.random() * 5 + 5) + 3;
+  };
 
-var requestAnimationFrame =
-  window.requestAnimationFrame ||
-  window.mozRequestAnimationFrame ||
-  window.webkitRequestAnimationFrame ||
-  window.msRequestAnimationFrame;
-
-function lerp(a, b, t) {
-  return (1 - t) * a + t * b;
-}
-function initCircles() {
-  var circles = [];
-  if (isMobile) {
-    for (let i = 0; i < 200; i++) {
-      let radius = Math.floor(Math.random() * 2);
-      let maxSpeed = 3;
-      let position =
-        Math.floor((Math.random() * canvas.width) / 50) + canvas.width / 2 + canvas.width / 50;
-      let circle = new Circle(position, -10, radius);
-      circle.dx = (Math.random() - 0.5) * 2;
-      circle.dy = Math.floor(Math.random() * -2 * maxSpeed);
-      circles.push(circle);
+  function createCircles() {
+    let circles = [];
+    if (isMobile) {
+      for (let i = 0; i < 200; i++) {
+        let radius = Math.floor(Math.random() * 2) + 5;
+        let maxSpeed = 3;
+        // let position =
+        //   Math.floor((Math.random() * canvas.width) / 50) + canvas.width / 2 + canvas.width / 50;
+        let position = Math.random() * canvas.width;
+        let circle = new Circle(position, -10, radius);
+        circle.dx = (Math.random() - 0.5) * 2;
+        circle.dy = Math.floor(Math.random() * -2 * maxSpeed);
+        circles.push(circle);
+      }
+    } else {
+      for (let i = 0; i < 500; i++) {
+        const radius = Math.floor(Math.random() * 10 + 5);
+        const maxSpeed = 7;
+        // const position =
+        //   Math.floor((Math.random() * canvas.width) / 50) + canvas.width / 2 + canvas.width / 50;
+        let position = Math.random() * canvas.width;
+        const circle = new Circle(position, -10, radius);
+        circle.dx = (Math.random() - 0.5) * 2;
+        circle.dy = Math.floor(Math.random() * -2 * maxSpeed);
+        circles.push(circle);
+      }
     }
-  } else {
-    for (let i = 0; i < 500; i++) {
-      let radius = Math.floor(Math.random() * 10 + 5);
-      let maxSpeed = 7;
-      let position =
-        Math.floor((Math.random() * canvas.width) / 50) + canvas.width / 2 + canvas.width / 50;
-      let circle = new Circle(position, -10, radius);
-      circle.dx = (Math.random() - 0.5) * 2;
-      circle.dy = Math.floor(Math.random() * -2 * maxSpeed);
-      circles.push(circle);
-    }
+    return circles;
   }
-  return circles;
-}
+  const circles = createCircles();
 
-class Mouse {
-  x = 0;
-  y = 0;
-  held = false;
-}
-var mouse = new Mouse();
+  // --- Mouse Object ---
+  // Ugly, but ok...
+  var mouse = {
+    x: 0,
+    y: 0,
+    held: false
+  };
+  mouse.getCoords = function(e) {
+    mouse.x = e.clientX;
+  };
+  mouse.reset = function() {
+    mouse.held = false;
+  };
+  mouse.hold = function() {
+    mouse.held = true;
+  };
 
-function getMouseCoords(event) {
-  mouse.x = event.clientX;
-  mouse.y = event.clientY;
-}
-function resetMouse() {
-  mouse.held = false;
-}
-function holdMouse() {
-  mouse.held = true;
-}
-function followMouse() {
-  let pickupRadius = 150;
+  // --- Mouse Events ---
+  canvas.addEventListener("mouseleave", mouse.reset);
+  canvas.addEventListener("mousemove", mouse.getCoords);
+  canvas.addEventListener("mouseup", mouse.reset);
+  canvas.addEventListener("mousedown", mouse.hold);
 
-  for (circle of circles) {
-    if (
-      Math.abs(circle.x - mouse.x) < pickupRadius &&
-      Math.abs(circle.y - mouse.y) < pickupRadius
-    ) {
-      circle.x = lerp(circle.x, mouse.x, 0.05);
-      circle.y = lerp(circle.y, mouse.y, 0.05);
+  function lerp(a, b, t) {
+    return (1 - t) * a + t * b;
+  }
+  function followMouse(circle) {
+    let pickupRadius = 200;
+    if (circle.x < mouse.x + pickupRadius && circle.x > mouse.x - pickupRadius) {
+      circle.x = lerp(circle.x, mouse.x, 0.01);
+      circle.y = lerp(circle.y, mouse.y, 0.01);
     }
   }
-}
 
-//Events
-canvas.addEventListener("mouseleave", resetMouse);
-canvas.addEventListener("mousemove", getMouseCoords);
-canvas.addEventListener("mouseup", resetMouse);
-canvas.addEventListener("mousedown", holdMouse);
-var circles = initCircles();
-
-window.addEventListener("scroll", e => {
-  const rate = 0.1;
-});
-const fps = 1000 / 30;
-
-function main() {
-  context.closePath();
-
-  context.clearRect(0, 0, canvas.width, canvas.height);
-
-  for (var circle of circles) {
-    circle.update();
-    circle.draw();
+  function drawTitle() {
+    context.textAlign = "center";
+    context.fillStyle = "#111";
+    context.lineWidth = 3;
+    if (isMobile) {
+      context.font = "40px Times";
+    } else {
+      context.font = "128px Times";
+    }
+    context.fillText("Cristobal Salazar", canvas.width / 2, canvas.height / 2);
   }
-  if (mouse.held) {
-    followMouse();
+  function drawSubtitle() {
+    if (isMobile) {
+      context.font = "22px Times";
+    } else {
+      context.font = "64px Times";
+    }
+    context.fillStyle = "#111";
+    context.textAlign = "center";
+    context.fillText("Full-Stack Web Developer", canvas.width / 2, canvas.height / 1.5);
   }
-  context.stroke();
-  context.globalAlpha = 1;
-  titleText();
-  subtitleText();
-  requestAnimationFrame(main);
-}
-main();
+
+  const requestAnimationFrame =
+    window.requestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.msRequestAnimationFrame;
+
+  function render() {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    for (let circle of circles) {
+      if (mouse.held) {
+        followMouse(circle);
+      }
+      circle.update();
+      circle.draw();
+    }
+    drawTitle();
+    drawSubtitle();
+    requestAnimationFrame(render);
+  }
+  render();
+})();
