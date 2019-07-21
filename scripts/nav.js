@@ -2,6 +2,10 @@ var open = false;
 const navSpacer = document.getElementById("nav-spacer");
 const nav = document.querySelector("nav");
 
+if (window.innerWidth < 400) {
+  nav.style.display = "none";
+}
+
 if (navSpacer) {
   navSpacer.style.height = nav.clientHeight + "px";
 }

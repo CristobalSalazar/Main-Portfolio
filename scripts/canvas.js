@@ -4,37 +4,8 @@
   const isMobile = window.innerWidth < 400;
 
   canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  canvas.height = window.innerHeight - nav.clientHeight;
 
-  class SinWave {
-    constructor(x = 0, y = 0, a = 50, f = 200) {
-      this.x = x;
-      this.y = y;
-      this.amplitude = a;
-      this.frequency = f;
-      this.color = "black";
-      this.width = 10;
-      this.offsetY = 0;
-      this.offsetX = 0;
-      this.coords = [];
-    }
-    draw() {
-      const steps = canvas.width / 50;
-      this.coords = [];
-      context.closePath();
-      context.beginPath();
-      context.moveTo(0, innerHeight / 2);
-      context.strokeStyle = this.color;
-      context.lineWidth = this.width;
-      for (let i = this.x; i < canvas.width + steps; i += steps) {
-        let y = Math.sin((i + this.offsetX) / this.frequency) * this.amplitude + this.offsetY;
-
-        context.lineTo(i, y + this.y);
-        this.coords.push(new Point(i, y + this.y));
-      }
-      context.stroke();
-    }
-  }
   function Circle(x, y, radius) {
     this.x = x;
     this.y = y;
@@ -83,9 +54,7 @@
     if (isMobile) {
       for (let i = 0; i < 200; i++) {
         let radius = Math.floor(Math.random() * 2) + 5;
-        let maxSpeed = 3;
-        // let position =
-        //   Math.floor((Math.random() * canvas.width) / 50) + canvas.width / 2 + canvas.width / 50;
+        let maxSpeed = 1.5;
         let position = Math.random() * canvas.width;
         let circle = new Circle(position, -10, radius);
         circle.dx = (Math.random() - 0.5) * 2;
