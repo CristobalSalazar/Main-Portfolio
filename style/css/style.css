@@ -584,6 +584,13 @@ footer {
   background-position: 50% 50%;
 }
 
+@media screen and (max-width: 768px) {
+  .seperator {
+    height: 100px;
+    background-size: 50%;
+  }
+}
+
 canvas {
   background: #eee;
 }

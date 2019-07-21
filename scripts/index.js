@@ -44,8 +44,11 @@
   window.addEventListener("resize", adjustTitleHeight);
   // TODO: AUTOMATE PROCESS
   window.addEventListener("scroll", e => {
-    intro.style.opacity =
+    const currentOpcaity =
       (intro.getBoundingClientRect().bottom - nav.clientHeight) / intro.clientHeight;
+    if (currentOpcaity > 0) {
+      intro.style.opacity = currentOpcaity;
+    }
 
     const introAbout = (about.getBoundingClientRect().top + intro.getBoundingClientRect().top) / 2;
     const aboutSkills =

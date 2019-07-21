@@ -31,7 +31,7 @@
     if (this.radius <= 0) {
       this.initRadius();
       if (isMobile) {
-        this.y = canvas.height - this.radius - Math.floor(Math.random() * 10);
+        this.y = canvas.height + this.radius * 2 - Math.floor(Math.random() * 10);
       } else {
         this.y = canvas.height - this.radius - Math.floor(Math.random() * 100);
       }
@@ -52,7 +52,7 @@
   function createCircles() {
     let circles = [];
     if (isMobile) {
-      for (let i = 0; i < 200; i++) {
+      for (let i = 0; i < 250; i++) {
         let radius = Math.floor(Math.random() * 2) + 5;
         let maxSpeed = 1.5;
         let position = Math.random() * canvas.width;

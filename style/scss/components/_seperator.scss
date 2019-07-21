@@ -7,6 +7,10 @@
 
   background-repeat: no-repeat;
   background-position: 50% 50%;
+  @media screen and (max-width: $breakpoint-sm) {
+    height: 100px;
+    background-size: 50%;
+  }
 }
 canvas {
   // box-shadow: 0 0 3px #666;
