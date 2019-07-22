@@ -1,10 +1,17 @@
 (function() {
-  var canvas = document.getElementById("intro-canvas");
-  var context = canvas.getContext("2d");
-  const isMobile = window.innerWidth < 400;
+  const canvas = document.getElementById("intro-canvas");
+  const context = canvas.getContext("2d");
 
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight - nav.clientHeight;
+  var isMobile = false;
+  var isTablet = false;
+  function checkWidth() {
+    isMobile = window.innerWidth < 500;
+    isTablet = window.innerWidth < 980;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight - nav.clientHeight;
+  }
+  checkWidth();
+  window.onresize = checkWidth;
 
   function Circle(x, y, radius) {
     this.x = x;
@@ -124,6 +131,8 @@
     context.lineWidth = 3;
     if (isMobile) {
       context.font = "40px Times";
+    } else if (isTablet) {
+      context.font = "86px Times";
     } else {
       context.font = "128px Times";
     }
@@ -132,6 +141,8 @@
   function drawSubtitle() {
     if (isMobile) {
       context.font = "22px Times";
+    } else if (isTablet) {
+      context.font = "44px Times";
     } else {
       context.font = "64px Times";
     }

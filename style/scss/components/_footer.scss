@@ -3,4 +3,8 @@ footer {
   padding: 1rem;
   color: #666;
   font-size: 0.75rem;
+
+  @media screen and (max-width: $breakpoint-xs) {
+    background: darken($bg, 10%);
+  }
 }

@@ -108,7 +108,7 @@ h1 {
   color: #222;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 500px) {
   h1 {
     font-size: 2rem;
     margin: 2rem auto;
@@ -125,7 +125,7 @@ h2 {
   text-align: left;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 500px) {
   h2 {
     font-size: 1.5rem;
     margin: 1.5rem auto;
@@ -172,7 +172,7 @@ p {
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 500px) {
   .col-3 {
     display: block;
   }
@@ -188,14 +188,14 @@ p {
   max-width: 1200px;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 980px) {
   .main {
     margin: 0;
     padding: 0 1rem;
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 500px) {
   .main {
     margin: 0;
     padding: 0;
@@ -209,7 +209,7 @@ p {
       grid-template-columns: 1fr 6fr;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 980px) {
   .layout {
     display: block;
   }
@@ -227,7 +227,7 @@ p {
           flex-direction: column;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 980px) {
   #side-drawer {
     display: none;
   }
@@ -455,7 +455,7 @@ p {
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 500px) {
   #intro .intro-right .intro-text .title {
     font-size: 2.5rem;
   }
@@ -477,7 +477,7 @@ p {
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 500px) {
   #intro .intro-right .intro-text .subtitle {
     font-size: 1.5rem;
   }
@@ -506,7 +506,7 @@ p {
   font-size: 1.25rem;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 500px) {
   .pop-list li {
     padding: 1rem;
     font-size: 1rem;
@@ -565,7 +565,7 @@ p {
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 500px) {
   .profile-img {
     height: 250px;
     width: 250px;
@@ -580,6 +580,12 @@ footer {
   padding: 1rem;
   color: #666;
   font-size: 0.75rem;
+}
+
+@media screen and (max-width: 500px) {
+  footer {
+    background: #d5d5d5;
+  }
 }
 
 .seperator {

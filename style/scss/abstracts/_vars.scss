@@ -2,7 +2,8 @@ $dark: #222;
 $accent: #5f9ea0;
 $bg: #eee;
 $text: #555;
-$breakpoint-lg: 1280px;
-$breakpoint-md: 992px;
-$breakpoint-sm: 768px;
-$breakpoint-xs: 425px;
+
+$breakpoint-lg: 1280px; // Laptops
+$breakpoint-md: 980px; // Tablets
+$breakpoint-sm: 768px; //
+$breakpoint-xs: 500px; // Phones
