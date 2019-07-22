@@ -1,39 +1,35 @@
 .col-3 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0.5rem;
 
-  @media screen and (max-width: $breakpoint-sm) {
+  @media screen and (max-width: $breakpoint-md) {
     grid-template-columns: 1fr 1fr;
   }
-  @media screen and (max-width: $breakpoint-xs) {
+  @media screen and (max-width: $breakpoint-sm) {
     display: block;
   }
 }
-.grid-gap-6 {
-  grid-gap: 0.5rem;
-}
-.main {
-  padding: 0 3rem;
-
-  min-height: 100vh;
-  max-width: 1200px;
-
-  @media screen and (max-width: $breakpoint-md) {
-    margin: 0;
-    padding: 0 1rem;
-  }
-  @media screen and (max-width: $breakpoint-xs) {
-    margin: 0;
-    padding: 0;
-  }
-}
-
 .layout {
   display: grid;
   grid-template-columns: 1fr 6fr;
-  @media screen and (max-width: $breakpoint-lg) {
-  }
+
   @media screen and (max-width: $breakpoint-md) {
     display: block;
+  }
+
+  .main {
+    padding: 0 3rem;
+    min-height: 100vh;
+    max-width: 1200px;
+
+    @media screen and (max-width: $breakpoint-md) {
+      margin: 0;
+      padding: 0 1rem;
+    }
+    @media screen and (max-width: $breakpoint-sm) {
+      margin: 0;
+      padding: 0 0.5rem;
+    }
   }
 }

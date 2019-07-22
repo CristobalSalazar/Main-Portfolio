@@ -1,23 +1,14 @@
 .seperator {
-  background: url("../../../assets/images/seperator.png");
+  background: url("../../assets/images/seperator.png");
   width: 100%;
   height: 100px;
   background-size: 20%;
   margin: 0 auto;
-  opacity: 0.25;
+  opacity: 1;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   @media screen and (max-width: $breakpoint-sm) {
     height: 3rem;
     background-size: 50%;
   }
-}
-canvas {
-  // box-shadow: 0 0 3px #666;
-  // background: url("../../../assets/images/bg3.png");
-  // background-size: cover;
-  // background: $bg;
-  background: linear-gradient($bg, $bg, $bg, $accent);
-
-  border-bottom: 3px solid $accent;
 }

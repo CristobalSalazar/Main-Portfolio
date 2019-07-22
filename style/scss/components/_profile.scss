@@ -4,6 +4,9 @@
   grid-gap: 1rem;
   border-radius: 5px;
 
+  @media screen and (max-width: $breakpoint-lg) {
+    grid-template-columns: 1fr 1fr;
+  }
   @media screen and (max-width: $breakpoint-sm) {
     display: block;
   }
@@ -14,12 +17,16 @@
     background-repeat: no-repeat;
     width: 100%;
     border-radius: 5px;
-    background-position: 0% 50%;
+    background-position: 50% 50%;
+    height: 500px;
 
-    @media screen and (max-width: $breakpoint-sm) {
-      height: 500px;
+    @media screen and (max-width: $breakpoint-lg) {
+      height: 400px;
     }
-    @media screen and (max-width: $breakpoint-xs) {
+
+    @media screen and (max-width: $breakpoint-md) {
+    }
+    @media screen and (max-width: $breakpoint-sm) {
       height: 250px;
       width: 250px;
       margin: auto;

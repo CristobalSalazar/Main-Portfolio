@@ -1,61 +1,62 @@
 (function() {
   const canvas = document.getElementById("intro-canvas");
   const context = canvas.getContext("2d");
-
-  var isMobile = false;
-  var isTablet = false;
   function checkWidth() {
-    isMobile = window.innerWidth < 500;
-    isTablet = window.innerWidth < 980;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight - nav.clientHeight;
   }
   checkWidth();
   window.onresize = checkWidth;
-
+  // ------ Circle Object ------
   function Circle(x, y, radius) {
     this.x = x;
     this.y = y;
+    this.xvel = 0;
+    this.yvel = 0;
+    this.shrinkRate = Math.random() / 4;
     this.radius = radius;
-    this.dy = 0;
-    this.dx = 0;
-    this.dr = Math.random() / 2;
-    this.color = Math.random() > 0.5 ? "#111" : "#5f9ea0";
+    this.fadeRate = Math.random() * 0.01;
+    this.opacity = 1;
+    this.color = "black";
   }
+  // *** METHODS ***
+  // --- Render ---
   Circle.prototype.draw = function() {
     context.beginPath();
     context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    context.globalAlpha = this.y / canvas.height;
+    context.globalAlpha = this.opacity;
     context.fillStyle = this.color;
     context.fill();
     context.closePath();
     context.globalAlpha = 1;
   };
+  // --- Update ---
   Circle.prototype.update = function() {
-    // PHYSICS
-    this.x += this.dx;
-    this.y += this.dy;
-    this.dy += 0.05;
-    this.radius -= this.dr;
-
-    if (this.radius <= 0) {
-      if (isMobile) {
-        this.radius = randomRange(6, 12);
-        this.x = randomRange(this.radius, canvas.width - this.radius);
-        this.y = canvas.height - this.radius * -2;
-        this.dy = -randomRange(5, 6);
-      } else {
-        this.radius = randomRange(6, 12);
-        this.x = randomRange(this.radius, canvas.width - this.radius);
-        this.y = canvas.height - this.radius * -2;
-        this.dy = -randomRange(6, 10);
-      }
-      this.dx = -this.dx;
+    this.x += this.xvel;
+    this.y += this.yvel;
+    this.yvel += 0.0985;
+    this.xvel = this.xvel / 2;
+    this.radius -= this.shrinkRate;
+    this.opacity = this.opacity <= 0 ? (this.opacity = 0) : (this.opacity -= this.fadeRate);
+    // --- Reset ---
+    if (this.radius <= 0 || this.opacity <= 0) {
+      this.radius = randomRange(6, 12);
+      this.shrinkRate = Math.random() / 4;
+      this.x = randomRange(this.radius, canvas.width - this.radius);
+      this.y = 0;
+      this.yvel = 0;
+      this.xvel = randomRange(-1, 1);
+      this.opacity = 1;
+      this.xvel = -this.xvel;
       return;
+    } else if (this.y - this.radius >= canvas.height) {
+      this.yvel = -this.yvel / 2;
+      this.radius /= 1.5;
+      this.y = canvas.height - this.radius;
     }
-
+    // --- Collision ---
     if (this.x + this.radius > canvas.width || this.x < 0 + this.radius) {
-      this.dx = -this.dx;
+      this.xvel = -this.xvel;
     }
   };
   Circle.prototype.initRadius = function() {
@@ -65,24 +66,16 @@
   function randomRange(min, max) {
     return Math.round(Math.random() * (max - min) + min);
   }
-  function initCircle() {
-    const radius = randomRange(2, 3);
-    const xpos = randomRange(radius, canvas.width - radius);
-    const ypos = canvas.height - radius;
-    const circle = new Circle(xpos, ypos, radius);
-    circle.dx = randomRange(-1, 1);
-    circle.dy = -randomRange(2, 3);
-    return circle;
-  }
+  // --- Circle Factory ---
   function createCircles() {
     let circles = [];
-    if (isMobile) {
+    if (breakpoints.s) {
       for (let i = 0; i < 250; i++) {
         let circle = initCircle();
         circles.push(circle);
       }
     } else {
-      for (let i = 0; i < 500; i++) {
+      for (let i = 0; i < 100; i++) {
         let circle = initCircle();
         circles.push(circle);
       }
@@ -90,9 +83,18 @@
     return circles;
   }
   const circles = createCircles();
+  // --- Initialize Circles ---
+  function initCircle() {
+    const radius = randomRange(2, 3);
+    const xpos = randomRange(radius, canvas.width - radius);
+    const ypos = 0;
+    const circle = new Circle(xpos, ypos, radius);
+    circle.xvel = randomRange(-5, 5);
+    circle.yvel = randomRange(0, 1);
+    return circle;
+  }
 
   // --- Mouse Object ---
-  // Ugly, but ok...
   var mouse = {
     x: 0,
     y: 0,
@@ -100,6 +102,7 @@
   };
   mouse.getCoords = function(e) {
     mouse.x = e.clientX;
+    mouse.y = e.clientY;
   };
   mouse.reset = function() {
     mouse.held = false;
@@ -117,38 +120,38 @@
   function lerp(a, b, t) {
     return (1 - t) * a + t * b;
   }
-  function followMouse(circle) {
-    let pickupRadius = 200;
-    if (circle.x < mouse.x + pickupRadius && circle.x > mouse.x - pickupRadius) {
-      circle.x = lerp(circle.x, mouse.x, 0.01);
-      circle.y = lerp(circle.y, mouse.y, 0.01);
-    }
-  }
-
+  // --- Text ---
   function drawTitle() {
-    context.textAlign = "center";
     context.fillStyle = "#111";
-    context.lineWidth = 3;
-    if (isMobile) {
-      context.font = "40px Times";
-    } else if (isTablet) {
-      context.font = "86px Times";
+    if (breakpoints.s) {
+      context.textAlign = "left";
+      context.font = `40px Times`;
+      context.fillText("Cristobal Salazar", 16, canvas.height / 1.25);
+    } else if (breakpoints.m) {
+      context.textAlign = "left";
+      context.font = `64px Times`;
+      context.fillText("Cristobal Salazar", 16, canvas.height / 1.25);
     } else {
-      context.font = "128px Times";
+      context.textAlign = "center";
+      context.font = `100px Times`;
+      context.fillText("Cristobal Salazar", canvas.width / 2, canvas.height / 2);
     }
-    context.fillText("Cristobal Salazar", canvas.width / 2, canvas.height / 2);
   }
   function drawSubtitle() {
-    if (isMobile) {
+    context.fillStyle = "#000";
+    if (breakpoints.s) {
+      context.textAlign = "left";
       context.font = "22px Times";
-    } else if (isTablet) {
-      context.font = "44px Times";
+      context.fillText("Full-Stack Web Developer", 32, canvas.height / 1.125);
+    } else if (breakpoints.m) {
+      context.textAlign = "left";
+      context.font = "32px Times";
+      context.fillText("Full-Stack Web Developer", 32, canvas.height / 1.125);
     } else {
-      context.font = "64px Times";
+      context.textAlign = "center";
+      context.font = "50px Times";
+      context.fillText("Full-Stack Web Developer", canvas.width / 2, canvas.height / 1.5);
     }
-    context.fillStyle = "#111";
-    context.textAlign = "center";
-    context.fillText("Full-Stack Web Developer", canvas.width / 2, canvas.height / 1.5);
   }
 
   const requestAnimationFrame =
@@ -160,10 +163,11 @@
   function render() {
     context.clearRect(0, 0, canvas.width, canvas.height);
     for (let circle of circles) {
-      if (mouse.held) {
-        followMouse(circle);
-      }
       circle.update();
+      if (mouse.held) {
+        circle.x = lerp(circle.x, mouse.x, 0.01);
+        circle.y = lerp(circle.y, mouse.y, 0.05);
+      }
       circle.draw();
     }
     drawTitle();

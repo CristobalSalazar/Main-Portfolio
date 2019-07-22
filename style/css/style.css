@@ -108,7 +108,7 @@ h1 {
   color: #222;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 320px) {
   h1 {
     font-size: 2rem;
     margin: 2rem auto;
@@ -125,7 +125,7 @@ h2 {
   text-align: left;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 320px) {
   h2 {
     font-size: 1.5rem;
     margin: 1.5rem auto;
@@ -163,6 +163,7 @@ p {
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0.5rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -172,33 +173,9 @@ p {
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 425px) {
   .col-3 {
     display: block;
-  }
-}
-
-.grid-gap-6 {
-  grid-gap: 0.5rem;
-}
-
-.main {
-  padding: 0 3rem;
-  min-height: 100vh;
-  max-width: 1200px;
-}
-
-@media screen and (max-width: 980px) {
-  .main {
-    margin: 0;
-    padding: 0 1rem;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .main {
-    margin: 0;
-    padding: 0;
   }
 }
 
@@ -209,9 +186,29 @@ p {
       grid-template-columns: 1fr 6fr;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 768px) {
   .layout {
     display: block;
+  }
+}
+
+.layout .main {
+  padding: 0 3rem;
+  min-height: 100vh;
+  max-width: 1200px;
+}
+
+@media screen and (max-width: 768px) {
+  .layout .main {
+    margin: 0;
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .layout .main {
+    margin: 0;
+    padding: 0 0.5rem;
   }
 }
 
@@ -227,7 +224,7 @@ p {
           flex-direction: column;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 768px) {
   #side-drawer {
     display: none;
   }
@@ -271,6 +268,37 @@ p {
   color: #222;
   -webkit-transform: translateX(0.5rem) scale(1.1);
           transform: translateX(0.5rem) scale(1.1);
+}
+
+.resume-button {
+  padding: 1rem;
+  margin: auto;
+  display: block;
+  color: white;
+  background: #6fa8aa;
+  font-size: 1rem;
+  -webkit-box-shadow: 0 0 0.25rem #666;
+          box-shadow: 0 0 0.25rem #666;
+  border-radius: 0.5rem;
+  -webkit-transition: -webkit-transform 0.1s;
+  transition: -webkit-transform 0.1s;
+  transition: transform 0.1s;
+  transition: transform 0.1s, -webkit-transform 0.1s;
+}
+
+.resume-button:active {
+  border: none;
+  border-radius: 0.6rem;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.resume-button:focus {
+  outline: none;
+}
+
+.resume-button a {
+  color: white;
 }
 
 .navbar {
@@ -390,7 +418,7 @@ p {
   height: 100vh;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 425px) {
   #intro {
     display: block;
   }
@@ -403,7 +431,7 @@ p {
   width: 40%;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 425px) {
   #intro .intro-left {
     display: none;
   }
@@ -420,7 +448,7 @@ p {
   background-size: 60% 100%;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 425px) {
   #intro .intro-right {
     background: url("../../assets/images/Headshot6.jpg") fixed right;
     background-size: cover;
@@ -449,13 +477,13 @@ p {
           animation: FadeIn 1s;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1024px) {
   #intro .intro-right .intro-text .title {
     font-size: 4rem;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 320px) {
   #intro .intro-right .intro-text .title {
     font-size: 2.5rem;
   }
@@ -471,13 +499,13 @@ p {
   text-align: center;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1024px) {
   #intro .intro-right .intro-text .subtitle {
     font-size: 2rem;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 320px) {
   #intro .intro-right .intro-text .subtitle {
     font-size: 1.5rem;
   }
@@ -506,7 +534,7 @@ p {
   font-size: 1.25rem;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 320px) {
   .pop-list li {
     padding: 1rem;
     font-size: 1rem;
@@ -544,7 +572,14 @@ p {
   border-radius: 5px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
+  .profile {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 425px) {
   .profile {
     display: block;
   }
@@ -556,16 +591,17 @@ p {
   background-repeat: no-repeat;
   width: 100%;
   border-radius: 5px;
-  background-position: 0% 50%;
+  background-position: 50% 50%;
+  height: 500px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .profile-img {
-    height: 500px;
+    height: 400px;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 425px) {
   .profile-img {
     height: 250px;
     width: 250px;
@@ -582,32 +618,26 @@ footer {
   font-size: 0.75rem;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 320px) {
   footer {
     background: #d5d5d5;
   }
 }
 
 .seperator {
-  background: url("../../../assets/images/seperator.png");
+  background: url("../../assets/images/seperator.png");
   width: 100%;
   height: 100px;
   background-size: 20%;
   margin: 0 auto;
-  opacity: 0.25;
+  opacity: 1;
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 425px) {
   .seperator {
     height: 3rem;
     background-size: 50%;
   }
-}
-
-canvas {
-  background: -webkit-gradient(linear, left top, left bottom, from(#eee), color-stop(#eee), color-stop(#eee), to(#5f9ea0));
-  background: linear-gradient(#eee, #eee, #eee, #5f9ea0);
-  border-bottom: 3px solid #5f9ea0;
 }
