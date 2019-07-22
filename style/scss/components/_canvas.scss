@@ -1,0 +1,23 @@
+.resume-button {
+  padding: 1rem;
+  margin: auto;
+  display: block;
+  color: white;
+  background: lighten($accent, 5%);
+  font-size: 1rem;
+  box-shadow: 0 0 0.25rem #666;
+  border-radius: 0.5rem;
+  transition: transform 0.1s;
+
+  &:active {
+    border: none;
+    border-radius: 0.6rem;
+    transform: scale(0.9);
+  }
+  &:focus {
+    outline: none;
+  }
+  a {
+    color: white;
+  }
+}
