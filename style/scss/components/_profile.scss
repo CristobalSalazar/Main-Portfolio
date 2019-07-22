@@ -21,6 +21,10 @@
     }
     @media screen and (max-width: $breakpoint-xs) {
       height: 250px;
+      width: 250px;
+      margin: auto;
+      margin-bottom: 3rem;
+      border-radius: 50%;
     }
   }
 }

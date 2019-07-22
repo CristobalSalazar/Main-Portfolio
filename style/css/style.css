@@ -112,6 +112,8 @@ h1 {
   h1 {
     font-size: 2rem;
     margin: 2rem auto;
+    text-align: center;
+    width: 100%;
   }
 }
 
@@ -127,6 +129,8 @@ h2 {
   h2 {
     font-size: 1.5rem;
     margin: 1.5rem auto;
+    text-align: center;
+    width: 100%;
   }
 }
 
@@ -194,7 +198,7 @@ p {
 @media screen and (max-width: 425px) {
   .main {
     margin: 0;
-    padding: 0.5rem;
+    padding: 0;
   }
 }
 
@@ -564,6 +568,10 @@ p {
 @media screen and (max-width: 425px) {
   .profile-img {
     height: 250px;
+    width: 250px;
+    margin: auto;
+    margin-bottom: 3rem;
+    border-radius: 50%;
   }
 }
 
@@ -580,17 +588,20 @@ footer {
   height: 100px;
   background-size: 20%;
   margin: 0 auto;
+  opacity: 0.25;
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
 
 @media screen and (max-width: 768px) {
   .seperator {
-    height: 100px;
+    height: 3rem;
     background-size: 50%;
   }
 }
 
 canvas {
-  background: #eee;
+  background: -webkit-gradient(linear, left top, left bottom, from(#eee), color-stop(#eee), color-stop(#eee), to(#5f9ea0));
+  background: linear-gradient(#eee, #eee, #eee, #5f9ea0);
+  border-bottom: 3px solid #5f9ea0;
 }

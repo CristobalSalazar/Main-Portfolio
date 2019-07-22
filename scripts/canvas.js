@@ -25,52 +25,58 @@
     context.globalAlpha = 1;
   };
   Circle.prototype.update = function() {
+    // PHYSICS
     this.x += this.dx;
-    this.y += this.dy / (this.y * 0.002);
+    this.y += this.dy;
+    this.dy += 0.05;
     this.radius -= this.dr;
+
     if (this.radius <= 0) {
-      this.initRadius();
       if (isMobile) {
-        this.y = canvas.height + this.radius * 2 - Math.floor(Math.random() * 10);
+        this.radius = randomRange(6, 12);
+        this.x = randomRange(this.radius, canvas.width - this.radius);
+        this.y = canvas.height - this.radius * -2;
+        this.dy = -randomRange(5, 6);
       } else {
-        this.y = canvas.height - this.radius - Math.floor(Math.random() * 100);
+        this.radius = randomRange(6, 12);
+        this.x = randomRange(this.radius, canvas.width - this.radius);
+        this.y = canvas.height - this.radius * -2;
+        this.dy = -randomRange(6, 10);
       }
       this.dx = -this.dx;
       return;
     }
+
     if (this.x + this.radius > canvas.width || this.x < 0 + this.radius) {
       this.dx = -this.dx;
-    }
-    if (this.y + this.radius <= 0) {
-      this.y = canvas.height - this.radius - Math.floor(Math.random() * 25);
     }
   };
   Circle.prototype.initRadius = function() {
     this.radius = Math.floor(Math.random() * 5 + 5) + 3;
   };
 
+  function randomRange(min, max) {
+    return Math.round(Math.random() * (max - min) + min);
+  }
+  function initCircle() {
+    const radius = randomRange(2, 3);
+    const xpos = randomRange(radius, canvas.width - radius);
+    const ypos = canvas.height - radius;
+    const circle = new Circle(xpos, ypos, radius);
+    circle.dx = randomRange(-1, 1);
+    circle.dy = -randomRange(2, 3);
+    return circle;
+  }
   function createCircles() {
     let circles = [];
     if (isMobile) {
       for (let i = 0; i < 250; i++) {
-        let radius = Math.floor(Math.random() * 2) + 5;
-        let maxSpeed = 1.5;
-        let position = Math.random() * canvas.width;
-        let circle = new Circle(position, -10, radius);
-        circle.dx = (Math.random() - 0.5) * 2;
-        circle.dy = Math.floor(Math.random() * -2 * maxSpeed);
+        let circle = initCircle();
         circles.push(circle);
       }
     } else {
       for (let i = 0; i < 500; i++) {
-        const radius = Math.floor(Math.random() * 10 + 5);
-        const maxSpeed = 7;
-        // const position =
-        //   Math.floor((Math.random() * canvas.width) / 50) + canvas.width / 2 + canvas.width / 50;
-        let position = Math.random() * canvas.width;
-        const circle = new Circle(position, -10, radius);
-        circle.dx = (Math.random() - 0.5) * 2;
-        circle.dy = Math.floor(Math.random() * -2 * maxSpeed);
+        let circle = initCircle();
         circles.push(circle);
       }
     }
