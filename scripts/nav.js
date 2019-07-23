@@ -7,21 +7,20 @@ if (breakpoints.s) {
   nav.querySelector(".navbar-brand").style.display = "none";
   // nav.querySelector(".navbar-left").style.display = "none";
   nav.querySelector(".navbar-right").style.display = "none";
-} else {
-  if (navSpacer) {
-    navSpacer.style.height = nav.clientHeight + "px";
-  }
+} else if (navSpacer) {
+  navSpacer.style.height = nav.clientHeight + "px";
 }
 
 var __prevScroll = 0;
 var scrollDir = 0;
 function handleNavDisplay(e) {
   const currentScroll = document.body.getBoundingClientRect().top;
-  if (currentScroll > __prevScroll) {
+  const threshold = 10;
+  if (currentScroll > __prevScroll + threshold) {
     nav.style.display = "flex";
     scrollDir = 1;
     __prevScroll = currentScroll;
-  } else if (currentScroll < __prevScroll) {
+  } else if (currentScroll < __prevScroll - threshold) {
     scrollDir = -1;
     __prevScroll = currentScroll;
   }

@@ -4,9 +4,8 @@ $right-size: 100% - $left-size;
 #intro {
   display: flex;
   grid-template-columns: 1fr 1fr;
-  height: 100vh;
   @media screen and (max-width: $breakpoint-sm) {
-    display: block;
+    display: none;
   }
   .intro-left {
     background: url("../../assets/images/Headshot6.jpg") fixed;

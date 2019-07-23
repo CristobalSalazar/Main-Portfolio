@@ -3,15 +3,20 @@
   const context = canvas.getContext("2d");
 
   if (breakpoints.s) {
-    canvas.height = window.innerHeight;
+    canvas.setAttribute("height", window.innerHeight * 2);
+    canvas.setAttribute("width", window.innerWidth * 2);
+    canvas.style.width = window.innerWidth + "px";
+    canvas.style.height = window.innerHeight + "px";
   } else {
     canvas.height = window.innerHeight - nav.clientHeight;
   }
   function checkWidth() {
-    canvas.width = window.innerWidth;
+    canvas.setAttribute("height", window.innerHeight);
+    canvas.setAttribute("width", window.innerWidth);
   }
-  checkWidth();
   window.onresize = checkWidth;
+
+  checkWidth();
   // ------ Circle Object ------
   function Circle(x, y, radius) {
     this.x = x;
@@ -105,9 +110,15 @@
     y: 0,
     held: false
   };
-  mouse.getCoords = function(e) {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
+  mouse.getCoords = function(e, isTouch = false) {
+    if (isTouch) {
+      mouse.x = e.touches[0].clientX;
+      mouse.y = e.touches[0].clientY;
+    } else {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    }
+    console.log(e);
   };
   mouse.reset = function() {
     mouse.held = false;
@@ -118,9 +129,13 @@
 
   // --- Mouse Events ---
   canvas.addEventListener("mouseleave", mouse.reset);
+
   canvas.addEventListener("mousemove", mouse.getCoords);
+  canvas.addEventListener("touchmove", e => mouse.getCoords(e, true));
   canvas.addEventListener("mouseup", mouse.reset);
+  canvas.addEventListener("touchend", mouse.reset);
   canvas.addEventListener("mousedown", mouse.hold);
+  canvas.addEventListener("touchstart", mouse.hold);
 
   function lerp(a, b, t) {
     return (1 - t) * a + t * b;
@@ -170,8 +185,8 @@
     for (let circle of circles) {
       circle.update();
       if (mouse.held) {
-        circle.x = lerp(circle.x, mouse.x, 0.01);
-        circle.y = lerp(circle.y, mouse.y, 0.05);
+        circle.x = lerp(circle.x, mouse.x, 0.05);
+        circle.y = lerp(circle.y, mouse.y, 0.1);
       }
       circle.draw();
     }

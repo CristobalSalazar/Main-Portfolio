@@ -31,12 +31,16 @@
     }
   }
 }
+$universal: #ddd;
 #tools li:nth-child(even) {
   background-color: darkseagreen;
+  background-color: $universal;
 }
 #languages li:nth-child(even) {
-  background-color: cadetblue;
+  background-color: lightblue;
+  background-color: $universal;
 }
 #frameworks li:nth-child(even) {
-  background-color: lightcoral;
+  background-color: darkseagreen;
+  background-color: $universal;
 }

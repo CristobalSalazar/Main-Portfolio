@@ -1,6 +1,6 @@
 (function() {
   // Sections
-  const intro = document.getElementById("intro");
+  const intro = document.getElementById("intro-canvas");
   const about = document.getElementById("about");
   const skills = document.getElementById("skills");
   const education = document.getElementById("education");
@@ -34,14 +34,17 @@
     var adjustedHeight = window.innerHeight - nav.clientHeight + "px";
     intro.style.height = adjustedHeight;
   }
-  // adjust sidebar height
-  h1Offset = getComputedStyle(about.children[0]).marginTop;
-  h1Offset = parseInt(h1Offset.substr(0, h1Offset.length - 2));
-  aside.style.marginTop = h1Offset + "px";
-  aside.style.top = nav.clientHeight + h1Offset + "px";
-  adjustTitleHeight();
+  if (!breakpoints.s) {
+    // adjust sidebar height
+    h1Offset = getComputedStyle(about.children[0]).marginTop;
+    h1Offset = parseInt(h1Offset.substr(0, h1Offset.length - 2));
+    aside.style.marginTop = h1Offset + "px";
+    aside.style.top = nav.clientHeight + h1Offset + "px";
+
+    adjustTitleHeight();
+    window.addEventListener("resize", adjustTitleHeight);
+  }
   // Event Listeners
-  window.addEventListener("resize", adjustTitleHeight);
   // TODO: AUTOMATE PROCESS
   window.addEventListener("scroll", e => {
     const currentOpcaity =

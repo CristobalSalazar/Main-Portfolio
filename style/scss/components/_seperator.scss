@@ -1,10 +1,10 @@
 .seperator {
   background: url("../../assets/images/seperator.png");
   width: 100%;
-  height: 100px;
+  height: 4rem;
   background-size: 20%;
   margin: 0 auto;
-  opacity: 1;
+  opacity: 0.25;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   @media screen and (max-width: $breakpoint-sm) {
