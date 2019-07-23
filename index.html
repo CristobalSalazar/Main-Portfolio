@@ -19,42 +19,35 @@
 
   <body>
     <!-- Navbar -->
-    <div>
-      <nav class="navbar">
-        <div class="navbar-left">
-          <div class="navbar-brand">CRISTOBAL SALAZAR</div>
-          <ul class="pages">
-            <li class="nav-element"><a class="active" href="index.html">ABOUT</a></li>
-            <li class="nav-element"><a class="nav-link" href="portfolio.html">PORTFOLIO</a></li>
-          </ul>
-        </div>
-        <div class="navbar-right">
-          <a href="https://github.com/cristobalsalazar">
-            <i id="github" class="fa fa-github-square" aria-hidden="true"></i>
-          </a>
-          <a href="https://facebook.com">
-            <i id="facebook" class="fa fa-facebook-square" aria-hidden="true"></i>
-          </a>
-          <a href="https://instagram.com">
-            <i id="instagram" class="fa fa-instagram" aria-hidden="true"></i>
-          </a>
-        </div>
-      </nav>
-      <div id="nav-spacer"></div>
-    </div>
+    <nav class="navbar">
+      <div class="navbar-left">
+        <div class="navbar-brand">CRISTOBAL SALAZAR</div>
+        <ul class="pages">
+          <li class="nav-element"><a class="active" href="index.html">ABOUT</a></li>
+          <li class="nav-element"><a class="nav-link" href="portfolio.html">PORTFOLIO</a></li>
+        </ul>
+      </div>
+      <div class="navbar-right">
+        <a href="https://github.com/cristobalsalazar">
+          <i id="github" class="fa fa-github-square" aria-hidden="true"></i>
+        </a>
+        <a href="https://facebook.com">
+          <i id="facebook" class="fa fa-facebook-square" aria-hidden="true"></i>
+        </a>
+        <a href="https://instagram.com">
+          <i id="instagram" class="fa fa-instagram" aria-hidden="true"></i>
+        </a>
+      </div>
+    </nav>
+    <div id="nav-spacer"></div>
 
     <!-- Intro -->
     <canvas id="intro-canvas" class="fadeIn"> </canvas>
     <section id="intro">
-      <!-- Left Side -->
-      <!-- <div class="intro-left"></div> --->
-      <!-- Right Side 
-      <div class="intro-right">
-        <div class="intro-text">
-          <div class="title">Cristobal Salazar</div>
-          <div class="subtitle">Full-Stack Web Developer</div>
-        </div>
-      </div> -->
+      <div class="intro-text">
+        <div class="title">Welcome!</div>
+      </div>
+      <div class="seperator"></div>
     </section>
 
     <div class="layout">
@@ -70,12 +63,11 @@
 
       <div class="main">
         <!-- About -->
-        <div class="seperator"></div>
         <section id="about">
-          <h1>ABOUT</h1>
+          <h1 class="heading">ABOUT</h1>
           <div class="profile">
             <div class="profile-img"></div>
-            <p>
+            <p class="profile-text">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, sunt. Harum
               similique, iste eaque tempora deserunt dolorem architecto vel quod rem nostrum culpa
               quas aspernatur rerum quaerat, repellat officia assumenda eveniet quisquam animi
@@ -84,14 +76,14 @@
               hic quisquam iste. Deserunt reiciendis sed odio blanditiis ab voluptatibus, maiores
               dolore. Ipsum et voluptate debitis cupiditate magnam exercitationem dolores corrupti.
             </p>
-            <p>
+            <p class="profile-text">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur facere qui
               obcaecati, iste repellat soluta unde quam impedit illum dicta, reprehenderit tempora
               ducimus tempore nostrum recusandae. Expedita vel architecto sit rem nostrum nihil
               dolorum, quas nam quidem repellendus officia. Suscipit odit ex odio repellat? Id
               dolorem fugit ad vel quas.
             </p>
-            <p>
+            <p class="profile-text">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet maxime minima animi
               deserunt vitae nemo error laboriosam harum amet. Voluptatum quod iure ad, architecto
               illum quos ratione commodi debitis officiis! Sequi quisquam tenetur ex ipsa voluptatum
@@ -104,10 +96,10 @@
         </section>
         <!-- Skills -->
         <section id="skills">
-          <h1>SKILLS</h1>
+          <h1 class="heading">SKILLS</h1>
           <div class="col-3 grid-gap-6">
             <div>
-              <h2>TOOLS</h2>
+              <h2 class="sub-heading">TOOLS</h2>
               <ul class="pop-list" id="tools">
                 <li>Unity3D</li>
                 <li>MYSQL</li>
@@ -120,7 +112,7 @@
               </ul>
             </div>
             <div>
-              <h2>LANGUAGES</h2>
+              <h2 class="sub-heading">LANGUAGES</h2>
               <ul class="pop-list" id="languages">
                 <li>Javascript</li>
                 <li>C#</li>
@@ -135,7 +127,7 @@
               </ul>
             </div>
             <div>
-              <h2>FRAMEWORKS/LIBS</h2>
+              <h2 class="sub-heading">FRAMEWORKS/LIBS</h2>
               <ul class="pop-list" id="frameworks">
                 <li>Bootstrap</li>
                 <li>SASS</li>
@@ -151,7 +143,7 @@
         </section>
         <!-- Education -->
         <section id="education">
-          <h1>EDUCATION</h1>
+          <h1 class="heading">EDUCATION</h1>
           <ul class="pop-list">
             <li>Web Development University of Toronto</li>
             <li>Bachelor of Music Humber College</li>
@@ -160,7 +152,7 @@
           </ul>
         </section>
         <section id="resume">
-          <h1>RESUMÉ</h1>
+          <h1 class="heading">RESUMÉ</h1>
           <br />
           <button class="resume-button">
             <a href="./assets/resume/Resume.pdf">CLICK HERE TO VIEW</a>

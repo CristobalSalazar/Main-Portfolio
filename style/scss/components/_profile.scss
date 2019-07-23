@@ -8,6 +8,16 @@
     display: block;
   }
 
+  &-text {
+    font-size: 1rem;
+    line-height: 1.618rem;
+    color: $text;
+    width: 50ch;
+    @media screen and (max-width: $breakpoint-sm) {
+      width: 100%;
+      padding: 0 1rem;
+    }
+  }
   &-img {
     background: url("../../assets/images/Headshot6.jpg");
     background-size: cover;
@@ -17,8 +27,6 @@
     background-position: 50% 50%;
     height: 512px;
 
-    @media screen and (max-width: $breakpoint-lg) {
-    }
     @media screen and (max-width: $breakpoint-md) {
       height: 256px;
       width: 256px;

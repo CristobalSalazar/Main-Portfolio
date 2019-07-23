@@ -1,4 +1,4 @@
-h1 {
+.heading {
   display: inline-block;
   font-size: 2rem;
   font-weight: 400;
@@ -11,7 +11,7 @@ h1 {
     width: 100%;
   }
 }
-h2 {
+.sub-heading {
   font-size: 1.5rem;
   font-weight: 600;
   margin: 2rem;
@@ -20,28 +20,8 @@ h2 {
   @media screen and (max-width: $breakpoint-sm) {
     font-size: 1.5rem;
     margin: 1.5rem auto;
-    text-align: center;
+    margin-left: 1rem;
+    text-align: left;
     width: 100%;
-  }
-}
-h3 {
-  margin: 24px auto;
-  padding: 24px 0;
-  width: 100%;
-  text-align: left;
-  font-size: 36px;
-  font-weight: 100;
-  color: $text;
-}
-h4 {
-  font-size: 1.5rem;
-  color: $text;
-}
-p {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  color: $text;
-  @media screen and (max-width: $breakpoint-sm) {
-    padding: 0 1rem;
   }
 }

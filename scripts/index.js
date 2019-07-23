@@ -40,7 +40,6 @@
     h1Offset = parseInt(h1Offset.substr(0, h1Offset.length - 2));
     aside.style.marginTop = h1Offset + "px";
     aside.style.top = nav.clientHeight + h1Offset + "px";
-
     adjustTitleHeight();
     window.addEventListener("resize", adjustTitleHeight);
   }

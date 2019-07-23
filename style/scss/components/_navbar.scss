@@ -9,8 +9,8 @@
   padding: 1rem;
   background: $bg;
   z-index: 2;
-  box-shadow: 0 3px 3px #aaa;
-  opacity: 1;
+  box-shadow: 0 0px 0.618rem #666;
+  opacity: 0.9;
   &-left {
     margin-left: 1rem;
     display: flex;
@@ -29,14 +29,14 @@
         margin-right: 1rem;
         padding: 0.25rem;
         .nav-link {
-          color: $text;
+          color: lighten($text, 15%);
           transition: color 0.25s;
           &:hover {
             color: black;
           }
         }
         .active {
-          border-bottom: 3px solid $accent;
+          // border-bottom: 3px solid $accent;
           color: black;
         }
       }

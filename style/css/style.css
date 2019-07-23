@@ -158,7 +158,7 @@ body {
   font-size: 2.5rem;
 }
 
-h1 {
+.heading {
   display: inline-block;
   font-size: 2rem;
   font-weight: 400;
@@ -167,7 +167,7 @@ h1 {
 }
 
 @media screen and (max-width: 500px) {
-  h1 {
+  .heading {
     font-size: 2rem;
     margin: 2rem auto;
     text-align: center;
@@ -175,7 +175,7 @@ h1 {
   }
 }
 
-h2 {
+.sub-heading {
   font-size: 1.5rem;
   font-weight: 600;
   margin: 2rem;
@@ -184,38 +184,12 @@ h2 {
 }
 
 @media screen and (max-width: 500px) {
-  h2 {
+  .sub-heading {
     font-size: 1.5rem;
     margin: 1.5rem auto;
-    text-align: center;
+    margin-left: 1rem;
+    text-align: left;
     width: 100%;
-  }
-}
-
-h3 {
-  margin: 24px auto;
-  padding: 24px 0;
-  width: 100%;
-  text-align: left;
-  font-size: 36px;
-  font-weight: 100;
-  color: #555;
-}
-
-h4 {
-  font-size: 1.5rem;
-  color: #555;
-}
-
-p {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  color: #555;
-}
-
-@media screen and (max-width: 500px) {
-  p {
-    padding: 0 1rem;
   }
 }
 
@@ -336,18 +310,16 @@ p {
   color: white;
   background: #333;
   font-size: 1rem;
-  -webkit-box-shadow: 0 0 0.25rem #666;
-          box-shadow: 0 0 0.25rem #666;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   -webkit-transition: -webkit-transform 0.1s;
   transition: -webkit-transform 0.1s;
   transition: transform 0.1s;
   transition: transform 0.1s, -webkit-transform 0.1s;
+  -webkit-transform: rotateZ(-5deg);
+          transform: rotateZ(-5deg);
 }
 
 .resume-button:active {
-  border: none;
-  border-radius: 0.6rem;
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
@@ -380,9 +352,9 @@ canvas {
   padding: 1rem;
   background: #eee;
   z-index: 2;
-  -webkit-box-shadow: 0 3px 3px #aaa;
-          box-shadow: 0 3px 3px #aaa;
-  opacity: 1;
+  -webkit-box-shadow: 0 0px 0.618rem #666;
+          box-shadow: 0 0px 0.618rem #666;
+  opacity: 0.9;
 }
 
 .navbar-left {
@@ -419,7 +391,7 @@ canvas {
 }
 
 .navbar-left .pages .nav-element .nav-link {
-  color: #555;
+  color: #7b7b7b;
   -webkit-transition: color 0.25s;
   transition: color 0.25s;
 }
@@ -429,7 +401,6 @@ canvas {
 }
 
 .navbar-left .pages .nav-element .active {
-  border-bottom: 3px solid #5f9ea0;
   color: black;
 }
 
@@ -487,11 +458,7 @@ canvas {
 }
 
 #intro {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  width: 100%;
 }
 
 @media screen and (max-width: 500px) {
@@ -500,50 +467,22 @@ canvas {
   }
 }
 
-#intro .intro-left {
-  background: url("../../assets/images/Headshot6.jpg") fixed;
-  background-size: 40% auto;
-  background-repeat: no-repeat;
-  width: 40%;
-}
-
-@media screen and (max-width: 500px) {
-  #intro .intro-left {
-    display: none;
-  }
-}
-
-#intro .intro-right {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 60%;
-  background: url("../../assets/images/bg2.png") fixed right;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: 60% 100%;
-}
-
-@media screen and (max-width: 500px) {
-  #intro .intro-right {
-    background: url("../../assets/images/Headshot6.jpg") fixed right;
-    background-size: cover;
-    background-position: 50%;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-#intro .intro-right .intro-text {
+#intro .intro-text {
   margin: auto;
   z-index: 1;
+  width: 100%;
+  background: url("../../assets/images/oriental.png") fixed center;
 }
 
-#intro .intro-right .intro-text .title {
+#intro .intro-text .title {
+  width: 100%;
+  margin: auto;
   font-size: 6rem;
+  padding: 10rem;
   margin-bottom: 2rem;
   font-weight: 100;
-  color: white;
+  color: #222;
+  border: 1px solid #ccc;
   text-align: center;
   -webkit-animation-name: title;
           animation-name: title;
@@ -554,18 +493,18 @@ canvas {
 }
 
 @media screen and (max-width: 1024px) {
-  #intro .intro-right .intro-text .title {
+  #intro .intro-text .title {
     font-size: 4rem;
   }
 }
 
 @media screen and (max-width: 320px) {
-  #intro .intro-right .intro-text .title {
+  #intro .intro-text .title {
     font-size: 2.5rem;
   }
 }
 
-#intro .intro-right .intro-text .subtitle {
+#intro .intro-text .subtitle {
   -webkit-animation: FadeIn 1s;
           animation: FadeIn 1s;
   margin-bottom: 2rem;
@@ -576,13 +515,13 @@ canvas {
 }
 
 @media screen and (max-width: 1024px) {
-  #intro .intro-right .intro-text .subtitle {
+  #intro .intro-text .subtitle {
     font-size: 2rem;
   }
 }
 
 @media screen and (max-width: 320px) {
-  #intro .intro-right .intro-text .subtitle {
+  #intro .intro-text .subtitle {
     font-size: 1.5rem;
   }
 }
@@ -626,7 +565,7 @@ canvas {
 .pop-list li:hover {
   -webkit-box-shadow: 0 0 3px #666;
           box-shadow: 0 0 3px #666;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   opacity: 1;
   -webkit-transform: scale(1.025);
           transform: scale(1.025);
@@ -660,6 +599,20 @@ canvas {
 @media screen and (max-width: 500px) {
   .profile {
     display: block;
+  }
+}
+
+.profile-text {
+  font-size: 1rem;
+  line-height: 1.618rem;
+  color: #555;
+  width: 50ch;
+}
+
+@media screen and (max-width: 500px) {
+  .profile-text {
+    width: 100%;
+    padding: 0 1rem;
   }
 }
 
@@ -710,9 +663,9 @@ footer {
   background: url("../../assets/images/seperator.png");
   width: 100%;
   height: 4rem;
-  background-size: 20%;
+  background-size: 12rem;
   margin: 0 auto;
-  opacity: 0.25;
+  opacity: 1;
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
