@@ -4,7 +4,8 @@ footer {
   color: #666;
   font-size: 0.75rem;
 
-  @media screen and (max-width: $breakpoint-xs) {
+  @media screen and (max-width: $breakpoint-sm) {
     background: darken($bg, 10%);
+    text-align: center;
   }
 }

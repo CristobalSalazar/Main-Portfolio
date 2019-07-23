@@ -1,12 +1,8 @@
 .profile {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
   border-radius: 5px;
 
-  @media screen and (max-width: $breakpoint-lg) {
-    grid-template-columns: 1fr 1fr;
-  }
   @media screen and (max-width: $breakpoint-sm) {
     display: block;
   }
@@ -18,13 +14,15 @@
     width: 100%;
     border-radius: 5px;
     background-position: 50% 50%;
-    height: 500px;
+    height: 512px;
 
     @media screen and (max-width: $breakpoint-lg) {
-      height: 400px;
     }
-
     @media screen and (max-width: $breakpoint-md) {
+      height: 256px;
+      width: 256px;
+      margin: auto;
+      border-radius: 50%;
     }
     @media screen and (max-width: $breakpoint-sm) {
       height: 250px;

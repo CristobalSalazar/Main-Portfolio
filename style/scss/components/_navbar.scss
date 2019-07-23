@@ -11,13 +11,21 @@
   z-index: 2;
   box-shadow: 0 3px 3px #aaa;
   opacity: 1;
-
+  @media screen and (max-width: $breakpoint-sm) {
+    transform: translateY(-120%);
+  }
   &-left {
     margin-left: 1rem;
     display: flex;
+    @media screen and (max-width: $breakpoint-sm) {
+      margin-left: 0;
+    }
     .pages {
       align-self: center;
       margin-left: 1rem;
+      @media screen and (max-width: $breakpoint-sm) {
+        margin-left: 0;
+      }
       .nav-element {
         display: inline;
         font-size: 1rem;

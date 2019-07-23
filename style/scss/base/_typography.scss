@@ -4,7 +4,7 @@ h1 {
   font-weight: 400;
   margin: 3rem auto;
   color: $dark;
-  @media screen and (max-width: $breakpoint-xs) {
+  @media screen and (max-width: $breakpoint-sm) {
     font-size: 2rem;
     margin: 2rem auto;
     text-align: center;
@@ -17,7 +17,7 @@ h2 {
   margin: 2rem;
   color: $text;
   text-align: left;
-  @media screen and (max-width: $breakpoint-xs) {
+  @media screen and (max-width: $breakpoint-sm) {
     font-size: 1.5rem;
     margin: 1.5rem auto;
     text-align: center;
@@ -38,10 +38,10 @@ h4 {
   color: $text;
 }
 p {
-  line-height: 1.66em;
-  color: $text;
-  background-color: #fff;
-  padding: 24px;
   font-size: 1rem;
-  border-radius: 5px;
+  line-height: 1.5rem;
+  color: $text;
+  @media screen and (max-width: $breakpoint-sm) {
+    padding: 0 1rem;
+  }
 }

@@ -15,10 +15,3 @@
   animation: FadeOut $duration;
   animation-fill-mode: forwards;
 }
-
-.fadeIn {
-  @include fadeIn(1s);
-}
-.fadeOut {
-  @include fadeOut(1s);
-}

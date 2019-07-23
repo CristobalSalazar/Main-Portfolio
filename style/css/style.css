@@ -56,6 +56,50 @@
   }
 }
 
+@-webkit-keyframes NavbarHide {
+  from {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  to {
+    -webkit-transform: translateY(-120%);
+            transform: translateY(-120%);
+  }
+}
+
+@keyframes NavbarHide {
+  from {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  to {
+    -webkit-transform: translateY(-120%);
+            transform: translateY(-120%);
+  }
+}
+
+@-webkit-keyframes NavbarShow {
+  from {
+    -webkit-transform: translateY(-120%);
+            transform: translateY(-120%);
+  }
+  to {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@keyframes NavbarShow {
+  from {
+    -webkit-transform: translateY(-120%);
+            transform: translateY(-120%);
+  }
+  to {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
 .fadeIn {
   -webkit-animation: FadeIn 1s;
           animation: FadeIn 1s;
@@ -66,6 +110,20 @@
 .fadeOut {
   -webkit-animation: FadeOut 1s;
           animation: FadeOut 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.navbar-hide {
+  -webkit-animation: NavbarHide 0.5s;
+          animation: NavbarHide 0.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.navbar-show {
+  -webkit-animation: NavbarShow 0.5s;
+          animation: NavbarShow 0.5s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
@@ -108,7 +166,7 @@ h1 {
   color: #222;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 500px) {
   h1 {
     font-size: 2rem;
     margin: 2rem auto;
@@ -125,7 +183,7 @@ h2 {
   text-align: left;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 500px) {
   h2 {
     font-size: 1.5rem;
     margin: 1.5rem auto;
@@ -150,12 +208,15 @@ h4 {
 }
 
 p {
-  line-height: 1.66em;
-  color: #555;
-  background-color: #fff;
-  padding: 24px;
   font-size: 1rem;
-  border-radius: 5px;
+  line-height: 1.5rem;
+  color: #555;
+}
+
+@media screen and (max-width: 500px) {
+  p {
+    padding: 0 1rem;
+  }
 }
 
 .col-3 {
@@ -173,7 +234,7 @@ p {
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 500px) {
   .col-3 {
     display: block;
   }
@@ -200,15 +261,13 @@ p {
 
 @media screen and (max-width: 768px) {
   .layout .main {
-    margin: 0;
     padding: 0 1rem;
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 500px) {
   .layout .main {
-    margin: 0;
-    padding: 0 0.5rem;
+    padding: 0;
   }
 }
 
@@ -320,6 +379,13 @@ p {
   opacity: 1;
 }
 
+@media screen and (max-width: 500px) {
+  .navbar {
+    -webkit-transform: translateY(-120%);
+            transform: translateY(-120%);
+  }
+}
+
 .navbar-left {
   margin-left: 1rem;
   display: -webkit-box;
@@ -327,11 +393,23 @@ p {
   display: flex;
 }
 
+@media screen and (max-width: 500px) {
+  .navbar-left {
+    margin-left: 0;
+  }
+}
+
 .navbar-left .pages {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
   margin-left: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar-left .pages {
+    margin-left: 0;
+  }
 }
 
 .navbar-left .pages .nav-element {
@@ -418,7 +496,7 @@ p {
   height: 100vh;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 500px) {
   #intro {
     display: block;
   }
@@ -431,7 +509,7 @@ p {
   width: 40%;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 500px) {
   #intro .intro-left {
     display: none;
   }
@@ -448,7 +526,7 @@ p {
   background-size: 60% 100%;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 500px) {
   #intro .intro-right {
     background: url("../../assets/images/Headshot6.jpg") fixed right;
     background-size: cover;
@@ -520,6 +598,12 @@ p {
           box-shadow: -1px 1px 1rem #aeaeae;
 }
 
+@media screen and (max-width: 500px) {
+  .pop-list {
+    width: 90%;
+  }
+}
+
 .pop-list li {
   background-color: #fff;
   padding: 1.5rem;
@@ -534,7 +618,7 @@ p {
   font-size: 1.25rem;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 500px) {
   .pop-list li {
     padding: 1rem;
     font-size: 1rem;
@@ -568,18 +652,10 @@ p {
   display: grid;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
   border-radius: 5px;
 }
 
-@media screen and (max-width: 1024px) {
-  .profile {
-    -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 500px) {
   .profile {
     display: block;
   }
@@ -592,16 +668,19 @@ p {
   width: 100%;
   border-radius: 5px;
   background-position: 50% 50%;
-  height: 500px;
+  height: 512px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .profile-img {
-    height: 400px;
+    height: 256px;
+    width: 256px;
+    margin: auto;
+    border-radius: 50%;
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 500px) {
   .profile-img {
     height: 250px;
     width: 250px;
@@ -618,9 +697,10 @@ footer {
   font-size: 0.75rem;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 500px) {
   footer {
     background: #d5d5d5;
+    text-align: center;
   }
 }
 
@@ -635,7 +715,7 @@ footer {
   background-position: 50% 50%;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 500px) {
   .seperator {
     height: 3rem;
     background-size: 50%;

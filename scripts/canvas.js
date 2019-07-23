@@ -1,9 +1,14 @@
 (function() {
   const canvas = document.getElementById("intro-canvas");
   const context = canvas.getContext("2d");
+
+  if (breakpoints.s) {
+    canvas.height = window.innerHeight;
+  } else {
+    canvas.height = window.innerHeight - nav.clientHeight;
+  }
   function checkWidth() {
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight - nav.clientHeight;
   }
   checkWidth();
   window.onresize = checkWidth;

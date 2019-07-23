@@ -4,6 +4,9 @@
   font-weight: 300;
   color: black;
   box-shadow: -1px 1px 1rem darken($bg, 25%);
+  @media screen and (max-width: $breakpoint-sm) {
+    width: 90%;
+  }
 
   li {
     background-color: #fff;
@@ -15,7 +18,7 @@
     z-index: 0;
     font-size: 1.25rem;
 
-    @media screen and (max-width: $breakpoint-xs) {
+    @media screen and (max-width: $breakpoint-sm) {
       padding: 1rem;
       font-size: 1rem;
     }

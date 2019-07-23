@@ -24,12 +24,10 @@
     max-width: 1200px;
 
     @media screen and (max-width: $breakpoint-md) {
-      margin: 0;
       padding: 0 1rem;
     }
     @media screen and (max-width: $breakpoint-sm) {
-      margin: 0;
-      padding: 0 0.5rem;
+      padding: 0;
     }
   }
 }
