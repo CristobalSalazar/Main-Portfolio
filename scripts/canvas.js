@@ -5,6 +5,8 @@
   if (breakpoints.s) {
     canvas.setAttribute("height", window.innerHeight * 2);
     canvas.setAttribute("width", window.innerWidth * 2);
+    canvas.style.width = window.innerWidth + "px";
+    canvas.style.height = window.innerHeight + "px";
   } else {
     canvas.height = window.innerHeight - nav.clientHeight;
   }
@@ -12,7 +14,7 @@
     canvas.setAttribute("height", window.innerHeight);
     canvas.setAttribute("width", window.innerWidth);
   }
-  window.onresize = checkWidth;
+  if (!breakpoints.s) window.onresize = checkWidth;
 
   checkWidth();
   // ------ Circle Object ------
@@ -179,6 +181,10 @@
     window.msRequestAnimationFrame;
 
   function render() {
+    if (canvas.getBoundingClientRect().bottom < 0) {
+      requestAnimationFrame(render);
+      return;
+    }
     context.clearRect(0, 0, canvas.width, canvas.height);
     for (let circle of circles) {
       circle.update();

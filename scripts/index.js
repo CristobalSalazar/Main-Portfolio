@@ -13,6 +13,17 @@
   // Misc
   const aside = document.getElementById("side-list");
 
+  const parralax = document.querySelector(".intro-text");
+
+  if (breakpoints.s) {
+    window.addEventListener("scroll", e => {
+      const rect = parralax.getBoundingClientRect();
+      if (rect.bottom < 0) return;
+      const percent = (rect.bottom / parralax.clientHeight) * 100;
+      parralax.style.backgroundPositionY = `${percent.toFixed(2)}%`;
+    });
+  }
+
   // FUNCTIONS
   function scrollToElement(element) {
     const bodyRect = document.body.getBoundingClientRect().top;

@@ -5,6 +5,12 @@
     background: url("../../assets/images/bg5.jpeg") fixed center;
     background-size: cover;
 
+    @media screen and (max-width: $breakpoint-sm) {
+      background-size: contain;
+      background: url("../../assets/images/bg5.jpeg") scroll center;
+      z-index: 1;
+    }
+
     .title {
       color: $bg;
       text-align: center;

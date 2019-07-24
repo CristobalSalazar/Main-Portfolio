@@ -130,6 +130,7 @@
 
 body {
   background: #eee;
+  z-index: -10;
 }
 
 * {
@@ -435,6 +436,14 @@ canvas {
   background: #222;
   background: url("../../assets/images/bg5.jpeg") fixed center;
   background-size: cover;
+}
+
+@media screen and (max-width: 500px) {
+  #intro .intro-text {
+    background-size: contain;
+    background: url("../../assets/images/bg5.jpeg") scroll center;
+    z-index: 1;
+  }
 }
 
 #intro .intro-text .title {
