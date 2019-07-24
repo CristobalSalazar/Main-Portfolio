@@ -1,3 +1,6 @@
+body {
+  background: $bg;
+}
 * {
   margin: 0;
   padding: 0;
@@ -12,9 +15,6 @@ li {
 }
 a:hover {
   cursor: pointer;
-}
-body {
-  background: $bg;
 }
 .fa {
   line-height: 0;

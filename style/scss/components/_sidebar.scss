@@ -1,7 +1,6 @@
 #side-drawer {
   background: $bg;
   position: relative;
-  // border-right: 6px double #aaa;
   display: flex;
   flex-direction: column;
 
@@ -14,6 +13,7 @@
     position: sticky;
     display: flex;
     flex-direction: column;
+    top: 0;
 
     .side-link {
       user-select: none;
@@ -32,7 +32,7 @@
 
     .active {
       color: $dark;
-      transform: translateX(0.5rem) scale(1.1);
+      transform: translateX(0.5rem) scale(1.2);
     }
   }
 }

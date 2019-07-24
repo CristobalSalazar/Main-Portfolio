@@ -3,12 +3,15 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
   border-radius: 5px;
+  overflow-x: hidden;
 
   @media screen and (max-width: $breakpoint-sm) {
     display: block;
   }
 
   &-text {
+    overflow-x: hidden;
+
     font-size: 1rem;
     line-height: 1.618rem;
     color: $text;
@@ -19,6 +22,8 @@
     }
   }
   &-img {
+    overflow-x: hidden;
+
     background: url("../../assets/images/Headshot6.jpg");
     background-size: cover;
     background-repeat: no-repeat;

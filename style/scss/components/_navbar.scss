@@ -2,7 +2,6 @@
   position: fixed;
   display: flex;
   justify-content: space-between;
-
   width: 100%;
   top: 0;
   left: 0;
@@ -10,7 +9,7 @@
   background: $bg;
   z-index: 2;
   box-shadow: 0 0px 0.618rem #666;
-  opacity: 0.9;
+
   &-left {
     margin-left: 1rem;
     display: flex;

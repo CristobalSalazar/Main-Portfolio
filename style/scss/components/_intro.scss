@@ -1,41 +1,27 @@
-$left-size: 40%;
-$right-size: 100% - $left-size;
-
 #intro {
-  width: 100%;
-  @media screen and (max-width: $breakpoint-sm) {
-    display: none;
-  }
   .intro-text {
     margin: auto;
-    z-index: 1;
-    width: 100%;
-    background: url("../../assets/images/oriental.png") fixed center;
+    background: $dark;
+    background: url("../../assets/images/bg5.jpeg") fixed center;
+    background-size: cover;
+
     .title {
-      width: 100%;
-      margin: auto;
+      color: $bg;
+      text-align: center;
       font-size: 6rem;
-      padding: 10rem;
-      margin-bottom: 2rem;
       font-weight: 100;
-      color: $dark;
-      border: 1px solid #ccc;
-      text-align: center;
-      animation-name: title;
-      animation-duration: 1s;
-      @include fontSizeAtBreakpoint(4rem, $breakpoint-lg);
-      @include fontSizeAtBreakpoint(2.5rem, $breakpoint-xs);
-      animation: FadeIn 1s;
-    }
-    .subtitle {
-      animation: FadeIn 1s;
+
+      margin: auto;
       margin-bottom: 2rem;
-      color: white;
-      font-size: 3rem;
-      font-weight: 150;
-      text-align: center;
-      @include fontSizeAtBreakpoint(2rem, $breakpoint-lg);
-      @include fontSizeAtBreakpoint(1.5rem, $breakpoint-xs);
+      padding: 12rem 0;
+
+      @media screen and (max-width: $breakpoint-sm) {
+        font-size: 3rem;
+        // padding: 6rem 1rem;
+        padding: auto;
+        height: 100vh;
+        margin: auto;
+      }
     }
   }
 }

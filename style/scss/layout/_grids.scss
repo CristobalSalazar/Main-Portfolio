@@ -14,7 +14,10 @@
   display: grid;
   grid-template-columns: 1fr 6fr;
 
+  position: absolute;
+
   @media screen and (max-width: $breakpoint-md) {
+    overflow-x: hidden;
     display: block;
   }
 

@@ -5,8 +5,6 @@
   if (breakpoints.s) {
     canvas.setAttribute("height", window.innerHeight * 2);
     canvas.setAttribute("width", window.innerWidth * 2);
-    canvas.style.width = window.innerWidth + "px";
-    canvas.style.height = window.innerHeight + "px";
   } else {
     canvas.height = window.innerHeight - nav.clientHeight;
   }
