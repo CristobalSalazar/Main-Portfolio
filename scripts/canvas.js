@@ -2,21 +2,24 @@
   const canvas = document.getElementById("intro-canvas");
   const context = canvas.getContext("2d");
 
-  if (breakpoints.s) {
-    canvas.setAttribute("height", window.innerHeight * 2);
-    canvas.setAttribute("width", window.innerWidth * 2);
-    canvas.style.width = window.innerWidth + "px";
-    canvas.style.height = window.innerHeight + "px";
-  } else {
-    canvas.height = window.innerHeight - nav.clientHeight;
+  function setSize() {
+    if (breakpoints.sm) {
+      canvas.setAttribute("height", window.innerHeight);
+      canvas.setAttribute("width", window.innerWidth);
+      canvas.style.width = window.innerWidth + "px";
+      canvas.style.height = window.innerHeight + "px";
+    } else {
+      canvas.setAttribute("height", window.innerHeight - nav.clientHeight);
+      canvas.setAttribute("width", window.innerWidth);
+      canvas.style.height = window.innerHeight - nav.clientHeight + "px";
+      canvas.style.width = window.innerWidth + "px";
+    }
   }
-  function checkWidth() {
-    canvas.setAttribute("height", window.innerHeight);
-    canvas.setAttribute("width", window.innerWidth);
+  setSize();
+  if (!breakpoints.sm) {
+    window.onresize = setSize;
   }
-  if (!breakpoints.s) window.onresize = checkWidth;
 
-  checkWidth();
   // ------ Circle Object ------
   function Circle(x, y, radius) {
     this.x = x;
@@ -79,7 +82,7 @@
   // --- Circle Factory ---
   function createCircles() {
     let circles = [];
-    if (breakpoints.s) {
+    if (breakpoints.sm) {
       for (let i = 0; i < 250; i++) {
         let circle = initCircle();
         circles.push(circle);
@@ -118,12 +121,12 @@
       mouse.x = e.clientX;
       mouse.y = e.clientY;
     }
-    console.log(e);
   };
   mouse.reset = function() {
     mouse.held = false;
   };
-  mouse.hold = function() {
+  mouse.hold = function(e, isTouch = false) {
+    mouse.getCoords(e, isTouch);
     mouse.held = true;
   };
 
@@ -135,7 +138,7 @@
   canvas.addEventListener("mouseup", mouse.reset);
   canvas.addEventListener("touchend", mouse.reset);
   canvas.addEventListener("mousedown", mouse.hold);
-  canvas.addEventListener("touchstart", mouse.hold);
+  canvas.addEventListener("touchstart", e => mouse.hold(e, true));
 
   function lerp(a, b, t) {
     return (1 - t) * a + t * b;
@@ -143,7 +146,7 @@
   // --- Text ---
   function drawTitle() {
     context.fillStyle = "#111";
-    if (breakpoints.s) {
+    if (breakpoints.sm) {
       context.textAlign = "left";
       context.font = `40px Times`;
       context.fillText("Cristobal Salazar", 16, canvas.height / 1.25);
@@ -159,7 +162,7 @@
   }
   function drawSubtitle() {
     context.fillStyle = "#000";
-    if (breakpoints.s) {
+    if (breakpoints.sm) {
       context.textAlign = "left";
       context.font = "22px Times";
       context.fillText("Full-Stack Web Developer", 32, canvas.height / 1.125);

@@ -2,7 +2,7 @@ var open = false;
 const navSpacer = document.getElementById("nav-spacer");
 const nav = document.querySelector(".navbar");
 
-if (breakpoints.s) {
+if (breakpoints.sm) {
   nav.style.display = "none";
   nav.querySelector(".navbar-brand").style.display = "none";
   // nav.querySelector(".navbar-left").style.display = "none";
@@ -32,7 +32,7 @@ function handleNavDisplay(e) {
     nav.classList.remove("navbar-show");
   }
 }
-if (breakpoints.s) {
+if (breakpoints.sm) {
   window.addEventListener("scroll", e => {
     handleNavDisplay(e);
   });

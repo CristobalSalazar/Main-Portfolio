@@ -1,7 +1,7 @@
 .profile {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
+  grid-gap: 3rem;
   border-radius: 5px;
   overflow-x: hidden;
 
@@ -11,11 +11,14 @@
 
   &-text {
     overflow-x: hidden;
-
     font-size: 1rem;
     line-height: 1.618rem;
     color: $text;
     width: 50ch;
+
+    br {
+      display: block;
+    }
     @media screen and (max-width: $breakpoint-sm) {
       width: 100%;
       padding: 0 1rem;

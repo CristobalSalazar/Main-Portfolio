@@ -15,12 +15,13 @@
 
   const parralax = document.querySelector(".intro-text");
 
-  if (breakpoints.s) {
+  if (breakpoints.sm) {
     window.addEventListener("scroll", e => {
       const rect = parralax.getBoundingClientRect();
       if (rect.bottom < 0) return;
       const percent = (rect.bottom / parralax.clientHeight) * 100;
       parralax.style.backgroundPositionY = `${percent.toFixed(2)}%`;
+      parralax.style.backgroundSize = `500%`;
     });
   }
 
@@ -45,7 +46,7 @@
     var adjustedHeight = window.innerHeight - nav.clientHeight + "px";
     intro.style.height = adjustedHeight;
   }
-  if (!breakpoints.s) {
+  if (!breakpoints.sm) {
     // adjust sidebar height
     h1Offset = getComputedStyle(about.children[0]).marginTop;
     h1Offset = parseInt(h1Offset.substr(0, h1Offset.length - 2));

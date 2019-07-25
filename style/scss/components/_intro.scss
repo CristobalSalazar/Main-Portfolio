@@ -6,8 +6,9 @@
     background-size: cover;
 
     @media screen and (max-width: $breakpoint-sm) {
-      background-size: contain;
+      background-size: 1111%;
       background: url("../../assets/images/bg5.jpeg") scroll center;
+
       z-index: 1;
     }
 
