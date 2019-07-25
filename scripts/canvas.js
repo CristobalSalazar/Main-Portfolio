@@ -2,16 +2,17 @@
   const canvas = document.getElementById("intro-canvas");
   const context = canvas.getContext("2d");
 
-  console.log(window.devicePixelRatio);
+  const dpr = window.devicePixelRatio;
+  console.log(dpr);
   function setSize() {
     if (breakpoints.sm) {
-      canvas.setAttribute("height", window.innerHeight);
-      canvas.setAttribute("width", window.innerWidth);
+      canvas.setAttribute("height", window.innerHeight * dpr);
+      canvas.setAttribute("width", window.innerWidth * dpr);
       canvas.style.width = window.innerWidth + "px";
       canvas.style.height = window.innerHeight + "px";
     } else {
-      canvas.setAttribute("height", window.innerHeight - nav.clientHeight);
-      canvas.setAttribute("width", window.innerWidth);
+      canvas.setAttribute("height", window.innerHeight * dpr - nav.clientHeight);
+      canvas.setAttribute("width", window.innerWidth * dpr);
       canvas.style.height = window.innerHeight - nav.clientHeight + "px";
       canvas.style.width = window.innerWidth + "px";
     }
@@ -48,18 +49,18 @@
   Circle.prototype.update = function() {
     this.x += this.xvel;
     this.y += this.yvel;
-    this.yvel += 0.0985;
+    this.yvel += 0.0985 * dpr;
     this.xvel = this.xvel / 2;
-    this.radius -= this.shrinkRate;
+    this.radius -= this.shrinkRate * dpr;
     this.opacity = this.opacity <= 0 ? (this.opacity = 0) : (this.opacity -= this.fadeRate);
     // --- Reset ---
     if (this.radius <= 0 || this.opacity <= 0) {
-      this.radius = randomRange(6, 12);
-      this.shrinkRate = Math.random() / 4;
+      this.radius = randomRange(6, 12) * dpr;
+      this.shrinkRate = (Math.random() / 4) * dpr;
       this.x = randomRange(this.radius, canvas.width - this.radius);
       this.y = -this.radius;
       this.yvel = 0;
-      this.xvel = randomRange(-1, 1);
+      this.xvel = randomRange(-1, 1) * dpr;
       this.opacity = 1;
       this.xvel = -this.xvel;
       return;
@@ -74,7 +75,7 @@
     }
   };
   Circle.prototype.initRadius = function() {
-    this.radius = Math.floor(Math.random() * 5 + 5) + 3;
+    this.radius = (Math.floor(Math.random() * 5 + 5) + 3) * dpr;
   };
 
   function randomRange(min, max) {
@@ -99,12 +100,12 @@
   const circles = createCircles();
   // --- Initialize Circles ---
   function initCircle() {
-    const radius = randomRange(2, 3);
+    const radius = randomRange(2, 3) * dpr;
     const xpos = randomRange(radius, canvas.width - radius);
     const ypos = 0;
     const circle = new Circle(xpos, ypos, radius);
-    circle.xvel = randomRange(-5, 5);
-    circle.yvel = randomRange(0, 1);
+    circle.xvel = randomRange(-5, 5) * dpr;
+    circle.yvel = randomRange(0, 1) * dpr;
     return circle;
   }
 
@@ -116,11 +117,11 @@
   };
   mouse.getCoords = function(e, isTouch = false) {
     if (isTouch) {
-      mouse.x = e.touches[0].clientX;
-      mouse.y = e.touches[0].clientY;
+      mouse.x = e.touches[0].clientX * dpr;
+      mouse.y = e.touches[0].clientY * dpr;
     } else {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
+      mouse.x = e.clientX * dpr;
+      mouse.y = e.clientY * dpr;
     }
   };
   mouse.reset = function() {
@@ -150,33 +151,38 @@
   function drawTitle() {
     context.fillStyle = "#111";
     if (breakpoints.sm) {
+      const fontSize = 32 * dpr;
+      context.font = `${fontSize}px ${fontFamily}`;
       context.textAlign = "left";
-      context.font = `32px ${fontFamily}`;
       context.fillText("Cristobal Salazar", 16, canvas.height / 1.25);
     } else if (breakpoints.m) {
+      const fontSize = 64 * dpr;
+      context.font = `${fontSize}px ${fontFamily}`;
       context.textAlign = "left";
-      context.font = `64px ${fontFamily}`;
       context.fillText("Cristobal Salazar", 16, canvas.height / 1.25);
     } else {
+      const fontSize = 100 * dpr;
+      context.font = `${fontSize}px ${fontFamily}`;
       context.textAlign = "center";
-      context.font = `100px ${fontFamily}`;
       context.fillText("Cristobal Salazar", canvas.width / 2, canvas.height / 2);
     }
   }
   function drawSubtitle() {
     context.fillStyle = "#000";
     if (breakpoints.sm) {
+      const fontSize = 22 * dpr;
+      context.font = `${fontSize}px ${fontFamily}`;
       context.textAlign = "left";
-      context.font = `22px ${fontFamily}`;
       context.fillText("Full-Stack Web Developer", 16, canvas.height / 1.125);
     } else if (breakpoints.m) {
+      const fontSize = 32 * dpr;
+      context.font = `${fontSize}px ${fontFamily}`;
       context.textAlign = "left";
-      context.font = `32px ${fontFamily}`;
       context.fillText("Full-Stack Web Developer", 16, canvas.height / 1.125);
     } else {
-      context.textAlign = "center";
-
+      const fontSize = 50 * dpr;
       context.font = `50px ${fontFamily}`;
+      context.textAlign = "center";
       context.fillText("Full-Stack Web Developer", canvas.width / 2, canvas.height / 1.5);
     }
   }

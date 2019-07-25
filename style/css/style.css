@@ -581,14 +581,14 @@ canvas {
 }
 
 .profile-img {
-  overflow-x: hidden;
   background: url("../../assets/images/Headshot6.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
   border-radius: 5px;
-  background-position: 50% 50%;
+  background-position: center;
   height: 512px;
+  border-radius: 15px;
 }
 
 @media screen and (max-width: 800px) {
@@ -597,7 +597,6 @@ canvas {
     width: 512px;
     margin: auto;
     margin-bottom: 3rem;
-    border-radius: 15px;
   }
 }
 
