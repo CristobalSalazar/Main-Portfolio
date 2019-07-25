@@ -432,6 +432,11 @@ canvas {
   color: #c13584;
 }
 
+#intro {
+  -webkit-perspective: 10px;
+          perspective: 10px;
+}
+
 #intro .intro-text {
   margin: auto;
   background: #222;
@@ -446,8 +451,9 @@ canvas {
 
 @media screen and (max-width: 500px) {
   #intro .intro-text {
-    background-size: 1111%;
     background: url("../../assets/images/bg5.jpeg") scroll center;
+    -webkit-transform: translateZ(0px);
+            transform: translateZ(0px);
     z-index: 1;
     height: 100vh;
   }
@@ -465,6 +471,9 @@ canvas {
 
 @media screen and (max-width: 500px) {
   #intro .intro-text .title {
+    -webkit-transform: translateZ(-10px);
+            transform: translateZ(-10px);
+    background: black;
     font-size: 3rem;
     margin: auto auto;
   }

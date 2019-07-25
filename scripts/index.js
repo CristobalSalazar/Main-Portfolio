@@ -16,12 +16,13 @@
 
   const parralax = document.querySelector(".intro-text");
 
+  // Parralax
   if (breakpoints.sm) {
     window.addEventListener("scroll", e => {
       const rect = parralax.getBoundingClientRect();
       if (rect.bottom < 0) return;
       const percent = (rect.bottom / parralax.clientHeight) * 100;
-      parralax.style.backgroundPositionY = `${percent.toFixed(2)}%`;
+      parralax.style.backgroundPositionY = `${percent}%`;
       parralax.style.backgroundSize = `500%`;
     });
   }

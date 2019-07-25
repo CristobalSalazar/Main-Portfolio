@@ -1,4 +1,5 @@
 #intro {
+  perspective: 10px;
   .intro-text {
     margin: auto;
     background: $dark;
@@ -9,12 +10,11 @@
     display: flex;
 
     @media screen and (max-width: $breakpoint-sm) {
-      background-size: 1111%;
       background: url("../../assets/images/bg5.jpeg") scroll center;
+      transform: translateZ(0px);
       z-index: 1;
       height: 100vh;
     }
-
     .title {
       color: $bg;
       text-align: center;
@@ -25,6 +25,8 @@
       margin: auto;
 
       @media screen and (max-width: $breakpoint-sm) {
+        transform: translateZ(-10px);
+        background: black;
         font-size: 3rem;
 
         margin: auto auto;

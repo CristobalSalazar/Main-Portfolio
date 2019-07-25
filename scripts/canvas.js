@@ -1,24 +1,28 @@
 (function() {
   const canvas = document.getElementById("intro-canvas");
   const context = canvas.getContext("2d");
-
   const dpr = window.devicePixelRatio;
+
   console.log(dpr);
   function setSize() {
     if (breakpoints.sm) {
+      // canvas size
       canvas.setAttribute("height", window.innerHeight * dpr);
       canvas.setAttribute("width", window.innerWidth * dpr);
+      // style
       canvas.style.width = window.innerWidth + "px";
       canvas.style.height = window.innerHeight + "px";
     } else {
+      // canvas size
       canvas.setAttribute("height", window.innerHeight * dpr - nav.clientHeight);
       canvas.setAttribute("width", window.innerWidth * dpr);
+      // style
       canvas.style.height = window.innerHeight - nav.clientHeight + "px";
       canvas.style.width = window.innerWidth + "px";
     }
   }
   setSize();
-  if (!breakpoints.sm) {
+  if (!breakpoints.md) {
     window.onresize = setSize;
   }
 
@@ -150,19 +154,23 @@
   const fontFamily = "Georgia";
   function drawTitle() {
     context.fillStyle = "#111";
+
     if (breakpoints.sm) {
       const fontSize = 32 * dpr;
       context.font = `${fontSize}px ${fontFamily}`;
+
       context.textAlign = "left";
       context.fillText("Cristobal Salazar", 16, canvas.height / 1.25);
     } else if (breakpoints.m) {
       const fontSize = 64 * dpr;
       context.font = `${fontSize}px ${fontFamily}`;
+
       context.textAlign = "left";
       context.fillText("Cristobal Salazar", 16, canvas.height / 1.25);
     } else {
       const fontSize = 100 * dpr;
       context.font = `${fontSize}px ${fontFamily}`;
+
       context.textAlign = "center";
       context.fillText("Cristobal Salazar", canvas.width / 2, canvas.height / 2);
     }
