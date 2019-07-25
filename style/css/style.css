@@ -312,9 +312,6 @@ canvas {
   height: 100vh;
   -webkit-tap-highlight-color: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  background: url("../../assets/images/oriental.png") scroll center;
-  background: url("../../assets/images/oriental.png") fixed center;
-  background-size: 50%;
 }
 
 .navbar {
@@ -440,6 +437,11 @@ canvas {
   background: #222;
   background: url("../../assets/images/bg5.jpeg") fixed center;
   background-size: cover;
+  opacity: 0.9;
+  height: 50vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 @media screen and (max-width: 500px) {
@@ -447,6 +449,7 @@ canvas {
     background-size: 1111%;
     background: url("../../assets/images/bg5.jpeg") scroll center;
     z-index: 1;
+    height: 100vh;
   }
 }
 
@@ -455,17 +458,15 @@ canvas {
   text-align: center;
   font-size: 6rem;
   font-weight: 100;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  vertical-align: middle;
   margin: auto;
-  margin-bottom: 2rem;
-  padding: 12rem 0;
 }
 
 @media screen and (max-width: 500px) {
   #intro .intro-text .title {
     font-size: 3rem;
-    padding: auto;
-    height: 100vh;
-    margin: auto;
+    margin: auto auto;
   }
 }
 

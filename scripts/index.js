@@ -58,10 +58,10 @@
   // Event Listeners
   // TODO: AUTOMATE PROCESS
   window.addEventListener("scroll", e => {
-    const currentOpcaity =
-      (intro.getBoundingClientRect().bottom - nav.clientHeight) / intro.clientHeight;
+    let currentOpcaity =
+      (parralax.getBoundingClientRect().bottom - nav.clientHeight) / parralax.clientHeight;
     if (currentOpcaity > 0) {
-      intro.style.opacity = currentOpcaity;
+      parralax.style.opacity = currentOpcaity;
     }
 
     const introAbout = (about.getBoundingClientRect().top + intro.getBoundingClientRect().top) / 2;

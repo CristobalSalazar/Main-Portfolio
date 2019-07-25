@@ -56,7 +56,7 @@
       this.radius = randomRange(6, 12);
       this.shrinkRate = Math.random() / 4;
       this.x = randomRange(this.radius, canvas.width - this.radius);
-      this.y = 0;
+      this.y = -this.radius;
       this.yvel = 0;
       this.xvel = randomRange(-1, 1);
       this.opacity = 1;
@@ -144,19 +144,21 @@
     return (1 - t) * a + t * b;
   }
   // --- Text ---
+
+  const fontFamily = "Georgia";
   function drawTitle() {
     context.fillStyle = "#111";
     if (breakpoints.sm) {
       context.textAlign = "left";
-      context.font = `40px Times`;
+      context.font = `32px ${fontFamily}`;
       context.fillText("Cristobal Salazar", 16, canvas.height / 1.25);
     } else if (breakpoints.m) {
       context.textAlign = "left";
-      context.font = `64px Times`;
+      context.font = `64px ${fontFamily}`;
       context.fillText("Cristobal Salazar", 16, canvas.height / 1.25);
     } else {
       context.textAlign = "center";
-      context.font = `100px Times`;
+      context.font = `100px ${fontFamily}`;
       context.fillText("Cristobal Salazar", canvas.width / 2, canvas.height / 2);
     }
   }
@@ -164,15 +166,16 @@
     context.fillStyle = "#000";
     if (breakpoints.sm) {
       context.textAlign = "left";
-      context.font = "22px Times";
-      context.fillText("Full-Stack Web Developer", 32, canvas.height / 1.125);
+      context.font = `22px ${fontFamily}`;
+      context.fillText("Full-Stack Web Developer", 16, canvas.height / 1.125);
     } else if (breakpoints.m) {
       context.textAlign = "left";
-      context.font = "32px Times";
-      context.fillText("Full-Stack Web Developer", 32, canvas.height / 1.125);
+      context.font = `32px ${fontFamily}`;
+      context.fillText("Full-Stack Web Developer", 16, canvas.height / 1.125);
     } else {
       context.textAlign = "center";
-      context.font = "50px Times";
+
+      context.font = `50px ${fontFamily}`;
       context.fillText("Full-Stack Web Developer", canvas.width / 2, canvas.height / 1.5);
     }
   }
