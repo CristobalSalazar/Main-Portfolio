@@ -22,7 +22,7 @@
     }
   }
   setSize();
-  if (!breakpoints.md) {
+  if (!breakpoints.sm) {
     window.onresize = setSize;
   }
 
@@ -160,13 +160,13 @@
       context.font = `${fontSize}px ${fontFamily}`;
 
       context.textAlign = "left";
-      context.fillText("Cristobal Salazar", 16, canvas.height / 1.25);
+      context.fillText("Cristobal Salazar", 16 * dpr, canvas.height / 1.25);
     } else if (breakpoints.m) {
       const fontSize = 64 * dpr;
       context.font = `${fontSize}px ${fontFamily}`;
 
       context.textAlign = "left";
-      context.fillText("Cristobal Salazar", 16, canvas.height / 1.25);
+      context.fillText("Cristobal Salazar", 16 * dpr, canvas.height / 1.25);
     } else {
       const fontSize = 100 * dpr;
       context.font = `${fontSize}px ${fontFamily}`;
@@ -181,15 +181,15 @@
       const fontSize = 22 * dpr;
       context.font = `${fontSize}px ${fontFamily}`;
       context.textAlign = "left";
-      context.fillText("Full-Stack Web Developer", 16, canvas.height / 1.125);
+      context.fillText("Full-Stack Web Developer", 16 * dpr, canvas.height / 1.125);
     } else if (breakpoints.m) {
       const fontSize = 32 * dpr;
       context.font = `${fontSize}px ${fontFamily}`;
       context.textAlign = "left";
-      context.fillText("Full-Stack Web Developer", 16, canvas.height / 1.125);
+      context.fillText("Full-Stack Web Developer", 16 * dpr, canvas.height / 1.125);
     } else {
       const fontSize = 50 * dpr;
-      context.font = `50px ${fontFamily}`;
+      context.font = `${fontSize} ${fontFamily}`;
       context.textAlign = "center";
       context.fillText("Full-Stack Web Developer", canvas.width / 2, canvas.height / 1.5);
     }

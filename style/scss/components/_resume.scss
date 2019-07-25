@@ -7,7 +7,14 @@
   font-size: 1rem;
   border-radius: 5px;
   transition: transform 0.1s;
+  &:hover {
+    cursor: pointer;
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: Shake 0.33s;
 
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite;
+  }
   &:active {
     transform: scale(0.9);
   }

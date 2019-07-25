@@ -6,7 +6,7 @@ var breakpoints = {
   xs: document.body.clientWidth < 320
 };
 
-if (!breakpoints.m) {
+if (!breakpoints.sm) {
   window.addEventListener("resize", () => {
     breakpoints = {
       xl: document.body.clientWidth < 1440,

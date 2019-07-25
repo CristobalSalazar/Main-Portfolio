@@ -1,48 +1,70 @@
-.profile {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 3rem;
-  border-radius: 5px;
-  overflow-x: hidden;
-  @media screen and (max-width: $breakpoint-md) {
-    margin: auto;
-    display: block;
-  }
+#about {
+  position: relative;
+  overflow: hidden;
 
-  &-text {
-    font-size: 1rem;
-    line-height: 1.618rem;
-    color: $text;
-    width: 50ch;
+  .profile {
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr 1fr;
 
-    br {
+    grid-gap: 3rem;
+    border-radius: 5px;
+    overflow-x: hidden;
+    border-radius: 10px;
+    background: url("../../asstes/images/vid.m4v");
+    overflow: hidden;
+
+    // BLOCK DISPLAY STARTING ON LARGE TABLETS
+    @media screen and (max-width: $breakpoint-lg) {
       display: block;
     }
     @media screen and (max-width: $breakpoint-md) {
-      width: 100%;
-      padding: 0 1rem;
-    }
-  }
-  &-img {
-    background: url("../../assets/images/Headshot6.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-    border-radius: 5px;
-    background-position: center;
-    height: 512px;
-    border-radius: 15px;
-
-    @media screen and (max-width: $breakpoint-md) {
-      height: 512px;
-      width: 512px;
       margin: auto;
-      margin-bottom: 3rem;
     }
-    @media screen and (max-width: $breakpoint-sm) {
-      height: 250px;
-      width: 250px;
-      border-radius: 50%;
+
+    &-text {
+      border-radius: 10px;
+      font-size: 1rem;
+      line-height: 1.618rem;
+      color: $text;
+      width: 100%;
+      max-width: 50ch;
+      @media screen and (max-width: $breakpoint-lg) {
+        max-width: 75ch;
+      }
+      @media screen and (max-width: $breakpoint-md) {
+        margin: auto;
+      }
+      @media screen and (max-width: $breakpoint-sm) {
+        max-width: 100%;
+        width: 100%;
+        padding: 0 2rem;
+      }
+    }
+    &-img {
+      background-image: url("../../assets/images/Headshot6.jpg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 100%;
+      border-radius: 5px;
+      background-position: center;
+      height: 512px;
+
+      @media screen and (max-width: $breakpoint-lg) {
+        background-size: cover;
+        height: 512px;
+        width: 512px;
+        margin-bottom: 3rem;
+      }
+      @media screen and (max-width: $breakpoint-md) {
+        margin: auto;
+        margin-bottom: 3rem;
+      }
+      @media screen and (max-width: $breakpoint-sm) {
+        height: 250px;
+        width: 250px;
+        border-radius: 50%;
+      }
     }
   }
 }

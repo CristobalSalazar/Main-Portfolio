@@ -2,14 +2,17 @@ var open = false;
 const navSpacer = document.getElementById("nav-spacer");
 const nav = document.querySelector(".navbar");
 
-if (breakpoints.sm) {
-  nav.style.display = "none";
-  nav.querySelector(".navbar-brand").style.display = "none";
-  // nav.querySelector(".navbar-left").style.display = "none";
-  nav.querySelector(".navbar-right").style.display = "none";
-} else if (navSpacer) {
-  navSpacer.style.height = nav.clientHeight + "px";
+function setNav() {
+  if (breakpoints.md) {
+    nav.style.display = "none";
+    // nav.querySelector(".navbar-brand").style.display = "none";
+    // // nav.querySelector(".navbar-left").style.display = "none";
+    // nav.querySelector(".navbar-right").style.display = "none";
+  } else if (navSpacer) {
+    navSpacer.style.height = nav.clientHeight + "px";
+  }
 }
+setNav();
 
 var __prevScroll = 0;
 var scrollDir = 0;
@@ -32,7 +35,8 @@ function handleNavDisplay(e) {
     nav.classList.remove("navbar-show");
   }
 }
-if (breakpoints.sm) {
+
+if (breakpoints.md) {
   window.addEventListener("scroll", e => {
     handleNavDisplay(e);
   });

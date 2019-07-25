@@ -3,8 +3,8 @@ canvas {
   height: 100vh;
   -webkit-tap-highlight-color: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow: hidden;
   // background: url("../../assets/images/oriental.png") scroll center;
   // background: url("../../assets/images/oriental.png") fixed center;
-
   // border-bottom: 3px double $dark;
 }

@@ -59,7 +59,7 @@
   }
 
   function getBoundry(element) {
-    return element.getBoundingClientRect().top - window.innerHeight / 2;
+    return element.getBoundingClientRect().top - window.innerHeight / 1.5;
   }
   // TODO: DRY
   window.addEventListener("scroll", e => {
@@ -68,17 +68,26 @@
     if (currentOpcaity > 0) {
       parralax.style.opacity = currentOpcaity;
     }
+
     const aboutBoundry = getBoundry(about);
     const skillsBoundry = getBoundry(skills);
     const educationBoundry = getBoundry(education);
     const testemonialsBoundry = getBoundry(testemonials);
-
     // Sidebar Navigation
     if (testemonialsBoundry <= 0) {
       aboutLink.classList.remove("active");
       skillsLink.classList.remove("active");
       educationLink.classList.remove("active");
       testemonialsLink.classList.add("active");
+      let time = 0;
+      for (let child of testemonials.children) {
+        if (child.classList.contains("testemonial")) {
+          setTimeout(function() {
+            child.classList.add("slideIn");
+          }, time);
+          time += 250;
+        }
+      }
       testemonials.classList.add("fadeIn");
     } else if (educationBoundry <= 0) {
       aboutLink.classList.remove("active");
@@ -108,7 +117,7 @@
   about.style.opacity = 0;
   skills.style.opacity = 0;
   education.style.opacity = 0;
-  // resume.style.opacity = 0;
+
   testemonials.style.opacity = 0;
 
   onClickScrollTo(aboutLink, about);

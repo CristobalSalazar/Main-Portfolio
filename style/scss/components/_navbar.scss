@@ -3,9 +3,9 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  padding: 1rem;
   top: 0;
   left: 0;
-  padding: 1rem;
   background: $bg;
   z-index: 2;
   box-shadow: 0 0px 0.618rem #666;
@@ -35,7 +35,6 @@
           }
         }
         .active {
-          // border-bottom: 3px solid $accent;
           color: black;
         }
       }
@@ -48,12 +47,17 @@
     height: 100%;
     border-right: 1px solid black;
     box-sizing: border-box;
+    @media screen and (max-width: $breakpoint-md) {
+      display: none;
+    }
   }
   &-right {
     color: white;
     align-self: center;
     display: flex;
-
+    @media screen and (max-width: $breakpoint-sm) {
+      display: none;
+    }
     a {
       display: flex;
       padding: 0;

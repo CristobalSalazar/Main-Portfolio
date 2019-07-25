@@ -3,7 +3,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 0.5rem;
 
-  @media screen and (max-width: $breakpoint-md) {
+  @media screen and (max-width: $breakpoint-lg) {
     grid-template-columns: 1fr 1fr;
   }
   @media screen and (max-width: $breakpoint-sm) {
@@ -14,19 +14,17 @@
   display: grid;
   grid-template-columns: 1fr 6fr;
 
-  position: absolute;
-
   @media screen and (max-width: $breakpoint-md) {
     overflow-x: hidden;
     display: block;
   }
 
   .main {
-    padding: 0 3rem;
+    padding-left: 0 3rem;
     min-height: 100vh;
     max-width: 1200px;
 
-    @media screen and (max-width: $breakpoint-md) {
+    @media screen and (max-width: $breakpoint-lg) {
       padding: 0 1rem;
     }
     @media screen and (max-width: $breakpoint-sm) {
