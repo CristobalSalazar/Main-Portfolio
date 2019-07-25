@@ -314,6 +314,7 @@ canvas {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   background: url("../../assets/images/oriental.png") scroll center;
   background: url("../../assets/images/oriental.png") fixed center;
+  background-size: 50%;
 }
 
 .navbar {
