@@ -672,9 +672,15 @@ footer {
 
 .testemonial {
   font-family: cursive;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
   padding: 1rem;
   border-radius: 5px;
+}
+
+@media screen and (max-width: 500px) {
+  .testemonial {
+    text-align: center;
+  }
 }
 
 .testemonial .quote {
@@ -688,5 +694,6 @@ footer {
 .testemonial .author {
   font-size: 1rem;
   font-weight: 300;
+  text-align: left;
   margin: auto;
 }

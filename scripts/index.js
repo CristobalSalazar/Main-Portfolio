@@ -10,7 +10,6 @@
   const aboutLink = document.getElementById("about-link");
   const skillsLink = document.getElementById("skills-link");
   const educationLink = document.getElementById("education-link");
-  const resumeLink = document.getElementById("resume-link");
   const testemonialsLink = document.getElementById("testemonials-link");
   // Misc
   const aside = document.getElementById("side-list");
@@ -19,7 +18,6 @@
 
   if (breakpoints.sm) {
     window.addEventListener("scroll", e => {
-      console.log(about.getBoundingClientRect().top - window.innerHeight / 2);
       const rect = parralax.getBoundingClientRect();
       if (rect.bottom < 0) return;
       const percent = (rect.bottom / parralax.clientHeight) * 100;
@@ -72,7 +70,6 @@
     const aboutBoundry = getBoundry(about);
     const skillsBoundry = getBoundry(skills);
     const educationBoundry = getBoundry(education);
-    const resumeBoundry = getBoundry(resume);
     const testemonialsBoundry = getBoundry(testemonials);
 
     // Sidebar Navigation
@@ -80,34 +77,23 @@
       aboutLink.classList.remove("active");
       skillsLink.classList.remove("active");
       educationLink.classList.remove("active");
-      resumeLink.classList.remove("active");
       testemonialsLink.classList.add("active");
       testemonials.classList.add("fadeIn");
-    } else if (resumeBoundry <= 0) {
-      aboutLink.classList.remove("active");
-      skillsLink.classList.remove("active");
-      educationLink.classList.remove("active");
-      resumeLink.classList.add("active");
-      testemonialsLink.classList.remove("active");
-      resume.classList.add("fadeIn");
     } else if (educationBoundry <= 0) {
       aboutLink.classList.remove("active");
       skillsLink.classList.remove("active");
       educationLink.classList.add("active");
-      resumeLink.classList.remove("active");
       testemonialsLink.classList.remove("active");
       education.classList.add("fadeIn");
     } else if (skillsBoundry <= 0) {
       aboutLink.classList.remove("active");
       educationLink.classList.remove("active");
       skillsLink.classList.add("active");
-      resumeLink.classList.remove("active");
       testemonialsLink.classList.remove("active");
       skills.classList.add("fadeIn");
     } else if (aboutBoundry <= 0) {
       educationLink.classList.remove("active");
       skillsLink.classList.remove("active");
-      resumeLink.classList.remove("active");
       testemonialsLink.classList.remove("active");
       aboutLink.classList.add("active");
       about.classList.add("fadeIn");
@@ -115,7 +101,6 @@
       aboutLink.classList.remove("active");
       skillsLink.classList.remove("active");
       educationLink.classList.remove("active");
-      resumeLink.classList.remove("active");
     }
   });
 
@@ -128,6 +113,5 @@
   onClickScrollTo(aboutLink, about);
   onClickScrollTo(skillsLink, skills);
   onClickScrollTo(educationLink, education);
-  onClickScrollTo(resumeLink, resume);
   onClickScrollTo(testemonialsLink, testemonials);
 })();
