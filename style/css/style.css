@@ -438,7 +438,7 @@ canvas {
   background: url("../../assets/images/bg5.jpeg") fixed center;
   background-size: cover;
   opacity: 0.9;
-  height: 50vh;
+  height: 75vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -611,16 +611,16 @@ canvas {
 }
 
 footer {
-  margin-top: 60vh;
   padding: 1rem;
   color: #666;
   font-size: 0.75rem;
+  margin-top: 3rem;
+  text-align: center;
 }
 
 @media screen and (max-width: 500px) {
   footer {
     background: #d5d5d5;
-    text-align: center;
   }
 }
 
@@ -668,4 +668,25 @@ footer {
 
 .resume-button a {
   color: white;
+}
+
+.testemonial {
+  font-family: cursive;
+  margin-bottom: 5rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.testemonial .quote {
+  margin: auto;
+  font-size: 2rem;
+  font-weight: 100;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.testemonial .author {
+  font-size: 1rem;
+  font-weight: 300;
+  margin: auto;
 }

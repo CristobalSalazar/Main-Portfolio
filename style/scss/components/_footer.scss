@@ -1,11 +1,11 @@
 footer {
-  margin-top: 60vh;
   padding: 1rem;
   color: #666;
   font-size: 0.75rem;
+  margin-top: 3rem;
+  text-align: center;
 
   @media screen and (max-width: $breakpoint-sm) {
     background: darken($bg, 10%);
-    text-align: center;
   }
 }

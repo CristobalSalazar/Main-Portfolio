@@ -5,11 +5,13 @@
   const skills = document.getElementById("skills");
   const education = document.getElementById("education");
   const resume = document.getElementById("resume");
+  const testemonials = document.getElementById("testemonials");
   // Links
   const aboutLink = document.getElementById("about-link");
   const skillsLink = document.getElementById("skills-link");
   const educationLink = document.getElementById("education-link");
   const resumeLink = document.getElementById("resume-link");
+  const testemonialsLink = document.getElementById("testemonials-link");
   // Misc
   const aside = document.getElementById("side-list");
 
@@ -17,6 +19,7 @@
 
   if (breakpoints.sm) {
     window.addEventListener("scroll", e => {
+      console.log(about.getBoundingClientRect().top - window.innerHeight / 2);
       const rect = parralax.getBoundingClientRect();
       if (rect.bottom < 0) return;
       const percent = (rect.bottom / parralax.clientHeight) * 100;
@@ -55,46 +58,57 @@
     adjustTitleHeight();
     window.addEventListener("resize", adjustTitleHeight);
   }
-  // Event Listeners
-  // TODO: AUTOMATE PROCESS
+
+  function getBoundry(element) {
+    return element.getBoundingClientRect().top - window.innerHeight / 2;
+  }
+  // TODO: DRY
   window.addEventListener("scroll", e => {
     let currentOpcaity =
       (parralax.getBoundingClientRect().bottom - nav.clientHeight) / parralax.clientHeight;
     if (currentOpcaity > 0) {
       parralax.style.opacity = currentOpcaity;
     }
-
-    const introAbout = (about.getBoundingClientRect().top + intro.getBoundingClientRect().top) / 2;
-    const aboutSkills =
-      (about.getBoundingClientRect().top + skills.getBoundingClientRect().top) / 2;
-    const skillsEducation =
-      (skills.getBoundingClientRect().top + education.getBoundingClientRect().top) / 2;
-    const educationResume =
-      (education.getBoundingClientRect().top + resume.getBoundingClientRect().top) / 2;
+    const aboutBoundry = getBoundry(about);
+    const skillsBoundry = getBoundry(skills);
+    const educationBoundry = getBoundry(education);
+    const resumeBoundry = getBoundry(resume);
+    const testemonialsBoundry = getBoundry(testemonials);
 
     // Sidebar Navigation
-    if (educationResume <= 0) {
+    if (testemonialsBoundry <= 0) {
+      aboutLink.classList.remove("active");
+      skillsLink.classList.remove("active");
+      educationLink.classList.remove("active");
+      resumeLink.classList.remove("active");
+      testemonialsLink.classList.add("active");
+      testemonials.classList.add("fadeIn");
+    } else if (resumeBoundry <= 0) {
       aboutLink.classList.remove("active");
       skillsLink.classList.remove("active");
       educationLink.classList.remove("active");
       resumeLink.classList.add("active");
+      testemonialsLink.classList.remove("active");
       resume.classList.add("fadeIn");
-    } else if (skillsEducation <= 0) {
+    } else if (educationBoundry <= 0) {
       aboutLink.classList.remove("active");
       skillsLink.classList.remove("active");
       educationLink.classList.add("active");
       resumeLink.classList.remove("active");
+      testemonialsLink.classList.remove("active");
       education.classList.add("fadeIn");
-    } else if (aboutSkills <= 0) {
+    } else if (skillsBoundry <= 0) {
       aboutLink.classList.remove("active");
       educationLink.classList.remove("active");
       skillsLink.classList.add("active");
       resumeLink.classList.remove("active");
+      testemonialsLink.classList.remove("active");
       skills.classList.add("fadeIn");
-    } else if (introAbout <= 0) {
+    } else if (aboutBoundry <= 0) {
       educationLink.classList.remove("active");
       skillsLink.classList.remove("active");
       resumeLink.classList.remove("active");
+      testemonialsLink.classList.remove("active");
       aboutLink.classList.add("active");
       about.classList.add("fadeIn");
     } else {
@@ -108,10 +122,12 @@
   about.style.opacity = 0;
   skills.style.opacity = 0;
   education.style.opacity = 0;
-  resume.style.opacity = 0;
+  // resume.style.opacity = 0;
+  testemonials.style.opacity = 0;
 
   onClickScrollTo(aboutLink, about);
   onClickScrollTo(skillsLink, skills);
   onClickScrollTo(educationLink, education);
   onClickScrollTo(resumeLink, resume);
+  onClickScrollTo(testemonialsLink, testemonials);
 })();
