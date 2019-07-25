@@ -202,7 +202,7 @@ a:hover {
   grid-gap: 0.5rem;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .col-3 {
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
@@ -223,7 +223,7 @@ a:hover {
   position: absolute;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .layout {
     overflow-x: hidden;
     display: block;
@@ -236,7 +236,7 @@ a:hover {
   max-width: 1200px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .layout .main {
     padding: 0 1rem;
   }
@@ -260,7 +260,7 @@ a:hover {
           flex-direction: column;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   #side-drawer {
     display: none;
   }
@@ -555,14 +555,14 @@ canvas {
   overflow-x: hidden;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
   .profile {
+    margin: auto;
     display: block;
   }
 }
 
 .profile-text {
-  overflow-x: hidden;
   font-size: 1rem;
   line-height: 1.618rem;
   color: #555;
@@ -573,7 +573,7 @@ canvas {
   display: block;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
   .profile-text {
     width: 100%;
     padding: 0 1rem;
@@ -591,12 +591,13 @@ canvas {
   height: 512px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .profile-img {
-    height: 256px;
-    width: 256px;
+    height: 512px;
+    width: 512px;
     margin: auto;
-    border-radius: 50%;
+    margin-bottom: 3rem;
+    border-radius: 15px;
   }
 }
 
@@ -604,8 +605,6 @@ canvas {
   .profile-img {
     height: 250px;
     width: 250px;
-    margin: auto;
-    margin-bottom: 3rem;
     border-radius: 50%;
   }
 }

@@ -4,13 +4,12 @@
   grid-gap: 3rem;
   border-radius: 5px;
   overflow-x: hidden;
-
-  @media screen and (max-width: $breakpoint-sm) {
+  @media screen and (max-width: $breakpoint-md) {
+    margin: auto;
     display: block;
   }
 
   &-text {
-    overflow-x: hidden;
     font-size: 1rem;
     line-height: 1.618rem;
     color: $text;
@@ -19,7 +18,7 @@
     br {
       display: block;
     }
-    @media screen and (max-width: $breakpoint-sm) {
+    @media screen and (max-width: $breakpoint-md) {
       width: 100%;
       padding: 0 1rem;
     }
@@ -36,16 +35,15 @@
     height: 512px;
 
     @media screen and (max-width: $breakpoint-md) {
-      height: 256px;
-      width: 256px;
+      height: 512px;
+      width: 512px;
       margin: auto;
-      border-radius: 50%;
+      margin-bottom: 3rem;
+      border-radius: 15px;
     }
     @media screen and (max-width: $breakpoint-sm) {
       height: 250px;
       width: 250px;
-      margin: auto;
-      margin-bottom: 3rem;
       border-radius: 50%;
     }
   }

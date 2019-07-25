@@ -2,6 +2,7 @@
   const canvas = document.getElementById("intro-canvas");
   const context = canvas.getContext("2d");
 
+  console.log(window.devicePixelRatio);
   function setSize() {
     if (breakpoints.sm) {
       canvas.setAttribute("height", window.innerHeight);
