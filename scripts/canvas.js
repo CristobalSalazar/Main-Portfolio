@@ -83,7 +83,7 @@
   function createCircles() {
     let circles = [];
     if (breakpoints.sm) {
-      for (let i = 0; i < 250; i++) {
+      for (let i = 0; i < 100; i++) {
         let circle = initCircle();
         circles.push(circle);
       }
