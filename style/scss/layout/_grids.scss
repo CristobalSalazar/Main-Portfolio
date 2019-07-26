@@ -6,10 +6,16 @@
   @media screen and (max-width: $breakpoint-lg) {
     grid-template-columns: 1fr 1fr;
   }
+
   @media screen and (max-width: $breakpoint-sm) {
     display: block;
   }
 }
+
+.stuff {
+  display: flex
+}
+
 .layout {
   display: grid;
   grid-template-columns: 1fr 6fr;
@@ -27,6 +33,7 @@
     @media screen and (max-width: $breakpoint-lg) {
       padding: 0 1rem;
     }
+
     @media screen and (max-width: $breakpoint-sm) {
       padding: 0;
     }

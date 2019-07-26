@@ -1,16 +1,18 @@
 @mixin breakpoint {
-  @media screen and (max-width: $breakpoint) {
-  }
+  @media screen and (max-width: $breakpoint) {}
 }
+
 @mixin fontSizeAtBreakpoint($fontSize, $breakpoint) {
   @media screen and (max-width: $breakpoint) {
     font-size: $fontSize;
   }
 }
+
 @mixin fadeIn($duration) {
   animation: FadeIn $duration;
   animation-fill-mode: forwards;
 }
+
 @mixin fadeOut($duration) {
   animation: FadeOut $duration;
   animation-fill-mode: forwards;

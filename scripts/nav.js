@@ -5,9 +5,6 @@ const nav = document.querySelector(".navbar");
 function setNav() {
   if (breakpoints.md) {
     nav.style.display = "none";
-    // nav.querySelector(".navbar-brand").style.display = "none";
-    // // nav.querySelector(".navbar-left").style.display = "none";
-    // nav.querySelector(".navbar-right").style.display = "none";
   } else if (navSpacer) {
     navSpacer.style.height = nav.clientHeight + "px";
   }

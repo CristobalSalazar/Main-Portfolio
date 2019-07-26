@@ -1,5 +1,6 @@
 #intro {
   perspective: 10px;
+
   .intro-text {
     margin: auto;
     background: $dark;
@@ -15,8 +16,9 @@
       z-index: 1;
       height: 100vh;
     }
+
     .title {
-      color: darkseagreen;
+      color: $bg;
       text-align: center;
       font-size: 6rem;
       font-weight: 100;

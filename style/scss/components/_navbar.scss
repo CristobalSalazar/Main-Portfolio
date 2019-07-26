@@ -13,33 +13,41 @@
   &-left {
     margin-left: 1rem;
     display: flex;
+
     @media screen and (max-width: $breakpoint-sm) {
       margin-left: 0;
     }
+
     .pages {
       align-self: center;
       margin-left: 1rem;
+
       @media screen and (max-width: $breakpoint-sm) {
         margin-left: 0;
       }
+
       .nav-element {
         display: inline;
         font-size: 1rem;
         margin-right: 1rem;
         padding: 0.25rem;
+
         .nav-link {
           color: lighten($text, 15%);
           transition: color 0.25s;
+
           &:hover {
             color: black;
           }
         }
+
         .active {
           color: black;
         }
       }
     }
   }
+
   &-brand {
     color: $text;
     font-size: 1.2rem;
@@ -47,17 +55,21 @@
     height: 100%;
     border-right: 1px solid black;
     box-sizing: border-box;
+
     @media screen and (max-width: $breakpoint-md) {
       display: none;
     }
   }
+
   &-right {
     color: white;
     align-self: center;
     display: flex;
+
     @media screen and (max-width: $breakpoint-sm) {
       display: none;
     }
+
     a {
       display: flex;
       padding: 0;
@@ -72,12 +84,15 @@
       opacity: 1;
       transform: scale(1.1) rotateZ(-5deg);
     }
+
     #facebook {
       color: #3b5998;
     }
+
     #github {
       color: #6e5494;
     }
+
     #instagram {
       color: #c13584;
     }

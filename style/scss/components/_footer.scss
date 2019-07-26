@@ -8,6 +8,7 @@ footer {
     background: $dark;
     border-top: 0.618rem double $bg;
   }
+
   .footer-copyright {
     margin-top: auto;
     font-size: 0.75rem;
@@ -19,6 +20,7 @@ footer {
       font-size: 0.5rem;
     }
   }
+
   .footer-lists {
     display: flex;
     justify-content: space-around;
@@ -35,29 +37,36 @@ footer {
 
     .list {
       margin-bottom: 1rem;
+
       * {
         margin-bottom: 1rem;
       }
+
       h1 {
         font-weight: 700;
         font-size: 1.5rem;
         color: $dark;
+
         @media screen and (max-width: $breakpoint-sm) {
           color: $bg;
         }
       }
+
       ul {
         li {
           font-size: 1rem;
           font-weight: 100;
           color: #666;
+
           &:hover {
             cursor: pointer;
             color: black;
           }
+
           a:visited {
             color: #666;
           }
+
           a:hover {
             color: black;
           }

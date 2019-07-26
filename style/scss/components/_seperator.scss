@@ -8,6 +8,7 @@
   background-repeat: no-repeat;
   background-position: 50% 50%;
   overflow-x: hidden;
+
   @media screen and (max-width: $breakpoint-sm) {
     height: 3rem;
     background-size: 50%;

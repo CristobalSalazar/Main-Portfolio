@@ -114,6 +114,10 @@
     }
   });
 
+  function MyClass() {
+    this.name = "chris";
+  }
+
   about.style.opacity = 0;
   skills.style.opacity = 0;
   education.style.opacity = 0;

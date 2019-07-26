@@ -277,9 +277,9 @@ a:hover {
 
 .heading {
   display: inline-block;
-  font-size: 2rem;
+  font-size: 2.75rem;
   font-weight: 400;
-  margin: 3rem auto;
+  margin: 3rem 0;
   color: #333;
 }
 
@@ -329,6 +329,12 @@ a:hover {
   .col-3 {
     display: block;
   }
+}
+
+.stuff {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .layout {
@@ -587,7 +593,7 @@ canvas {
 }
 
 #intro .intro-text .title {
-  color: darkseagreen;
+  color: #fff;
   text-align: center;
   font-size: 6rem;
   font-weight: 100;
@@ -678,12 +684,7 @@ canvas {
   background-color: darkseagreen;
 }
 
-#about {
-  position: relative;
-  overflow: hidden;
-}
-
-#about .profile {
+.profile {
   display: -ms-grid;
   display: grid;
   position: relative;
@@ -698,47 +699,47 @@ canvas {
 }
 
 @media screen and (max-width: 1024px) {
-  #about .profile {
+  .profile {
     display: block;
   }
 }
 
 @media screen and (max-width: 800px) {
-  #about .profile {
+  .profile {
     margin: auto;
   }
 }
 
-#about .profile-text {
+.profile-text {
   border-radius: 10px;
-  font-size: 1rem;
-  line-height: 1.618rem;
+  font-size: 1.1rem;
+  line-height: 1.7798rem;
   color: #666;
   width: 100%;
   max-width: 50ch;
 }
 
 @media screen and (max-width: 1024px) {
-  #about .profile-text {
+  .profile-text {
     max-width: 75ch;
   }
 }
 
 @media screen and (max-width: 800px) {
-  #about .profile-text {
+  .profile-text {
     margin: auto;
   }
 }
 
 @media screen and (max-width: 500px) {
-  #about .profile-text {
+  .profile-text {
     max-width: 100%;
     width: 100%;
     padding: 0 2rem;
   }
 }
 
-#about .profile-img {
+.profile-img {
   background-image: url("../../assets/images/Headshot6.jpg");
   background-size: contain;
   background-repeat: no-repeat;
@@ -749,7 +750,7 @@ canvas {
 }
 
 @media screen and (max-width: 1024px) {
-  #about .profile-img {
+  .profile-img {
     background-size: cover;
     height: 512px;
     width: 512px;
@@ -758,14 +759,14 @@ canvas {
 }
 
 @media screen and (max-width: 800px) {
-  #about .profile-img {
+  .profile-img {
     margin: auto;
     margin-bottom: 3rem;
   }
 }
 
 @media screen and (max-width: 500px) {
-  #about .profile-img {
+  .profile-img {
     height: 250px;
     width: 250px;
     border-radius: 50%;

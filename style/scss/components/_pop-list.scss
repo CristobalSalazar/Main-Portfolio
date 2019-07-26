@@ -4,6 +4,7 @@
   font-weight: 300;
   color: black;
   box-shadow: -1px 1px 1rem darken($bg, 25%);
+
   @media screen and (max-width: $breakpoint-sm) {
     width: 90%;
   }
@@ -23,6 +24,7 @@
       padding: 1rem;
       font-size: 1rem;
     }
+
     &:hover {
       background-color: darkseagreen;
       transform: scale(1.025);
@@ -33,24 +35,31 @@
     }
   }
 }
+
 $universal: #ddd;
+
 #tools li:nth-child(even) {
   background-color: darkseagreen;
   background-color: $universal;
+
   &:hover {
     background-color: darkseagreen;
   }
 }
+
 #languages li:nth-child(even) {
   background-color: lightblue;
   background-color: $universal;
+
   &:hover {
     background-color: darkseagreen;
   }
 }
+
 #frameworks li:nth-child(even) {
   background-color: darkseagreen;
   background-color: $universal;
+
   &:hover {
     background-color: darkseagreen;
   }

@@ -1,9 +1,10 @@
-(function() {
+(function () {
   const canvas = document.getElementById("intro-canvas");
   const context = canvas.getContext("2d");
   const dpr = window.devicePixelRatio;
 
   console.log(dpr);
+
   function setSize() {
     if (breakpoints.sm) {
       // canvas size
@@ -40,7 +41,7 @@
   }
   // *** METHODS ***
   // --- Render ---
-  Circle.prototype.draw = function() {
+  Circle.prototype.draw = function () {
     context.beginPath();
     context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     context.globalAlpha = this.opacity;
@@ -50,7 +51,7 @@
     context.globalAlpha = 1;
   };
   // --- Update ---
-  Circle.prototype.update = function() {
+  Circle.prototype.update = function () {
     this.x += this.xvel;
     this.y += this.yvel;
     this.yvel += 0.0985 * dpr;
@@ -78,7 +79,7 @@
       this.xvel = -this.xvel;
     }
   };
-  Circle.prototype.initRadius = function() {
+  Circle.prototype.initRadius = function () {
     this.radius = (Math.floor(Math.random() * 5 + 5) + 3) * dpr;
   };
 
@@ -119,7 +120,7 @@
     y: 0,
     held: false
   };
-  mouse.getCoords = function(e, isTouch = false) {
+  mouse.getCoords = function (e, isTouch = false) {
     if (isTouch) {
       mouse.x = e.touches[0].clientX * dpr;
       mouse.y = e.touches[0].clientY * dpr;
@@ -128,10 +129,10 @@
       mouse.y = e.clientY * dpr;
     }
   };
-  mouse.reset = function() {
+  mouse.reset = function () {
     mouse.held = false;
   };
-  mouse.hold = function(e, isTouch = false) {
+  mouse.hold = function (e, isTouch = false) {
     mouse.getCoords(e, isTouch);
     mouse.held = true;
   };
@@ -152,6 +153,7 @@
   // --- Text ---
 
   const fontFamily = "Georgia";
+
   function drawTitle() {
     context.fillStyle = "#111";
 
@@ -175,6 +177,7 @@
       context.fillText("Cristobal Salazar", canvas.width / 2, canvas.height / 2);
     }
   }
+
   function drawSubtitle() {
     context.fillStyle = "#000";
     if (breakpoints.sm) {
@@ -189,7 +192,7 @@
       context.fillText("Full-Stack Web Developer", 16 * dpr, canvas.height / 1.125);
     } else {
       const fontSize = 50 * dpr;
-      context.font = `${fontSize} ${fontFamily}`;
+      context.font = `${fontSize}px ${fontFamily}`;
       context.textAlign = "center";
       context.fillText("Full-Stack Web Developer", canvas.width / 2, canvas.height / 1.5);
     }
