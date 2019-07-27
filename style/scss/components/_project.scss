@@ -1,0 +1,80 @@
+$project-size: 256px;
+
+.portfolio {
+  margin: auto;
+  margin-top: 3rem;
+  max-width: 960px;
+  border-top: 1px solid lightgray;
+
+  &:last-of-type {
+    margin-bottom: 10rem;
+  }
+
+
+  &-reel {
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+
+  .project {
+
+    width: $project-size;
+    height: $project-size;
+
+    &#bitstream {
+
+      height: $project-size * 2;
+    }
+
+    &#barbsadventure {
+
+      width: $project-size * 2;
+      height: $project-size * 2;
+    }
+
+    border-radius: 10px;
+    box-shadow: 0 0 0.5rem $dark;
+    display: flex;
+    margin-right: 2rem;
+    background: $dark;
+    opacity: 0.9;
+    $project-speed: 0.25s;
+    position: relative;
+    overflow: hidden;
+    transition: opacity $project-speed,
+    transform $project-speed,
+    box-shadow $project-speed;
+
+    video {
+      position: absolute;
+      background: black;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &:hover {
+      box-shadow: 0 0 0rem $dark;
+      transform: scale(1.1);
+      opacity: 1;
+
+      .project-label {
+        opacity: 1;
+      }
+    }
+
+    &-label {
+      z-index: 2;
+      text-align: center;
+      background: #111;
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1.5rem;
+      color: $bg;
+      margin: auto;
+      opacity: 0;
+      transition: opacity $project-speed;
+    }
+  }
+}

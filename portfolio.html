@@ -1,118 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Portfolio</title>
 
-    <link rel="icon" type="image/jpg" href="images/Headshot6.jpg" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Cristobal Salazar - Portfolio</title>
+  <link rel="icon" type="image/jpg" href="images/Headshot6.jpg" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+  <!-- style -->
+  <link rel="stylesheet" type="text/css" href="style/css/style.min.css" />
+  <!-- JQUERY -->
+  <!-- <script src="scripts/libs/jquery-3.4.1.js"></script> -->
 
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
-      crossorigin="anonymous"
-    />
+  <!-- Style -->
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
 
-    <!-- Reset -->
-    <link rel="stylesheet" type="text/css" href="css/reset.css" />
-
-    <!-- Style -->
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-  </head>
-
-  <body>
-    <nav>
-      <!-- Toggle button for mobile -->
-
-      <!---
-          <div id="mobileNav" class="navElement">
-            <button id="dropdown" onclick="dropdownToggle()">
-              <i class="fas fa-bars"></i>
-            </button>
-          </div> --->
-
-      <!-- Links -->
-      <div>
-        <a class="navElement navLink" href="index.html">ABOUT</a>
-        <a class="navElement activePage" href="portfolio.html">PORTFOLIO</a>
-        <a class="navElement navLink" href="contact.html">CONTACT</a>
-        <a class="navElement navLink" href="https://github.com/CristobalSalazar">GITHUB</a>
+<body>
+  <nav>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-left">
+        <div class="navbar-brand">CRISTOBAL SALAZAR</div>
+        <ul class="pages">
+          <li class="nav-element"><a class="nav-link" href="index.html">ABOUT</a></li>
+          <li class="nav-element"><a class="active" href="portfolio.html">PORTFOLIO</a></li>
+        </ul>
+      </div>
+      <div class="navbar-right">
+        <a href="https://github.com/cristobalsalazar">
+          <i id="github" class="fa fa-github-square" aria-hidden="true"></i>
+        </a>
+        <a href="https://facebook.com">
+          <i id="facebook" class="fa fa-facebook-square" aria-hidden="true"></i>
+        </a>
+        <a href="https://instagram.com">
+          <i id="instagram" class="fa fa-instagram" aria-hidden="true"></i>
+        </a>
       </div>
     </nav>
     <div id="nav-spacer"></div>
 
-    <div class="portfolio">
-      <section class="portfolio-section">
+    <main class="main">
+      <!-- Unity Apps -->
+      <section class="portfolio">
+        <h1 class="heading">Unity</h1>
         <div class="portfolio-inner">
-          <h2>Mobile Apps</h2>
-          <div class="col-3">
+          <div class="portfolio-reel">
             <a href="portfolio/bitstream.html">
-              <div class="project" id="bitstream"></div>
-              <h3>Bitstream</h3>
+              <div class="project" id="bitstream">
+                <video src="assets/videos/bs.m4v" autoplay loop muted></video>
+                <p class="project-label">Bitstream</p>
+              </div>
             </a>
             <a href="portfolio/barbsadventure.html">
-              <div class="project" id="barbsadventure"></div>
-              <h3>Barb's Adventure</h3>
+              <div class="project" id="barbsadventure">
+                <video src="assets/videos/ba.mp4" autoplay loop muted></video>
+                <p class="project-label">Barb's Adventure</p>
+              </div>
             </a>
           </div>
         </div>
       </section>
+      <!-- Web -->
+      <section class="portfolio">
+        <h1 class="heading">Web</h1>
+        <div class="portfolio-reel">
+          <a href="index.html">
+            <div class="project" id="website">
+              <p class="project-label">My Website</p>
+            </div>
+          </a>
+          <a href="hangman.html">
+            <div class="project" id="hangman">
+              <p class="project-label">Hangman</p>
+            </div>
+          </a>
+          <a href="portfolio/DNA/index.html">
+            <div class="project" id="DNA">
+              <p class="project-label">Interactive Web Art</p>
+            </div>
+          </a>
 
-      <section class="portfolio-section">
-        <div class="portfolio-inner">
-          <h2>Web</h2>
-          <div class="col-3">
-            <a href="index.html">
-              <div class="project" id="website"></div>
-              <h3>My Website</h3>
-            </a>
-            <a href="hangman.html">
-              <div class="project" id="hangman"></div>
-              <h3>Hangman</h3>
-            </a>
-            <a href="portfolio/DNA/index.html">
-              <div class="project" id="DNA"></div>
-              <h3>Interactive Web Art</h3>
-            </a>
-            <a href="portfolio/DNA/index.html">
-              <div class="project" id="DNA"></div>
-              <h3>Interactive Web Art</h3>
-            </a>
-            <a href="portfolio/DNA/index.html">
-              <div class="project" id="DNA"></div>
-              <h3>Interactive Web Art</h3>
-            </a>
-            <a href="portfolio/DNA/index.html">
-              <div class="project" id="DNA"></div>
-              <h3>Interactive Web Art</h3>
-            </a>
-          </div>
         </div>
       </section>
 
-      <section class="portfolio-section">
-        <div class="portfolio-inner">
-          <h2>Console</h2>
-          <div class="col-3">
-            <a href="#">
-              <div class="project" id="astar"></div>
-              <h3>Pathfinding Algorithms</h3>
-            </a>
+      <section class="portfolio">
+        <h1 class="heading">Console</h1>
+        <div class="portfolio-reel"></div>
+        <a href="#">
+          <div class="project" id="astar">
+
+            <p class="project-label">Pathfinding Algorithms</p>
           </div>
+        </a>
         </div>
       </section>
-    </div>
 
-    <footer>
-      <div class="footerText">
-        2019 &copy Cristobal Salazar All Rights Reserved
-      </div>
-    </footer>
+      <footer>
+        <div class="footer-lists">
+          <div class="list">
+            <h1>About</h1>
+            <ul>
+              <li>About</li>
+              <li>Skills</li>
+              <li>Education</li>
+              <li>Testimonials</li>
+            </ul>
+          </div>
+          <div class="list">
+            <h1>Portfolio</h1>
+            <ul>
+              <li>Websites</li>
+              <li>Unity Apps</li>
+              <li>Misc</li>
+              <li>
+                <a href="./assets/resume/Resume.pdf">Resume</a>
+              </li>
+            </ul>
+          </div>
+          <div class="list">
+            <h1>Contact</h1>
+            <ul>
+              <li>Email</li>
+            </ul>
+          </div>
+          <div class="list">
+            <h1>Social</h1>
+            <ul>
+              <li>Github</li>
+              <li>Facebook</li>
+              <li>Instagram</li>
+            </ul>
+          </div>
+        </div>
+        <p class="footer-copyright">
+          2019 &copy; Cristobal Salazar All Rights Reserved.
+        </p>
+      </footer>
+    </main>
     <!-- My scripts -->
     <script src="javascript/nav.js"></script>
-    <script src="javascript/portfolio.js"></script>
-  </body>
+</body>
+
 </html>

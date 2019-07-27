@@ -219,7 +219,7 @@
       circle.draw();
     }
     drawTitle();
-    drawSubtitle();
+    // drawSubtitle();
     requestAnimationFrame(render);
   }
   render();

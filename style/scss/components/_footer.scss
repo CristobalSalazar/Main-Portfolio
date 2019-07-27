@@ -2,7 +2,7 @@ footer {
   display: flex;
   flex-direction: column;
   border-top: 0.618rem double #ddd;
-  background: linear-gradient(to top, white, white, white, white, white, #eee);
+  margin-top: 10rem;
 
   @media screen and (max-width: $breakpoint-sm) {
     background: $dark;

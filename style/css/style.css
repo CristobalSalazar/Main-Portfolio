@@ -331,12 +331,6 @@ a:hover {
   }
 }
 
-.stuff {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 .layout {
   display: -ms-grid;
   display: grid;
@@ -782,8 +776,7 @@ footer {
       -ms-flex-direction: column;
           flex-direction: column;
   border-top: 0.618rem double #ddd;
-  background: -webkit-gradient(linear, left bottom, left top, from(white), color-stop(white), color-stop(white), color-stop(white), color-stop(white), to(#eee));
-  background: linear-gradient(to top, white, white, white, white, white, #eee);
+  margin-top: 10rem;
 }
 
 @media screen and (max-width: 500px) {
@@ -972,4 +965,86 @@ footer .footer-lists .list ul li a:hover {
     text-align: center;
     font-weight: 700;
   }
+}
+
+.portfolio {
+  margin: auto;
+  margin-top: 3rem;
+  max-width: 960px;
+  border-top: 1px solid lightgray;
+}
+
+.portfolio:last-of-type {
+  margin-bottom: 10rem;
+}
+
+.portfolio-reel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.portfolio .project {
+  width: 256px;
+  height: 256px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 0.5rem #333;
+          box-shadow: 0 0 0.5rem #333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 2rem;
+  background: #333;
+  opacity: 0.9;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: opacity 0.25s, -webkit-transform 0.25s, -webkit-box-shadow 0.25s;
+  transition: opacity 0.25s, -webkit-transform 0.25s, -webkit-box-shadow 0.25s;
+  transition: opacity 0.25s, transform 0.25s, box-shadow 0.25s;
+  transition: opacity 0.25s, transform 0.25s, box-shadow 0.25s, -webkit-transform 0.25s, -webkit-box-shadow 0.25s;
+}
+
+.portfolio .project#bitstream {
+  height: 512px;
+}
+
+.portfolio .project#barbsadventure {
+  width: 512px;
+  height: 512px;
+}
+
+.portfolio .project video {
+  position: absolute;
+  background: black;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.portfolio .project:hover {
+  -webkit-box-shadow: 0 0 0rem #333;
+          box-shadow: 0 0 0rem #333;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  opacity: 1;
+}
+
+.portfolio .project:hover .project-label {
+  opacity: 1;
+}
+
+.portfolio .project-label {
+  z-index: 2;
+  text-align: center;
+  background: #111;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  color: #fff;
+  margin: auto;
+  opacity: 0;
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
 }
