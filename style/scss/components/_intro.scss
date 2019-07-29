@@ -1,13 +1,10 @@
 #intro {
-  perspective: 10px;
 
   .intro-text {
     margin: auto;
     background: $dark;
-    background: url("../../assets/images/bg5.jpeg") fixed center;
-    background-size: cover;
-    opacity: 0.9;
-    height: 100vh;
+    background: url("../../assets/images/bg3.png") fixed center;
+    height: 50vh;
     display: flex;
 
     @media screen and (max-width: $breakpoint-sm) {
@@ -20,7 +17,8 @@
     .title {
       color: $bg;
       text-align: center;
-      font-size: 6rem;
+      font-size: 5rem;
+      color: white;
       font-weight: 100;
       font-family: Georgia, "Times New Roman", Times, serif;
       vertical-align: middle;

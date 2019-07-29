@@ -416,7 +416,7 @@ a:hover {
 }
 
 #side-drawer #side-list .active {
-  color: #333;
+  color: #5ba25b;
   -webkit-transform: translateX(0.5rem) scale(1.2);
           transform: translateX(0.5rem) scale(1.2);
 }
@@ -424,9 +424,11 @@ a:hover {
 canvas {
   width: 100%;
   height: 100vh;
+  background: -webkit-gradient(linear, left bottom, left top, from(#bca68f), color-stop(white), to(white));
+  background: linear-gradient(to top, #bca68f, white, white);
+  background-attachment: fixed;
   -webkit-tap-highlight-color: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  overflow: hidden;
 }
 
 .navbar {
@@ -559,18 +561,11 @@ canvas {
   color: #c13584;
 }
 
-#intro {
-  -webkit-perspective: 10px;
-          perspective: 10px;
-}
-
 #intro .intro-text {
   margin: auto;
   background: #333;
-  background: url("../../assets/images/bg5.jpeg") fixed center;
-  background-size: cover;
-  opacity: 0.9;
-  height: 100vh;
+  background: url("../../assets/images/bg3.png") fixed center;
+  height: 50vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -589,7 +584,8 @@ canvas {
 #intro .intro-text .title {
   color: #fff;
   text-align: center;
-  font-size: 6rem;
+  font-size: 5rem;
+  color: white;
   font-weight: 100;
   font-family: Georgia, "Times New Roman", Times, serif;
   vertical-align: middle;
@@ -641,41 +637,42 @@ canvas {
 }
 
 .pop-list li:hover {
-  background-color: darkseagreen;
+  background-color: #8fbc8f;
   -webkit-transform: scale(1.025);
           transform: scale(1.025);
   -webkit-box-shadow: 0 0 3px #666;
           box-shadow: 0 0 3px #666;
+  color: white;
   border-radius: 0.5rem;
   opacity: 1;
   z-index: 1;
 }
 
 #tools li:nth-child(even) {
-  background-color: darkseagreen;
-  background-color: #ddd;
+  background-color: #dfecdf;
 }
 
 #tools li:nth-child(even):hover {
-  background-color: darkseagreen;
+  background-color: #5ba25b;
+  color: white;
 }
 
 #languages li:nth-child(even) {
-  background-color: lightblue;
-  background-color: #ddd;
+  background-color: #afcfaf;
 }
 
 #languages li:nth-child(even):hover {
-  background-color: darkseagreen;
+  background-color: #5ba25b;
+  color: white;
 }
 
 #frameworks li:nth-child(even) {
-  background-color: darkseagreen;
-  background-color: #ddd;
+  background-color: #8fbc8f;
 }
 
 #frameworks li:nth-child(even):hover {
-  background-color: darkseagreen;
+  background-color: #5ba25b;
+  color: white;
 }
 
 .profile {
@@ -734,7 +731,7 @@ canvas {
 }
 
 .profile-img {
-  background-image: url("../../assets/images/Headshot6.jpg");
+  background-image: url("../../assets/images/Headshot.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   width: 100%;
@@ -935,7 +932,7 @@ footer .footer-lists .list ul li a:hover {
 }
 
 #testemonials .testemonial .quote {
-  color: #333;
+  color: #7f664c;
   margin: auto;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
@@ -950,7 +947,7 @@ footer .footer-lists .list ul li a:hover {
 }
 
 #testemonials .testemonial .author {
-  color: #333;
+  color: #666;
   font-size: 1rem;
   font-weight: 300;
   text-align: left;

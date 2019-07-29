@@ -37,7 +37,8 @@
     this.radius = radius;
     this.fadeRate = Math.random() * 0.01;
     this.opacity = 1;
-    this.color = "black";
+    // this.color = Math.random() > 0.5 ? "#bca68f" : "#bc8fbc";
+    this.color = 'black'
   }
   // *** METHODS ***
   // --- Render ---
@@ -152,10 +153,10 @@
   }
   // --- Text ---
 
-  const fontFamily = "Georgia";
+  const fontFamily = "Times";
 
   function drawTitle() {
-    context.fillStyle = "#111";
+    context.fillStyle = "#000";
 
     if (breakpoints.sm) {
       const fontSize = 32 * dpr;
