@@ -7,8 +7,9 @@
   top: 0;
   left: 0;
   background: $bg;
-  z-index: 2;
+  z-index: 10;
   box-shadow: 0 0px 0.618rem #666;
+  opacity: 1;
 
   &-left {
     margin-left: 1rem;
@@ -37,7 +38,7 @@
           transition: color 0.25s;
 
           &:hover {
-            color: black;
+            color: $bs-primary;
           }
         }
 

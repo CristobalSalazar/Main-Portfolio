@@ -1,131 +1,118 @@
-(function() {
+(function () {
+  "use strict"
   // Sections
-  const intro = document.getElementById("intro-canvas");
+  const intro = document.getElementById("intro");
   const about = document.getElementById("about");
   const skills = document.getElementById("skills");
   const education = document.getElementById("education");
-  const resume = document.getElementById("resume");
   const testemonials = document.getElementById("testemonials");
   // Links
   const aboutLink = document.getElementById("about-link");
   const skillsLink = document.getElementById("skills-link");
   const educationLink = document.getElementById("education-link");
   const testemonialsLink = document.getElementById("testemonials-link");
-  // Misc
   const aside = document.getElementById("side-list");
 
-  const parralax = document.querySelector(".intro-text");
-
-  // Parralax
-  if (breakpoints.sm) {
-    window.addEventListener("scroll", e => {
-      const rect = parralax.getBoundingClientRect();
-      if (rect.bottom < 0) return;
-      const percent = (rect.bottom / parralax.clientHeight) * 100;
-      parralax.style.backgroundPositionY = `${percent}%`;
-      parralax.style.backgroundSize = `500%`;
-    });
+  if (!breakpoints.md) {
+    let h1Offset = getComputedStyle(about.children[0]).marginTop;
+    h1Offset = parseInt(h1Offset.substr(0, h1Offset.length - 2));
+    aside.style.marginTop = h1Offset + "px";
+    aside.style.top = nav.clientHeight + h1Offset + "px";
   }
 
-  // FUNCTIONS
+  // --- Handle Link Scrolling ---
   function scrollToElement(element) {
+    const fpos = element.children[0].clientHeight;
     const bodyRect = document.body.getBoundingClientRect().top;
     const elementRect = element.getBoundingClientRect().top;
     const elementPosition = elementRect - bodyRect;
-    const offsetPosition = elementPosition - nav.clientHeight;
+    const offsetPosition = elementPosition - fpos / 2;
     window.scrollTo({
       top: offsetPosition,
       behavior: "smooth"
     });
   }
+
   function onClickScrollTo(clickElement, scrollElement) {
-    clickElement.addEventListener("click", function(e) {
+    clickElement.addEventListener("click", function (e) {
       e.preventDefault();
       scrollToElement(scrollElement);
     });
   }
-  function adjustTitleHeight() {
-    var adjustedHeight = window.innerHeight - nav.clientHeight + "px";
-    intro.style.height = adjustedHeight;
-  }
-  if (!breakpoints.sm) {
-    // adjust sidebar height
-    h1Offset = getComputedStyle(about.children[0]).marginTop;
-    h1Offset = parseInt(h1Offset.substr(0, h1Offset.length - 2));
-    aside.style.marginTop = h1Offset + "px";
-    aside.style.top = nav.clientHeight + h1Offset + "px";
-    adjustTitleHeight();
-    window.addEventListener("resize", adjustTitleHeight);
+  // --- Handle Active Links ---
+  function getActiveBounds(element) {
+    return element.getBoundingClientRect().top - nav.clientHeight;
   }
 
-  function getBoundry(element) {
-    return element.getBoundingClientRect().top - window.innerHeight / 1.5;
+  function handleActiveSection(sections = [], links = []) {
+    for (let i = sections.length - 1; i >= 0; i--) {
+      if (getActiveBounds(sections[i]) <= 0) {
+        for (let link of links) {
+          link.classList.remove('active');
+        }
+        links[i].classList.add('active');
+        return;
+      }
+    }
+    for (let link of links) {
+      link.classList.remove('active');
+    }
   }
-  // TODO: DRY
-  window.addEventListener("scroll", e => {
-    let currentOpcaity =
-      (parralax.getBoundingClientRect().bottom - nav.clientHeight) / parralax.clientHeight;
-    if (currentOpcaity > 0) {
-      parralax.style.opacity = currentOpcaity;
+  // --- Handle Fades ---
+  function getFadeBounds(element) {
+    return element.getBoundingClientRect().top - window.innerHeight / 2;
+  }
+
+  function handleSectionFades(section) {
+    if (getFadeBounds(section) <= 0) {
+      section.classList.add('fadeIn');
+    }
+  }
+
+  // ****** Events ******
+  window.addEventListener("scroll", () => {
+    let currentOpacity =
+      intro.getBoundingClientRect().bottom / intro.clientHeight;
+    if (currentOpacity > 0) {
+      nav.style.background = `rgba(255,255,255, ${1-currentOpacity})`;
+      nav.style.boxShadow = `0 0 0.618rem rgba(125,125,125,${1 - currentOpacity})`;
+      nav.querySelector('.active').style.color = `rgb(${currentOpacity * 255},${currentOpacity * 255},${currentOpacity * 255})`
+
+
+      intro.style.opacity = currentOpacity;
+    } else {
+      nav.style.background = 'white';
     }
 
-    const aboutBoundry = getBoundry(about);
-    const skillsBoundry = getBoundry(skills);
-    const educationBoundry = getBoundry(education);
-    const testemonialsBoundry = getBoundry(testemonials);
-    // Sidebar Navigation
-    if (testemonialsBoundry <= 0) {
-      aboutLink.classList.remove("active");
-      skillsLink.classList.remove("active");
-      educationLink.classList.remove("active");
-      testemonialsLink.classList.add("active");
+    handleActiveSection(
+      [about, skills, education, testemonials],
+      [aboutLink, skillsLink, educationLink, testemonialsLink])
+    handleSectionFades(about);
+    handleSectionFades(skills);
+    handleSectionFades(education);
+    handleSectionFades(testemonials);
+
+    if (getFadeBounds(testemonials) < 0) {
       let time = 0;
-      for (let child of testemonials.children) {
-        if (child.classList.contains("testemonial")) {
-          setTimeout(function() {
-            child.classList.add("slideIn");
-          }, time);
-          time += 250;
-        }
+      for (let i = 1; i < testemonials.children.length; i++) {
+        setTimeout(() => {
+          testemonials.children[i].classList.add('slideIn')
+        }, time);
+        time += 100;
       }
-      testemonials.classList.add("fadeIn");
-    } else if (educationBoundry <= 0) {
-      aboutLink.classList.remove("active");
-      skillsLink.classList.remove("active");
-      educationLink.classList.add("active");
-      testemonialsLink.classList.remove("active");
-      education.classList.add("fadeIn");
-    } else if (skillsBoundry <= 0) {
-      aboutLink.classList.remove("active");
-      educationLink.classList.remove("active");
-      skillsLink.classList.add("active");
-      testemonialsLink.classList.remove("active");
-      skills.classList.add("fadeIn");
-    } else if (aboutBoundry <= 0) {
-      educationLink.classList.remove("active");
-      skillsLink.classList.remove("active");
-      testemonialsLink.classList.remove("active");
-      aboutLink.classList.add("active");
-      about.classList.add("fadeIn");
-    } else {
-      aboutLink.classList.remove("active");
-      skillsLink.classList.remove("active");
-      educationLink.classList.remove("active");
     }
   });
-
-  function MyClass() {
-    this.name = "chris";
-  }
-
-  about.style.opacity = 0;
-  skills.style.opacity = 0;
-  education.style.opacity = 0;
-
-  testemonials.style.opacity = 0;
 
   onClickScrollTo(aboutLink, about);
   onClickScrollTo(skillsLink, skills);
   onClickScrollTo(educationLink, education);
   onClickScrollTo(testemonialsLink, testemonials);
+
+  about.style.opacity = 0;
+  skills.style.opacity = 0;
+  education.style.opacity = 0;
+  testemonials.style.opacity = 0;
+  nav.style.background = 'transparent';
+  nav.style.boxShadow = '0 0 0 transparent';
+  nav.querySelector('.active').style.color = `white`
 })();

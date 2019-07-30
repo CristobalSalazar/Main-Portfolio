@@ -28,7 +28,7 @@
     }
 
     &:hover {
-      background-color: $primary;
+      background-color: $primary-hard;
       transform: scale(1.025);
       box-shadow: 0 0 3px #666;
       color: white;
@@ -42,7 +42,7 @@
 
 
 #tools li:nth-child(even) {
-  background-color: lighten($primary, 25%);
+  background-color: $primary;
 
   &:hover {
     background-color: $primary-hard;
@@ -51,7 +51,7 @@
 }
 
 #languages li:nth-child(even) {
-  background-color: lighten($primary, 10%);
+  background-color: $primary;
 
   &:hover {
     background-color: $primary-hard;

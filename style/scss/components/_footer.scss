@@ -1,77 +1,86 @@
-footer {
-  display: flex;
-  flex-direction: column;
+.footer {
   border-top: 0.618rem double #ddd;
   margin-top: 10rem;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
 
   @media screen and (max-width: $breakpoint-sm) {
-    background: $dark;
-    border-top: 0.618rem double $bg;
+    display: block;
+    background: url('../../assets/images/ep.png');
   }
 
-  .footer-copyright {
+  &-list {
+    margin: 0 auto;
+
+
+    h1 {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: $dark;
+      padding: 1rem 0;
+
+      @media screen and (max-width: $breakpoint-sm) {
+        color: $bg;
+      }
+    }
+
+    ul {
+      li {
+        font-size: 1rem;
+        font-weight: 300;
+        color: #666;
+        margin-bottom: 1rem;
+
+        @media screen and (max-width: $breakpoint-sm) {
+          color: $bg;
+        }
+
+        &:hover {
+          cursor: pointer;
+          color: black;
+
+          @media screen and (max-width: $breakpoint-sm) {
+            color: $bg;
+          }
+        }
+
+        a {
+          color: #333;
+
+          @media screen and (max-width: $breakpoint-sm) {
+            color: $bg;
+          }
+
+          &:visited {
+            color: #333;
+
+            @media screen and (max-width: $breakpoint-sm) {
+              color: $bg;
+            }
+          }
+
+          &:hover {
+            @media screen and (max-width: $breakpoint-sm) {
+              color: $bg;
+            }
+
+            color: black;
+          }
+        }
+      }
+    }
+  }
+
+  &-copyright {
     margin-top: auto;
     font-size: 0.75rem;
     padding: 1rem;
     text-align: center;
 
     @media screen and (max-width: $breakpoint-sm) {
-      color: #666;
-      font-size: 0.5rem;
-    }
-  }
-
-  .footer-lists {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-    padding: 1rem;
-    font-size: 0.75rem;
-
-    @media screen and (max-width: $breakpoint-sm) {
-      color: #aaa;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .list {
-      margin-bottom: 1rem;
-
-      * {
-        margin-bottom: 1rem;
-      }
-
-      h1 {
-        font-weight: 700;
-        font-size: 1.5rem;
-        color: $dark;
-
-        @media screen and (max-width: $breakpoint-sm) {
-          color: $bg;
-        }
-      }
-
-      ul {
-        li {
-          font-size: 1rem;
-          font-weight: 100;
-          color: #666;
-
-          &:hover {
-            cursor: pointer;
-            color: black;
-          }
-
-          a:visited {
-            color: #666;
-          }
-
-          a:hover {
-            color: black;
-          }
-        }
-      }
+      color: white;
+      background: $dark;
     }
   }
 }

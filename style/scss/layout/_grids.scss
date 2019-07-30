@@ -22,9 +22,11 @@
   }
 
   .main {
-    padding-left: 0 3rem;
+    z-index: 1;
     min-height: 100vh;
-    max-width: 1200px;
+    max-width: 1280px;
+    padding: 0 3rem;
+    // margin: auto;
 
     @media screen and (max-width: $breakpoint-lg) {
       padding: 0 1rem;

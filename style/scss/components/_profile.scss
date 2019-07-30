@@ -5,17 +5,12 @@
   grid-gap: 3rem;
   border-radius: 5px;
   overflow-x: hidden;
+  margin-bottom: 2rem;
   border-radius: 10px;
   background: url("../../asstes/images/vid.m4v");
-  overflow: hidden;
 
-  // BLOCK DISPLAY STARTING ON LARGE TABLETS
-  @media screen and (max-width: $breakpoint-lg) {
+  @media screen and (max-width: $breakpoint-sm) {
     display: block;
-  }
-
-  @media screen and (max-width: $breakpoint-md) {
-    margin: auto;
   }
 
   &-text {
@@ -31,10 +26,11 @@
     }
 
     @media screen and (max-width: $breakpoint-md) {
-      margin: auto;
+      padding: 0 1rem;
     }
 
     @media screen and (max-width: $breakpoint-sm) {
+      margin: auto;
       max-width: 100%;
       width: 100%;
       padding: 0 2rem;

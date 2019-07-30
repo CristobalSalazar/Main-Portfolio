@@ -1,9 +1,8 @@
 (function () {
+  "use strict"
   const canvas = document.getElementById("intro-canvas");
   const context = canvas.getContext("2d");
   const dpr = window.devicePixelRatio;
-
-  console.log(dpr);
 
   function setSize() {
     if (breakpoints.sm) {
@@ -38,7 +37,7 @@
     this.fadeRate = Math.random() * 0.01;
     this.opacity = 1;
     // this.color = Math.random() > 0.5 ? "#bca68f" : "#bc8fbc";
-    this.color = 'black'
+    this.color = '#0275d8'
   }
   // *** METHODS ***
   // --- Render ---
@@ -55,7 +54,7 @@
   Circle.prototype.update = function () {
     this.x += this.xvel;
     this.y += this.yvel;
-    this.yvel += 0.0985 * dpr;
+    this.yvel += 0.0485 * dpr;
     this.xvel = this.xvel / 2;
     this.radius -= this.shrinkRate * dpr;
     this.opacity = this.opacity <= 0 ? (this.opacity = 0) : (this.opacity -= this.fadeRate);
@@ -65,7 +64,7 @@
       this.shrinkRate = (Math.random() / 4) * dpr;
       this.x = randomRange(this.radius, canvas.width - this.radius);
       this.y = -this.radius;
-      this.yvel = 0;
+      this.yvel = Math.random();
       this.xvel = randomRange(-1, 1) * dpr;
       this.opacity = 1;
       this.xvel = -this.xvel;
@@ -139,64 +138,16 @@
   };
 
   // --- Mouse Events ---
-  canvas.addEventListener("mouseleave", mouse.reset);
-
-  canvas.addEventListener("mousemove", mouse.getCoords);
-  canvas.addEventListener("touchmove", e => mouse.getCoords(e, true));
-  canvas.addEventListener("mouseup", mouse.reset);
-  canvas.addEventListener("touchend", mouse.reset);
-  canvas.addEventListener("mousedown", mouse.hold);
-  canvas.addEventListener("touchstart", e => mouse.hold(e, true));
+  window.addEventListener("mouseleave", mouse.reset);
+  window.addEventListener("mousemove", mouse.getCoords);
+  window.addEventListener("touchmove", e => mouse.getCoords(e, true));
+  window.addEventListener("mouseup", mouse.reset);
+  window.addEventListener("touchend", mouse.reset);
+  window.addEventListener("mousedown", mouse.hold);
+  window.addEventListener("touchstart", e => mouse.hold(e, true));
 
   function lerp(a, b, t) {
     return (1 - t) * a + t * b;
-  }
-  // --- Text ---
-
-  const fontFamily = "Times";
-
-  function drawTitle() {
-    context.fillStyle = "#000";
-
-    if (breakpoints.sm) {
-      const fontSize = 32 * dpr;
-      context.font = `${fontSize}px ${fontFamily}`;
-
-      context.textAlign = "left";
-      context.fillText("Cristobal Salazar", 16 * dpr, canvas.height / 1.25);
-    } else if (breakpoints.m) {
-      const fontSize = 64 * dpr;
-      context.font = `${fontSize}px ${fontFamily}`;
-
-      context.textAlign = "left";
-      context.fillText("Cristobal Salazar", 16 * dpr, canvas.height / 1.25);
-    } else {
-      const fontSize = 100 * dpr;
-      context.font = `${fontSize}px ${fontFamily}`;
-
-      context.textAlign = "center";
-      context.fillText("Cristobal Salazar", canvas.width / 2, canvas.height / 2);
-    }
-  }
-
-  function drawSubtitle() {
-    context.fillStyle = "#000";
-    if (breakpoints.sm) {
-      const fontSize = 22 * dpr;
-      context.font = `${fontSize}px ${fontFamily}`;
-      context.textAlign = "left";
-      context.fillText("Full-Stack Web Developer", 16 * dpr, canvas.height / 1.125);
-    } else if (breakpoints.m) {
-      const fontSize = 32 * dpr;
-      context.font = `${fontSize}px ${fontFamily}`;
-      context.textAlign = "left";
-      context.fillText("Full-Stack Web Developer", 16 * dpr, canvas.height / 1.125);
-    } else {
-      const fontSize = 50 * dpr;
-      context.font = `${fontSize}px ${fontFamily}`;
-      context.textAlign = "center";
-      context.fillText("Full-Stack Web Developer", canvas.width / 2, canvas.height / 1.5);
-    }
   }
 
   const requestAnimationFrame =
@@ -205,11 +156,17 @@
     window.webkitRequestAnimationFrame ||
     window.msRequestAnimationFrame;
 
+  var posy = 0;
+
   function render() {
     if (canvas.getBoundingClientRect().bottom < 0) {
       requestAnimationFrame(render);
       return;
     }
+
+    canvas.style.backgroundPositionY = posy + 'px';
+
+    posy += 10;
     context.clearRect(0, 0, canvas.width, canvas.height);
     for (let circle of circles) {
       circle.update();
@@ -219,8 +176,6 @@
       }
       circle.draw();
     }
-    drawTitle();
-    // drawSubtitle();
     requestAnimationFrame(render);
   }
   render();

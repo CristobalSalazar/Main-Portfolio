@@ -1,33 +1,88 @@
 #intro {
+  height: 50vh;
+  margin-bottom: 10rem;
+  background: url("../../assets/images/ep.png") fixed center;
+  position: relative;
 
-  .intro-text {
-    margin: auto;
-    background: $dark;
-    background: url("../../assets/images/bg3.png") fixed center;
-    height: 50vh;
+  @media screen and (max-width: $breakpoint-sm) {
+    margin-bottom: 50vh;
+  }
+
+  .title-container {
+    position: absolute;
     display: flex;
+    margin-left: 17%;
+    width: 100vw;
+    height: 100vh;
 
-    @media screen and (max-width: $breakpoint-sm) {
-      background: url("../../assets/images/bg5.jpeg") scroll center;
-      transform: translateZ(0px);
-      z-index: 1;
-      height: 100vh;
-    }
-
-    .title {
-      color: $bg;
-      text-align: center;
-      font-size: 5rem;
-      color: white;
-      font-weight: 100;
-      font-family: Georgia, "Times New Roman", Times, serif;
-      vertical-align: middle;
+    @media screen and (max-width: $breakpoint-md) {
       margin: auto;
 
-      @media screen and (max-width: $breakpoint-sm) {
-        font-size: 3rem;
+    }
 
-        margin: auto auto;
+    @media screen and (max-width: $breakpoint-sm) {
+      display: block;
+      margin-top: 25vh;
+    }
+
+    .canvas-img {
+      margin: auto 0;
+      $canvas-img-size: 256px;
+      flex-shrink: 0;
+      background-image: url('../../assets/images/Headshot6.jpg');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 4px 6px $dark;
+      width: $canvas-img-size;
+      height: $canvas-img-size;
+      border-radius: 50%;
+
+      @media screen and (max-width: $breakpoint-sm) {
+        margin: auto;
+      }
+    }
+
+    .canvas-text {
+      margin: auto 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 25%;
+      text-align: center;
+
+      @media screen and (max-width: $breakpoint-sm) {
+        margin: auto;
+      }
+
+      .canvas-title {
+        color: white;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 100;
+        font-size: 5rem;
+
+        @media screen and (max-width: $breakpoint-lg) {
+          font-size: 3rem;
+        }
+
+        @media screen and (max-width: $breakpoint-sm) {
+          color: $dark;
+          font-size: 2.25rem;
+        }
+      }
+
+      .canvas-subtitle {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 3rem;
+        font-weight: 300;
+        color: $dark;
+
+        @media screen and (max-width: $breakpoint-lg) {
+          font-size: 2rem;
+        }
+
+        @media screen and (max-width: $breakpoint-sm) {
+          font-size: 1.5rem;
+        }
       }
     }
   }
