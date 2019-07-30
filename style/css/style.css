@@ -786,9 +786,9 @@ a:hover {
 @media screen and (max-width: 500px) {
   .profile-text {
     margin: auto;
+    margin-bottom: 1rem;
     max-width: 100%;
     width: 100%;
-    padding: 0;
   }
 }
 

@@ -71,6 +71,7 @@
 
   // ****** Events ******
   window.addEventListener("scroll", () => {
+    // TODO: WRAP INSIDE FUNCTION
     let currentOpacity =
       intro.getBoundingClientRect().bottom / intro.clientHeight;
     if (currentOpacity > 0) {
@@ -79,6 +80,7 @@
       nav.querySelector('.active').style.color = `rgb(${currentOpacity * 255},${currentOpacity * 255},${currentOpacity * 255})`
       intro.style.opacity = currentOpacity;
     } else {
+      intro.style.opacity = 0;
       nav.style.background = 'white';
       nav.querySelector('.active').style.color = `black`;
     }
