@@ -7,6 +7,7 @@
 
   @media screen and (max-width: $breakpoint-sm) {
     display: block;
+    margin-top: 3rem;
     background: url('../../assets/images/ep.png');
     background: #111;
     border: none;
@@ -23,7 +24,8 @@
       padding: 1rem 0;
 
       @media screen and (max-width: $breakpoint-sm) {
-        color: $bg;
+        color: $primary;
+        font-weight: 400;
       }
     }
 
@@ -81,8 +83,10 @@
     text-align: center;
 
     @media screen and (max-width: $breakpoint-sm) {
-      color: white;
-      background: $dark;
+      text-align: left;
+      font-size: 0.5rem;
+      color: wheat;
+      background: #111;
     }
   }
 }

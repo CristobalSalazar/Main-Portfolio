@@ -285,9 +285,8 @@ a:hover {
 
 @media screen and (max-width: 500px) {
   .heading {
-    font-size: 2rem;
-    margin: 2rem auto;
-    text-align: center;
+    font-size: 2.2rem;
+    margin: 1rem 1rem;
     width: 100%;
   }
 }
@@ -302,7 +301,7 @@ a:hover {
 
 @media screen and (max-width: 500px) {
   .sub-heading {
-    font-size: 1.5rem;
+    font-size: 1.375rem;
     margin: 1.5rem auto;
     margin-left: 1rem;
     text-align: left;
@@ -559,6 +558,7 @@ a:hover {
 
 @media screen and (max-width: 500px) {
   #intro {
+    height: 50vh;
     margin-bottom: 50vh;
   }
 }
@@ -631,33 +631,23 @@ a:hover {
   color: white;
   font-family: 'Times New Roman', Times, serif;
   font-weight: 100;
-  font-size: 5rem;
-}
-
-@media screen and (max-width: 1024px) {
-  #intro .title-container .canvas-text .canvas-title {
-    font-size: 3rem;
-  }
+  font-size: 5vw;
+  line-height: 0;
 }
 
 @media screen and (max-width: 500px) {
   #intro .title-container .canvas-text .canvas-title {
+    font-size: 2rem;
     color: #333;
-    font-size: 2.25rem;
   }
 }
 
 #intro .title-container .canvas-text .canvas-subtitle {
   font-family: 'Times New Roman', Times, serif;
-  font-size: 3rem;
+  font-size: 3vw;
   font-weight: 300;
   color: #333;
-}
-
-@media screen and (max-width: 1024px) {
-  #intro .title-container .canvas-text .canvas-subtitle {
-    font-size: 2rem;
-  }
+  line-height: 0;
 }
 
 @media screen and (max-width: 500px) {
@@ -758,6 +748,7 @@ a:hover {
 
 @media screen and (max-width: 500px) {
   .profile {
+    margin-bottom: 0rem;
     display: block;
   }
 }
@@ -840,6 +831,7 @@ a:hover {
 @media screen and (max-width: 500px) {
   .footer {
     display: block;
+    margin-top: 3rem;
     background: url("../../assets/images/ep.png");
     background: #111;
     border: none;
@@ -859,7 +851,8 @@ a:hover {
 
 @media screen and (max-width: 500px) {
   .footer-list h1 {
-    color: #eee;
+    color: #8fbc8f;
+    font-weight: 400;
   }
 }
 
@@ -926,8 +919,10 @@ a:hover {
 
 @media screen and (max-width: 500px) {
   .footer-copyright {
-    color: white;
-    background: #333;
+    text-align: left;
+    font-size: 0.5rem;
+    color: wheat;
+    background: #111;
   }
 }
 
@@ -999,7 +994,8 @@ a:hover {
 
 @media screen and (max-width: 500px) {
   #testemonials .testemonial {
-    text-align: center;
+    text-align: left;
+    padding: 1rem;
   }
 }
 
@@ -1015,6 +1011,7 @@ a:hover {
 @media screen and (max-width: 500px) {
   #testemonials .testemonial .quote {
     font-size: 1rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -1031,7 +1028,7 @@ a:hover {
 
 @media screen and (max-width: 500px) {
   #testemonials .testemonial .author {
-    text-align: center;
+    font-size: 0.75rem;
     font-weight: 700;
   }
 }

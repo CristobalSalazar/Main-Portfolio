@@ -7,7 +7,8 @@
     overflow: hidden;
 
     @media screen and (max-width: $breakpoint-sm) {
-      text-align: center;
+      text-align: left;
+      padding: 1rem;
     }
 
     .quote {
@@ -20,6 +21,7 @@
 
       @media screen and (max-width: $breakpoint-sm) {
         font-size: 1rem;
+        margin-bottom: 1rem;
       }
     }
 
@@ -34,7 +36,7 @@
       border-bottom: 1px solid #ccc;
 
       @media screen and (max-width: $breakpoint-sm) {
-        text-align: center;
+        font-size: 0.75rem;
         font-weight: 700;
       }
     }

@@ -6,9 +6,9 @@
   color: $dark;
 
   @media screen and (max-width: $breakpoint-sm) {
-    font-size: 2rem;
-    margin: 2rem auto;
-    text-align: center;
+    font-size: 1.1 * 2rem;
+    margin: 1rem 1rem;
+    // text-align: center;
     width: 100%;
   }
 }
@@ -21,7 +21,7 @@
   text-align: left;
 
   @media screen and (max-width: $breakpoint-sm) {
-    font-size: 1.5rem;
+    font-size: 1.1 * 1.25rem;
     margin: 1.5rem auto;
     margin-left: 1rem;
     text-align: left;

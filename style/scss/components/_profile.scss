@@ -10,6 +10,7 @@
   background: url("../../asstes/images/vid.m4v");
 
   @media screen and (max-width: $breakpoint-sm) {
+    margin-bottom: 0rem;
     display: block;
   }
 

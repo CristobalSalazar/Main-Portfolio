@@ -13,13 +13,6 @@
   const testemonialsLink = document.getElementById("testemonials-link");
   const aside = document.getElementById("side-list");
 
-  if (!breakpoints.md) {
-    let h1Offset = getComputedStyle(about.children[0]).marginTop;
-    h1Offset = parseInt(h1Offset.substr(0, h1Offset.length - 2));
-    aside.style.marginTop = h1Offset + "px";
-    aside.style.top = nav.clientHeight + h1Offset + "px";
-  }
-
   // --- Handle Link Scrolling ---
   function scrollToElement(element) {
     const fpos = element.children[0].clientHeight;
@@ -72,22 +65,29 @@
   // ****** Events ******
   window.addEventListener("scroll", () => {
     // TODO: WRAP INSIDE FUNCTION
+
     let currentOpacity =
       intro.getBoundingClientRect().bottom / intro.clientHeight;
     if (currentOpacity > 0) {
-      nav.style.background = `rgba(255,255,255, ${1-currentOpacity})`;
-      nav.style.boxShadow = `0 0 0.618rem rgba(125,125,125,${1 - currentOpacity})`;
-      nav.querySelector('.active').style.color = `rgb(${currentOpacity * 255},${currentOpacity * 255},${currentOpacity * 255})`
-      intro.style.opacity = currentOpacity;
+      if (!breakpoints.sm) {
+        nav.style.background = `rgba(255,255,255, ${1 - currentOpacity})`;
+        nav.style.boxShadow = `0 0 0.618rem rgba(125,125,125,${1 - currentOpacity})`;
+        nav.querySelector('.active').style.color = `rgb(${currentOpacity * 255},${currentOpacity * 255},${currentOpacity * 255})`
+      } else {
+        intro.style.opacity = currentOpacity;
+      }
     } else {
-      intro.style.opacity = 0;
-      nav.style.background = 'white';
-      nav.querySelector('.active').style.color = `black`;
+      if (!breakpoints.sm) {
+        nav.style.background = 'white';
+        nav.querySelector('.active').style.color = `black`;
+      } else {
+        intro.style.opacity = 0;
+      }
     }
 
     handleActiveSection(
       [about, skills, education, testemonials],
-      [aboutLink, skillsLink, educationLink, testemonialsLink])
+      [aboutLink, skillsLink, educationLink, testemonialsLink]);
     handleSectionFades(about);
     handleSectionFades(skills);
     handleSectionFades(education);
@@ -113,7 +113,18 @@
   skills.style.opacity = 0;
   education.style.opacity = 0;
   testemonials.style.opacity = 0;
-  nav.style.background = 'transparent';
-  nav.style.boxShadow = '0 0 0 transparent';
-  nav.querySelector('.active').style.color = `white`
+
+  if (!breakpoints.sm) {
+    nav.style.background = 'transparent';
+    nav.style.boxShadow = '0 0 0 transparent';
+    nav.querySelector('.active').style.color = `white`
+  } else {
+    nav.style.display = "none";
+  }
+  if (!breakpoints.md) {
+    let h1Offset = getComputedStyle(about.children[0]).marginTop;
+    h1Offset = parseInt(h1Offset.substr(0, h1Offset.length - 2));
+    aside.style.marginTop = h1Offset + "px";
+    aside.style.top = nav.clientHeight + h1Offset + "px";
+  }
 })();
