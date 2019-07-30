@@ -8,6 +8,8 @@
   @media screen and (max-width: $breakpoint-sm) {
     display: block;
     background: url('../../assets/images/ep.png');
+    background: #111;
+    border: none;
   }
 
   &-list {

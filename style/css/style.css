@@ -841,6 +841,8 @@ a:hover {
   .footer {
     display: block;
     background: url("../../assets/images/ep.png");
+    background: #111;
+    border: none;
   }
 }
 
