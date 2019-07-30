@@ -14,10 +14,10 @@
       canvas.style.height = window.innerHeight + "px";
     } else {
       // canvas size
-      canvas.setAttribute("height", window.innerHeight * dpr - nav.clientHeight);
+      canvas.setAttribute("height", window.innerHeight / 2 * dpr);
       canvas.setAttribute("width", window.innerWidth * dpr);
       // style
-      canvas.style.height = window.innerHeight - nav.clientHeight + "px";
+      canvas.style.height = window.innerHeight / 2 + "px";
       canvas.style.width = window.innerWidth + "px";
     }
   }
@@ -27,20 +27,11 @@
   }
 
   // ------ Circle Object ------
-  function Circle(x, y, radius) {
-    this.x = x;
-    this.y = y;
-    this.xvel = 0;
-    this.yvel = 0;
-    this.shrinkRate = Math.random() / 4;
-    this.radius = radius;
-    this.fadeRate = Math.random() * 0.01;
-    this.opacity = 1;
-    // this.color = Math.random() > 0.5 ? "#bca68f" : "#bc8fbc";
-    this.color = '#0275d8'
+  function Circle() {
+    this.reset();
+    this.color = 'lightblue'
   }
   // *** METHODS ***
-  // --- Render ---
   Circle.prototype.draw = function () {
     context.beginPath();
     context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
@@ -50,38 +41,50 @@
     context.closePath();
     context.globalAlpha = 1;
   };
-  // --- Update ---
   Circle.prototype.update = function () {
+
+    const xgrav = 0;
+    const ygrav = 0.0985;
+
     this.x += this.xvel;
     this.y += this.yvel;
-    this.yvel += 0.0485 * dpr;
-    this.xvel = this.xvel / 2;
+    this.yvel += ygrav * dpr;
+    this.xvel += xgrav * dpr;
     this.radius -= this.shrinkRate * dpr;
     this.opacity = this.opacity <= 0 ? (this.opacity = 0) : (this.opacity -= this.fadeRate);
-    // --- Reset ---
+
     if (this.radius <= 0 || this.opacity <= 0) {
-      this.radius = randomRange(6, 12) * dpr;
-      this.shrinkRate = (Math.random() / 4) * dpr;
-      this.x = randomRange(this.radius, canvas.width - this.radius);
-      this.y = -this.radius;
-      this.yvel = Math.random();
-      this.xvel = randomRange(-1, 1) * dpr;
-      this.opacity = 1;
-      this.xvel = -this.xvel;
+      this.reset();
       return;
-    } else if (this.y - this.radius >= canvas.height) {
+    }
+    // Collision
+    if (this.y - this.radius >= canvas.height) {
       this.yvel = -this.yvel / 2;
       this.radius /= 1.5;
       this.y = canvas.height - this.radius;
     }
-    // --- Collision ---
-    if (this.x + this.radius > canvas.width || this.x < 0 + this.radius) {
-      this.xvel = -this.xvel;
-    }
+    // if (this.x + this.radius > canvas.width || this.x < 0 + this.radius) {
+    //   this.xvel = -this.xvel;
+    // }
   };
-  Circle.prototype.initRadius = function () {
-    this.radius = (Math.floor(Math.random() * 5 + 5) + 3) * dpr;
-  };
+  Circle.prototype.reset = function () {
+    const minRadius = 2;
+    const maxRadius = 4;
+    const shrinkRate = Math.random() / 4;
+    const yvel = Math.random() * 5;
+    const fadeRate = Math.random() * 0.05;
+
+    const xvel = 0;
+
+    this.radius = randomRange(minRadius, maxRadius) * dpr;
+    this.shrinkRate = shrinkRate * dpr;
+    this.x = randomRange(this.radius, canvas.width - this.radius);
+    this.y = -this.radius;
+    this.yvel = yvel;
+    this.xvel = xvel;
+    this.fadeRate = fadeRate;
+    this.opacity = 1;
+  }
 
   function randomRange(min, max) {
     return Math.round(Math.random() * (max - min) + min);
@@ -91,28 +94,20 @@
     let circles = [];
     if (breakpoints.sm) {
       for (let i = 0; i < 100; i++) {
-        let circle = initCircle();
+        let circle = new Circle();
+        circle.reset();
         circles.push(circle);
       }
     } else {
       for (let i = 0; i < 100; i++) {
-        let circle = initCircle();
+        let circle = new Circle();
+        circle.reset();
         circles.push(circle);
       }
     }
     return circles;
   }
   const circles = createCircles();
-  // --- Initialize Circles ---
-  function initCircle() {
-    const radius = randomRange(2, 3) * dpr;
-    const xpos = randomRange(radius, canvas.width - radius);
-    const ypos = 0;
-    const circle = new Circle(xpos, ypos, radius);
-    circle.xvel = randomRange(-5, 5) * dpr;
-    circle.yvel = randomRange(0, 1) * dpr;
-    return circle;
-  }
 
   // --- Mouse Object ---
   var mouse = {

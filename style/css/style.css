@@ -549,6 +549,11 @@ a:hover {
   color: #c13584;
 }
 
+canvas {
+  position: absolute;
+  z-index: 2;
+}
+
 #intro {
   height: 50vh;
   margin-bottom: 10rem;
@@ -571,6 +576,7 @@ a:hover {
   margin-left: 14.28571%;
   width: calc(100vw - (1/7 * 100%));
   height: 100vh;
+  z-index: 3;
 }
 
 @media screen and (max-width: 800px) {
