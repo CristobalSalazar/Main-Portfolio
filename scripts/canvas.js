@@ -24,21 +24,19 @@
     let maxRadius = 25;
     let xOffset = canvas.width / 4;
     let interval = canvas.width / 1.96;
-    let yvel = randomRange(-6, -12) * dpr;
-    let xvel = (Math.random() - 0.5) * 5 * dpr;
+    let yvel = randomRange(-6, -12);
+    let xvel = (Math.random() - 0.5) * 5;
     let shrinkRate = Math.random();
     let fadeRate = Math.random();
 
     if (breakpoints.sm) {
-      minRadius /= 2;
-      maxRadius /= 2;
+
       xOffset = 0;
       interval = 0;
-      yvel *= 1.25;
     }
     this.xOffset = xOffset;
     this.radius = randomRange(minRadius, maxRadius) * dpr;
-    this.shrinkRate = shrinkRate * dpr;
+    this.shrinkRate = shrinkRate;
     // this.x = randomRange(this.radius + interval, canvas.width - interval - this.radius);
     // this.x += xOffset;
     this.x = mouse.x + (Math.random() - 0.5) * 25;
@@ -62,12 +60,12 @@
   };
   Circle.prototype.update = function () {
     const xForce = 0;
-    const yForce = 0.0985 * dpr;
+    const yForce = 0.0985;
     const shrinkDelta = 0.01;
     const above = this.y + this.radius < 0;
     const below = this.y - this.radius > canvas.height;
     const isBlack = this.color.r < 5 && this.color.g < 5 && this.color.b < 5;
-    this.shrinkRate += shrinkDelta * dpr;
+    this.shrinkRate += shrinkDelta;
     this.color = colorLerp(this.color, new Color(255, 255, 0), 0.05)
     this.x += this.xvel;
     this.y += this.yvel;
@@ -98,15 +96,18 @@
   };
   mouse.getCoords = function (e, isTouch = false) {
     if (isTouch) {
+
+      let offset = canvas.getBoundingClientRect().top
       mouse.x = e.touches[0].clientX * dpr;
-      mouse.y = e.touches[0].clientY * dpr;
+      mouse.y = (e.touches[0].clientY - offset) * dpr;
     } else {
       mouse.x = e.clientX * dpr;
       mouse.y = e.clientY * dpr;
     }
   };
   mouse.reset = function () {
-    mouse.held = false;
+    mouse.x = Number.MAX_SAFE_INTEGER;
+    mouse.y = Number.MAX_SAFE_INTEGER;
   };
   mouse.hold = function (e, isTouch = false) {
     mouse.getCoords(e, isTouch);
@@ -114,7 +115,12 @@
   };
   window.addEventListener("mouseleave", mouse.reset);
   window.addEventListener("mousemove", mouse.getCoords);
-  window.addEventListener("touchmove", e => mouse.getCoords(e, true));
+
+  if (breakpoints.sm) {
+    canvas.addEventListener('touchstart', e => mouse.getCoords(e, true));
+    canvas.addEventListener("touchmove", e => mouse.getCoords(e, true));
+    canvas.addEventListener('touchend', mouse.reset)
+  }
 
   // ------ Utility ------
   function lerp(a, b, t) {

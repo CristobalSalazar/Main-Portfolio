@@ -574,6 +574,7 @@ canvas {
 @media screen and (max-width: 500px) {
   canvas {
     height: 100vh;
+    opacity: 0.5;
   }
 }
 
@@ -714,6 +715,33 @@ canvas {
     font-size: 6.5vw;
     color: #eee;
   }
+}
+
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .mobile {
+    display: block;
+  }
+}
+
+.mobile .mobile-img {
+  margin: auto;
+  background: url("../../assets/images/Headshot6.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 256px;
+  height: 256px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.mobile .seperator {
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
 .pop-list {

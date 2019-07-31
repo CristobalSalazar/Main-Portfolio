@@ -9,6 +9,7 @@ canvas {
 
   @media screen and (max-width: $breakpoint-sm) {
     height: 100vh;
+    opacity: 0.5;
   }
 }
 
@@ -120,5 +121,30 @@ canvas {
       }
 
     }
+  }
+}
+
+.mobile {
+  display: none;
+
+  @media screen and (max-width: $breakpoint-sm) {
+    display: block;
+  }
+
+  .mobile-img {
+    margin: auto;
+    background: url('../../assets/images/Headshot6.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 256px;
+    height: 256px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
+
+  .seperator {
+    width: 100%;
+    margin-bottom: 1rem;
   }
 }
