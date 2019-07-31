@@ -1,28 +1,32 @@
 canvas {
   position: absolute;
   z-index: 2;
-  height: 100%;
-  width: 100%;
-  background: url("../../assets/images/ep.png") fixed center;
+  height: 50vh;
+  width: 100vw;
+  background: url("../../assets/images/ep.png");
+  background-size: contain;
   opacity: 0.618;
-  filter: blur(1px);
+
+  @media screen and (max-width: $breakpoint-sm) {
+    height: 100vh;
+
+  }
+
 }
 
 #intro {
   height: 50vh;
-  // margin-bottom: 10rem;
-  background: url("../../assets/images/stardust.png") fixed center;
+  background: url("../../assets/images/stardust.png");
   background-size: cover;
   position: relative;
 
-
   @media screen and (max-width: $breakpoint-sm) {
-
-    height: 50vh;
-    margin-bottom: 50vh;
+    height: 100vh;
+    margin-bottom: 1.618 * 10vh;
   }
 
   .title-container {
+
     position: absolute;
     display: flex;
     margin-left: 1/7 * 100%;
@@ -30,14 +34,15 @@ canvas {
     height: 50vh;
 
     @media screen and (max-width: $breakpoint-md) {
-      margin: auto;
-      width: 100%;
-
+      margin-left: 1rem;
+      width: calc(100vw - 1rem);
     }
 
     @media screen and (max-width: $breakpoint-sm) {
       display: block;
-      margin-top: 25vh;
+      margin: 0;
+      margin-top: 50vh;
+      width: 100%;
     }
 
     .canvas-img {
@@ -47,7 +52,7 @@ canvas {
       background-image: url('../../assets/images/Headshot6.jpg');
       background-size: cover;
       background-position: center;
-      box-shadow: 0 4px 2rem gray;
+      box-shadow: 0 0px 1rem $bg;
       width: $canvas-img-size;
       height: $canvas-img-size;
       border-radius: 50%;
@@ -55,6 +60,7 @@ canvas {
 
       @media screen and (max-width: $breakpoint-sm) {
         margin: auto;
+        display: none;
       }
     }
 
@@ -75,30 +81,42 @@ canvas {
         color: white;
         font-family: 'Times New Roman', Times, serif;
         font-weight: 100;
-        font-size: 5vw;
-        line-height: 0;
+        font-size: 5rem;
+        line-height: 1;
         margin-bottom: 3rem;
 
-        @media screen and (max-width: $breakpoint-lg) {}
+        @media screen and (max-width: $breakpoint-lg) {
+          font-size: 4rem;
+        }
 
-        @media screen and (max-width: $breakpoint-md) {}
+        @media screen and (max-width: $breakpoint-md) {
+          font-size: 3rem;
+        }
 
         @media screen and (max-width: $breakpoint-sm) {
-          font-size: 2rem;
-          color: $dark;
+          font-size: 13vw;
         }
       }
 
       .canvas-subtitle {
         font-family: 'Times New Roman', Times, serif;
-        font-size: 3vw;
+        font-size: 2.5rem;
         font-weight: 300;
         color: $bg;
-        line-height: 0;
+        line-height: 1;
 
-        @media screen and (max-width: $breakpoint-sm) {
+        @media screen and (max-width: $breakpoint-lg) {
+          font-size: 2rem;
+        }
+
+        @media screen and (max-width: $breakpoint-md) {
           font-size: 1.5rem;
         }
+
+        @media screen and (max-width: $breakpoint-sm) {
+          font-size: 6.5vw;
+        }
+
       }
 
     }

@@ -315,12 +315,19 @@ a:hover {
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 0.5rem;
+  grid-gap: 0.5rem;
 }
 
 @media screen and (max-width: 1024px) {
   .col-3 {
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .col-3 {
+    grid-gap: 0rem;
   }
 }
 
@@ -530,11 +537,10 @@ a:hover {
       align-self: center;
   line-height: 0;
   margin-right: 1rem;
-  opacity: 0.7;
-  -webkit-transition: opacity 0.1s, -webkit-transform 0.1s;
-  transition: opacity 0.1s, -webkit-transform 0.1s;
-  transition: opacity 0.1s, transform 0.1s;
-  transition: opacity 0.1s, transform 0.1s, -webkit-transform 0.1s;
+  -webkit-transition: -webkit-transform 0.1s;
+  transition: -webkit-transform 0.1s;
+  transition: transform 0.1s;
+  transition: transform 0.1s, -webkit-transform 0.1s;
 }
 
 .navbar-right a:hover {
@@ -558,25 +564,30 @@ a:hover {
 canvas {
   position: absolute;
   z-index: 2;
-  height: 100%;
-  width: 100%;
-  background: url("../../assets/images/ep.png") fixed center;
+  height: 50vh;
+  width: 100vw;
+  background: url("../../assets/images/ep.png");
+  background-size: contain;
   opacity: 0.618;
-  -webkit-filter: blur(1px);
-          filter: blur(1px);
+}
+
+@media screen and (max-width: 500px) {
+  canvas {
+    height: 100vh;
+  }
 }
 
 #intro {
   height: 50vh;
-  background: url("../../assets/images/stardust.png") fixed center;
+  background: url("../../assets/images/stardust.png");
   background-size: cover;
   position: relative;
 }
 
 @media screen and (max-width: 500px) {
   #intro {
-    height: 50vh;
-    margin-bottom: 50vh;
+    height: 100vh;
+    margin-bottom: 16.18vh;
   }
 }
 
@@ -592,15 +603,17 @@ canvas {
 
 @media screen and (max-width: 800px) {
   #intro .title-container {
-    margin: auto;
-    width: 100%;
+    margin-left: 1rem;
+    width: calc(100vw - 1rem);
   }
 }
 
 @media screen and (max-width: 500px) {
   #intro .title-container {
     display: block;
-    margin-top: 25vh;
+    margin: 0;
+    margin-top: 50vh;
+    width: 100%;
   }
 }
 
@@ -611,8 +624,8 @@ canvas {
   background-image: url("../../assets/images/Headshot6.jpg");
   background-size: cover;
   background-position: center;
-  -webkit-box-shadow: 0 4px 2rem gray;
-          box-shadow: 0 4px 2rem gray;
+  -webkit-box-shadow: 0 0px 1rem #eee;
+          box-shadow: 0 0px 1rem #eee;
   width: 256px;
   height: 256px;
   border-radius: 50%;
@@ -622,6 +635,7 @@ canvas {
 @media screen and (max-width: 500px) {
   #intro .title-container .canvas-img {
     margin: auto;
+    display: none;
   }
 }
 
@@ -651,29 +665,52 @@ canvas {
   color: white;
   font-family: 'Times New Roman', Times, serif;
   font-weight: 100;
-  font-size: 5vw;
-  line-height: 0;
+  font-size: 5rem;
+  line-height: 1;
   margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 1024px) {
+  #intro .title-container .canvas-text .canvas-title {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #intro .title-container .canvas-text .canvas-title {
+    font-size: 3rem;
+  }
 }
 
 @media screen and (max-width: 500px) {
   #intro .title-container .canvas-text .canvas-title {
-    font-size: 2rem;
-    color: #333;
+    font-size: 13vw;
   }
 }
 
 #intro .title-container .canvas-text .canvas-subtitle {
   font-family: 'Times New Roman', Times, serif;
-  font-size: 3vw;
+  font-size: 2.5rem;
   font-weight: 300;
   color: #eee;
-  line-height: 0;
+  line-height: 1;
+}
+
+@media screen and (max-width: 1024px) {
+  #intro .title-container .canvas-text .canvas-subtitle {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #intro .title-container .canvas-text .canvas-subtitle {
+    font-size: 1.5rem;
+  }
 }
 
 @media screen and (max-width: 500px) {
   #intro .title-container .canvas-text .canvas-subtitle {
-    font-size: 1.5rem;
+    font-size: 6.5vw;
   }
 }
 
