@@ -73,6 +73,7 @@
         nav.style.background = `rgba(255,255,255, ${1 - currentOpacity})`;
         nav.style.boxShadow = `0 0 0.618rem rgba(125,125,125,${1 - currentOpacity})`;
         nav.querySelector('.active').style.color = `rgb(${currentOpacity * 255},${currentOpacity * 255},${currentOpacity * 255})`
+        intro.style.opacity = currentOpacity;
       } else {
         intro.style.opacity = currentOpacity;
       }
@@ -80,6 +81,7 @@
       if (!breakpoints.sm) {
         nav.style.background = 'white';
         nav.querySelector('.active').style.color = `black`;
+        intro.style.opacity = 0;
       } else {
         intro.style.opacity = 0;
       }

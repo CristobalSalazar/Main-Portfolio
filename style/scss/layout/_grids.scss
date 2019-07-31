@@ -29,7 +29,11 @@
     // margin: auto;
 
     @media screen and (max-width: $breakpoint-lg) {
-      padding: 0 1rem;
+      padding: 0 2rem;
+    }
+
+    @media screen and (max-width: $breakpoint-md) {
+      padding: 0 2rem;
     }
 
     @media screen and (max-width: $breakpoint-sm) {

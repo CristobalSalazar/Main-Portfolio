@@ -1,115 +1,94 @@
 (function () {
   "use strict"
   const canvas = document.getElementById("intro-canvas");
-  const context = canvas.getContext("2d");
+  const intro = document.getElementById('intro');
   const dpr = window.devicePixelRatio;
+  const context = canvas.getContext("2d");
+  const goldenRatio = 1.61803398875;
 
-  function setSize() {
+  // ------ Sizing ------
+  function setCanvasSize() {
+    const canvasHeight = canvas.clientHeight
+    const canvasWidth = canvas.clientWidth;
+
     if (breakpoints.sm) {
-      // canvas size
-      canvas.setAttribute("height", window.innerHeight * dpr);
-      canvas.setAttribute("width", window.innerWidth * dpr);
-      // style
-      canvas.style.width = window.innerWidth + "px";
-      canvas.style.height = window.innerHeight + "px";
+      canvas.setAttribute("height", canvasHeight * dpr);
+      canvas.setAttribute("width", canvasWidth * dpr);
     } else {
-      // canvas size
-      canvas.setAttribute("height", window.innerHeight / 2 * dpr);
-      canvas.setAttribute("width", window.innerWidth * dpr);
-      // style
-      canvas.style.height = window.innerHeight / 2 + "px";
-      canvas.style.width = window.innerWidth + "px";
+      canvas.setAttribute("height", canvasHeight * dpr);
+      canvas.setAttribute("width", canvasWidth * dpr);
     }
   }
-  setSize();
-  if (!breakpoints.sm) {
-    window.onresize = setSize;
-  }
-
-  // ------ Circle Object ------
+  // ------ Circle ------
   function Circle() {
-    this.reset();
-    this.color = 'lightblue'
+    this.init();
   }
-  // *** METHODS ***
+  Circle.prototype.init = function () {
+    let minRadius = 25 * (goldenRatio - 1);
+    let maxRadius = 25;
+    const yvel = randomRange(-6, -12);
+    const xvel = (Math.random() - 0.5) * 5;
+    const shrinkRate = Math.random();
+    const fadeRate = Math.random();
+    const interval = canvas.width / 1.96;
+
+    if (breakpoints.sm) {
+      minRadius = 1;
+      maxRadius = 2;
+    }
+    this.xOffset = canvas.width / 4;
+    this.radius = randomRange(minRadius, maxRadius) * dpr;
+    this.shrinkRate = shrinkRate * dpr;
+    this.x = randomRange(this.radius + interval, canvas.width - interval - this.radius);
+    this.x += this.xOffset
+    this.y = -this.radius;
+    this.y = this.radius + canvas.height - Math.random() * 2;
+    this.yvel = yvel;
+    this.xvel = xvel;
+    this.fadeRate = fadeRate;
+    this.opacity = 1;
+    this.color = new Color(255, 255, 0);
+  }
   Circle.prototype.draw = function () {
     context.beginPath();
     context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     context.globalAlpha = this.opacity;
-    context.fillStyle = this.color;
+    context.fillStyle = `rgb(${this.color.r},${this.color.g},${this.color.b})`;
     context.fill();
     context.closePath();
     context.globalAlpha = 1;
   };
   Circle.prototype.update = function () {
-
-    const xgrav = 0;
-    const ygrav = 0.0985;
-
+    const xForce = 0;
+    const yForce = 0.0985;
+    const shrinkDelta = 0.01;
+    const above = this.y + this.radius < 0;
+    const below = this.y - this.radius > canvas.height;
+    const isBlack = this.color.r < 5 && this.color.g < 5 && this.color.b < 5;
+    this.shrinkRate += shrinkDelta;
+    this.color = colorLerp(this.color, new Color(0, 0, 0), 0.05)
     this.x += this.xvel;
     this.y += this.yvel;
-    this.yvel += ygrav * dpr;
-    this.xvel += xgrav * dpr;
+    this.yvel += yForce * dpr;
+    this.xvel += xForce * dpr;
     this.radius -= this.shrinkRate * dpr;
+    this.x = lerp(this.x, canvas.width / 2 + this.xOffset, 0.02);
+
     this.opacity = this.opacity <= 0 ? (this.opacity = 0) : (this.opacity -= this.fadeRate);
-
-    if (this.radius <= 0 || this.opacity <= 0) {
-      this.reset();
-      return;
+    if (this.radius <= 0 || this.opacity <= 0 || above || below || isBlack) {
+      this.init()
     }
-    // Collision
-    if (this.y - this.radius >= canvas.height) {
-      this.yvel = -this.yvel / 2;
-      this.radius /= 1.5;
-      this.y = canvas.height - this.radius;
-    }
-    // if (this.x + this.radius > canvas.width || this.x < 0 + this.radius) {
-    //   this.xvel = -this.xvel;
-    // }
   };
-  Circle.prototype.reset = function () {
-    const minRadius = 2;
-    const maxRadius = 4;
-    const shrinkRate = Math.random() / 4;
-    const yvel = Math.random() * 5;
-    const fadeRate = Math.random() * 0.05;
-
-    const xvel = 0;
-
-    this.radius = randomRange(minRadius, maxRadius) * dpr;
-    this.shrinkRate = shrinkRate * dpr;
-    this.x = randomRange(this.radius, canvas.width - this.radius);
-    this.y = -this.radius;
-    this.yvel = yvel;
-    this.xvel = xvel;
-    this.fadeRate = fadeRate;
-    this.opacity = 1;
-  }
-
-  function randomRange(min, max) {
-    return Math.round(Math.random() * (max - min) + min);
-  }
-  // --- Circle Factory ---
-  function createCircles() {
-    let circles = [];
-    if (breakpoints.sm) {
-      for (let i = 0; i < 25; i++) {
-        let circle = new Circle();
-        circle.reset();
-        circles.push(circle);
-      }
-    } else {
-      for (let i = 0; i < 100; i++) {
-        let circle = new Circle();
-        circle.reset();
-        circles.push(circle);
-      }
+  Circle.prototype.createCircles = function (density) {
+    const circles = [];
+    for (let i = 0; i < density; i++) {
+      const circle = new Circle();
+      circles.push(circle);
     }
     return circles;
   }
-  const circles = createCircles();
 
-  // --- Mouse Object ---
+  // ------ Mouse ------
   var mouse = {
     x: 0,
     y: 0,
@@ -131,47 +110,69 @@
     mouse.getCoords(e, isTouch);
     mouse.held = true;
   };
+  canvas.addEventListener("mouseleave", mouse.reset);
+  canvas.addEventListener("mousemove", mouse.getCoords);
+  canvas.addEventListener("touchmove", e => mouse.getCoords(e, true));
+  canvas.addEventListener("mouseup", mouse.reset);
+  canvas.addEventListener("touchend", mouse.reset);
+  canvas.addEventListener("mousedown", mouse.hold);
+  canvas.addEventListener("touchstart", e => mouse.hold(e, true));
 
-  // --- Mouse Events ---
-  window.addEventListener("mouseleave", mouse.reset);
-  window.addEventListener("mousemove", mouse.getCoords);
-  window.addEventListener("touchmove", e => mouse.getCoords(e, true));
-  window.addEventListener("mouseup", mouse.reset);
-  window.addEventListener("touchend", mouse.reset);
-  window.addEventListener("mousedown", mouse.hold);
-  window.addEventListener("touchstart", e => mouse.hold(e, true));
-
+  // ------ Utility ------
   function lerp(a, b, t) {
     return (1 - t) * a + t * b;
   }
 
+  function Color(r, g, b) {
+    this.r = r;
+    this.g = g;
+    this.b = b;
+  }
+
+  function colorLerp(color1, color2, t) {
+    const r = lerp(color1.r, color2.r, t);
+    const g = lerp(color1.g, color2.g, t);
+    const b = lerp(color1.b, color2.b, t);
+    return new Color(r, g, b);
+  }
+
+  function randomRange(min, max) {
+    return Math.round(Math.random() * (max - min) + min);
+  }
+
+  // ------ Render ------
   const requestAnimationFrame =
     window.requestAnimationFrame ||
     window.mozRequestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
     window.msRequestAnimationFrame;
 
-  var posy = 0;
+  let posy = 0;
 
   function render() {
     if (canvas.getBoundingClientRect().bottom < 0) {
       requestAnimationFrame(render);
       return;
     }
-
-    canvas.style.backgroundPositionY = posy + 'px';
-
+    intro.style.backgroundPositionY = -posy + 'px';
+    canvas.style.backgroundPositionY = -posy / goldenRatio / 2 + 'px';
     posy += 10;
     context.clearRect(0, 0, canvas.width, canvas.height);
     for (let circle of circles) {
       circle.update();
       if (mouse.held) {
-        circle.x = lerp(circle.x, mouse.x, 0.05);
-        circle.y = lerp(circle.y, mouse.y, 0.1);
+        circle.x = lerp(circle.x, mouse.x, 0.025);
       }
       circle.draw();
     }
     requestAnimationFrame(render);
   }
+
+  // ------ Exec ------
+  setCanvasSize()
+  if (!breakpoints.sm) {
+    window.onresize = setCanvasSize;
+  }
+  const circles = Circle.prototype.createCircles(500);
   render();
 })();
