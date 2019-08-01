@@ -95,14 +95,13 @@
     held: false
   };
   mouse.getCoords = function (e, isTouch = false) {
+    let offset = canvas.getBoundingClientRect().top
     if (isTouch) {
-
-      let offset = canvas.getBoundingClientRect().top
       mouse.x = e.touches[0].clientX * dpr;
       mouse.y = (e.touches[0].clientY - offset) * dpr;
     } else {
       mouse.x = e.clientX * dpr;
-      mouse.y = e.clientY * dpr;
+      mouse.y = e.clientY - offset * dpr;
     }
   };
   mouse.reset = function () {
@@ -115,6 +114,7 @@
   };
   window.addEventListener("mouseleave", mouse.reset);
   window.addEventListener("mousemove", mouse.getCoords);
+
 
   if (breakpoints.sm) {
     canvas.addEventListener('touchstart', e => mouse.getCoords(e, true));
@@ -167,7 +167,6 @@
     context.clearRect(0, 0, canvas.width, canvas.height);
     for (let circle of circles) {
       circle.update();
-      // circle.x = lerp(circle.x, mouse.x, 0.0125);
       circle.draw();
     }
 
