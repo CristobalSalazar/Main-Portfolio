@@ -1,4 +1,4 @@
-$project-size: 256px;
+$project-size: 192px;
 $project-size-md: 192px;
 $project-size-sm: 128px;
 $project-speed: 0.25s;
@@ -38,6 +38,7 @@ $project-speed: 0.25s;
       display: flex;
       position: relative;
       background: black;
+      box-shadow: 0 0 1rem black;
       transition: opacity $project-speed,
         transform $project-speed,
         box-shadow $project-speed;
@@ -77,8 +78,10 @@ $project-speed: 0.25s;
         }
       }
 
+      border-radius: 1rem;
 
       &-video {
+        border-radius: 1rem;
         transition: opacity $project-speed;
         @include size(100%);
         @include reset;

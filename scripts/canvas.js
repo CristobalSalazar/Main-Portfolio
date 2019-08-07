@@ -13,19 +13,23 @@
 
     canvas.setAttribute("height", canvasHeight * dpr);
     canvas.setAttribute("width", canvasWidth * dpr);
-
   }
+
   // ------ Circle ------
   function Circle() {
     this.init();
   }
   Circle.prototype.init = function () {
-    let minRadius = 25 * (goldenRatio - 1);
-    let maxRadius = 25;
+    let minRadius = 18 * (goldenRatio - 1);
+    let maxRadius = 18;
+
+    minRadius = 16;
+    maxRadius = 16;
     let xOffset = canvas.width / 4;
-    let interval = canvas.width / 1.96;
-    let yvel = randomRange(-6, -12);
-    let xvel = (Math.random() - 0.5) * 5;
+    // let yvel = randomRange(-6, -12);
+    let yvel = 0;
+    // let xvel = (Math.random() - 0.5);
+    let xvel = 0;
     let shrinkRate = Math.random();
     let fadeRate = Math.random();
 
@@ -60,8 +64,8 @@
   };
   Circle.prototype.update = function () {
     const xForce = 0;
-    const yForce = 0.0985;
-    const shrinkDelta = 0.01;
+    const yForce = 0.985;
+    const shrinkDelta = 0.02;
     const above = this.y + this.radius < 0;
     const below = this.y - this.radius > canvas.height;
     const isBlack = this.color.r < 5 && this.color.g < 5 && this.color.b < 5;
@@ -73,6 +77,10 @@
     this.xvel += xForce * dpr;
     this.radius -= this.shrinkRate * dpr;
     // this.x = lerp(this.x, canvas.width / 2 + this.xOffset, 0.02);
+
+    if (below) {
+      this.yvel = -this.yvel;
+    }
 
     this.opacity = this.opacity <= 0 ? (this.opacity = 0) : (this.opacity -= this.fadeRate);
     if (this.radius <= 0 || this.opacity <= 0 || above || below || isBlack) {
@@ -89,34 +97,31 @@
   }
 
   // ------ Mouse ------
-  var mouse = {
-    x: Number.MAX_SAFE_INTEGER,
-    y: Number.MAX_SAFE_INTEGER,
-    held: false
+  function Mouse() {
+    this.x = Number.MAX_SAFE_INTEGER;
+    this.y = Number.MAX_SAFE_INTEGER;
   };
-  mouse.getCoords = function (e, isTouch = false) {
+  Mouse.prototype.getCoords = function (e, isTouch = false) {
     let offset = canvas.getBoundingClientRect().top
     if (isTouch) {
-      mouse.x = e.touches[0].clientX * dpr;
-      mouse.y = (e.touches[0].clientY - offset) * dpr;
+      this.x = e.touches[0].clientX * dpr;
+      this.y = (e.touches[0].clientY - offset) * dpr;
     } else {
-      mouse.x = e.clientX * dpr;
-      mouse.y = e.clientY - offset * dpr;
+      this.x = e.clientX * dpr;
+      this.y = e.clientY - offset * dpr;
     }
   };
-  mouse.reset = function () {
-    mouse.x = Number.MAX_SAFE_INTEGER;
-    mouse.y = Number.MAX_SAFE_INTEGER;
+  Mouse.prototype.reset = function () {
+    this.x = Number.MAX_SAFE_INTEGER;
+    this.y = Number.MAX_SAFE_INTEGER;
   };
-  mouse.hold = function (e, isTouch = false) {
-    mouse.getCoords(e, isTouch);
-    mouse.held = true;
-  };
+  const mouse = new Mouse();
+
   window.addEventListener("mouseleave", mouse.reset);
-  window.addEventListener("mousemove", mouse.getCoords);
+  window.addEventListener("mousemove", e => mouse.getCoords(e));
 
 
-  if (breakpoints.sm) {
+  if (breakpoints.md) {
     canvas.addEventListener('touchstart', e => mouse.getCoords(e, true));
     canvas.addEventListener("touchmove", e => mouse.getCoords(e, true));
     canvas.addEventListener('touchend', mouse.reset)
@@ -174,7 +179,7 @@
     requestAnimationFrame(render);
   }
 
-  // ------ Exec ------
+  // ------ Execution ------
   setCanvasSize()
   if (!breakpoints.sm) {
     window.onresize = setCanvasSize;

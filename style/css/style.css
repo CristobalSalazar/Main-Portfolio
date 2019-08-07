@@ -1183,12 +1183,15 @@ canvas {
   display: flex;
   position: relative;
   background: black;
+  -webkit-box-shadow: 0 0 1rem black;
+          box-shadow: 0 0 1rem black;
   -webkit-transition: opacity 0.25s, -webkit-transform 0.25s, -webkit-box-shadow 0.25s;
   transition: opacity 0.25s, -webkit-transform 0.25s, -webkit-box-shadow 0.25s;
   transition: opacity 0.25s, transform 0.25s, box-shadow 0.25s;
   transition: opacity 0.25s, transform 0.25s, box-shadow 0.25s, -webkit-transform 0.25s, -webkit-box-shadow 0.25s;
-  width: 512px;
-  height: 512px;
+  width: 384px;
+  height: 384px;
+  border-radius: 1rem;
 }
 
 @media screen and (max-width: 800px) {
@@ -1235,6 +1238,7 @@ canvas {
 }
 
 .portfolio .project-reel .project-video {
+  border-radius: 1rem;
   -webkit-transition: opacity 0.25s;
   transition: opacity 0.25s;
   width: 100%;
