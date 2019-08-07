@@ -356,7 +356,6 @@ a:hover {
   min-height: 100vh;
   max-width: 1280px;
   padding: 0 3rem;
-  margin: auto;
 }
 
 @media screen and (max-width: 1024px) {
@@ -378,6 +377,7 @@ a:hover {
 }
 
 .main-portfolio {
+  margin: auto;
   margin-top: 3rem;
 }
 
