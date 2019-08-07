@@ -1,80 +1,121 @@
 $project-size: 256px;
+$project-size-md: 192px;
+$project-size-sm: 128px;
+$project-speed: 0.25s;
 
 .portfolio {
+  width: 100%;
   margin: auto;
-  margin-top: 3rem;
-  max-width: 960px;
-  border-top: 1px solid lightgray;
+  max-width: 1200px;
 
-  &:last-of-type {
-    margin-bottom: 10rem;
+  @include breakpoint-md {
+    text-align: center;
   }
 
+  @include breakpoint-sm {
+    @include reset;
+    overflow: hidden;
+  }
 
-  &-reel {
+  .project-reel {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
+    margin: auto;
 
-  }
+    @include breakpoint-lg {
 
-  .project {
-
-    width: $project-size;
-    height: $project-size;
-
-    &#bitstream {
-
-      height: $project-size * 2;
+      justify-content: center;
     }
 
-    &#barbsadventure {
-
-      width: $project-size * 2;
-      height: $project-size * 2;
+    @include breakpoint-sm {
+      @include reset;
     }
 
-    border-radius: 10px;
-    box-shadow: 0 0 0.5rem $dark;
-    display: flex;
-    margin-right: 2rem;
-    background: $dark;
-    opacity: 0.9;
-    $project-speed: 0.25s;
-    position: relative;
-    overflow: hidden;
-    transition: opacity $project-speed,
-    transform $project-speed,
-    box-shadow $project-speed;
-
-    video {
-      position: absolute;
-      background: black;
-      z-index: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    &:hover {
-      box-shadow: 0 0 0rem $dark;
-      transform: scale(1.1);
+    .project {
       opacity: 1;
+      margin-right: 3rem;
+      display: flex;
+      position: relative;
+      background: black;
+      transition: opacity $project-speed,
+        transform $project-speed,
+        box-shadow $project-speed;
+      @include size($project-size * 2);
 
-      .project-label {
-        opacity: 1;
+      @include breakpoint-md {
+        @include reset;
+        margin-bottom: 3rem;
       }
-    }
 
-    &-label {
-      z-index: 2;
-      text-align: center;
-      background: #111;
-      width: 100%;
-      padding: 0.5rem;
-      font-size: 1.5rem;
-      color: $bg;
-      margin: auto;
-      opacity: 0;
-      transition: opacity $project-speed;
+      // phone
+      @include breakpoint-md {
+
+        @include size(100%);
+        opacity: 1;
+        box-shadow: none;
+        display: block;
+        background: none;
+      }
+
+      &:hover {
+        box-shadow: 0 0 0rem $dark;
+        transform: scale(1.05);
+
+        @include breakpoint-sm {
+          transform: none;
+        }
+
+        .project-label {
+          opacity: 1;
+        }
+
+        .project-video {
+
+          opacity: 0.5;
+
+        }
+      }
+
+
+      &-video {
+        transition: opacity $project-speed;
+        @include size(100%);
+        @include reset;
+
+        @include breakpoint-md {
+          position: block;
+        }
+      }
+
+      &-label {
+        z-index: 3;
+        text-align: center;
+        background: rgba(16, 16, 16, 0.25);
+        padding: 0.5rem;
+        font-size: 1.5rem;
+        color: $bg;
+        opacity: 0;
+        position: absolute;
+        width: 100%;
+        top: 50%;
+
+        transition: opacity $project-speed;
+
+        @include breakpoint-md {
+          @include reset;
+          margin: auto;
+          width: 100%;
+          position: static;
+          transition: none;
+          opacity: 1;
+          text-align: left;
+          color: $text;
+          background: none;
+          margin: 1rem;
+          font-style: italic;
+        }
+      }
     }
   }
 }

@@ -356,6 +356,7 @@ a:hover {
   min-height: 100vh;
   max-width: 1280px;
   padding: 0 3rem;
+  margin: auto;
 }
 
 @media screen and (max-width: 1024px) {
@@ -374,6 +375,10 @@ a:hover {
   .layout .main {
     padding: 0;
   }
+}
+
+.main-portfolio {
+  margin-top: 3rem;
 }
 
 #side-drawer {
@@ -626,8 +631,8 @@ canvas {
   background-image: url("../../assets/images/Headshot6.jpg");
   background-size: cover;
   background-position: center;
-  -webkit-box-shadow: 0 0px 1rem #eee;
-          box-shadow: 0 0px 1rem #eee;
+  -webkit-box-shadow: 0 0px 1rem #8fbc8f;
+          box-shadow: 0 0px 1rem #8fbc8f;
   width: 256px;
   height: 256px;
   border-radius: 50%;
@@ -907,6 +912,7 @@ canvas {
 
 .footer {
   border-top: 0.618rem double #ddd;
+  margin: auto;
   margin-top: 10rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -914,12 +920,13 @@ canvas {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding: 1rem;
+  max-width: 1200px;
 }
 
 @media screen and (max-width: 500px) {
   .footer {
     display: block;
-    margin-top: 3rem;
+    margin-top: 0rem;
     background: url("../../assets/images/ep.png");
     background: #111;
     border: none;
@@ -1122,83 +1129,157 @@ canvas {
 }
 
 .portfolio {
+  width: 100%;
   margin: auto;
-  margin-top: 3rem;
-  max-width: 960px;
-  border-top: 1px solid lightgray;
+  max-width: 1200px;
 }
 
-.portfolio:last-of-type {
-  margin-bottom: 10rem;
+@media screen and (max-width: 800px) {
+  .portfolio {
+    text-align: center;
+  }
 }
 
-.portfolio-reel {
+@media screen and (max-width: 500px) {
+  .portfolio {
+    margin: 0;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+  }
+}
+
+.portfolio .project-reel {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  margin: auto;
 }
 
-.portfolio .project {
-  width: 256px;
-  height: 256px;
-  border-radius: 10px;
-  -webkit-box-shadow: 0 0 0.5rem #333;
-          box-shadow: 0 0 0.5rem #333;
+@media screen and (max-width: 1024px) {
+  .portfolio .project-reel {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .portfolio .project-reel {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+}
+
+.portfolio .project-reel .project {
+  opacity: 1;
+  margin-right: 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-right: 2rem;
-  background: #333;
-  opacity: 0.9;
   position: relative;
-  overflow: hidden;
+  background: black;
   -webkit-transition: opacity 0.25s, -webkit-transform 0.25s, -webkit-box-shadow 0.25s;
   transition: opacity 0.25s, -webkit-transform 0.25s, -webkit-box-shadow 0.25s;
   transition: opacity 0.25s, transform 0.25s, box-shadow 0.25s;
   transition: opacity 0.25s, transform 0.25s, box-shadow 0.25s, -webkit-transform 0.25s, -webkit-box-shadow 0.25s;
-}
-
-.portfolio .project#bitstream {
-  height: 512px;
-}
-
-.portfolio .project#barbsadventure {
   width: 512px;
   height: 512px;
 }
 
-.portfolio .project video {
-  position: absolute;
-  background: black;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
+@media screen and (max-width: 800px) {
+  .portfolio .project-reel .project {
+    margin: 0;
+    padding: 0;
+    border: none;
+    margin-bottom: 3rem;
+  }
 }
 
-.portfolio .project:hover {
+@media screen and (max-width: 800px) {
+  .portfolio .project-reel .project {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    display: block;
+    background: none;
+  }
+}
+
+.portfolio .project-reel .project:hover {
   -webkit-box-shadow: 0 0 0rem #333;
           box-shadow: 0 0 0rem #333;
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+@media screen and (max-width: 500px) {
+  .portfolio .project-reel .project:hover {
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+.portfolio .project-reel .project:hover .project-label {
   opacity: 1;
 }
 
-.portfolio .project:hover .project-label {
-  opacity: 1;
+.portfolio .project-reel .project:hover .project-video {
+  opacity: 0.5;
 }
 
-.portfolio .project-label {
-  z-index: 2;
-  text-align: center;
-  background: #111;
+.portfolio .project-reel .project-video {
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
   width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+@media screen and (max-width: 800px) {
+  .portfolio .project-reel .project-video {
+    position: block;
+  }
+}
+
+.portfolio .project-reel .project-label {
+  z-index: 3;
+  text-align: center;
+  background: rgba(16, 16, 16, 0.25);
   padding: 0.5rem;
   font-size: 1.5rem;
   color: #eee;
-  margin: auto;
   opacity: 0;
+  position: absolute;
+  width: 100%;
+  top: 50%;
   -webkit-transition: opacity 0.25s;
   transition: opacity 0.25s;
+}
+
+@media screen and (max-width: 800px) {
+  .portfolio .project-reel .project-label {
+    margin: 0;
+    padding: 0;
+    border: none;
+    margin: auto;
+    width: 100%;
+    position: static;
+    -webkit-transition: none;
+    transition: none;
+    opacity: 1;
+    text-align: left;
+    color: #666;
+    background: none;
+    margin: 1rem;
+    font-style: italic;
+  }
 }

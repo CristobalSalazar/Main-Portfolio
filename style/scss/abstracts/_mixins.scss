@@ -1,13 +1,40 @@
-@mixin breakpoint {
-  @media screen and (max-width: $breakpoint) {}
-}
-
-@mixin fontSizeAtBreakpoint($fontSize, $breakpoint) {
-  @media screen and (max-width: $breakpoint) {
-    font-size: $fontSize;
+// breakpoints
+@mixin breakpoint-sm {
+  @media screen and (max-width: $breakpoint-sm) {
+    @content;
   }
 }
 
+@mixin breakpoint-md {
+  @media screen and (max-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin breakpoint-lg {
+  @media screen and (max-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+// util
+@mixin reset() {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin minmax-width($min, $max) {
+  min-width: $min;
+  max-width: $max;
+}
+
+// animation
 @mixin fadeIn($duration) {
   animation: FadeIn $duration;
   animation-fill-mode: forwards;

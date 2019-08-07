@@ -3,18 +3,18 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 0.5rem;
 
-  @media screen and (max-width: $breakpoint-lg) {
+  @include breakpoint-lg {
     grid-template-columns: 1fr 1fr;
   }
 
-  @media screen and (max-width: $breakpoint-md) {
+  @include breakpoint-md {
     grid-gap: 0rem;
 
   }
 
   grid-gap: 0.5rem;
 
-  @media screen and (max-width: $breakpoint-sm) {
+  @include breakpoint-sm {
     display: block;
   }
 }
@@ -23,7 +23,7 @@
   display: grid;
   grid-template-columns: 1fr 6fr;
 
-  @media screen and (max-width: $breakpoint-md) {
+  @include breakpoint-md {
     overflow-x: hidden;
     display: block;
   }
@@ -33,18 +33,22 @@
     min-height: 100vh;
     max-width: 1280px;
     padding: 0 3rem;
-    // margin: auto;
+    margin: auto;
 
-    @media screen and (max-width: $breakpoint-lg) {
+    @include breakpoint-lg {
       padding: 0 2rem;
     }
 
-    @media screen and (max-width: $breakpoint-md) {
+    @include breakpoint-md {
       padding: 0 2rem;
     }
 
-    @media screen and (max-width: $breakpoint-sm) {
+    @include breakpoint-sm {
       padding: 0;
     }
   }
+}
+
+.main-portfolio {
+  margin-top: 3rem;
 }

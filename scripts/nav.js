@@ -2,6 +2,7 @@ const nav = document.querySelector(".navbar");
 (function () {
   "use strict"
 
+
   var __prevScroll = 0;
   var scrollDir = 0;
 

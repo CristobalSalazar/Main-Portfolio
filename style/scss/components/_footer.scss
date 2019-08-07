@@ -1,13 +1,15 @@
 .footer {
   border-top: 0.618rem double #ddd;
+  margin: auto;
   margin-top: 10rem;
   display: flex;
   flex-wrap: wrap;
   padding: 1rem;
+  max-width: 1200px;
 
   @media screen and (max-width: $breakpoint-sm) {
     display: block;
-    margin-top: 3rem;
+    margin-top: 0rem;
     background: url('../../assets/images/ep.png');
     background: #111;
     border: none;

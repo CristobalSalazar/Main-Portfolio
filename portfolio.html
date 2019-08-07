@@ -7,143 +7,121 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Cristobal Salazar - Portfolio</title>
   <link rel="icon" type="image/jpg" href="images/Headshot6.jpg" />
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
-  <!-- FONT AWESOME -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
   <!-- style -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
   <link rel="stylesheet" type="text/css" href="style/css/style.min.css" />
-  <!-- JQUERY -->
-  <!-- <script src="scripts/libs/jquery-3.4.1.js"></script> -->
-
-  <!-- Style -->
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
 <body>
-  <nav>
-    <!-- Navbar -->
-    <nav class="navbar">
-      <div class="navbar-left">
-        <div class="navbar-brand">CRISTOBAL SALAZAR</div>
-        <ul class="pages">
-          <li class="nav-element"><a class="nav-link" href="index.html">ABOUT</a></li>
-          <li class="nav-element"><a class="active" href="portfolio.html">PORTFOLIO</a></li>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-left">
+      <div class="navbar-brand">CRISTOBAL SALAZAR</div>
+      <ul class="pages">
+        <li class="nav-element"><a class="nav-link" href="index.html">ABOUT</a></li>
+        <li class="nav-element"><a class="active" href="portfolio.html">PORTFOLIO</a></li>
+      </ul>
+    </div>
+    <div class="navbar-right">
+      <a href="https://github.com/cristobalsalazar">
+        <i id="github" class="fa fa-github-square" aria-hidden="true"></i>
+      </a>
+      <a href="https://facebook.com">
+        <i id="facebook" class="fa fa-facebook-square" aria-hidden="true"></i>
+      </a>
+      <a href="https://instagram.com">
+        <i id="instagram" class="fa fa-instagram" aria-hidden="true"></i>
+      </a>
+    </div>
+  </nav>
+  <div id="nav-spacer"></div>
+
+  <main class="main-portfolio" role=main>
+    <!-- Unity Apps -->
+    <section class="portfolio" id="unity">
+      <h1 class="heading">Unity</h1>
+      <div class="project-reel">
+        <div class="project" id="barbsadventure">
+          <p class="project-label">Barb's Adventure</p>
+          <video class="project-video" src="assets/videos/ba.mp4" autoplay loop muted></video>
+        </div>
+        <div class="project" id="bitstream">
+          <p class="project-label">Bitstream</p>
+          <video class="project-video" src="assets/videos/bs.m4v" autoplay loop muted></video>
+        </div>
+      </div>
+    </section>
+    <!-- Web -->
+    <section class="portfolio" id="web">
+      <h1 class="heading">Web</h1>
+      <div class="project-reel">
+        <div class="project" id="grmnotebook">
+          <p class="project-label">GRM Notebook</p>
+          <video class="project-video" src="assets/videos/grm.mkv" autoplay loop muted></video>
+        </div>
+        <div class="project" id="giffycat">
+          <p class="project-label">GIFFYCAT</p>
+          <video class="project-video" src="assets/videos/giffycat.mkv" autoplay loop muted></video>
+        </div>
+      </div>
+    </section>
+    <section class="portfolio" id="console">
+      <h1 class="heading">Console</h1>
+      <div class="project-reel">
+        <div class="project" id="pathfinding">
+          <p class="project-label">Pathfinding Algorithms</p>
+          <video class="project-video" src="assets/videos/pathfinding.mkv" autoplay loop muted></video>
+        </div>
+        <div class="project" id="liri">
+          <p class="project-label">Liri</p>
+          <video class="project-video" src="assets/videos/liri.mkv" autoplay loop muted></video>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer" style="margin-top: 7rem">
+      <div class="footer-list">
+        <h1>About</h1>
+        <ul>
+          <li>About</li>
+          <li>Skills</li>
+          <li>Education</li>
+          <li>Testimonials</li>
         </ul>
       </div>
-      <div class="navbar-right">
-        <a href="https://github.com/cristobalsalazar">
-          <i id="github" class="fa fa-github-square" aria-hidden="true"></i>
-        </a>
-        <a href="https://facebook.com">
-          <i id="facebook" class="fa fa-facebook-square" aria-hidden="true"></i>
-        </a>
-        <a href="https://instagram.com">
-          <i id="instagram" class="fa fa-instagram" aria-hidden="true"></i>
-        </a>
+      <div class="footer-list">
+        <h1>Portfolio</h1>
+        <ul>
+          <li>Websites</li>
+          <li>Unity Apps</li>
+          <li>Misc</li>
+          <li>
+            <a href="./assets/resume/Resume.pdf">Resume</a>
+          </li>
+        </ul>
       </div>
-    </nav>
-    <div id="nav-spacer"></div>
-
-    <main class="main">
-      <!-- Unity Apps -->
-      <section class="portfolio">
-        <h1 class="heading">Unity</h1>
-        <div class="portfolio-inner">
-          <div class="portfolio-reel">
-            <a href="portfolio/bitstream.html">
-              <div class="project" id="bitstream">
-                <video src="assets/videos/bs.m4v" autoplay loop muted></video>
-                <p class="project-label">Bitstream</p>
-              </div>
-            </a>
-            <a href="portfolio/barbsadventure.html">
-              <div class="project" id="barbsadventure">
-                <video src="assets/videos/ba.mp4" autoplay loop muted></video>
-                <p class="project-label">Barb's Adventure</p>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-      <!-- Web -->
-      <section class="portfolio">
-        <h1 class="heading">Web</h1>
-        <div class="portfolio-reel">
-          <a href="index.html">
-            <div class="project" id="website">
-              <p class="project-label">My Website</p>
-            </div>
-          </a>
-          <a href="hangman.html">
-            <div class="project" id="hangman">
-              <p class="project-label">Hangman</p>
-            </div>
-          </a>
-          <a href="portfolio/DNA/index.html">
-            <div class="project" id="DNA">
-              <p class="project-label">Interactive Web Art</p>
-            </div>
-          </a>
-
-        </div>
-      </section>
-
-      <section class="portfolio">
-        <h1 class="heading">Console</h1>
-        <div class="portfolio-reel"></div>
-        <a href="#">
-          <div class="project" id="astar">
-
-            <p class="project-label">Pathfinding Algorithms</p>
-          </div>
-        </a>
-        </div>
-      </section>
-
-      <footer>
-        <div class="footer-lists">
-          <div class="list">
-            <h1>About</h1>
-            <ul>
-              <li>About</li>
-              <li>Skills</li>
-              <li>Education</li>
-              <li>Testimonials</li>
-            </ul>
-          </div>
-          <div class="list">
-            <h1>Portfolio</h1>
-            <ul>
-              <li>Websites</li>
-              <li>Unity Apps</li>
-              <li>Misc</li>
-              <li>
-                <a href="./assets/resume/Resume.pdf">Resume</a>
-              </li>
-            </ul>
-          </div>
-          <div class="list">
-            <h1>Contact</h1>
-            <ul>
-              <li>Email</li>
-            </ul>
-          </div>
-          <div class="list">
-            <h1>Social</h1>
-            <ul>
-              <li>Github</li>
-              <li>Facebook</li>
-              <li>Instagram</li>
-            </ul>
-          </div>
-        </div>
-        <p class="footer-copyright">
-          2019 &copy; Cristobal Salazar All Rights Reserved.
-        </p>
-      </footer>
-    </main>
-    <!-- My scripts -->
-    <script src="javascript/nav.js"></script>
+      <div class="footer-list">
+        <h1>Social</h1>
+        <ul>
+          <li>Github</li>
+          <li>Facebook</li>
+          <li>Instagram</li>
+        </ul>
+      </div>
+      <div class="footer-list">
+        <h1>Contact</h1>
+        <ul>
+          <li><a href="mailto:chris.salza@gmail.com">Email</a></li>
+        </ul>
+      </div>
+    </footer>
+    <p class="footer-copyright">
+      2019 &copy; Cristobal Salazar All Rights Reserved.
+    </p>
+  </main>
+  <!-- My scripts -->
+  <script src="scripts/breakpoints.js"></script>
+  <script src="scripts/nav.js"></script>
 </body>
 
 </html>
