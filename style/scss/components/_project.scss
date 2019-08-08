@@ -17,6 +17,11 @@ $project-speed: 0.25s;
     overflow: hidden;
   }
 
+  .heading {
+    margin: 2rem 0;
+    padding: 1rem;
+  }
+
   .project-reel {
     display: flex;
     flex-wrap: wrap;
@@ -35,7 +40,13 @@ $project-speed: 0.25s;
       margin-bottom: 3rem;
       width: 100%;
 
+      @include breakpoint-md {
+        grid-template-columns: 1fr 1fr;
+
+      }
+
       @include breakpoint-sm {
+        margin-bottom: 0;
         display: block;
       }
 
@@ -51,8 +62,9 @@ $project-speed: 0.25s;
 
       &-text {
         width: 100%;
-        margin-left: 1rem;
+        padding: 0 1rem;
         max-width: 50ch;
+
 
         .project-title {
           color: $bs-primary;
@@ -69,7 +81,20 @@ $project-speed: 0.25s;
           @extend %default-text;
         }
       }
+
+      &-link {
+        display: block;
+        color: $bs-primary;
+        margin: 1rem auto;
+
+
+
+        &:visited {
+          color: $bs-primary;
+        }
+      }
     }
+
 
   }
 }

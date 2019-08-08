@@ -2,6 +2,10 @@
   background: #111;
   margin-top: 10rem;
 
+  @include breakpoint-sm {
+    margin-top: 0;
+  }
+
   .footer-container {
     max-width: $container;
     margin: auto;

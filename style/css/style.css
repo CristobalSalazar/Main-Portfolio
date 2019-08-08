@@ -932,6 +932,12 @@ a:hover {
   margin-top: 10rem;
 }
 
+@media screen and (max-width: 500px) {
+  .footer {
+    margin-top: 0;
+  }
+}
+
 .footer .footer-container {
   max-width: 1280px;
   margin: auto;
@@ -1170,6 +1176,11 @@ a:hover {
   }
 }
 
+.portfolio .heading {
+  margin: 2rem 0;
+  padding: 1rem;
+}
+
 .portfolio .project-reel {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1200,8 +1211,16 @@ a:hover {
   width: 100%;
 }
 
+@media screen and (max-width: 800px) {
+  .portfolio .project-reel .project {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .portfolio .project-reel .project {
+    margin-bottom: 0;
     display: block;
   }
 }
@@ -1222,7 +1241,7 @@ a:hover {
 
 .portfolio .project-reel .project-text {
   width: 100%;
-  margin-left: 1rem;
+  padding: 0 1rem;
   max-width: 50ch;
 }
 
@@ -1237,4 +1256,14 @@ a:hover {
   .portfolio .project-reel .project-text .project-title {
     margin: 1rem 0;
   }
+}
+
+.portfolio .project-reel .project-link {
+  display: block;
+  color: #0275d8;
+  margin: 1rem auto;
+}
+
+.portfolio .project-reel .project-link:visited {
+  color: #0275d8;
 }
