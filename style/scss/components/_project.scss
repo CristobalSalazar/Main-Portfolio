@@ -30,9 +30,10 @@ $project-speed: 0.25s;
 
     .project {
       display: grid;
-      grid-template-columns: 3fr 4fr;
+      grid-template-columns: 2fr 4fr;
       grid-gap: 1rem;
       margin-bottom: 3rem;
+      width: 100%;
 
       @include breakpoint-sm {
         display: block;
@@ -49,10 +50,13 @@ $project-speed: 0.25s;
       }
 
       &-text {
+        width: 100%;
         margin-left: 1rem;
+        max-width: 50ch;
 
         .project-title {
           color: $bs-primary;
+          font-style: italic;
           font-size: 1.5rem;
           margin: 0 0 1rem 0;
 

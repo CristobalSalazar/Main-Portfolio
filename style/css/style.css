@@ -1193,10 +1193,11 @@ a:hover {
 .portfolio .project-reel .project {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 3fr 4fr;
-      grid-template-columns: 3fr 4fr;
+  -ms-grid-columns: 2fr 4fr;
+      grid-template-columns: 2fr 4fr;
   grid-gap: 1rem;
   margin-bottom: 3rem;
+  width: 100%;
 }
 
 @media screen and (max-width: 500px) {
@@ -1220,11 +1221,14 @@ a:hover {
 }
 
 .portfolio .project-reel .project-text {
+  width: 100%;
   margin-left: 1rem;
+  max-width: 50ch;
 }
 
 .portfolio .project-reel .project-text .project-title {
   color: #0275d8;
+  font-style: italic;
   font-size: 1.5rem;
   margin: 0 0 1rem 0;
 }
