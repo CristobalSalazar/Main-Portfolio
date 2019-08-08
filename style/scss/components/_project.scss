@@ -4,16 +4,16 @@ $project-size-sm: 128px;
 $project-speed: 0.25s;
 
 .portfolio {
-  margin: 0 auto;
   max-width: 1200px;
+  margin: auto;
+
 
   @include breakpoint-md {
-    text-align: center;
+    margin: 1rem;
   }
 
   @include breakpoint-sm {
     @include reset;
-    text-align: left;
     overflow: hidden;
   }
 
@@ -23,115 +23,49 @@ $project-speed: 0.25s;
     margin: auto;
     justify-content: center;
 
-    @include breakpoint-lg {}
 
     @include breakpoint-sm {
       @include reset;
     }
 
-
     .project {
-      @include size($project-size * 2);
-      // @include size(calc(50% - 3rem));
-      margin: 3rem;
-      display: flex;
-      position: relative;
-      background: black;
-      box-shadow: 0 0 1rem black;
-      border-radius: 1rem;
-
-      transition: opacity $project-speed,
-        transform $project-speed,
-        box-shadow $project-speed;
-
-
-      // BREAKPOINT MD
-      @include breakpoint-md {
-        @include reset;
-        margin-bottom: 3rem;
-      }
+      display: grid;
+      grid-template-columns: 3fr 4fr;
+      grid-gap: 1rem;
+      margin-bottom: 3rem;
 
       @include breakpoint-sm {
-        margin: 0;
-        padding: 1rem;
-      }
-
-      // BREAKPOINT SM
-      @include breakpoint-sm {
-        @include size(100%);
-        border-radius: 0;
-        opacity: 1;
-        box-shadow: none;
         display: block;
-        background: none;
       }
-
-      &:hover {
-        box-shadow: 0 0 0rem $dark;
-        transform: scale(1.05);
-
-        @include breakpoint-sm {
-          transform: none;
-        }
-
-        .project-label {
-          opacity: 1;
-        }
-
-        .project-video {
-
-          opacity: 0.5;
-
-        }
-      }
-
 
       &-video {
-        border-radius: 1rem;
-        transition: opacity $project-speed;
-        @include size(100%);
-        @include reset;
+        width: 100%;
+        box-shadow: 0 0 0.5rem black;
 
-        // BREAKPOINT MD
-        @include breakpoint-md {
-          position: block;
-        }
-
-        // BREAKPOINT SM
         @include breakpoint-sm {
-          border-radius: 0;
-
+          width: 100%;
+          box-shadow: none;
         }
       }
 
-      &-label {
-        z-index: 3;
-        text-align: center;
-        background: rgba(16, 16, 16, 0.25);
-        padding: 0.5rem;
-        font-size: 1.5rem;
-        color: $bg;
-        opacity: 0;
-        position: absolute;
-        width: 100%;
-        top: 50%;
+      &-text {
+        margin-left: 1rem;
 
-        transition: opacity $project-speed;
+        .project-title {
+          color: $bs-primary;
+          font-size: 1.5rem;
+          margin: 0 0 1rem 0;
 
-        @include breakpoint-sm {
-          @include reset;
-          margin: auto;
-          width: 100%;
-          position: static;
-          transition: none;
-          opacity: 1;
-          text-align: left;
-          color: $text;
-          background: none;
-          margin-bottom: 1rem;
-          font-style: italic;
+          @include breakpoint-sm {
+            margin: 1rem 0;
+          }
+        }
+
+        .project-description {
+          @extend %default-text;
         }
       }
     }
+
   }
 }
