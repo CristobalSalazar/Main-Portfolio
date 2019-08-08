@@ -48,6 +48,24 @@
           animation-fill-mode: forwards;
 }
 
+@-webkit-keyframes Scroll {
+  from {
+    background-position-y: 0%;
+  }
+  to {
+    background-position-y: 100%;
+  }
+}
+
+@keyframes Scroll {
+  from {
+    background-position-y: 0%;
+  }
+  to {
+    background-position-y: 100%;
+  }
+}
+
 @-webkit-keyframes SlideIn {
   0% {
     opacity: 0;
@@ -381,6 +399,15 @@ a:hover {
   margin-top: 3rem;
 }
 
+@keyframes Scroll {
+  from {
+    background-position-y: 0%;
+  }
+  to {
+    background-position-y: 100%;
+  }
+}
+
 #side-drawer {
   position: relative;
   display: -webkit-box;
@@ -566,33 +593,17 @@ a:hover {
   color: #c13584;
 }
 
-canvas {
-  position: absolute;
+#intro {
   z-index: 2;
   height: 50vh;
-  width: 100vw;
-  background: url("../../assets/images/ep.png");
-  background-size: contain;
-  opacity: 0.618;
-}
-
-@media screen and (max-width: 500px) {
-  canvas {
-    height: 100vh;
-    opacity: 0.5;
-  }
-}
-
-#intro {
-  height: 50vh;
-  background: url("../../assets/images/stardust.png");
-  background-size: cover;
+  background: #111;
   position: relative;
   margin-bottom: 12vh;
 }
 
 @media screen and (max-width: 500px) {
   #intro {
+    background-size: contain;
     height: 100vh;
     margin-bottom: 16.18vh;
   }
@@ -631,12 +642,13 @@ canvas {
   background-image: url("../../assets/images/Headshot6.jpg");
   background-size: cover;
   background-position: center;
-  -webkit-box-shadow: 0 0px 1rem #8fbc8f;
-          box-shadow: 0 0px 1rem #8fbc8f;
+  -webkit-box-shadow: 0 0px 1rem #eee;
+          box-shadow: 0 0px 1rem #eee;
   width: 256px;
   height: 256px;
   border-radius: 50%;
   z-index: 3;
+  opacity: 1;
 }
 
 @media screen and (max-width: 500px) {
@@ -733,7 +745,6 @@ canvas {
 }
 
 .mobile .mobile-img {
-  margin: auto;
   background: url("../../assets/images/Headshot6.jpg");
   background-size: cover;
   background-position: center;
@@ -741,7 +752,7 @@ canvas {
   width: 256px;
   height: 256px;
   border-radius: 50%;
-  margin-bottom: 1rem;
+  margin: 3rem auto;
 }
 
 .mobile .seperator {
@@ -839,7 +850,7 @@ canvas {
   background: url("../../asstes/images/vid.m4v");
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
   .profile {
     margin-bottom: 0rem;
     display: block;
@@ -911,25 +922,25 @@ canvas {
 }
 
 .footer {
-  border-top: 0.618rem double #ddd;
-  margin: auto;
+  background: #111;
   margin-top: 10rem;
+}
+
+.footer .footer-container {
+  max-width: 1280px;
+  margin: auto;
+  padding-top: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 1rem;
-  max-width: 1200px;
 }
 
 @media screen and (max-width: 500px) {
-  .footer {
+  .footer .footer-container {
     display: block;
-    margin-top: 0rem;
-    background: url("../../assets/images/ep.png");
-    background: #111;
-    border: none;
+    margin-left: 1rem;
   }
 }
 
@@ -938,10 +949,13 @@ canvas {
 }
 
 .footer-list h1 {
-  font-weight: 700;
+  font-weight: 400;
+  font-style: italic;
   font-size: 1.5rem;
-  color: #333;
-  padding: 1rem 0;
+  color: #8fbc8f;
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #bc8fbc;
 }
 
 @media screen and (max-width: 500px) {
@@ -954,7 +968,7 @@ canvas {
 .footer-list ul li {
   font-size: 1rem;
   font-weight: 300;
-  color: #666;
+  color: #888;
   margin-bottom: 1rem;
 }
 
@@ -966,7 +980,7 @@ canvas {
 
 .footer-list ul li:hover {
   cursor: pointer;
-  color: black;
+  color: white;
 }
 
 @media screen and (max-width: 500px) {
@@ -976,7 +990,7 @@ canvas {
 }
 
 .footer-list ul li a {
-  color: #333;
+  color: #888;
 }
 
 @media screen and (max-width: 500px) {
@@ -986,7 +1000,7 @@ canvas {
 }
 
 .footer-list ul li a:visited {
-  color: #333;
+  color: #888;
 }
 
 @media screen and (max-width: 500px) {
@@ -996,7 +1010,7 @@ canvas {
 }
 
 .footer-list ul li a:hover {
-  color: black;
+  color: #eee;
 }
 
 @media screen and (max-width: 500px) {
@@ -1006,10 +1020,13 @@ canvas {
 }
 
 .footer-copyright {
+  margin: auto;
   margin-top: auto;
-  font-size: 0.75rem;
+  font-size: 0.5rem;
   padding: 1rem;
-  text-align: center;
+  text-align: right;
+  color: #bca68f;
+  max-width: 1280px;
 }
 
 @media screen and (max-width: 500px) {
@@ -1017,7 +1034,6 @@ canvas {
     text-align: left;
     font-size: 0.5rem;
     color: wheat;
-    background: #111;
   }
 }
 
@@ -1129,8 +1145,7 @@ canvas {
 }
 
 .portfolio {
-  width: 100%;
-  margin: auto;
+  margin: 0 auto;
   max-width: 1200px;
 }
 
@@ -1145,26 +1160,21 @@ canvas {
     margin: 0;
     padding: 0;
     border: none;
+    text-align: left;
     overflow: hidden;
   }
 }
 
 .portfolio .project-reel {
-  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: auto;
-}
-
-@media screen and (max-width: 1024px) {
-  .portfolio .project-reel {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 @media screen and (max-width: 500px) {
@@ -1176,8 +1186,9 @@ canvas {
 }
 
 .portfolio .project-reel .project {
-  opacity: 1;
-  margin-right: 3rem;
+  width: 384px;
+  height: 384px;
+  margin: 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1185,13 +1196,11 @@ canvas {
   background: black;
   -webkit-box-shadow: 0 0 1rem black;
           box-shadow: 0 0 1rem black;
+  border-radius: 1rem;
   -webkit-transition: opacity 0.25s, -webkit-transform 0.25s, -webkit-box-shadow 0.25s;
   transition: opacity 0.25s, -webkit-transform 0.25s, -webkit-box-shadow 0.25s;
   transition: opacity 0.25s, transform 0.25s, box-shadow 0.25s;
   transition: opacity 0.25s, transform 0.25s, box-shadow 0.25s, -webkit-transform 0.25s, -webkit-box-shadow 0.25s;
-  width: 384px;
-  height: 384px;
-  border-radius: 1rem;
 }
 
 @media screen and (max-width: 800px) {
@@ -1203,10 +1212,18 @@ canvas {
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 500px) {
+  .portfolio .project-reel .project {
+    margin: 0;
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
   .portfolio .project-reel .project {
     width: 100%;
     height: 100%;
+    border-radius: 0;
     opacity: 1;
     -webkit-box-shadow: none;
             box-shadow: none;
@@ -1254,6 +1271,12 @@ canvas {
   }
 }
 
+@media screen and (max-width: 500px) {
+  .portfolio .project-reel .project-video {
+    border-radius: 0;
+  }
+}
+
 .portfolio .project-reel .project-label {
   z-index: 3;
   text-align: center;
@@ -1269,7 +1292,7 @@ canvas {
   transition: opacity 0.25s;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 500px) {
   .portfolio .project-reel .project-label {
     margin: 0;
     padding: 0;
@@ -1283,7 +1306,7 @@ canvas {
     text-align: left;
     color: #666;
     background: none;
-    margin: 1rem;
+    margin-bottom: 1rem;
     font-style: italic;
   }
 }

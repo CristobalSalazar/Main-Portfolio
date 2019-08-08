@@ -31,9 +31,8 @@
   .main {
     z-index: 1;
     min-height: 100vh;
-    max-width: 1280px;
+    max-width: $container;
     padding: 0 3rem;
-    // margin: auto;
 
     @include breakpoint-lg {
       padding: 0 2rem;
@@ -52,4 +51,15 @@
 .main-portfolio {
   margin: auto;
   margin-top: 3rem;
+}
+
+@keyframes Scroll {
+  from {
+    background-position-y: 0%;
+  }
+
+  to {
+    background-position-y: 100%;
+
+  }
 }

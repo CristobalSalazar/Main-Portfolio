@@ -9,7 +9,7 @@
   border-radius: 10px;
   background: url("../../asstes/images/vid.m4v");
 
-  @media screen and (max-width: $breakpoint-sm) {
+  @media screen and (max-width: $breakpoint-md) {
     margin-bottom: 0rem;
     display: block;
   }

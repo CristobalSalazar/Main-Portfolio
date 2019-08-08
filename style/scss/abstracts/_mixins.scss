@@ -44,3 +44,9 @@
   animation: FadeOut $duration;
   animation-fill-mode: forwards;
 }
+
+@mixin scroll-forwards($duration) {
+  animation: Scroll $duration forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}

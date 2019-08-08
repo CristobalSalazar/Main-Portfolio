@@ -1,29 +1,31 @@
 .footer {
-  border-top: 0.618rem double #ddd;
-  margin: auto;
+  background: #111;
   margin-top: 10rem;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 1rem;
-  max-width: 1200px;
 
-  @media screen and (max-width: $breakpoint-sm) {
-    display: block;
-    margin-top: 0rem;
-    background: url('../../assets/images/ep.png');
-    background: #111;
-    border: none;
+  .footer-container {
+    max-width: $container;
+    margin: auto;
+    padding-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: $breakpoint-sm) {
+      display: block;
+      margin-left: 1rem;
+    }
   }
 
   &-list {
     margin: 0 auto;
 
-
     h1 {
-      font-weight: 700;
+      font-weight: 400;
+      font-style: italic;
       font-size: 1.5rem;
-      color: $dark;
-      padding: 1rem 0;
+      color: $primary;
+      padding: 0.5rem 0;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid $tertiary;
 
       @media screen and (max-width: $breakpoint-sm) {
         color: $primary;
@@ -35,7 +37,7 @@
       li {
         font-size: 1rem;
         font-weight: 300;
-        color: #666;
+        color: #888;
         margin-bottom: 1rem;
 
         @media screen and (max-width: $breakpoint-sm) {
@@ -44,7 +46,7 @@
 
         &:hover {
           cursor: pointer;
-          color: black;
+          color: white;
 
           @media screen and (max-width: $breakpoint-sm) {
             color: $bg;
@@ -52,14 +54,14 @@
         }
 
         a {
-          color: #333;
+          color: #888;
 
           @media screen and (max-width: $breakpoint-sm) {
             color: $bg;
           }
 
           &:visited {
-            color: #333;
+            color: #888;
 
             @media screen and (max-width: $breakpoint-sm) {
               color: $bg;
@@ -71,7 +73,7 @@
               color: $bg;
             }
 
-            color: black;
+            color: $bg;
           }
         }
       }
@@ -79,16 +81,18 @@
   }
 
   &-copyright {
+    margin: auto;
     margin-top: auto;
-    font-size: 0.75rem;
+    font-size: 0.5rem;
     padding: 1rem;
-    text-align: center;
+    text-align: right;
+    color: $secondary;
+    max-width: $container;
 
     @media screen and (max-width: $breakpoint-sm) {
       text-align: left;
       font-size: 0.5rem;
       color: wheat;
-      background: #111;
     }
   }
 }

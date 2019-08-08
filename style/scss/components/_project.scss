@@ -4,8 +4,7 @@ $project-size-sm: 128px;
 $project-speed: 0.25s;
 
 .portfolio {
-  width: 100%;
-  margin: auto;
+  margin: 0 auto;
   max-width: 1200px;
 
   @include breakpoint-md {
@@ -14,45 +13,53 @@ $project-speed: 0.25s;
 
   @include breakpoint-sm {
     @include reset;
+    text-align: left;
     overflow: hidden;
   }
 
   .project-reel {
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
     margin: auto;
+    justify-content: center;
 
-    @include breakpoint-lg {
-
-      justify-content: center;
-    }
+    @include breakpoint-lg {}
 
     @include breakpoint-sm {
       @include reset;
     }
 
+
     .project {
-      opacity: 1;
-      margin-right: 3rem;
+      @include size($project-size * 2);
+      // @include size(calc(50% - 3rem));
+      margin: 3rem;
       display: flex;
       position: relative;
       background: black;
       box-shadow: 0 0 1rem black;
+      border-radius: 1rem;
+
       transition: opacity $project-speed,
         transform $project-speed,
         box-shadow $project-speed;
-      @include size($project-size * 2);
 
+
+      // BREAKPOINT MD
       @include breakpoint-md {
         @include reset;
         margin-bottom: 3rem;
       }
 
-      // phone
-      @include breakpoint-md {
+      @include breakpoint-sm {
+        margin: 0;
+        padding: 1rem;
+      }
 
+      // BREAKPOINT SM
+      @include breakpoint-sm {
         @include size(100%);
+        border-radius: 0;
         opacity: 1;
         box-shadow: none;
         display: block;
@@ -78,7 +85,6 @@ $project-speed: 0.25s;
         }
       }
 
-      border-radius: 1rem;
 
       &-video {
         border-radius: 1rem;
@@ -86,8 +92,15 @@ $project-speed: 0.25s;
         @include size(100%);
         @include reset;
 
+        // BREAKPOINT MD
         @include breakpoint-md {
           position: block;
+        }
+
+        // BREAKPOINT SM
+        @include breakpoint-sm {
+          border-radius: 0;
+
         }
       }
 
@@ -105,7 +118,7 @@ $project-speed: 0.25s;
 
         transition: opacity $project-speed;
 
-        @include breakpoint-md {
+        @include breakpoint-sm {
           @include reset;
           margin: auto;
           width: 100%;
@@ -115,7 +128,7 @@ $project-speed: 0.25s;
           text-align: left;
           color: $text;
           background: none;
-          margin: 1rem;
+          margin-bottom: 1rem;
           font-style: italic;
         }
       }

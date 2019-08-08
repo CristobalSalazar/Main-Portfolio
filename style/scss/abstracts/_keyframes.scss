@@ -26,6 +26,16 @@
   @include fadeOut(1s);
 }
 
+@keyframes Scroll {
+  from {
+    background-position-y: 0%;
+  }
+
+  to {
+    background-position-y: 100%;
+  }
+}
+
 @keyframes SlideIn {
   0% {
     opacity: 0;
