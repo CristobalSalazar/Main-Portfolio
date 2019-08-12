@@ -1,33 +1,27 @@
 #intro {
-  z-index: 0;
+  z-index: 1;
   height: 50vh;
-  background: #111;
-  // background: url("../../assets/images/ep.png");
-
   position: relative;
-  margin-bottom: 12vh;
+  margin-bottom: 10rem;
 
-
-  @media screen and (max-width: $breakpoint-sm) {
-    background-size: contain;
+  @include breakpoint-sm {
     height: 100vh;
     margin-bottom: 1.618 * 10vh;
   }
 
   .title-container {
-
     position: absolute;
     display: flex;
     margin-left: 1/7 * 100%;
     width: calc(100vw - (1/7 * 100%));
     height: 100vh;
 
-    @media screen and (max-width: $breakpoint-md) {
+    @include breakpoint-md {
       margin-left: 1rem;
       width: calc(100vw - 1rem);
     }
 
-    @media screen and (max-width: $breakpoint-sm) {
+    @include breakpoint-sm {
       display: block;
       margin: 0;
       margin-top: 50vh;
@@ -41,14 +35,20 @@
       background-image: url('../../assets/images/Headshot6.jpg');
       background-size: cover;
       background-position: center;
-      box-shadow: 0 0px 1rem $bg;
+      box-shadow: 0 0px 1rem #111;
       width: $canvas-img-size;
       height: $canvas-img-size;
       border-radius: 50%;
       z-index: 3;
       opacity: 1;
 
-      @media screen and (max-width: $breakpoint-sm) {
+      @include breakpoint-md {
+        display: none;
+        width: $canvas-img-size/1.5;
+        height: $canvas-img-size/1.5;
+      }
+
+      @include breakpoint-sm {
         margin: auto;
         display: none;
       }
@@ -63,8 +63,15 @@
       text-align: center;
       z-index: 3;
 
-      @media screen and (max-width: $breakpoint-sm) {
+
+      @include breakpoint-md {
+        text-align: left;
+        margin: auto 1rem;
+      }
+
+      @include breakpoint-sm {
         margin: auto;
+        text-align: center;
       }
 
       .canvas-title {
@@ -75,15 +82,16 @@
         line-height: 1;
         margin-bottom: 3rem;
 
-        @media screen and (max-width: $breakpoint-lg) {
-          font-size: 4rem;
-        }
-
-        @media screen and (max-width: $breakpoint-md) {
+        @include breakpoint-lg {
           font-size: 3rem;
         }
 
-        @media screen and (max-width: $breakpoint-sm) {
+        @include breakpoint-md {
+          font-size: 3.5rem;
+
+        }
+
+        @include breakpoint-sm {
           font-size: 13vw;
         }
       }
@@ -95,15 +103,12 @@
         color: $dark;
         line-height: 1;
 
-        @media screen and (max-width: $breakpoint-lg) {
+
+        @include breakpoint-lg {
           font-size: 2rem;
         }
 
-        @media screen and (max-width: $breakpoint-md) {
-          font-size: 1.5rem;
-        }
-
-        @media screen and (max-width: $breakpoint-sm) {
+        @include breakpoint-sm {
           font-size: 6.5vw;
           color: $bg;
         }
@@ -117,7 +122,7 @@
 .mobile {
   display: none;
 
-  @media screen and (max-width: $breakpoint-sm) {
+  @include breakpoint-md {
     display: block;
   }
 
@@ -131,6 +136,20 @@
     height: 256px;
     border-radius: 50%;
     margin: 3rem auto;
+
+    @include breakpoint-md {
+
+      width: 256px * 1.5;
+      height: 256px * 1.5;
+    }
+
+    @include breakpoint-sm {
+      width: 256px;
+      height: 256px;
+      border-radius: 50%;
+
+    }
+
   }
 
   .seperator {

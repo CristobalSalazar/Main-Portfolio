@@ -27,12 +27,12 @@
     }
 
     @media screen and (max-width: $breakpoint-md) {
+      margin-bottom: 1rem;
       padding: 0 1rem;
     }
 
     @media screen and (max-width: $breakpoint-sm) {
       margin: auto;
-      margin-bottom: 1rem;
       max-width: 100%;
       width: 100%;
     }

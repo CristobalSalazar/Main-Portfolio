@@ -67,7 +67,7 @@ $project-speed: 0.25s;
 
 
         .project-title {
-          color: $bs-primary;
+          color: darken($bs-primary, 12%);
           font-style: italic;
           font-size: 1.5rem;
           margin: 0 0 1rem 0;
