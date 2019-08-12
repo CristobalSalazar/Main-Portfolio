@@ -1,0 +1,13 @@
+#intro-canvas {
+  background: url("../../assets/images/ep.png");
+  background: linear-gradient(to left, black, #111);
+  width: 100vw;
+  height: 50vh;
+  position: absolute;
+  z-index: 0;
+  cursor: none;
+
+  @include breakpoint-sm {
+    height: 100vh;
+  }
+}
