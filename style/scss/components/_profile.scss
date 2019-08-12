@@ -22,6 +22,13 @@
     width: 100%;
     max-width: 50ch;
 
+    a {
+      color: $primary-hard;
+      font-weight: 700;
+      font-style: italic;
+      text-decoration: underline;
+    }
+
     @media screen and (max-width: $breakpoint-lg) {
       max-width: 75ch;
     }
@@ -33,6 +40,7 @@
 
     @media screen and (max-width: $breakpoint-sm) {
       margin: auto;
+      margin-bottom: 1rem;
       max-width: 100%;
       width: 100%;
     }

@@ -895,6 +895,13 @@ a:hover {
   max-width: 50ch;
 }
 
+.profile-text a {
+  color: #5ba25b;
+  font-weight: 700;
+  font-style: italic;
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 1024px) {
   .profile-text {
     max-width: 75ch;
@@ -911,6 +918,7 @@ a:hover {
 @media screen and (max-width: 500px) {
   .profile-text {
     margin: auto;
+    margin-bottom: 1rem;
     max-width: 100%;
     width: 100%;
   }
