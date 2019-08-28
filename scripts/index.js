@@ -1,11 +1,11 @@
-(function () {
-  "use strict"
+(function() {
+  "use strict";
   // Sections
   const intro = document.getElementById("intro");
   const about = document.getElementById("about");
   const skills = document.getElementById("skills");
   const education = document.getElementById("education");
-  const testemonials = document.getElementById("testemonials");
+  const testemonials = document.getElementById("testemonials") || null;
   // Links
   const aboutLink = document.getElementById("about-link");
   const skillsLink = document.getElementById("skills-link");
@@ -27,7 +27,7 @@
   }
 
   function onClickScrollTo(clickElement, scrollElement) {
-    clickElement.addEventListener("click", function (e) {
+    clickElement.addEventListener("click", function(e) {
       e.preventDefault();
       scrollToElement(scrollElement);
     });
@@ -41,14 +41,14 @@
     for (let i = sections.length - 1; i >= 0; i--) {
       if (getActiveBounds(sections[i]) <= 0) {
         for (let link of links) {
-          link.classList.remove('active');
+          link.classList.remove("active");
         }
-        links[i].classList.add('active');
+        links[i].classList.add("active");
         return;
       }
     }
     for (let link of links) {
-      link.classList.remove('active');
+      link.classList.remove("active");
     }
   }
   // --- Handle Fades ---
@@ -58,7 +58,7 @@
 
   function handleSectionFades(section) {
     if (getFadeBounds(section) <= 0) {
-      section.classList.add('fadeIn');
+      section.classList.add("fadeIn");
     }
   }
 
@@ -66,21 +66,21 @@
   window.addEventListener("scroll", () => {
     // TODO: WRAP INSIDE FUNCTION
 
-    let currentOpacity =
-      intro.getBoundingClientRect().bottom / intro.clientHeight;
+    let currentOpacity = intro.getBoundingClientRect().bottom / intro.clientHeight;
     if (currentOpacity > 0) {
       if (!breakpoints.sm) {
         nav.style.background = `rgba(255,255,255, ${1 - currentOpacity})`;
         nav.style.boxShadow = `0 0 0.618rem rgba(125,125,125,${1 - currentOpacity})`;
-        nav.querySelector('.active').style.color = `rgb(${currentOpacity * 255},${currentOpacity * 255},${currentOpacity * 255})`
+        nav.querySelector(".active").style.color = `rgb(${currentOpacity * 255},${currentOpacity *
+          255},${currentOpacity * 255})`;
         intro.style.opacity = currentOpacity;
       } else {
         intro.style.opacity = currentOpacity;
       }
     } else {
       if (!breakpoints.sm) {
-        nav.style.background = 'white';
-        nav.querySelector('.active').style.color = `black`;
+        nav.style.background = "white";
+        nav.querySelector(".active").style.color = `black`;
         intro.style.opacity = 0;
       } else {
         intro.style.opacity = 0;
@@ -89,17 +89,17 @@
 
     handleActiveSection(
       [about, skills, education, testemonials],
-      [aboutLink, skillsLink, educationLink, testemonialsLink]);
+      [aboutLink, skillsLink, educationLink, testemonialsLink]
+    );
     handleSectionFades(about);
     handleSectionFades(skills);
     handleSectionFades(education);
     handleSectionFades(testemonials);
-
     if (getFadeBounds(testemonials) < 0) {
       let time = 0;
       for (let i = 1; i < testemonials.children.length; i++) {
         setTimeout(() => {
-          testemonials.children[i].classList.add('slideIn')
+          testemonials.children[i].classList.add("slideIn");
         }, time);
         time += 100;
       }
@@ -117,9 +117,9 @@
   testemonials.style.opacity = 0;
 
   if (!breakpoints.sm) {
-    nav.style.background = 'transparent';
-    nav.style.boxShadow = '0 0 0 transparent';
-    nav.querySelector('.active').style.color = `white`
+    nav.style.background = "transparent";
+    nav.style.boxShadow = "0 0 0 transparent";
+    nav.querySelector(".active").style.color = `white`;
   } else {
     nav.style.display = "none";
   }
