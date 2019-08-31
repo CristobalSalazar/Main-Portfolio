@@ -61,11 +61,7 @@
       section.classList.add("fadeIn");
     }
   }
-
-  // ****** Events ******
-  window.addEventListener("scroll", () => {
-    // TODO: WRAP INSIDE FUNCTION
-
+  function handleFades() {
     let currentOpacity = intro.getBoundingClientRect().bottom / intro.clientHeight;
     if (currentOpacity > 0) {
       if (!breakpoints.sm) {
@@ -104,6 +100,12 @@
         time += 100;
       }
     }
+  }
+  handleFades();
+  // ****** Events ******
+  window.addEventListener("scroll", () => {
+    // TODO: WRAP INSIDE FUNCTION
+    handleFades();
   });
 
   onClickScrollTo(aboutLink, about);
