@@ -1,5 +1,5 @@
-(function () {
-  "use strict"
+(function() {
+  "use strict";
   const canvas = document.getElementById("intro-canvas");
   const dpr = window.devicePixelRatio;
   const context = canvas.getContext("2d");
@@ -9,8 +9,7 @@
   function Circle() {
     this.init();
   }
-
-  Circle.prototype.init = function () {
+  Circle.prototype.init = function() {
     let minRadius = 24 * (goldenRatio - 1);
     let maxRadius = 24;
     let yvel = 0;
@@ -28,8 +27,8 @@
     this.xvel = xvel;
     this.opacity = 1;
     this.color = new Color(255, 255 / 2, 255 / 2);
-  }
-  Circle.prototype.update = function () {
+  };
+  Circle.prototype.update = function() {
     const xForce = 0;
     const yForce = 0.985;
     const shrinkDelta = goldenRatio / 10;
@@ -38,7 +37,7 @@
     const isBlack = this.color.r < 1 && this.color.g < 1 && this.color.b < 1;
 
     this.shrinkRate -= shrinkDelta;
-    this.color = colorLerp(this.color, new Color(255, 255, 0), 0.05)
+    this.color = colorLerp(this.color, new Color(255, 255, 0), 0.05);
     this.x += this.xvel;
     this.y += this.yvel;
     this.yvel += yForce * dpr;
@@ -48,10 +47,10 @@
     this.opacity = lerp(this.opacity, 0, 0.1);
     // reset
     if (this.radius <= 0 || this.opacity <= 0 || above || below || isBlack) {
-      this.init()
+      this.init();
     }
   };
-  Circle.prototype.draw = function () {
+  Circle.prototype.draw = function() {
     context.beginPath();
     context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     context.globalAlpha = this.opacity;
@@ -60,23 +59,23 @@
     context.closePath();
     context.globalAlpha = 1;
   };
-  Circle.prototype.getCircles = function (density) {
+  Circle.prototype.getCircles = function(density) {
     const circles = [];
     for (let i = 0; i < density; i++) {
       const circle = new Circle();
       circles.push(circle);
     }
     return circles;
-  }
+  };
 
   // ------ Mouse ------
   function Mouse() {
     this.x = Number.MAX_SAFE_INTEGER;
     this.y = Number.MAX_SAFE_INTEGER;
-  };
-  Mouse.prototype.getCoords = function (e, isTouch = false) {
-    console.log('getCoords');
-    let offset = canvas.getBoundingClientRect().top
+  }
+  Mouse.prototype.getCoords = function(e, isTouch = false) {
+    console.log("getCoords");
+    let offset = canvas.getBoundingClientRect().top;
     if (isTouch) {
       this.x = e.touches[0].clientX * dpr;
       this.y = (e.touches[0].clientY - offset) * dpr;
@@ -85,8 +84,8 @@
       this.y = e.clientY - offset * dpr;
     }
   };
-  Mouse.prototype.reset = function (e) {
-    console.log('reseting')
+  Mouse.prototype.reset = function(e) {
+    console.log("reseting");
     this.x = Number.MAX_SAFE_INTEGER;
     this.y = Number.MAX_SAFE_INTEGER;
   };
@@ -139,13 +138,13 @@
   }
 
   // ------ Execution ------
-  setCanvasSize()
+  setCanvasSize();
   // events
   const mouse = new Mouse();
   const circles = Circle.prototype.getCircles(200);
   canvas.addEventListener("touchstart", e => mouse.getCoords(e, true));
   canvas.addEventListener("touchmove", e => mouse.getCoords(e, true));
-  canvas.addEventListener("touchend", e => mouse.reset(e))
+  canvas.addEventListener("touchend", e => mouse.reset(e));
   window.addEventListener("mouseleave", mouse.reset);
   window.addEventListener("mousemove", e => mouse.getCoords(e));
   window.addEventListener("resize", setCanvasSize);
