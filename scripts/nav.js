@@ -1,7 +1,6 @@
 const nav = document.querySelector(".navbar");
 (function () {
-  "use strict"
-
+  "use strict";
 
   var __prevScroll = 0;
   var scrollDir = 0;
@@ -27,7 +26,7 @@ const nav = document.querySelector(".navbar");
   }
 
   if (breakpoints.md) {
-    window.addEventListener("scroll", e => {
+    window.addEventListener("scroll", (e) => {
       handleNavDisplay(e);
     });
   }

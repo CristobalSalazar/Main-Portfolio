@@ -1,4 +1,4 @@
-(function() {
+(function () {
   "use strict";
   // Sections
   const intro = document.getElementById("intro");
@@ -22,12 +22,12 @@
     const offsetPosition = elementPosition - fpos / 2;
     window.scrollTo({
       top: offsetPosition,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   }
 
   function onClickScrollTo(clickElement, scrollElement) {
-    clickElement.addEventListener("click", function(e) {
+    clickElement.addEventListener("click", function (e) {
       e.preventDefault();
       scrollToElement(scrollElement);
     });
@@ -62,13 +62,17 @@
     }
   }
   function handleFades() {
-    let currentOpacity = intro.getBoundingClientRect().bottom / intro.clientHeight;
+    let currentOpacity =
+      intro.getBoundingClientRect().bottom / intro.clientHeight;
     if (currentOpacity > 0) {
       if (!breakpoints.sm) {
         nav.style.background = `rgba(255,255,255, ${1 - currentOpacity})`;
-        nav.style.boxShadow = `0 0 0.618rem rgba(125,125,125,${1 - currentOpacity})`;
-        nav.querySelector(".active").style.color = `rgb(${currentOpacity * 255},${currentOpacity *
-          255},${currentOpacity * 255})`;
+        nav.style.boxShadow = `0 0 0.618rem rgba(125,125,125,${
+          1 - currentOpacity
+        })`;
+        nav.querySelector(".active").style.color = `rgb(${
+          currentOpacity * 255
+        },${currentOpacity * 255},${currentOpacity * 255})`;
         intro.style.opacity = currentOpacity;
       } else {
         intro.style.opacity = currentOpacity;
@@ -84,22 +88,12 @@
     }
 
     handleActiveSection(
-      [about, skills, education, testemonials],
-      [aboutLink, skillsLink, educationLink, testemonialsLink]
+      [about, skills, education],
+      [aboutLink, skillsLink, educationLink]
     );
     handleSectionFades(about);
     handleSectionFades(skills);
     handleSectionFades(education);
-    handleSectionFades(testemonials);
-    if (getFadeBounds(testemonials) < 0) {
-      let time = 0;
-      for (let i = 1; i < testemonials.children.length; i++) {
-        setTimeout(() => {
-          testemonials.children[i].classList.add("slideIn");
-        }, time);
-        time += 100;
-      }
-    }
   }
   handleFades();
   // ****** Events ******
@@ -116,7 +110,6 @@
   about.style.opacity = 0;
   skills.style.opacity = 0;
   education.style.opacity = 0;
-  testemonials.style.opacity = 0;
 
   if (!breakpoints.sm) {
     nav.style.background = "transparent";
