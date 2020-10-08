@@ -17,7 +17,7 @@
     opacity: 0.75;
     position: relative;
     z-index: 0;
-    font-size: 1.25rem;
+    font-size: 1rem;
     transition: transform 0.25s, box-shadow 0.25s, background-color 0.25s;
 
     @media screen and (max-width: $breakpoint-sm) {
@@ -26,42 +26,10 @@
     }
 
     &:hover {
-      background-color: $primary-hard;
-      transform: scale(1.025);
-      box-shadow: 0 0 3px #666;
-      color: white;
-      border-radius: 0.5rem;
+      background-color: $secondary;
+      transform: scale(1.01);
       opacity: 1;
       z-index: 1;
     }
-  }
-}
-
-
-
-#tools li:nth-child(even) {
-  background-color: $primary;
-
-  &:hover {
-    background-color: $primary-hard;
-    color: white;
-  }
-}
-
-#languages li:nth-child(even) {
-  background-color: $primary;
-
-  &:hover {
-    background-color: $primary-hard;
-    color: white;
-  }
-}
-
-#frameworks li:nth-child(even) {
-  background-color: $primary;
-
-  &:hover {
-    background-color: $primary-hard;
-    color: white;
   }
 }

@@ -7,7 +7,6 @@ $project-speed: 0.25s;
   max-width: 1200px;
   margin: auto;
 
-
   @include breakpoint-md {
     margin: 1rem;
   }
@@ -28,7 +27,6 @@ $project-speed: 0.25s;
     margin: auto;
     justify-content: center;
 
-
     @include breakpoint-sm {
       @include reset;
     }
@@ -42,7 +40,6 @@ $project-speed: 0.25s;
 
       @include breakpoint-md {
         grid-template-columns: 1fr 1fr;
-
       }
 
       @include breakpoint-sm {
@@ -65,10 +62,8 @@ $project-speed: 0.25s;
         padding: 0 1rem;
         max-width: 50ch;
 
-
         .project-title {
-          color: darken($bs-primary, 12%);
-          font-style: italic;
+          color: $accent;
           font-size: 1.5rem;
           margin: 0 0 1rem 0;
 
@@ -84,17 +79,17 @@ $project-speed: 0.25s;
 
       &-link {
         display: block;
-        color: $bs-primary;
+        color: darken($accent, 24%);
         margin: 1rem auto;
 
-
+        &:hover {
+          text-decoration: underline;
+        }
 
         &:visited {
-          color: $bs-primary;
+          color: $accent;
         }
       }
     }
-
-
   }
 }

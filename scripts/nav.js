@@ -7,7 +7,7 @@ const nav = document.querySelector(".navbar");
 
   function handleNavDisplay(e) {
     const currentScroll = document.body.getBoundingClientRect().top;
-    const threshold = 10;
+    const threshold = 0;
     if (currentScroll > __prevScroll + threshold) {
       nav.style.display = "flex";
       scrollDir = 1;

@@ -34,11 +34,11 @@
         padding: 0.25rem;
 
         .nav-link {
-          color: lighten($text, 15%);
+          color: $muted;
           transition: color 0.25s;
 
           &:hover {
-            color: $bs-primary;
+            color: $primary;
           }
         }
 
@@ -50,7 +50,7 @@
   }
 
   &-brand {
-    color: $text;
+    color: $primary;
     font-size: 1.2rem;
     padding-right: 1rem;
     height: 100%;
@@ -86,7 +86,7 @@
     }
 
     #facebook {
-      color: #4875B4;
+      color: #4875b4;
     }
 
     #github {

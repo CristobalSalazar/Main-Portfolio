@@ -26,14 +26,12 @@
       margin-bottom: 1rem;
       transition: color 0.25s;
       border-bottom: 1px solid transparent;
-
     }
 
     .active {
       color: black;
       box-sizing: border-box;
-      border-bottom: 1px solid $bs-primary;
-
+      border-bottom: 1px solid $accent;
     }
   }
 }

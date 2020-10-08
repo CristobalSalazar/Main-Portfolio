@@ -1,5 +1,5 @@
 .footer {
-  background: black;
+  background: $dark-bg;
   margin-top: 10rem;
 
   @include breakpoint-sm {
@@ -24,12 +24,10 @@
 
     h1 {
       font-weight: 400;
-      font-style: italic;
       font-size: 1.5rem;
       color: $primary;
       padding: 0.5rem 0;
       margin-bottom: 1rem;
-      border-bottom: 1px solid $tertiary;
 
       @media screen and (max-width: $breakpoint-sm) {
         color: $primary;
@@ -41,7 +39,7 @@
       li {
         font-size: 1rem;
         font-weight: 300;
-        color: #888;
+        color: $muted;
         margin-bottom: 1rem;
 
         @media screen and (max-width: $breakpoint-sm) {
@@ -58,14 +56,14 @@
         }
 
         a {
-          color: #888;
+          color: $muted;
 
           @media screen and (max-width: $breakpoint-sm) {
             color: $bg;
           }
 
           &:visited {
-            color: #888;
+            color: $muted;
 
             @media screen and (max-width: $breakpoint-sm) {
               color: $bg;

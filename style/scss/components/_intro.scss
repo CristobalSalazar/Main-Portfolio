@@ -13,7 +13,7 @@
     position: absolute;
     display: flex;
     margin-left: 1/7 * 100%;
-    width: calc(100vw - (1/7 * 100%));
+    width: calc(100vw - (1 / 7 * 100%));
     height: 100vh;
 
     @include breakpoint-md {
@@ -32,7 +32,7 @@
       margin: auto 0;
       $canvas-img-size: 256px;
       flex-shrink: 0;
-      background-image: url('../../assets/images/Headshot6.jpg');
+      background-image: url("../../assets/images/Headshot6.jpg");
       background-size: cover;
       background-position: center;
       box-shadow: 0 0px 1rem #111;
@@ -63,7 +63,6 @@
       text-align: center;
       z-index: 3;
 
-
       @include breakpoint-md {
         text-align: left;
         margin: auto 1rem;
@@ -75,8 +74,8 @@
       }
 
       .canvas-title {
-        color: white;
-        font-family: 'Times New Roman', Times, serif;
+        color: $secondary;
+        font-family: "Times New Roman", Times, serif;
         font-weight: 100;
         font-size: 5rem;
         line-height: 1;
@@ -88,7 +87,6 @@
 
         @include breakpoint-md {
           font-size: 3.5rem;
-
         }
 
         @include breakpoint-sm {
@@ -97,12 +95,11 @@
       }
 
       .canvas-subtitle {
-        font-family: 'Times New Roman', Times, serif;
+        font-family: "Times New Roman", Times, serif;
         font-size: 2.5rem;
         font-weight: 300;
-        color: $dark;
+        color: $accent;
         line-height: 1;
-
 
         @include breakpoint-lg {
           font-size: 2rem;
@@ -112,9 +109,7 @@
           font-size: 6.5vw;
           color: $bg;
         }
-
       }
-
     }
   }
 }
@@ -127,8 +122,7 @@
   }
 
   .mobile-img {
-
-    background: url('../../assets/images/Headshot6.jpg');
+    background: url("../../assets/images/Headshot6.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -138,7 +132,6 @@
     margin: 3rem auto;
 
     @include breakpoint-md {
-
       width: 256px * 1.5;
       height: 256px * 1.5;
     }
@@ -147,9 +140,7 @@
       width: 256px;
       height: 256px;
       border-radius: 50%;
-
     }
-
   }
 
   .seperator {

@@ -1,0 +1,14 @@
+{
+  "name": "site",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:CristobalSalazar/site.git",
+  "author": "Cristobal Salazar <chris.salza@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build:style": "sass style/scss/style.scss style/css/style.min.css --style compressed"
+  },
+  "devDependencies": {
+    "sass": "^1.27.0"
+  }
+}

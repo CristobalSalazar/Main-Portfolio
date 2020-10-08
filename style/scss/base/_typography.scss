@@ -1,9 +1,10 @@
 .heading {
   display: inline-block;
-  font-size: 1.1 * 2.5rem;
+  font-size: 1.5rem;
   font-weight: 400;
-  margin: 3rem 0;
-  color: $dark;
+  margin: 2rem 0;
+  color: $text;
+  text-transform: uppercase;
 
   @media screen and (max-width: $breakpoint-sm) {
     font-size: 1.1 * 2rem;
@@ -14,11 +15,11 @@
 }
 
 .sub-heading {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 2rem;
-  color: $text;
-  text-align: left;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  color: $accent;
+  text-align: center;
 
   @media screen and (max-width: $breakpoint-sm) {
     font-size: 1.1 * 1.25rem;
